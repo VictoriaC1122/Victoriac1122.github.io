@@ -1,0 +1,344 @@
+<html>
+  <head>
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+
+  <style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		        15px 15px 0 0px #fff, /* The fourth layer */
+		        15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		        20px 20px 0 0px #fff, /* The fifth layer */
+		        20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		        25px 25px 0 0px #fff, /* The fifth layer */
+		        25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		        5px 5px 0 0px #fff, /* The second layer */
+		        5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		        10px 10px 0 0px #fff, /* The third layer */
+		        10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+  </style>
+
+  <title>Planning Under the Influence of Sequence Model</title>
+  <meta property="og:title" content="Planning with Safety">
+  </head>
+
+  <body>
+    <br>
+    <center>
+      <span style="font-size:42px">Planning Under the Influence of Sequence Model</span>
+
+		<br />
+	  	<table align="center" width="600px">
+	  	  <tbody>
+	  	    <tr>
+	  	      <td align="center" width="100px">
+	  	        <center>
+	  	          <span style="font-size:24px">
+	  	            <a href="http://yenlingkuo.com/">Yen-Ling Kuo</a>, MIT CSAIL
+	  	          </span>
+		        </center>
+		  	  </td>
+		  	</tr>
+		  </tbody>
+		</table>
+        </center>
+
+  		<br />
+  		<table align="center" width="850px">
+  		  <tbody>
+  		    <tr>
+  	          <td width="400px">
+  			    <center>
+  	              <a href="images/planning/difficult_scenarios.png">
+  	                <img src="images/planning/difficult_scenarios.png" height="300px">
+  	              </a>
+  	              <br>
+				</center>
+  	          </td>
+            </tr>
+  	        <tr>
+  	          <td width="400px">
+  				<center>
+  	              <span style="font-size:14px">
+  	                <i>Example scenarios where agents cannot act in an environment if they don't have a planner that understands the dynamics of an environment or the consequence of an action. (a) The agent needs to plan toward wider space because it is easier to move. The agent also needs to wait till the other agent to pass by to move. (b) The agent needs to know the consequence of touching ovens to figure out it is a dangerous action. All these additional information can be encoded into the sequence model.</i>
+				  </span>
+				</center>
+  	          </td>
+  		    </tr>
+  		  </tbody>
+  		</table>
+
+      	<br />
+		<hr>
+
+  		<center><h1>Abstract</h1></center>
+  		<table align="center" width="850px">	  
+	      <tbody>
+	        <tr>
+	  		  <td></td>
+	  	    </tr>
+		  </tbody>
+		</table>
+		Humans can plan efficiently and perform complex actions in dynamic environments. In contrast, planning in many simple environments is nearly intractable for robots. The goal of this research project is to understand how humans plan so efficiently, and how robots can plan as efficiently. Similar to how humans observe the environment to gather information to update their plans, I approach this problem by encoding the information an agent needs in planning as a sequence model, such as an LSTM or HMM. At each planning step, the agent's action is supervised by this sequence model. The preliminary result shows that our planner with sequence model can use fewer samples to achieve higher success rate in some difficult configuration maps. We're also running human subject experiments to see how this model maps to human intuition. This model also enables machines to hypothesize and explain their plans and their understanding of other's plans for collaboration and AI safety.
+
+
+  		<br><br>
+		<hr>
+
+		<center><h1>Algorithm and Preliminary Results</h1></center>
+
+ 		<br>
+
+  		<table align="center" width="800px">
+  	      <tbody>
+  	        <tr>
+  	          <td width="266px">
+  	            <center>
+  	          	  <a href="images/planning/planning_model.png">
+  	          	    <img src="images/planning/planning_model.png" height="250px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">Graphical overview of the planner</span>
+  				</center>
+  	          </td>
+  	          <td width="266px">
+  	            <b>Algorithm sketch</b>: <br />
+  	            <ol>
+  	          	  <li>Take a robotic planner, RRT*.</li>
+  	          	  <li>Sample an intermediate point.</li>
+  	          	  <li>Steer to that point along a high-likelihood path according to the sequence model &lambda;.</li>
+  	          	  <li>Choose the optimal plan according to &lambda;.</li>
+  	          	</ol>
+  	          </td>	
+  	          <td width="266px">
+  	            <center>
+  	          	  <a href="images/planning/rrtstar_long_channel_result.png">
+  	          	    <img src="images/planning/rrtstar_long_channel_result.png" height="250px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">
+  				  	<i>(Preliminary result)</i><br />
+  				  	Planning success rate for maps with a long narrow passage to goal, using 1500 sampled nodes. <br />
+  				  	  1. Regular RRT*: 13%.
+  				  	  2. Our RRT*: 37%.
+  				  </span>
+  				</center>
+  	          </td>
+			</tr>
+		  </tbody>
+		</table>
+		<br / >
+		In this project, we create a new motion planners that integrate HMMs/RNNs with robotic planning. Before planning, we train sequence models to capture various properties of environments and other agents, including the perceived environment changes, patterns of other humans' actions, and etc. In planning time, the sequence model influence the planner to steer toward a more desirable node as described in the algorithm above.
+		<br /><br />
+		We tested this planner with maps that are difficult to the original RRT* planner, such as a map where a robot needs to pass through a long and narrow passage to reach its goal. The figure on the right shows that with few sampled nodes, our planner has higher success rate than the original RRT* in such a difficult map.
+
+      	<br /><br />
+		<hr>
+
+		<center><h1>Understanding How Human Plans</h1></center>
+
+ 		<br>
+
+  		<table align="center" width="800px">
+  	      <tbody>
+  	        <tr>
+  	          <td width="400px">
+  	            <center>
+  	          	  <a href="images/planning/human_rrt.png">
+  	          	    <img src="images/planning/human_rrt.png" height="350px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">
+  				    <i>(BMM summer school result)</i><br />
+  				    Comparison between humans' plans and model predictions
+  				  </span>
+  				</center>
+  	          </td>	
+  	          <td width="400px">
+  	            <center>
+  	          	  <a href="images/planning/human_maps.jpeg">
+  	          	    <img src="images/planning/human_maps.jpeg" height="330px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">
+  				    <i>(In preparation for human psychophysical experiments)</i><br />
+  				    Maps for understainding dangers. <br />
+  				    Red: pit, more dangerous. Blue: wall, neural.
+  				  </span>
+  				</center>
+  	          </td>	
+			</tr>
+		  </tbody>
+		</table>
+		<br />
+		We use this planning algorithm to model how human plans in different situations. The sequence model captures human's utility function with respect to their perceived environment. In 2017 Brains, Minds, and Machines summer school, we piloted experiments to compare how humans plan a path for different widths of passages (see left figure). We are extending the set-up to more complicated situations such as dangers in an environment. In the right figure, we have pits to represent dangerous obstacles and walls represent neutral obstacles. We aim to understand how human behaviors change under the influence of danger and capture this with our planning model.
+
+      	<br /><br />
+		<hr>
+
+		<center><h1>Application: Understanding Agent's Plan with Language</h1></center>
+
+ 		<br>
+
+  		<table align="center" width="800px">
+  	      <tbody>
+  	        <tr>
+  	          <td width="400px">
+  	            <center>
+  	          	  <a href="images/planning/tom_approach.png">
+  	          	    <img src="images/planning/tom_approach.png" height="250px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">
+  				    Partial observations of an agent's movement.
+  				  </span>
+  				</center>
+  	          </td>	
+  	          <td width="400px">
+  	            <b>Ranked grounded sentences:</b>
+  	            <ol>
+  	              <li>the agent is approaching the red triangle</li>
+  	              <li>the agent is approaching the triangle</li>
+  	              <li>the agent is approaching the purple triangle</li>
+  	              <li>the agent is approaching green triangle</li>
+  	              <li>the agent is approaching blue triangle</li>
+  	              <li>...</li>
+  	            </ol>
+  	          </td>		
+			</tr>
+		  </tbody>
+		</table>
+		<br />
+		Humans have Theory of Mind to understand other person's belief and intent. Research has suggested that humans simulate other person's plans to make these inferences. In this project, we have robots to use our proposed planner to hypothesize other agent's actions. We also build up a recognizer for each word and compositionally build up sentences that accords with the hypothesized plans. For example, in the above figure, we see partial observation of an agent's movement, the planner simulates various paths to reach different goals, the recognized sentences will rank the one that best matches the simulated plans top such as the sentences above.
+
+      	<br /><br />
+		<hr>
+
+		<center><h1>Application: Communicating Plans with Other Agents</h1></center>
+
+ 		<br>
+
+  		<table align="center" width="800px">
+  	      <tbody>
+  	        <tr>
+  	          <td width="400px">
+  	            <center>
+  	          	  <a href="images/planning/multiagent_naive_replan.png">
+  	          	    <img src="images/planning/multiagent_naive_replan.png" height="250px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">
+  				    Original RRT*:<br />
+  				    Meeting other agent without inferring her action patterns,<br />
+  				    using 1200 sampled nodes per replanning step.
+  				  </span>
+  				</center>
+  	          </td>	
+  	          <td width="400px">
+  	            <center>
+  	          	  <a href="images/planning/multiagent_with_comm.png">
+  	          	    <img src="images/planning/multiagent_with_comm.png" height="250px">
+  	          	  </a><br>
+  				  <span style="font-size:14px">
+  				    Our RRT*:<br />
+  				    Meeting other agent with inference of her action patterns,<br />
+  				    using 600 sampled nodes per replanning step.
+  				  </span>
+  				</center>
+  	          </td>			
+			</tr>
+		  </tbody>
+		</table>
+		<br />
+		Humans communicate with others not only by language but also by watching other's behaviors. For example, when collaborating with others, we try to figure out what the other agent is doing and then act to respond to that. In this application, we modeling other agent's behaviors as part of our plan using sequence model. Unlike the traditional approach, in which the agent re-plans at each step by only considering the current observation of the other agent, our planner takes other agent's behavior patterns into consideration to bias the plans. The figures above show the comparison of planners in the case meeting an agent who moves straight. Our proposed planner can meet the other agent earlier with less sampled nodes.
+
+  		<br /><br />  
+ 
+</body>
+</html>
