@@ -1,0 +1,130 @@
+/* fix bookmark offest */
+:target {
+  padding-top: 60px;
+  margin-top: -60px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #2e2d29;
+  /* overflow: hidden; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Style the links inside the navigation bar */
+
+.topnav a{
+  float: left;
+  cursor: pointer;
+  color: #f9f9f9;
+  text-align: center;
+  padding: 9px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  z-index: 9999;
+}
+
+#firstnav {
+  margin-left: 10px;
+}
+#lastnav {
+  margin-right: 10px;
+}
+
+@media (hover: hover) {
+  .topnav a:hover {
+    text-decoration: underline;
+  }
+}
+
+.topnav .dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  color: #f9f9f9;
+  padding: 10px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  display: none;
+  z-index: 1;
+}
+
+button > i {
+  pointer-events: none;
+}
+
+#dropicon {
+  z-index: -1;
+}
+
+.dropdown {
+  float: right;
+  z-index: 9999;
+  /* overflow: hidden; */
+}
+
+/* When the screen is less than 900 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 900px) {
+  #lastnav {
+    margin-right: 0px;
+  }
+  .topnav .dropdown .dropbtn {
+    display: block;
+  }
+  @media (hover: hover) {
+    .dropdown:hover .dropbtn,
+    .dropbtn:focus {
+      background-color: #9b3022;
+    }
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+  }
+  .dropdown-content a{
+    margin: 0;
+    float: none;
+    color: black;
+    padding: 9px 16px;
+    display: block;
+    text-align: left;
+  }
+  @media (hover: hover) {
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+  }
+  .show {
+    display: block;
+  }
+}
+/* text size adjustment */
+/* @media screen and (max-width: 600px) {
+  .topnav a{
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  .dropdown-content a{
+    padding: 8px 16px;
+  }
+  .topnav .dropdown .dropbtn {
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+  :target {
+    padding-top: 55px;
+    margin-top: -55px;
+  }
+} */

@@ -1,0 +1,24 @@
+.selected-projects {
+    max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2));
+    margin: 30px auto 0;
+}
+
+.pub-right>.contribute{
+    float: right;
+    font-size: 18px;
+    font-weight: 700
+}
+
+.pub-right>.contribute>.contributor {
+    color: #1756a9;
+    font-weight: 400
+}
+
+@media screen and (max-width: 600px) {
+    .pub-right>.contribute{
+        font-size: 16px;
+        float: left;
+        width: 100%;
+    }
+  }

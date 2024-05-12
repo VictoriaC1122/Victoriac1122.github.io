@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4LXQ0S6MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-N4LXQ0S6MC");
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customize My macOS Terminal</title>
+    <meta name="description" lang="en" content="This post is to keep my terminal customization and configuration files so that I can quickly rebuild my terminal in other machine." />
+    <meta name="keywords" lang="en" content="Customize My macOS Terminal, Mac Terminal, Customize Mac Terminal." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link href="../../css/fontawesome.css" rel="stylesheet" />
+    <link href="../../css/brands.css" rel="stylesheet" />
+    <link href="../../css/solid.css" rel="stylesheet" />
+    <link href="../../css/regular.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="152x152" href="../../favicon/favicon152.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/favicon152.png" />
+    <link rel="stylesheet" href="../../css/prism.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/posts.css" />
+    <link rel="stylesheet" href="../../css/topnav.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <script src="../../js/myscript.js"></script>
+    <script src="../../js/prism.js"></script>
+    <style>
+      :target {
+        padding-top: 0px;
+        margin-top: 0px;
+      }
+      .topnav {
+        position: relative;
+      }
+      .clink {
+        font-weight: inherit;
+        color: inherit;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a id="firstnav" href="https://hong-ming.github.io/">Hong-Ming Chiu</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="/">Home</a>
+          <a href="../../index.html#mybio">Biography</a>
+          <a href="../../index.html#myexp">Experiences</a>
+          <a href="../../index.html#mypublications">Publications</a>
+          <a href="../../index.html#myprojects">Projects</a>
+          <a href="/posts/" id="lastnav">Posts</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="post-wrapper">
+        <div class="page-title">Customize My macOS Terminal</div>
+        <div class="link-path"><i class="fas fa-home"></i> <a href="/">Home</a>/<a href="/posts/">Posts</a>/<span style="text-decoration: underline">Customize my macOS Terminal</span></div>
+
+        <div class="post-content">
+          <p>
+            This post is to keep my terminal customization and configuration files so that I can quickly rebuild my terminal in other machine. The fowllowing picture is a snapshop of my termainl, feel
+            free to use my terminal configuration.
+          </p>
+          <img src="terminal_pic.png" class="img-center" />
+          <div id="content">
+            <div class="post-head" style="margin-top: 0">Content</div>
+            <ul class="fa-ul">
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#shell">Shell</a>: </strong><a href="https://www.zsh.org/">Zsh</a>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#framework">Framework</a>: </strong><a href="https://ohmyz.sh/">On My Zsh</a>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#fonts">Fonts</a>: </strong><a href="https://www.nerdfonts.com/">Nerd Fonts</a>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#package-manager">Package Manager</a>: </strong><a href="https://brew.sh/">Homebrew</a>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#plugin-manager">Plugin Manager</a>: </strong><a href="https://github.com/zdharma/zinit">Zinit</a>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#packages">Packages</a>:</strong>
+              </li>
+              <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/athityakumar/colorls">colorls</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/sharkdp/bat">bat</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
+                </li>
+              </ul>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#plugins">Plugins</a>:</strong>
+              </li>
+              <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zsh-history-substring-search">zsh-history-substring-search</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zaw">zaw</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/agkozak/zsh-z">z</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/ael-code/zsh-colored-man-pages">zsh-colored-man-pages</a>
+                </li>
+              </ul>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong><a class="clink" href="#configuration-files">Configuration Files</a>:</strong>
+              </li>
+              <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="#zshrc">.zshrc</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="#folders_yaml">folders.yaml</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="#files_yaml">files.yaml</a>
+                </li>
+              </ul>
+            </ul>
+          </div>
+          <div id="shell">
+            <div class="post-head">Shell</div>
+            <p>We are going to use <a href="https://www.zsh.org/">Zsh</a> as the terminal shell. To install <span class="command-markdown">zsh</span> on Mac, run the follwoing commands.</p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> zsh
+            </code></pre>
+            <p>Change default shell to <span class="command-markdown">zsh</span>.</p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">chsh</span> -s /usr/local/bin/zsh
+            </code></pre>
+          </div>
+          <div id="framework">
+            <div class="post-head">Framework</div>
+            <p>
+              <a href="https://ohmyz.sh/">On My Zsh</a> is a framework for <span class="command-markdown">zsh</span>. It makes easier to manage your
+              <span class="command-markdown">zsh</span> configuration. However, after few years of usage, I realized that I don't need to use the whole framework, and all I need are some of its
+              <span class="command-markdown">.zsh</span> files and plugins. Therefore, I prefer just load its <span class="command-markdown">.zsh</span> files and plugins I need using
+              <span class="command-markdown">zinit</span> instead of installing and loading the whold framework. The following is an example of loading
+              <span class="command-markdown">completion.zsh</span> library file and <span class="command-markdown">colored-man-pages</span> plugins using <span class="command-markdown">zinit</span> in
+              <span class="command-markdown">.zshrc</span>.
+            </p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
+                  OMZL::completion.zsh \
+                  OMZP::colored-man-pages
+            </code></pre>
+            <p>
+              If you want to use the whole framework, do the following steps. <a href="https://ohmyz.sh/">On My Zsh</a> can be installed from <span class="command-markdown">curl</span> or
+              <span class="command-markdown">wget</span>.
+            </p>
+            <p>Install <span class="command-markdown">curl</span> or <span class="command-markdown">wget</span></p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> curl # install curl
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> wget # install wget
+            </code></pre>
+            <p>Install <a href="https://ohmyz.sh/">On My Zsh</a> from <span class="command-markdown">curl</span> or <span class="command-markdown">wget</span></p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # for curl
+              <span class="terminal-prompt">$ </span>sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"   # for wget
+            </code></pre>
+            <p>Finally, put the follwing code into <span class="command-markdown">.zshrc</span> to source the <a href="https://ohmyz.sh/">On My Zsh</a> framework.</p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              export ZSH=$HOME/.oh-my-zsh
+              source $ZSH/oh-my-zsh.sh
+            </code></pre>
+          </div>
+          <div id="fonts">
+            <div class="post-head">Fonts</div>
+            <p>
+              I use <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Regular Nerd Font Complete</a> or
+              <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo">Meslo LG M Regular Nerd Font Complete</a> in my terminal, both with size 14. For Mac user, recommended
+              to only install fonts that you want to use from <span class="command-markdown">homebrew</span>. To install a specific type of font in <a href="https://www.nerdfonts.com/">Nerd Fonts</a>,
+              run the follwoing command in your terminal
+            </p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
+            </code></pre>
+            <p>For example, to install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Nerd Font</a></p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
+            </code></pre>
+            <p>To install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo">Meslo LG Nerd Font</a></p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-meslo-lg-nerd-font
+            </code></pre>
+          </div>
+          <div id="package-manager">
+            <div class="post-head">Package Manager</div>
+            <p>
+              <a href="https://brew.sh/">Homebrew</a> is a package manager for Mac, just like <span class="command-markdown">apt-get</span> in Debian based linux systems,
+              <span class="command-markdown">rpm</span> in Red Hat-ish Linux systems and <span class="command-markdown">yum</span> in RedHat based systems.
+            </p>
+            <p>Install <a href="https://brew.sh/">Homebrew</a> from <span class="command-markdown">curl</span></p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            </code></pre>
+          </div>
+          <div id="plugin-manager">
+            <div class="post-head">Plugin Manager</div>
+            <p>
+              To speed up the loading time for plugins, I choose to use <a href="https://github.com/zdharma/zinit">Zinit</a> as my plugin manager. Note that it's better to not use
+              <span class="command-markdown">on my zsh</span> to load all your plugins if you use a lot of plugins in your termianl (like me <i class="far fa-laugh-squint"></i>), because it will slow
+              down the terminal loading time.
+            </p>
+            <p>To install <a href="https://github.com/zdharma/zinit">Zinit</a>, run the following command.</p>
+            <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+              <span class="terminal-prompt">$ </span>sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+            </code></pre>
+            <p>See <a href="https://zdharma.org/zinit/wiki/">Zinit wiki</a> for detail usage.</p>
+          </div>
+          <div id="packages">
+            <div class="post-head">Packages</div>
+            <ul class="fa-ul">
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/athityakumar/colorls">colorls</a>
+                <p>
+                  This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
+                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through Ruby <span class="command-markdown">gem</span>. To install <span class="command-markdown">gem</span>
+                </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> ruby
+                </code></pre>
+                <p>
+                  <strong>IMPORTANT!</strong>: remember to set up your <span class="command-markdown">ruby</span> and <span class="command-markdown">gem</span> path in
+                  <span class="command-markdown">.zshrc</span> to have the <span class="command-markdown">ruby</span> installed from <span class="command-markdown">homebrew</span> first in your PATH
+                  (run <span class="command-markdown">brew info ruby</span> to see more information), do not use the system <span class="command-markdown">ruby</span> to install
+                  <span class="command-markdown">colorls</span>. To install <span class="command-markdown">colorls</span>
+                </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">gem</span> <span style="color: #000000;">install</span> colorls
+                </code></pre>
+                <p>To customize the folders' and files' icon, run the following in terminal to get the customization files.</p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span>cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
+                </code></pre>
+                <p>
+                  I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
+                  <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <span class="command-markdown"><a href="#folders_yaml">folders.yaml</a></span> and
+                  <span class="command-markdown"><a href="#files_yaml">files.yaml</a></span> respectively.
+                </p>
+                <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  alias ls="colorls -X --dark --sort-dirs"
+                  alias lc="colorls -X --tree --dark"
+                </code></pre>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/sharkdp/bat">bat</a>
+                <p>This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <span class="command-markdown">homebrew</span></p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> bat
+                </code></pre>
+                <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
+                  alias cat="bat --paging=never"
+                </code></pre>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
+                <p>
+                  This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through
+                  <a href="https://www.npmjs.com/">Node Package Manager</a> <span class="command-markdown">npm</span>. To install <span class="command-markdown">npm</span> and
+                  <span class="command-markdown">trash-cli</span>
+                </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> node
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">npm</span> <span style="color: #000000;">install</span> --global trash-cli
+                </code></pre>
+                <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
+                  alias rm="trash"
+                </code></pre>
+              </li>
+            </ul>
+          </div>
+          <div id="plugins">
+            <div class="post-head">Plugins</div>
+            <p>
+              The following plugins can all be downloaded and loaded from <span class="command-markdown">zinit</span>. Note that if you use plugins that are not written in shell of have other
+              dependency, you might have to install it from package manager first. For example, one of the famous <span class="command-markdown">oh my zsh</span> plugin, autojump, has python
+              dependency, so it has to be installed from <span class="command-markdown">homebrew</span> before being loaded from <span class="command-markdown">zinit</span>. To see more details of
+              loading plugins, see <span class="command-markdown"><a href="#zshrc">.zshrc</a></span> for reference.
+            </p>
+            <ul class="fa-ul">
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a>
+                <p>
+                  Powerlevel10k is a highly customizable theme for Zsh. This theme support instant prompt, add the follwing code into <span class="command-markdown">.zshrc</span> to enable to instant
+                  prompe.
+                </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
+                  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+                    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+                  fi
+                </code></pre>
+                <p>
+                  To customize terminal's prompt, icon, color, etc. Add Powerlevel9k configuration options into <span class="command-markdown">.zshrc</span> or run
+                  <span class="command-markdown">p10k configure</span> command in terminal. An example of Powerlevel9k configuration options code can be found in my
+                  <span class="command-markdown"><a href="#zshrc">.zshrc</a></span>
+                </p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zsh-history-substring-search">zsh-history-substring-search</a>
+                <p>This plugin provides the similar clean-room implementation of the <a href="http://fishshell.com/">Fish shell's</a> history search feature.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a>
+                <p>This plugin provides syntax highlighting for Zsh.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>
+                <p>This plugin suggests commands as you type based on history and completions.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>
+                <p>This plugin provides additional completion definitions for Zsh.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zaw">zaw</a>
+                <p>This plugin provides searching utility for aliases, commands, history, files, etc, for zsh.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/agkozak/zsh-z">z</a>
+                <p>This plugin provides a faster way to navigate your filesystem.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/ael-code/zsh-colored-man-pages">zsh-colored-man-pages</a>
+                <p>
+                  This plugin adds colors to man pages. Note that there is a similar plugin
+                  <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages">colored-man-pages</a> from <span class="command-markdown">oh my zsh</span>, but this plugin might
+                  not work properly if you don't use <span class="command-markdown">oh my zsh</span>.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div id="configuration-files">
+            <div class="post-head">Configuration Files</div>
+            <div id="zshrc"><i class="fas fa-file-alt"></i> .zshrc</div>
+            <!-- <p>
+              <strong>Jump to Configuration Code</strong>: <a href="#zshrcfile.5-52,60-61">Oh My Zsh</a> | <a href="#zshrcfile.63-63">Homebrew</a> | <a href="#zshrcfile.65-75">Zinit</a> |
+              <a href="#zshrcfile.61-62,98-99">colorls</a> | <a href="#zshrcfile.96">bat</a> | <a href="#zshrcfile.97">trash-cli</a> | <a href="#zshrcfile.54-57,77-79,104-168">powerlevel10k</a> |
+              <a href="#zshrcfile.91">zsh-syntax-highlighting</a> | <a href="#zshrcfile.92">zsh-autosuggestions</a> | <a href="#zshrcfile.87-90">zsh-completions</a> |
+              <a href="#zshrcfile.81-84">autojump</a> | <a href="#zshrcfile.81-84">colored-man-pages</a>
+            </p> -->
+            <pre id="zshrcfile" class="linkable-line-numbers line-numbers"><code class="language-shell">
+              # If you come from bash you might have to change your $PATH.
+              export PATH="/usr/local/bin:$PATH"
+              # Python path
+              export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
+              # Ruby path
+              export PATH="/usr/local/opt/ruby/bin:$PATH"
+              # Gem path
+              export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+              # Homebrew
+              export PATH="/usr/local/sbin:$PATH"
+
+              # Uncomment the following line to use case-sensitive completion.
+              # CASE_SENSITIVE="true"
+
+              # Uncomment the following line to use hyphen-insensitive completion. Case
+              # sensitive completion must be off. _ and - will be interchangeable.
+              # HYPHEN_INSENSITIVE="true"
+
+              # Uncomment the following line to display red dots whilst waiting for completion.
+              COMPLETION_WAITING_DOTS="true"
+
+              # Uncomment the following line if you want to change the command execution time
+              # stamp shown in the history command output.
+              # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+              HIST_STAMPS="yyyy-mm-dd"
+
+              # Powerlevel10k instant prompt
+              if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+                source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+              fi
+              
+              # Colorls
+              source $(dirname $(gem which colorls))/tab_complete.sh
+              # Zinit
+              source "$HOME/.zinit/bin/zinit.zsh"
+              <span style="color: #dd4a68;">autoload</span> -Uz _zinit
+              (( ${+_comps} )) && _comps[zinit]=_zinit
+
+              # Load a few important annexes, without Turbo
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light-mode</span> for \
+                  zinit-zsh/z-a-rust \
+                  zinit-zsh/z-a-as-monitor \
+                  zinit-zsh/z-a-patch-dl \
+                  zinit-zsh/z-a-bin-gem-node
+              
+              # Load oh my zsh lib file
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
+                  OMZL::completion.zsh \
+                  OMZL::history.zsh \
+                  OMZL::key-bindings.zsh \
+                  OMZL::directories.zsh
+
+              # Load Powerlevel10 theme
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #0077aa;">ice</span> depth=1
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light</span> romkatv/powerlevel10k
+              
+              # Load zsh completions, syntax-highlighting add autosuggestions
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #0077aa;">ice</span> <span style="color: #ee9900;">blockf</span> atpull="zinit creinstall -q ."
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light</span> zsh-users/zsh-completions
+              <span style="color: #dd4a68;">autoload</span> <span style="color: #dd4a68;">compinit</span>
+              <span style="color: #dd4a68;">compinit</span>
+
+              # Load remaining plugins
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
+                  ael-code/zsh-colored-man-pages \
+                  agkozak/zsh-z \
+                  supercrabtree/k \
+                  zsh-users/zaw \
+                  zsh-users/zsh-autosuggestions \
+                  zsh-users/zsh-syntax-highlighting \
+                  zsh-users/zsh-history-substring-search
+
+              # Set personal aliases
+              alias matlab="/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nosplash"
+              alias cat="bat --paging=never"
+              alias rm="trash"
+              alias l="colorls -XAlog --dark --sort-dirs"
+              alias ll="colorls -Xlog --dark --sort-dirs"
+              alias ls="colorls -X --dark --sort-dirs"
+              alias lc="colorls -X --tree --dark"
+              alias j="z"
+
+              # Format for time command
+              TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
+              # Zsh-syntax-highlighting format
+              ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-1]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-2]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-3]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-4]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-5]='fg=magenta'
+              # Powerlevel10k format code
+              # Icon
+              POWERLEVEL9K_MODE='nerdfont-complete'
+              POWERLEVEL9K_OS_ICON='\uf179'
+              POWERLEVEL9K_APPLE_ICON='\uf179'
+              POWERLEVEL9K_PYTHON_ICON='\uf81f'
+              POWERLEVEL9K_HOME_ICON='\uf015'
+              POWERLEVEL9K_HOME_SUB_ICON='\uf07b'
+              POWERLEVEL9K_FOLDER_ICON='\uf07b'
+              POWERLEVEL9K_ETC_ICON='\uf013'
+              POWERLEVEL9K_LOCK_ICON='\uf023'
+              POWERLEVEL9K_OK_ICON='\uf00c'
+              POWERLEVEL9K_FAIL_ICON='\uf00d'
+              POWERLEVEL9K_CARRIAGE_RETURN_ICON='\uf00d'
+              POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR=''
+              POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+              POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
+              POWERLEVEL9K_TIME_ICON=''
+              POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
+              POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+              POWERLEVEL9K_VCS_GIT_ICON=''
+              POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
+              POWERLEVEL9K_VCS_GIT_GITLAB_ICON='\uf296'
+              POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\uf01a '
+              POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\uf01b '
+              POWERLEVEL9K_VCS_BRANCH_ICON='\ue0a0 '
+              POWERLEVEL9K_VCS_STAGED_ICON='\uf055'
+              POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf06a'
+              POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf00d'
+              # Prompt in new line
+              POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
+              # Prompt in first and second line 
+              POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+              POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%F{red}%} \uf155 %{%F{white}%}"
+              # OS
+              POWERLEVEL9K_OS_ICON_BACKGROUND="none"
+              POWERLEVEL9K_OS_ICON_FOREGROUND="white"
+              # CONTEXT
+              POWERLEVEL9K_CONTEXT_TEMPLATE="%{%F{039}%}%n%{%F{white}%} at %{%F{010}%}%m%{%F{white}%} in"
+              POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
+              POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="white"
+              # DIR
+              POWERLEVEL9K_DIR_HOME_BACKGROUND="none"
+              POWERLEVEL9K_DIR_HOME_FOREGROUND="011"
+              POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="none"
+              POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="011"
+              POWERLEVEL9K_DIR_ETC_BACKGROUND="none"
+              POWERLEVEL9K_DIR_ETC_FOREGROUND="011"
+              POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="none"
+              POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="011"
+              POWERLEVEL9K_SHORTEN_DIR_LENGTH="40"
+              POWERLEVEL9K_SHORTEN_STRATEGY="truncate_absolute_chars"
+              # VCS
+              POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="none"
+              POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="009"
+              POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="none"
+              POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="033"
+              POWERLEVEL9K_VCS_CLEAN_BACKGROUND="none"
+              POWERLEVEL9K_VCS_CLEAN_FOREGROUND="010"
+              # Anaconda
+              POWERLEVEL9K_ANACONDA_BACKGROUND="none"
+              POWERLEVEL9K_ANACONDA_FOREGROUND="010"
+              POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
+              POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
+              # DIR_WRITABLE
+              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="none"
+              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="009"
+              # STATUS
+              POWERLEVEL9K_STATUS_CROSS="true"
+              POWERLEVEL9K_STATUS_OK_BACKGROUND="none"
+              POWERLEVEL9K_STATUS_OK_FOREGROUND="010"
+              POWERLEVEL9K_STATUS_ERROR_BACKGROUND="none"
+              POWERLEVEL9K_STATUS_ERROR_FOREGROUND="009"
+              # TIME
+              POWERLEVEL9K_TIME_BACKGROUND="none"
+              POWERLEVEL9K_TIME_FOREGROUND="white"
+              POWERLEVEL9K_TIME_FORMAT="\uf017 %D{%H:%M:%S}"
+              # Prompt element
+              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context_joined dir_joined vcs_joined anaconda_joined)
+              POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(dir_writable status <span style="color: #000000;">time</span>)
+            </code></pre>
+            <div id="folders_yaml"><i class="fas fa-file-alt"></i> folders.yaml</div>
+            <pre id="foldersfile" class="linkable-line-numbers line-numbers"><code class="language-yaml">
+              .atom:        "\ue764"
+              .git:         "\uf1d3"
+              .github:      "\uf408"
+              .rvm:         "\ue21e"
+              .Trash:       "\uf1f8"
+              .vscode:      "\ue70c"
+              config:       "\ue5fc"
+              folder:       "\uf07b"
+              hidden:       "\uf023"
+              lib:          "\uf121"
+              node_modules: "\ue718"
+            </code></pre>
+            <div id="files_yaml"><i class="fas fa-file-alt"></i> files.yaml</div>
+            <pre id="filesfile" class="linkable-line-numbers line-numbers"><code class="language-yaml">
+              ai:           "\ue7b4"
+              android:      "\ue70e"
+              apple:        "\uf179"
+              audio:        "\uf001"
+              avro:         "\ue60b"
+              c:            "\ue61e"
+              clj:          "\ue768"
+              coffee:       "\uf0f4"
+              conf:         "\ue615"
+              cpp:          "\ue61d"
+              css:          "\ue749"
+              d:            "\ue7af"
+              dart:         "\ue798"
+              db:           "\uf1c0"
+              diff:         "\uf440"
+              doc:          "\uf1c2"
+              docker:       "\uf308"
+              ebook:        "\ue28b"
+              env:          "\uf462"
+              epub:         "\ue28a"
+              erl:          "\ue7b1"
+              file:         "\uf15b"
+              font:         "\uf031"
+              gform:        "\uf298"
+              git:          "\uf1d3"
+              go:           "\ue626"
+              gruntfile.js: "\ue74c"
+              hs:           "\ue777"
+              html:         "\uf13b"
+              image:        "\uf1c5"
+              iml:          "\ue7b5"
+              java:         "\ue204"
+              js:           "\ue74e"
+              json:         "\ue60b"
+              jsx:          "\ue7ba"
+              less:         "\ue758"
+              log:          "\uf18d"
+              lua:          "\ue620"
+              md:           "\uf48a"
+              mustache:     "\ue60f"
+              npmignore:    "\ue71e"
+              pdf:          "\uf1c1"
+              php:          "\ue73d"
+              pl:           "\ue769"
+              ppt:          "\uf1c4"
+              psd:          "\ue7b8"
+              py:           "\uf81f"
+              r:            "\uf25d"
+              rb:           "\ue21e"
+              rdb:          "\ue76d"
+              rss:          "\uf09e"
+              rubydoc:      "\ue73b"
+              sass:         "\ue603"
+              scala:        "\ue737"
+              shell:        "\uf489"
+              sqlite3:      "\ue7c4"
+              styl:         "\ue600"
+              v:            "\uf493"
+              sv:           "\uf493"
+              tex:          "\ue600"
+              ts:           "\ue628"
+              twig:         "\ue61c"
+              txt:          "\uf15c"
+              video:        "\uf03d"
+              vim:          "\ue62b"
+              windows:      "\uf17a"
+              xls:          "\uf1c3"
+              xml:          "\ue619"
+              yarn.lock:    "\ue718"
+              yml:          "\uf481"
+              zip:          "\uf410"
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer" style="margin-top: 50px">
+      <div class="back-to-top-botton">
+        <div class="back-to-top" onclick="SmoothScrollToTop()">Scroll to Top</div>
+      </div>
+      <div class="myfooter">
+        <div class="foot-left">
+          <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail"> <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Gmail</span></a>
+
+          <a href="https://www.facebook.com/hmchiu2/" class="ficon-button ffacebook"> <i class="fab fa-facebook-f icon-facebook"></i><span></span><span id="foot-icon-text">Facebook</span></a>
+
+          <a href="https://www.linkedin.com/in/hmchiu/" class="ficon-button flinkedin"> <i class="fab fa-linkedin-in icon-linkedin"></i><span></span><span id="foot-icon-text">LinkedIn</span></a>
+
+          <a href="javascript:void(0)" class="ficon-button ftwitter"> <i class="fab fa-twitter icon-twitter"></i><span></span><span id="foot-icon-text">Twitter</span></a>
+
+          <a href="https://www.instagram.com/_hongming/" class="ficon-button finstagram"> <i class="fab fa-instagram icon-instagram"></i><span></span><span id="foot-icon-text">Instagram</span></a>
+
+          <a href="/sitemap/" class="ficon-button fsitemap"> <i class="fas fa-sitemap icon-sitemap"></i><span></span><span id="foot-icon-text">Sitemap</span></a>
+        </div>
+        <div class="foot-right">
+          <p>
+            This is an academic website for Hong-Ming Chiu to share his experiences, publications and projects. Some designs of this website are borrowed and modified from
+            <a href="http://hexianghu.com/">Hexiang (Frank) Hu</a>'s.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
