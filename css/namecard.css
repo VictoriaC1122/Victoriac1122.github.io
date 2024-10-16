@@ -39,7 +39,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   top: 20%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.8);
   transition: 0.3s;
@@ -211,7 +211,7 @@
   .icon-button:hover .icon-github,
   .icon-button:hover .icon-linkedin,
   .icon-button:hover .icon-resume {
-    color: white;
+    color: rgb(245, 233, 233);
   }
 }
 
