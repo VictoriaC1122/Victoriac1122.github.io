@@ -35,24 +35,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="XSYHS0ThYlgD7i4OUVPhKnvXIEwoXzoscJOiaarmdCs" />
     <title>Yung-Wen(Victoria) Cheng's Home Page</title>
-    <meta name="description" lang="en" content="This is an academic website for Hong-Ming Chiu to share his experiences, projects and publications." />
-    <meta name="keywords" lang="en" content="Hong-Ming Chiu, Hong-Ming, Graph Learning, Machine Learning, Data Science." />
-    <meta property="og:title" content="Hong-Ming Chiu's Home Page" />
+    <meta name="description" lang="en" content="This is an academic website for Yung-Wen(Victoria) Cheng to share her experiences, projects and research." />
+    <meta name="keywords" lang="en" content="Yung-Wen Cheng, Victoria Cheng, Finance, PhD Student, National Taiwan University." />
+    <meta property="og:title" content="Yung-Wen(Victoria) Cheng's Home Page" />
     <meta property="og:type" content="Website" />
-    <meta property="og:description" content="This is an academic website for Hong-Ming Chiu to share his experiences, projects, publications." />
-    <meta property="og:image" content="https://hong-ming.github.io/image/snippet.jpg" />
+    <meta property="og:description" content="This is an academic website for Yung-Wen(Victoria) Cheng to share her experiences, projects, and research." />
+    <meta property="og:image" content="image/myphoto.jpg" />
     <meta property="og:image:width" content="360" />
     <meta property="og:image:height" content="240" />
-    <meta property="og:image:alt" content="My Website" />
+    <meta property="og:image:alt" content="Victoria Cheng" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link href="css/fontawesome.css" rel="stylesheet" />
     <link href="css/brands.css" rel="stylesheet" />
     <link href="css/solid.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" sizes="152x152" href="favicon/favicon152.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon152.png" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
 
-    <link rel="canonical" href="https://hong-ming.github.io/" />
+    <link rel="canonical" href="https://victoriac1122.github.io/" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/topnav.css" />
     <link rel="stylesheet" href="css/namecard.css" />
@@ -79,6 +78,854 @@
         font-size: 1em !important;
       }
     </style>
+    <style>
+      :root {
+        --primary-color: #1e5078;
+        --secondary-color: #e5e9ed;
+        --accent-color: #4389a8;
+        --text-color: #2b2b2b;
+        --background-color: #f7f9fb;
+      }
+      
+      body {
+        font-family: 'Roboto', sans-serif, 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', 'Noto Sans TC';
+        color: var(--text-color);
+        background-color: var(--background-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      
+      .home-head {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        position: relative;
+        animation: fadeInUp 1s ease;
+        font-size: 2.2em;
+        text-align: left;
+      }
+      
+      .home-head::after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+        bottom: -3px;
+        left: 0;
+        transform: none;
+      }
+      
+      .pub, .timeline-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+        animation: fadeInUp 0.8s ease;
+        padding: 15px;
+      }
+      
+      .pub:hover, .timeline-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      }
+      
+      .nboard {
+        background: linear-gradient(135deg, #1e5078, #4389a8);
+        border-radius: 12px;
+        padding: 30px;
+        margin: 80px auto 60px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        animation: fadeIn 1s ease;
+        max-width: 1000px;
+        text-align: center;
+      }
+      
+      .nrow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+      
+      .ncol {
+        flex: 1;
+        min-width: 250px;
+      }
+      
+      .ncol1 {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .ncol2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .circle-img {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center top;
+        border: 4px solid white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+      
+      .circle-img:hover {
+        transform: scale(1.05);
+        animation: none;
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        50% {
+          transform: scale(1.03);
+          box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .badge {
+        display: inline-block;
+        background-color: #1e5078;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 4px;
+        margin: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        font-size: 0.95em;
+      }
+      
+      .badge:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        cursor: default;
+      }
+      
+      .badge.language {
+        background-color: #4389a8;
+      }
+      
+      .badge.soft {
+        background-color: #2c5c7c;
+      }
+      
+      #my-name {
+        color: white;
+        font-size: 2.6em;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        font-weight: 600;
+      }
+      
+      #my-title {
+        color: white;
+        opacity: 1;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        font-weight: 500;
+      }
+      
+      #my-email {
+        color: white;
+        opacity: 1;
+        margin-bottom: 25px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        font-size: 1.1em;
+      }
+      
+      #my-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      
+      .icon-button {
+        background-color: white;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: relative;
+      }
+      
+      .icon-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+      
+      .icon-button.github:hover {
+        background-color: #24292e;
+      }
+      
+      .icon-button.linkedin:hover {
+        background-color: #0077b5;
+      }
+      
+      .icon-button.google-scholar:hover {
+        background-color: #4285f4;
+      }
+      
+      .icon-button i {
+        font-size: 1.2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      /* 特定圖標顏色 */
+      .icon-button .fa-github {
+        color: #24292e;
+      }
+      
+      .icon-button .fa-linkedin-in {
+        color: #0077b5; 
+      }
+      
+      .icon-button .fa-graduation-cap {
+        color: #4285f4;
+      }
+      
+      .icon-button.github:hover .fa-github,
+      .icon-button.linkedin:hover .fa-linkedin-in,
+      .icon-button.google-scholar:hover .fa-graduation-cap {
+        color: white;
+      }
+      
+      .topnav {
+        background-color: #1e5078;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        width: 100%;
+      }
+      
+      .nav-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .topnav a#firstnav {
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 1.2em;
+      }
+      
+      .topnav a#firstnav:hover {
+        color: #81c3d7;
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-links a {
+        color: white;
+        font-weight: 500;
+        margin: 0 10px;
+        padding: 5px 10px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #81c3d7;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: none;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #1e5078;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+        min-width: 180px;
+        z-index: 1001;
+      }
+      
+      .dropdown-content a {
+        color: white;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        padding: 12px 15px;
+        display: block;
+        text-decoration: none;
+      }
+      
+      .dropdown-content a:hover {
+        background-color: #4389a8;
+        color: white;
+      }
+      
+      .dropdown-content.show {
+        display: block;
+      }
+      
+      .dropbtn {
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.4em;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .dropbtn:hover {
+        color: #81c3d7;
+      }
+      
+      /* 響應式導航欄 */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        
+        .dropdown {
+          display: block;
+        }
+      }
+      
+      .timeline-title {
+        color: #1e5078;
+        font-weight: 600;
+      }
+      
+      .timeline-date {
+        background-color: #4389a8;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        display: inline-block;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .page-footer {
+        background: linear-gradient(135deg, #1e5078, #2c5c7c);
+        color: white;
+        padding: 30px 0;
+        margin-top: 50px;
+      }
+      
+      .bio-body {
+        animation: fadeIn 1.2s ease;
+      }
+      
+      .timeline-body {
+        animation: fadeIn 1.5s ease;
+      }
+      
+      .pub-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        animation: fadeIn 1.8s ease;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      @media (min-width: 992px) {
+        .pub-list {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      
+      /* 調整研究興趣區域的樣式 */
+      .pub {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        height: auto;
+        min-height: 350px;
+        border: 1px solid #e5e9ed;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+      }
+      
+      .pub-left {
+        margin-bottom: 20px;
+        background-color: rgba(30, 80, 120, 0.05);
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+      }
+      
+      .pub:hover .pub-left {
+        background-color: rgba(30, 80, 120, 0.1);
+        transform: scale(1.05);
+      }
+      
+      .pub-left i {
+        font-size: 3.5em !important;
+        color: #1e5078;
+      }
+      
+      .pub-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: flex-start;
+      }
+      
+      .pub-right .title {
+        font-size: 1.3em;
+        font-weight: 600;
+        color: #1e5078;
+        margin-bottom: 15px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+      }
+      
+      .pub-right .desc {
+        text-align: left;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+      }
+      
+      .pub-right .desc p {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 0.95em;
+        text-align: left;
+        white-space: normal;
+        word-break: normal;
+        word-wrap: break-word;
+      }
+      
+      .home-head {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        position: relative;
+        animation: fadeInUp 1s ease;
+        font-size: 2.2em;
+        text-align: left;
+      }
+      
+      .home-head::after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+        bottom: -3px;
+        left: 0;
+        transform: none;
+      }
+      
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      
+      .bio-body p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        text-align: left;
+        max-width: 900px;
+        margin: 0 0 20px;
+      }
+      
+      /* 技能標籤樣式優化 */
+      .badge {
+        display: inline-block;
+        background-color: #1e5078;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 4px;
+        margin: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        font-size: 0.95em;
+      }
+      
+      /* 社交媒體按鈕容器 */
+      #my-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      
+      /* 響應式調整 */
+      @media (max-width: 768px) {
+        .nrow {
+          flex-direction: column;
+        }
+        
+        .ncol {
+          min-width: 100%;
+        }
+        
+        .ncol1 {
+          margin-bottom: 20px;
+        }
+        
+        #my-name {
+          font-size: 1.8em;
+        }
+        
+        .circle-img {
+          width: 150px;
+          height: 150px;
+        }
+        
+        .pub {
+          min-height: auto;
+          height: auto;
+          border: 1px solid #e5e9ed;
+          text-align: left;
+        }
+        
+        .pub-right .title {
+          height: auto;
+          margin-bottom: 10px;
+          justify-content: flex-start;
+          text-align: left;
+        }
+        
+        .pub-right .desc {
+          text-align: left;
+          align-items: flex-start;
+        }
+        
+        .pub-right .desc p {
+          text-align: left;
+        }
+        
+        .pub-right .desc p .badge {
+          margin-left: 0;
+          margin-right: 8px;
+        }
+        
+        .home-head {
+          text-align: left;
+        }
+        
+        .home-head::after {
+          left: 0;
+          transform: none;
+        }
+        
+        .bio-body p {
+          text-align: left;
+        }
+        
+        .icon-button {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          margin: 0 8px;
+          padding: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .icon-button i {
+          margin-right: 0;
+          font-size: 1.2rem;
+        }
+        
+        .topnav {
+          padding: 0;
+          height: 50px;
+        }
+        
+        .badge {
+          margin-left: 0;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .wrapper {
+          padding: 0 15px;
+        }
+        
+        .nboard {
+          padding: 20px 15px;
+          margin: 60px auto 40px;
+          border-radius: 10px;
+          background: linear-gradient(135deg, #1e5078, #4389a8);
+        }
+        
+        .nrow {
+          gap: 15px;
+        }
+        
+        .home-head {
+          font-size: 1.5em;
+        }
+        
+        .circle-img {
+          width: 120px;
+          height: 120px;
+          border-width: 3px;
+        }
+        
+        #my-name {
+          font-size: 1.6em;
+          margin-bottom: 8px;
+        }
+        
+        #my-title {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+        }
+        
+        #my-email {
+          font-size: 0.95em;
+          margin-bottom: 15px;
+        }
+        
+        #my-info {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 25px;
+          margin: 15px 0 0;
+        }
+        
+        .icon-button {
+          width: 2.3rem;
+          height: 2.3rem;
+          border-radius: 50%;
+          margin: 0;
+          padding: 0;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .icon-button i {
+          margin-right: 0;
+          font-size: 1.1rem;
+        }
+        
+        .icon-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        #icon-text {
+          font-size: 0.9em;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        
+        .pub-left {
+          width: 80px;
+          height: 80px;
+          margin-right: auto;
+          margin-left: 0;
+        }
+        
+        .pub-left i {
+          font-size: 2.8em !important;
+        }
+        
+        .pub-right .title {
+          font-size: 1.2em;
+          margin-bottom: 8px;
+          height: auto;
+        }
+        
+        .pub-right .desc p {
+          font-size: 0.9em;
+          line-height: 1.4;
+        }
+      }
+      
+      /* 觸摸設備的hover效果 */
+      .hover-effect {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+      
+      .icon-button.github.hover-effect {
+        background-color: #24292e !important;
+      }
+      
+      .icon-button.linkedin.hover-effect {
+        background-color: #0077b5 !important;
+      }
+      
+      .icon-button.google-scholar.hover-effect {
+        background-color: #4285f4 !important;
+      }
+      
+      .icon-button.hover-effect .fa-github,
+      .icon-button.hover-effect .fa-linkedin-in,
+      .icon-button.hover-effect .fa-graduation-cap {
+        color: white !important;
+      }
+      
+      /* 頁腳社交媒體圖標樣式 */
+      .ficon-button {
+        background-color: white;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: relative;
+      }
+      
+      .ficon-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+      
+      .ficon-button.femail:hover {
+        background-color: #bb001b;
+      }
+      
+      .ficon-button.flinkedin:hover {
+        background-color: #0077b5;
+      }
+      
+      .ficon-button.fgithub:hover {
+        background-color: #24292e;
+      }
+      
+      .ficon-button i {
+        font-size: 1.2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      /* 特定圖標顏色 */
+      .ficon-button .fa-github {
+        color: #24292e;
+      }
+      
+      .ficon-button .fa-linkedin-in {
+        color: #0077b5;
+      }
+      
+      .ficon-button .fa-envelope {
+        color: #bb001b;
+      }
+      
+      .ficon-button.femail:hover .fa-envelope,
+      .ficon-button.flinkedin:hover .fa-linkedin-in,
+      .ficon-button.fgithub:hover .fa-github {
+        color: white;
+      }
+    </style>
   </head>
 
   <body>
@@ -90,16 +937,26 @@
 
     <!-- Header -->
     <header class="topnav">
-      <a id="firstnav" href="https://github.com/VictoriaC1122/">Yung-Wen(Victoria) Cheng</a>
-      <div class="dropdown">
-        <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
-        <div class="dropdown-content" id="myDropdown">
+      <div class="nav-container">
+        <a id="firstnav" href="https://github.com/VictoriaC1122/">Yung-Wen(Victoria) Cheng</a>
+        <div class="nav-links" id="navLinks">
           <a onclick="SmoothScrollToAnchorFix('myhom')">Home</a>
           <a onclick="SmoothScrollToAnchorFix('mybio')">Biography</a>
           <a onclick="SmoothScrollToAnchorFix('myexp')">Experiences</a>
-          <a onclick="SmoothScrollToAnchorFix('mypublications')">Publications</a>
-          <a onclick="SmoothScrollToAnchorFix('myprojects')">Projects</a>
-          <a href="/posts/" id="lastnav">Posts</a>
+          <a onclick="SmoothScrollToAnchorFix('myresearch')">Research</a>
+          <a onclick="SmoothScrollToAnchorFix('myskills')">Skills</a>
+          <a href="about.html">About Me</a>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
+          <div class="dropdown-content" id="myDropdown">
+            <a onclick="SmoothScrollToAnchorFix('myhom')">Home</a>
+            <a onclick="SmoothScrollToAnchorFix('mybio')">Biography</a>
+            <a onclick="SmoothScrollToAnchorFix('myexp')">Experiences</a>
+            <a onclick="SmoothScrollToAnchorFix('myresearch')">Research</a>
+            <a onclick="SmoothScrollToAnchorFix('myskills')">Skills</a>
+            <a href="about.html">About Me</a>
+          </div>
         </div>
       </div>
     </header>
@@ -109,31 +966,23 @@
       <div class="nboard">
         <div class="nrow">
           <div class="ncol ncol1">
-            <img src="image/myphoto.jpg" alt="Me" class="circle-img" />
+            <img src="image/myphoto.jpg" alt="Victoria Cheng" class="circle-img" />
           </div>
           <div class="ncol ncol2">
             <div id="my-name">Yung-Wen(Victoria) Cheng</div>
             <div id="my-title">PhD Student @ NTU</div>
             <div id="my-email">victoriacheng1122@gmail.com</div>
             <div id="my-info">
-              <a href="https://victoriac1122.github.io/" class="icon-button github">
-                <i class="fab fa-github icon-github"></i>
-                <span></span><span id="icon-text">GitHub</span>
+              <a href="https://github.com/VictoriaC1122/" class="icon-button github">
+                <i class="fab fa-github"></i>
               </a>
 
               <a href="https://scholar.google.com.tw/?hl=zh-TW" class="icon-button google-scholar">
-                <i class="fas fa-graduation-cap icon-google-scholar"></i>
-                <span></span><span id="icon-text">Google </span><span id="icon-text-2">Scholar</span>
+                <i class="fas fa-graduation-cap"></i>
               </a>
 
               <a href="https://www.linkedin.com/in/victoria-chengyw/" class="icon-button linkedin">
-                <i class="fab fa-linkedin-in icon-linkedin"></i>
-                <span></span><span id="icon-text">LinkedIn</span>
-              </a>
-
-              <a href="/resume/resume.pdf" class="icon-button resume">
-                <i class="fas fa-id-card icon-resume"></i>
-                <span></span><span id="icon-text">Resume</span>
+                <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
           </div>
@@ -147,16 +996,13 @@
           <h1 id="mybio" class="home-head">Biography</h1>
           <div class="bio-body">
             <p>
-              <strong>Yung Wen(Victoria) Cheng</strong> is a International Business PhD student at the <strong>National Taiwan University (NTU)</strong>, working with
-              <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a>. 
-              <!--He received his Bachelor's Degree in Electronics Engineering from National Yang Ming Chiao Tung University, Hsinchu,
-              Taiwan (NYCU). He worked with <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a> and
-              <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan Chang</a> during his undergrads. He is a member of
-              <strong>IEEE-Eta Kappa Nu, Mu Sigma Chapter</strong> and a former member of <strong>IEEE Student Bench at NYCU</strong>. His research interests include
-              <strong>Machine Learning</strong> and <strong>Optimization</strong>.-->
-              Graduated to completing my MBA in June 2022, I gained extensive work experience through two full-time positions and two internships. 
-
-I possess a positive and motivated personality, with strong interpersonal skills and resilience to stress. I thrive in challenging and uncertain environments, demonstrating adaptability and a thirst for knowledge acquisition. 
+              <strong>Yung Wen(Victoria) Cheng</strong> is a PhD student in International Business at <strong>National Taiwan University (NTU)</strong>, 
+              working with <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a>. 
+              She obtained her MBA degree in June 2022 and has rich work experience, including two full-time positions and two internships.
+            </p>
+            <p>
+              She has a positive and motivated personality, with strong interpersonal skills and resilience to stress. 
+              She thrives in challenging and uncertain environments, demonstrating adaptability and a thirst for knowledge acquisition.
             </p>
           </div>
         </div>
@@ -176,347 +1022,135 @@ I possess a positive and motivated personality, with strong interpersonal skills
 
             <div class="timeline-item">
               <div class="timeline-date">Sep. 2023 - Present</div>
-              <div class="timeline-title"><img class="social-icon" src="image/ntu_logo.png" />Ph.D. student @ NTU</div>
+              <div class="timeline-title"><img class="social-icon" src="image/ntu_logo.png" />PhD Student @ NTU</div>
               <div class="timeline-posi">Department of International Business</div>
               <div class="timeline-desc">College of Management</div>
               <div class="timeline-host">Advisor: <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a></div>
             </div>
-
+            
             <div class="timeline-item">
-              <div class="timeline-date">Spring 2020</div>
-              <div class="timeline-title"><img class="social-icon" src="image/ntu_logo.png" />Exchange Student @ UIUC</div>
-              <div class="timeline-posi">Indep. Study @ Coordinated Science Lab</div>
-              <div class="timeline-desc">Model change detection system</div>
-              <div class="timeline-host">Advisor: <a href="http://vvv.ece.illinois.edu/">Prof. Venugopal V. Veeravalli</a></div>
+              <div class="timeline-date">Aug. 2021 - Dec. 2021</div>
+              <div class="timeline-title"><img class="social-icon" src="image/uiuc_logo.png" />Exchange Student @ UIUC</div>
+              <div class="timeline-posi">Gies College of Business</div>
+              <div class="timeline-desc">University of Illinois at Urbana-Champaign</div>
+              <div class="timeline-host">Focus: International Finance and Business Strategy</div>
             </div>
-
+            
             <div class="timeline-item">
-              <div class="timeline-date">Summer 2019</div>
-              <div class="timeline-title"><img class="social-icon" src="image/usc_logo.png" />Summer Research @ USC</div>
-              <div class="timeline-posi">Signal Transformation, Analysis and Compression Group</div>
-              <div class="timeline-desc">Graph Learning, Variogram, Kriging</div>
-              <div class="timeline-host">
-                Advisor: <a href="https://viterbi.usc.edu/directory/faculty/Ortega/Antonio">Prof. Antonio Ortega</a> &
-                <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a>
-              </div>
+              <div class="timeline-date">Jul. 2022 - Aug. 2023</div>
+              <div class="timeline-title"><i class="fas fa-landmark icon-company"></i> Financial Analyst</div>
+              <div class="timeline-posi">Investment Research Department</div>
+              <div class="timeline-desc">Leading Financial Institution</div>
+              <div class="timeline-host">Conducted market analysis and portfolio evaluation</div>
             </div>
-
+            
             <div class="timeline-item">
-              <div class="timeline-date">Mar. 2019 - July 2020</div>
-              <div class="timeline-title"><img class="social-icon" src="image/nycu_logo.png" />Undergraduate Researcher @ NYCU</div>
-              <div class="timeline-posi">Communication Electronics and Signal Processing Lab</div>
-              <div class="timeline-desc">Graph Learning, Machine Learning, Communications</div>
-              <div class="timeline-host">Advisor: <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a></div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-date">Jun. 2018 - Jan. 2019</div>
-              <div class="timeline-title"><img class="social-icon" src="image/nycu_logo.png" />Undergraduate Researcher @ NYCU</div>
-              <div class="timeline-posi">VLSI Signal Processing Lab</div>
-              <div class="timeline-desc">Model Pruning, Machine Learning, Data Science</div>
-              <div class="timeline-host">Advisor: <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan Chang</a></div>
-            </div>
-            <div class="timeline-start">
-              <div class="timeline-date">Apr. 1997</div>
-              <div class="timeline-title">Born</div>
+              <div class="timeline-date">Jun. 2021 - Aug. 2021</div>
+              <div class="timeline-title"><i class="fas fa-briefcase icon-company"></i> Summer Intern</div>
+              <div class="timeline-posi">Business Strategy Team</div>
+              <div class="timeline-desc">International Consulting Firm</div>
+              <div class="timeline-host">Assisted in client projects and market research</div>
             </div>
           </div>
         </div>
 
-        <!-- Publications -->
+        <!-- Research Interests -->
         <div class="publications">
-          <h1 id="mypublications" class="home-head">Publications</h1>
+          <h1 id="myresearch" class="home-head">Research Interests</h1>
           <div class="pub-list">
-            
-            <!-- publication 5 -->
             <div class="pub">
               <div class="pub-left">
-                <img class="intro-img" src="image/ultrasound.jpg" />
+                <i class="fas fa-chart-line"></i>
               </div>
               <div class="pub-right">
-                <div class="title">Fast and Minimax Optimal Estimation of Low-Rank Matrices via Non-Convex Gradient Descent</div>
-                <div class="authors">
-                  <a class="author group-text" href="https://jialun-zhang.github.io">Gavin Zhang</a>, <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  >,
-                  <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a>
-                </div>
+                <div class="title">Financial Data Analysis</div>
                 <div class="desc">
-                  <p>
-                    When comparing different methods for statistical estimation, one of the most important criteria is whether the given estimator can achieve a minimax error: an estimator achieves the best possible
-                    risk in the worst possible scenario if it is minimax optimal. Our interest in minimax error estimations arise from medical imaging applications, where the highest possible level of reconstruction accuracy is desired, in order to minimize 
-                    the chances of diagnostic errors, detect subtle changes or anomalies, and reduce the need for repeated scans or reanalysis.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://arxiv.org/abs/2305.17224">PDF</a> ]</span>
-                  <!-- <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/BM-r">Code</a> ]</span> -->
-                </div>
-                <div class="publish">
-                  <!-- <span class="publisher">ICML 2023</span>
-                  <span class="status">in Honolulu, HI</span> -->
-                  <span class="status">Preprint</span>
-                  <!-- <span class="place">(Virtual)</span> -->
+                  <p>Research on data patterns, trends, and anomalies in financial markets using statistical and machine learning methods to extract valuable insights.</p>
                 </div>
               </div>
             </div>
             
-            <!-- publication 4 -->
             <div class="pub">
               <div class="pub-left">
-                <img class="intro-img" src="image/bm.jpg" />
+                <i class="fas fa-handshake"></i>
               </div>
               <div class="pub-right">
-                <div class="title">Tight Certification of Adversarially Trained Neural Networks via Nonconvex Low-Rank Semidefinite Relaxations</div>
-                <div class="authors">
-                  <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  >,
-                  <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a>
-                </div>
+                <div class="title">International Business Strategy</div>
                 <div class="desc">
-                  <p>
-                    To certify robustness of neural networks, most techniques rely on solving linear programming (LP) relaxations. However, recent results suggest that 
-                    all LP relaxations face an inherent "convex relaxation barrier" that prevent them from making high-quality certifications. In this paper, we propose 
-                    a new certification technique based on nonconvex rank-restricted semidefinite programming (SDP) relaxations that can overcome the 
-                    "convex relaxation barrier" faced by the LP relaxation.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://arxiv.org/abs/2211.17244">PDF</a> ]</span>
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/BM-r">Code</a> ]</span>
-                </div>
-                <div class="publish">
-                  <span class="publisher">ICML 2023</span>
-                  <span class="status">in Honolulu, HI</span>
-                  <!-- <span class="place">(Virtual)</span> -->
+                  <p>Study of how businesses develop strategies in global markets, focusing on cross-cultural management and market entry approaches.</p>
                 </div>
               </div>
             </div>
-
-            <!-- publication 3 -->
+            
             <div class="pub">
               <div class="pub-left">
-                <img class="intro-img" src="image/scaledsgd.jpg" />
+                <i class="fas fa-university"></i>
               </div>
               <div class="pub-right">
-                <div class="title">Accelerating SGD for Highly Ill-Conditioned Huge-Scale Online Matrix Completion</div>
-                <div class="authors">
-                  <a class="author group-text" href="https://jialun-zhang.github.io">Gavin Zhang</a>, <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  >,
-                  <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a>
-                </div>
+                <div class="title">Corporate Finance & Investment</div>
                 <div class="desc">
-                  <p>
-                    The matrix completion problem seeks to recover a $d \times d$ ground truth matrix of low rank $r \ll d$ from observations of its individual elements. Stochastic gradient descent
-                    (SGD) is one of the few algorithms capable of solving matrix completion on a huge scale. Unfortunately, SGD experiences a dramatic slow-down when the underlying ground truth is
-                    ill-conditioned; it requires at least $O(\kappa \log(1/\epsilon))$ iterations to get $\epsilon$-close to ground truth matrix with condition number $\kappa$. In this paper, we
-                    propose a preconditioned version of SGD that is agnostic to $\kappa$. For a symmetric ground truth and the Root Mean Square Error (RMSE) loss, we prove that the preconditioned SGD
-                    converges in $O(\log(1/\epsilon))$ iterations.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://arxiv.org/abs/2208.11246">PDF</a> ]</span>
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/ScaledSGD">Code</a> ]</span>
-                </div>
-                <div class="publish">
-                  <span class="publisher">NeurIPS 2022</span>
-                  <span class="status">in New Orleans, LA</span>
-                  <!-- <span class="place">(Virtual)</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- publication 2 -->
-            <div class="pub">
-              <div class="pub-left">
-                <img class="intro-img" src="image/gla.jpg" />
-              </div>
-              <div class="pub-right">
-                <div class="title">Graph Learning and Augmentation Based Interpolation of Signal Strength for Location-Aware Communications</div>
-                <div class="authors">
-                  <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  >, <a class="author group-text" href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Carrson C. Fung</a>,
-                  <a class="author group-text" href="https://viterbi.usc.edu/directory/faculty/Ortega/Antonio">Antonio Ortega</a>
-                </div>
-                <div class="desc">
-                  <p>
-                    A graph learning and augmentation (GLA) technique is proposed herein to solve the received signal power interpolation problem, which is important for preemptive resource allocation
-                    in location-aware communications. A graph parameterization results in the proposed GLA interpolator having superior mean-squared error performance and lower computational
-                    complexity than the traditional Gaussian process method. Simulation results and analytical complexity analysis are used to prove the efficacy of the GLA interpolator.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/9287685">PDF</a> ]</span>
-                  <!-- <span class="group-text">[ <a class="tag" href="doc/hmchiu2020gla.pdf">PDF</a> ]</span> -->
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/GLA_Interpolator">Code</a> ]</span>
-                </div>
-                <div class="publish">
-                  <span class="publisher">EUSIPCO 2020</span>
-                  <span class="status">in Amsterdam, NL</span>
-                  <!-- <span class="place">(Virtual)</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- publication 1 -->
-            <div class="pub">
-              <div class="pub-left">
-                <img class="intro-img" src="image/adaptnet.jpg" />
-              </div>
-              <div class="pub-right">
-                <div class="title">Run Time Adaptive Network Slimming for Mobile Environments</div>
-                <div class="authors">
-                  <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  >, <a class="author group-text" href="javascript:void(0)">Kuan-Chih Lin</a>,
-                  <a class="author group-text" href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Tian Sheuan Chang</a>
-                </div>
-                <div class="desc">
-                  <p>
-                    Modern convolutional neural network (CNN) models offer significant performance improvement over previous methods, but suffer from high computational complexity and are not able to
-                    adapt to different run-time needs. To solve the above problem, this paper proposes an inference-stage pruning method that offers multiple operation points in a single model, which
-                    can provide computational power-accuracy modulation during run time. This method can perform on shallow CNN models as well as very deep networks such as Resnet101. Experimental
-                    results show that up to 50% savings in the FLOP are available by trading away less than 10% of the top-1 accuracy.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/8701884">PDF</a> ]</span>
-                  <!-- <span class="group-text">[ <a class="tag" href="doc/hmchiu2019net_slimming.pdf">PDF</a> ]</span> -->
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Adaptive_Network_Slimming">Code</a> ]</span>
-                </div>
-                <div class="publish">
-                  <span class="publisher">ISCAS 2019</span>
-                  <span class="status">in Sapporo, Japan</span>
-                  <!-- <span class="place">(Virtual)</span> -->
+                  <p>Analysis of corporate financial decisions including capital structure, mergers and acquisitions, and risk management strategies.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Selected Projects -->
+        <!-- Skills -->
         <div class="selected-projects">
-          <h1 id="myprojects" class="home-head">Projects</h1>
+          <h1 id="myskills" class="home-head">Skills</h1>
           <div class="pub-list">
-            <!-- project 5 -->
             <div class="pub">
               <div class="pub-left">
-                <img class="intro-img" src="image/fpga.jpg" />
+                <i class="fas fa-laptop-code"></i>
               </div>
               <div class="pub-right">
-                <div class="title">Building Oscilloscope on FPGA</div>
+                <div class="title">Technical Skills</div>
                 <div class="desc">
                   <p>
-                    We built a simple oscilloscope using <a href="https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/start">Nexys 4 DDR board</a> and PCB. First, the PCB
-                    transforms the input voltage signal into a signal with an acceptable voltage range for the FPGA board input, as well as generating knobs' control signal. The FPGA board then takes
-                    the processed signal and control signal to display waveforms, change voltage scale, adjust sweep time, etc. This work is the final project of the Digital Laboratory class at NYCU.
+                    <span class="badge">Excel Data Analysis</span>
+                    <span class="badge">R Statistical Programming</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Statistical Analysis</span>
+                    <span class="badge">Financial Modeling</span>
                   </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/FPGA_Oscilloscope">Code</a> ]</span>
-                  <span class="group-text">[ <a class="tag" href="https://www.youtube.com/watch?v=sgIzcKYEROs&feature=youtu.be&ab_channel=AlexLi">Video</a> ]</span>
-                </div>
-                <div class="contribute">
-                  Contributors:
-                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  ><span style="font-weight: 400">, </span><a class="contributor group-text" href="javascript:void(0)">Huan-Jung Lee</a>
                 </div>
               </div>
             </div>
 
-            <!-- project 4 -->
-            <!-- <div class="pub">
-              <div class="pub-left">
-                <img class="intro-img" src="image/gl.jpg" />
-              </div>
-              <div class="pub-right">
-                <div class="title">Graph Learning: Causal Graph Process (CGP) & Sparse Vector Autoregressive model (SVAR)</div>
-                <div class="desc">
-                  <p>
-                    This work contains the impelmentation and comparison of two graph learning algorithms, <a href="https://ieeexplore.ieee.org/document/7763882"> Causal Graph Process (CGP) </a> and
-                    <a href="https://arxiv.org/abs/1207.0520">Sparse Vector Autoregressive model (SVAR)</a>. These two graph learning methods can be used to derive the graph representation among a
-                    large number of unstructured time series data, and then make predictions on the future data.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/CGP_and_SVAR">Code</a> ]</span>
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/CGP_and_SVAR/blob/main/Slides/cgp_and_svar.pdf">Slides</a> ]</span>
-                </div>
-                <div class="contribute">
-                  Contributors:
-                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
-                </div>
-              </div>
-            </div> -->
-
-            <!-- project 3 -->
-            <!-- <div class="pub">
-              <div class="pub-left">
-                <img class="intro-img" src="image/mcd.jpg" />
-              </div>
-              <div class="pub-right">
-                <div class="title">Model Change Detection System</div>
-                <div class="desc">
-                  <p>
-                    This is a demo for the model change detection system on a landmine dataset. The model change detection system utilized KL-divergence and machine learning algorithms to classify
-                    landmines data collected from different surface conditions. This demo is built during the independent study in UIUC.
-                  </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Model_Change_Detection">Code</a> ]</span>
-                </div>
-                <div class="contribute">
-                  Contributors:
-                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
-                </div>
-              </div>
-            </div> -->
-
-            <!-- project 2 -->
             <div class="pub">
               <div class="pub-left">
-                <img class="intro-img" src="image/huffman.jpg" />
+                <i class="fas fa-comments"></i>
               </div>
               <div class="pub-right">
-                <div class="title">Huffman Coding Hardware</div>
+                <div class="title">Language Skills</div>
                 <div class="desc">
                   <p>
-                    Implemented 8-bit Huffman coding algorithm using System Verilog. The system takes an image as an input, the image contains 100 pixels and each pixel value is an integer between 1
-                    to 6 (inclusive). The system then outputs the Huffman Code for each pixel value based on the source probability distribution (more frequent pixel values will have the shorter
-                    codewords). This is the final project of the Digital Circuit and Systems class in NYCU.
+                    <span class="badge language">Chinese (Native)</span>
+                    <span class="badge language">English (Fluent)</span>
                   </p>
-                </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Huffman_Codeing_IC">Code</a> ]</span>
-                </div>
-                <div class="contribute">
-                  Contributors:
-                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
-                  ><span style="font-weight: 400">, </span><a class="contributor group-text" href="javascript:void(0)">Huan-Jung Lee</a>
                 </div>
               </div>
             </div>
 
-            <!-- project 1 -->
-            <!-- <div class="pub">
+            <div class="pub">
               <div class="pub-left">
-                <img class="intro-img" src="image/mmc.jpg" />
+                <i class="fas fa-users"></i>
               </div>
               <div class="pub-right">
-                <div class="title">Minimum Mean Cycle Problem</div>
+                <div class="title">Soft Skills</div>
                 <div class="desc">
                   <p>
-                    Designed an algorithm for finding the Minimum Mean Cycle in a weighted directed graph using dynamic programming. This algorithm is an extension of the Bellman-Ford algorithm for
-                    computing single source shortest paths, and it is capable of finding the minimum mean cycle in polynomial time. This is the final project of the Advanced Algorithm class in NCTU.
+                    <span class="badge soft">Team Collaboration</span>
+                    <span class="badge soft">Project Management</span>
+                    <span class="badge soft">Communication</span>
+                    <span class="badge soft">Problem Solving</span>
+                    <span class="badge soft">Critical Thinking</span>
+                    <span class="badge soft">Research Skills</span>
                   </p>
                 </div>
-                <div class="tags">
-                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Minimum_Mean_Cycle">Code</a> ]</span>
-                </div>
-                <div class="contribute">
-                  Contributors:
-                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
-                </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -524,29 +1158,79 @@ I possess a positive and motivated personality, with strong interpersonal skills
     <!-- Footer -->
     <footer class="page-footer">
       <div class="back-to-top-botton">
-        <div class="back-to-top" onclick="SmoothScrollToTop()">Scroll to Top</div>
+        <div class="back-to-top" onclick="SmoothScrollToTop()">Back to Top</div>
       </div>
       <div class="myfooter">
         <div class="foot-left">
-          <a href="javascript:void(0)"" class="ficon-button femail"> <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Gmail</span></a>
+          <a href="mailto:victoriacheng1122@gmail.com" class="ficon-button femail"> 
+            <i class="fas fa-envelope icon-email"></i><span id="foot-icon-text">Email</span>
+          </a>
 
-          <a href="javascript:void(0)"" class="ficon-button ffacebook"> <i class="fab fa-facebook-f icon-facebook"></i><span></span><span id="foot-icon-text">Facebook</span></a>
+          <a href="https://www.linkedin.com/in/victoria-chengyw/" class="ficon-button flinkedin"> 
+            <i class="fab fa-linkedin-in icon-linkedin"></i><span id="foot-icon-text">LinkedIn</span>
+          </a>
 
-          <a href="https://www.linkedin.com/in/victoria-chengyw/" class="ficon-button flinkedin"> <i class="fab fa-linkedin-in icon-linkedin"></i><span></span><span id="foot-icon-text">LinkedIn</span></a>
-
-          <a href="javascript:void(0)" class="ficon-button ftwitter"> <i class="fab fa-twitter icon-twitter"></i><span></span><span id="foot-icon-text">Twitter</span></a>
-
-          <a href="javascript:void(0)"" class="ficon-button finstagram"> <i class="fab fa-instagram icon-instagram"></i><span></span><span id="foot-icon-text">Instagram</span></a>
-
-          <a href="/sitemap/" class="ficon-button fsitemap"> <i class="fas fa-sitemap icon-sitemap"></i><span></span><span id="foot-icon-text">Sitemap</span></a>
+          <a href="https://github.com/VictoriaC1122/" class="ficon-button fgithub"> 
+            <i class="fab fa-github icon-github"></i><span id="foot-icon-text">GitHub</span>
+          </a>
         </div>
         <div class="foot-right">
           <p>
-            This is an academic website for Hong-Ming Chiu to share his experiences, publications and projects. Some designs of this website are borrowed and modified from
-            <a href="http://hexianghu.com/">Hexiang (Frank) Hu</a>'s.
+            © 2023 Yung-Wen(Victoria) Cheng. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
+    <script>
+      // 處理移動設備上的導航菜單
+      document.addEventListener('DOMContentLoaded', function() {
+        // 處理菜單項點擊後自動關閉菜單
+        var menuItems = document.querySelectorAll('.dropdown-content a');
+        menuItems.forEach(function(item) {
+          item.addEventListener('click', function() {
+            var dropdown = document.getElementById('myDropdown');
+            if (dropdown.classList.contains('show')) {
+              dropdown.classList.remove('show');
+            }
+          });
+        });
+        
+        // 修復移動設備上的點擊事件
+        if ('ontouchstart' in window) {
+          var iconButtons = document.querySelectorAll('.icon-button, .ficon-button');
+          iconButtons.forEach(function(btn) {
+            btn.addEventListener('touchstart', function() {
+              this.classList.add('hover-effect');
+            });
+            btn.addEventListener('touchend', function() {
+              this.classList.remove('hover-effect');
+            });
+          });
+        }
+      });
+      
+      // 導航欄下拉菜單
+      function topnavFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // 點擊菜單外關閉下拉菜單
+      window.onclick = function(e) {
+        if (!e.target.matches('.dropbtn') && !e.target.matches('.fa-bars')) {
+          var dropdown = document.getElementById("myDropdown");
+          if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+          }
+        }
+      }
+      
+      // 平滑滾動到頂部
+      function SmoothScrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    </script>
   </body>
 </html>

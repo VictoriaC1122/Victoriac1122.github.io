@@ -150,6 +150,10 @@
   color: #0077b5;
 }
 
+.ficon-button .icon-github {
+  color: #24292e;
+}
+
 .ficon-button .icon-sitemap {
   color: #fd7e15;
   font-size: 1.2rem;
@@ -161,6 +165,7 @@
   .ficon-button:hover .icon-facebook,
   .ficon-button:hover .icon-instagram,
   .ficon-button:hover .icon-linkedin,
+  .ficon-button:hover .icon-github,
   .ficon-button:hover .icon-sitemap {
     color: white;
     -webkit-text-fill-color: white;
@@ -260,4 +265,8 @@
     background-color: #e0e0e0;
     border: solid 1px #292929;
   }
+}
+
+.fgithub span {
+  background-color: #24292e;
 }
