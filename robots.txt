@@ -1,4 +1,4 @@
-Sitemap: https://hong-ming.github.io/sitemap.xml
+Sitemap: https://victoriac1122.github.io/sitemap.xml
 User-agent: *
 Disallow: /doc/
 Disallow: /resume/
