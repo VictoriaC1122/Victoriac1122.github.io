@@ -3,7 +3,7 @@ function topnavFunction() {
   element.classList.toggle("show");
 }
 window.onclick = function (e) {
-  if (!e.target.matches(".dropbtn")) {
+  if (!e.target.matches(".dropbtn") && !e.target.matches(".fa-bars")) {
     var myDropdown = document.getElementById("myDropdown");
     if (myDropdown.classList.contains("show")) {
       myDropdown.classList.remove("show");
@@ -15,7 +15,7 @@ var Aid = null;
 var Offset;
 var TopOffset
 function SmoothScrollToAnchorFix(ID) {
-  var NavHeight = 45;
+  var NavHeight = 60;
   var TopViewMargin = 10;
   var Elemt = document.getElementById(ID);
   var EleOffset = Math.round(Elemt.offsetTop);

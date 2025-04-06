@@ -1,244 +1,791 @@
-<section>
-  <p>
-    <br />
-    <a href="doc/CV_Yen-Ling_Kuo.pdf" target="_blank">Download pdf version</a>
-  </p>
-</section>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Yung-Wen(Victoria) Cheng</title>
+    <meta name="description" lang="en" content="Detailed introduction page for Yung-Wen(Victoria) Cheng, including education background, research interests, and skills." />
+    <meta name="keywords" lang="en" content="Yung-Wen Cheng, Victoria Cheng, Finance, PhD Student, National Taiwan University, Resume, CV." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="css/fontawesome.css" rel="stylesheet" />
+    <link href="css/brands.css" rel="stylesheet" />
+    <link href="css/solid.css" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
 
-<section>
-  <h1>Education</h1>	
-  <ul>
-    <li>
-      <b>Massachusetts Institute of Technology</b>, Cambridge, MA, 2016/09 – Present<br />
-      PhD Candidate in Electrical Engineering and Computer Science, minor in Cognitive Science
-    </li>
-    <li>
-      <b>National Taiwan University</b>, Taipei, Taiwan, 2009/09 – 2012/01<br />
-  	  M.S. in Computer Science and Information Engineering (CSIE)<br />
-      - Thesis: A Multiagent Reasoning System for Commonsense Knowledge Integration
-        <a href="pub/thesis-master.pdf" target="_blank">[pdf]</a><br />
-    </li>
-    <li>
-      <b>Massachusetts Institute of Technology</b>, Cambridge, MA, 2011/09 – 2011/12<br />
-      Visiting Student in Media Arts and Sciences
-    </li>
-    <li>
-      <b>National Taiwan University</b>, Taipei, Taiwan, 2005/09 – 2009/06<br />
-      B.S. in Computer Science and Information Engineering, minor in Physics
-    </li>
-  </ul>
-</section>
+    <link rel="canonical" href="https://victoriac1122.github.io/about.html" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/topnav.css" />
+    <link rel="stylesheet" href="css/namecard.css" />
+    <link rel="stylesheet" href="css/timeline.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <script src="js/myscript.js"></script>
+    <style>
+      :root {
+        --primary-color: #1e5078;
+        --secondary-color: #e5e9ed;
+        --accent-color: #4389a8;
+        --text-color: #2b2b2b;
+        --background-color: #f7f9fb;
+      }
+      
+      body {
+        font-family: 'Roboto', sans-serif, 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', 'Noto Sans TC';
+        color: var(--text-color);
+        background-color: var(--background-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+        animation: fadeIn 1s ease;
+      }
+      
+      .about-section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+        padding: 35px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        animation: fadeInUp 0.8s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .about-section:first-child {
+        margin-top: 80px;
+      }
+      
+      .about-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      }
+      
+      .about-section h2 {
+        color: #1e5078;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 15px;
+        margin-top: 0;
+        margin-bottom: 30px;
+        position: relative;
+        font-size: 1.8em;
+        text-align: center;
+      }
+      
+      .about-section h2::after {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 4px;
+        background-color: #1e5078;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        
+        .dropdown {
+          display: block;
+        }
+        
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .about-section {
+          padding: 20px;
+        }
+        
+        .wrapper {
+          padding: 0 15px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .wrapper {
+          padding: 0 15px;
+        }
+        
+        .about-section {
+          padding: 15px;
+        }
+        
+        .about-section h2 {
+          font-size: 1.5em;
+        }
+        
+        .topnav {
+          padding: 0;
+          height: 50px;
+        }
+        
+        .nav-container {
+          padding: 0 15px;
+        }
+      }
+      
+      .skill-badge {
+        background-color: #1e5078;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        display: inline-block;
+        font-size: 0.9em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .skill-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .language-badge {
+        background-color: #4389a8;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        display: inline-block;
+        font-size: 0.9em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .language-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .soft-badge {
+        background-color: #2c5c7c;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        display: inline-block;
+        font-size: 0.9em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .soft-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .education-item, .experience-item {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--secondary-color);
+        animation: fadeIn 1s ease;
+        animation-fill-mode: both;
+      }
+      
+      .education-item:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      
+      .education-item:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      
+      .education-item:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      
+      .experience-item:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      
+      .experience-item:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      
+      .experience-item:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      
+      .education-item:last-child, .experience-item:last-child {
+        border-bottom: none;
+      }
+      
+      .time-period {
+        font-weight: 500;
+        color: #4389a8;
+        margin-bottom: 5px;
+      }
+      
+      .institution, .position {
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #1e5078;
+      }
+      
+      .department, .company {
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      
+      .page-footer {
+        background: linear-gradient(135deg, #1e5078, #2c5c7c);
+        color: white;
+        padding: 30px 0;
+        margin-top: 50px;
+      }
+      
+      .topnav {
+        background-color: #1e5078;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        width: 100%;
+      }
+      
+      .nav-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .topnav a#firstnav {
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 1.2em;
+      }
+      
+      .topnav a#firstnav:hover {
+        color: #81c3d7;
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-links a {
+        color: white;
+        font-weight: 500;
+        margin: 0 10px;
+        padding: 5px 10px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #81c3d7;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: none;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #1e5078;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+        min-width: 180px;
+        z-index: 1001;
+      }
+      
+      .dropdown-content a {
+        color: white;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 12px 15px;
+        display: block;
+        text-decoration: none;
+      }
+      
+      .dropdown-content a:hover {
+        background-color: #4389a8;
+        color: white;
+      }
+      
+      .dropdown-content.show {
+        display: block;
+      }
+      
+      .dropbtn {
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.4em;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .dropbtn:hover {
+        color: #81c3d7;
+      }
+      
+      /* 觸摸設備的hover效果 */
+      .hover-effect {
+        background-color: #1e5078 !important;
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .ficon-button.femail.hover-effect {
+        background-color: #bb001b !important;
+      }
+      
+      .ficon-button.flinkedin.hover-effect {
+        background-color: #0077b5 !important;
+      }
+      
+      .ficon-button.fgithub.hover-effect {
+        background-color: #24292e !important;
+      }
+      
+      .ficon-button.hover-effect .icon-github,
+      .ficon-button.hover-effect .icon-linkedin,
+      .ficon-button.hover-effect .icon-email {
+        color: white !important;
+      }
+      
+      .icon-button {
+        background-color: white;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: relative;
+      }
+      
+      .icon-button i {
+        font-size: 1.2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      /* 頁腳社交媒體圖標樣式 */
+      .ficon-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        background: #1e5078;
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        min-width: 110px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin: 0 10px;
+        position: relative;
+      }
+      
+      .ficon-button i {
+        margin-right: 8px;
+        font-size: 1.2em;
+      }
+      
+      .ficon-button:hover {
+        background: #81c3d7;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      }
+      
+      .myfooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+      }
+      
+      .foot-left {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 20px 0;
+      }
+      
+      .foot-right {
+        text-align: right;
+      }
+      
+      .back-to-top-botton {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+      .back-to-top {
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .back-to-top:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+      
+      @media (max-width: 480px) {
+        .foot-left {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          margin: 20px 0;
+          width: 100%;
+        }
+        
+        .ficon-button {
+          flex: 0 0 calc(33% - 10px);
+          min-width: 0;
+          padding: 8px 10px;
+          font-size: 0.9em;
+          letter-spacing: -0.5px;
+          justify-content: center;
+          white-space: nowrap;
+          margin: 0;
+        }
+        
+        .ficon-button i {
+          margin-right: 5px;
+          font-size: 1.1em;
+        }
+        
+        #foot-icon-text {
+          font-size: 0.9em;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        
+        .foot-right {
+          width: 100%;
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
 
-<section>
-  <h1>Research Experience</h1>
-  <ul>
-    <li>
-      <b>InfoLab, MIT Computer Science and Artificial Intelligence Lab</b>, 2016/09 – Present<br />
-      Advisor: Dr. Boris Katz
-      <ul>
-        <li><b>Planning with Deep Compositional Models</b>: Creating a motion planner which integrates sequence models and planning algorithms to extend robots’ capabilities to follow commands, plan in dynamic environments, and plan in the presence of other agents.</li>
-        <li><b>Inverse Planning and Tool Use</b>: Developing experiments and computational models to understand how humans use tools and understand other agent’s actions and intents.</li>
-        <li><b>Interpreting and Explaining Model Decisions and Failures</b>: Developing methods to interpret robots’ internal states. Creating a dataset of car accident scenes and building algorithms to explain a reinforcement learning agent’s decisions to correct these accidents.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Software Agent Group, MIT Media Lab</b>, 2011/09 – 2011/12<br />
-      Advisor: Dr. Henry Lieberman
-      <ul>
-        <li><b>Language Explorer</b>: Created a mobile language learning app that adapts to a learner's context and capability by leveraging ConceptNet and Foursquare to automatically arrange materials and generate dialogues.</li>
-        <li><b>ConceptNet 5</b>: Participated in the early design and implementation of the multilingual knowledge base to integrate data from Chinese ConceptNet, ReVerb, and GoalNet.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Intelligent Agents Lab, NTU CSIE</b>, 2008/06 – 2012/01<br />
-      Advisor: Prof. Jane Yung-jen Hsu
-      <ul>
-        <li><b>Multi-agent Reasoning System</b>: Built a multi-agent system to provide commonsense reasoning results from multiple knowledge bases for application developers to use.</li>
-        <li><b>Crowdsourcing of Chinese Commonsense Knowledge</b>: Created human computation games on social platforms and designed analogical reasoning algorithms to build the largest Chinese commonsense knowledge base (over one million sentences) in the world. The collected data is contributed to MIT Open Mind Common Sense project.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+  <body>
+    <!-- Header -->
+    <header class="topnav">
+      <div class="nav-container">
+        <a id="firstnav" href="https://victoriac1122.github.io/">Yung-Wen(Victoria) Cheng</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Me</a>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
+          <div class="dropdown-content" id="myDropdown">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Page Content -->
+    <main class="page-content">
+      <div class="wrapper">
+        <!-- Personal Information -->
+        <section class="about-section">
+          <h2>Basic Information</h2>
+          <div class="about-grid">
+            <div>
+              <img src="image/myphoto.jpg" alt="Victoria Cheng" style="width: 200px; height: 200px; object-fit: cover; object-position: center top; border-radius: 50%; margin: 0 auto 20px; display: block; border: 4px solid #1e5078; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+              <p><strong>Name:</strong> Yung-Wen (Victoria) Cheng</p>
+              <p><strong>Position:</strong> PhD Student</p>
+              <p><strong>Institution:</strong> National Taiwan University</p>
+              <p><strong>Email:</strong> victoriacheng1122@gmail.com</p>
+            </div>
+            <div>
+              <p>
+                I am a PhD student in International Business at National Taiwan University, working with Professor Hsueh-Liang Wu. I obtained my MBA degree in June 2022 and have rich work experience, including two full-time positions and two internships.
+              </p>
+              <p>
+                I have a positive and motivated personality, with strong interpersonal skills and resilience to stress. I thrive in challenging and uncertain environments, demonstrating adaptability and a thirst for knowledge acquisition.
+              </p>
+              <p>
+                My research interests mainly focus on financial data analysis, international business strategy, and corporate finance and investment. Through my research, I hope to provide valuable insights for business decision-making and build bridges between academia and industry.
+              </p>
+            </div>
+          </div>
+        </section>
 
-<section>
-  <h1>Work Experience</h1>  
-  <ul>
-    <li>
-      <b>Teaching Assistant</b>, Marine Biology Lab, Woods Hole, MA, 2017, 2018, 2019 August<br />
-      <ul>
-        <li>Course: <i>Brains, Minds, and Machines Summer Course</i></li>
-        <li>Taught Deep Learning and Reinforcement Learning tutorials.</li>
-        <li>Supervised student projects, including human plan understanding, multi-agent communication and coordination, better tracing for bio-inspired drones, social interaction recognition from videos, and composition of policies to form complex behaviors.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Teaching Assistant</b>, Massachusetts Institute of Technology, Cambridge, MA, 2018/09 – 2018/12<br />
-      <ul>
-        <li>Course: <i>Aspects of a Computational Theory of Intelligence</i></li>
-        <li>Reviewed, provided feedback, and graded student projects. Held weekly office hours to discuss and answer students’ questions.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Software Engineer</b>, Google Inc., Mountain View, CA, 2012/10 – 2016/08<br />
-      <ul>
-        <li>Tech Lead for Shop the Look feature, which integrates outfit search and visually similar items to Google search.<br />
-        - Posts on <a href="https://adwords.googleblog.com/2016/09/shop-look-on-google.html" target="_blank">Google AdWords blog</a> and <a href="https://techcrunch.com/2016/09/06/google-is-launching-shop-the-look-to-let-you-search-and-shop-by-outfit/" target="_blank">TechCrunch</a>.</li>
-        <li>Developed advanced shopping search features, including analysis and creation of various UIs, to better respond to shopping queries / intents on different platforms.</li>
-        <li>Developed machine learning algorithms and crowd-sourcing infrastructure to extract product attribute from image content and product metadata.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Software Engineering Intern</b>, Google Inc., Kirkland, WA, 2011/06 – 2011/08<br />
-      <ul>
-        <li>Developed algorithms and pipeline to automatically build entity attribute comparison table for any entity using large-scale crawled web data.</li>
-        <li>Won <b>Third Place</b> in Google Kirkland intern project showcase among 20+ interns.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Teaching Assistant</b>, National Taiwan University, Taipei, Taiwan, 2010/02 – 2011/05
-      <ul>
-        <li>Courses: <i>Artificial Intelligence</i>, <i>Advanced Artificial Intelligence</i></li>
-        <li>Held weekly TA hours to discuss class, homework, and term projects with students.</li>
-        <li>In charge of both written and programming assignments for over 100 students.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+        <!-- Education -->
+        <section class="about-section">
+          <h2>Education</h2>
+          <div class="education-item">
+            <div class="time-period">September 2023 - Present</div>
+            <div class="institution">National Taiwan University</div>
+            <div class="department">Department of International Business - PhD Student</div>
+            <p>Advisor: Professor Hsueh-Liang Wu</p>
+            <p>Research Areas: International Business Strategy, Corporate Finance, Data Analysis</p>
+          </div>
+          <div class="education-item">
+            <div class="time-period">September 2020 - June 2022</div>
+            <div class="institution">National Taiwan University</div>
+            <div class="department">Master of Business Administration (MBA)</div>
+            <p>Focused on Financial Management and Business Strategy</p>
+          </div>
+          <div class="education-item">
+            <div class="time-period">August 2021 - December 2021</div>
+            <div class="institution">University of Illinois at Urbana-Champaign (UIUC)</div>
+            <div class="department">Exchange Student - Gies College of Business</div>
+            <p>Focus: International Finance and Business Strategy</p>
+            <p>Participated in cross-cultural business projects and case competitions</p>
+          </div>
+          <div class="education-item">
+            <div class="time-period">September 2016 - June 2020</div>
+            <div class="institution">National Taiwan University</div>
+            <div class="department">Bachelor of Business Administration</div>
+            <p>Major in Finance and Accounting</p>
+          </div>
+        </section>
 
-<section>
-  <h1>Selected Projects</h1>
-  <ul>
-    <li>
-      <b>ScienceVR: Science Experiments in VR</b>, 2016/10 - Present<br />
-      Developing an environment that allows users to perform science experiments in virtual reality. With real-time physics simulation, users can interact with virtual magnets and coils and see the visualization of the simulated magnetic fields. (<a href="https://youtu.be/zSQ5m7J-lLI" target="_blank">demo video</a>, more on <a href="http://sciencevr.com">http://sciencevr.com</a>)<br />
-      <ul>
-        <li>Finalist of 2016 AT&T AR/VR Challenge.</li>
-        <li>Was invited to the VR Screening in Marche Du Film, Cannes Film Festival, in 2017.</li>
-        <li>Is funded by MIT Sandbox Innovation Fund.</li>
-      </ul>
-    </li>
-    <li>
-      <b>MovISee: Timeline-based Visualization with Body Movement</b>, 2013/01 – Present<br />
-      Developing a digital platform that uses information from depth camera to create mixed reality for people to explore the selected digital files and transform their body movements to customized visual outputs. Demos available at <a href="http://movisee.com">http://movisee.com</a>.<br />
-      <ul>
-        <li>Was invited to exhibit at "The Lab Project" in Camden Arts Centre and Kingsgate Studio, London, in 2015.</li>
-        <li>Was invited to exhibit at "Manchester Science Festival", Manchester, UK, in 2016.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Flora: Mobile Flower Image Recognition Service</b>, 2010/04 – 2011/07<br />
-      Developed an iPhone app that recognizes flower photos taken by general public to provide information of flowers in 2010 Taipei International Flora Exposition (<a href="https://youtu.be/UpCJqkVNyNU" target="_blank">demo video</a>).<br />
-      <ul>
-        <li>Winner of <b>2010 Hinet Telesoft Competition</b> and <b>8th YuShow Cup Creativity Award</b>.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+        <!-- Professional Experience -->
+        <section class="about-section">
+          <h2>Professional Experience</h2>
+          <div class="experience-item">
+            <div class="time-period">September 2023 - Present</div>
+            <div class="position">Research Assistant</div>
+            <div class="company">National Taiwan University - College of Management</div>
+            <p>
+              - Assisting professors with academic research and data analysis<br>
+              - Participating in research project planning and implementation<br>
+              - Writing research reports and academic papers
+            </p>
+          </div>
+          <div class="experience-item">
+            <div class="time-period">July 2022 - August 2023</div>
+            <div class="position">Financial Analyst</div>
+            <div class="company">Leading Financial Institution</div>
+            <p>
+              - Conducting financial analysis and market research<br>
+              - Evaluating investment opportunities and risks<br>
+              - Preparing financial reports and analysis reports<br>
+              - Developing financial models for investment decision making
+            </p>
+          </div>
+          <div class="experience-item">
+            <div class="time-period">June 2021 - August 2021</div>
+            <div class="position">Summer Intern</div>
+            <div class="company">International Consulting Firm</div>
+            <p>
+              - Assisting consulting team with market research<br>
+              - Analyzing data and providing insights<br>
+              - Participating in client projects and report writing<br>
+              - Supporting client presentations and business strategy development
+            </p>
+          </div>
+        </section>
 
-<section>
-  <h1>Honors and Awards</h1>  
-  <ul>
-    <li>
-      <b>Top 10%</b>, <i>ICFP Programming Contest</i>, 2019<br/>
-    </li>
-    <li>
-      <b>CBMM Siemens Graduate Fellowship</b>, <i>Siemens Healthineers</i>, 2018 [<a href="http://cbmm.mit.edu/news-events/news/cbmm-siemens-graduate-fellowship-award" target="_blank">post</a>]<br/>
-    </li>
-    <li>
-      <b>MIT Greater China Computer Science Fellowship</b>, <i>Massachusetts Institute of Technology</i>, 2016<br/>
-    </li>
-    <li>
-      <b>Finalist</b>, <i>AT&T AR/VR Challenge</i>, 2016<br />
-      Invited to demo at 2017 AT&T developer summit in Las Vegas.<br /> 
-      - Project: Faraday's Lab <a href="https://youtu.be/zSQ5m7J-lLI" target="_blank">[video]</a>
-    </li>
-    <li>
-      <b>Best Master Thesis Award</b>, <i>Taiwanese Association of Artificial Intelligence (TAAI)</i>, 2012<br />
-      Awarded annually to three master students for Best Thesis in AI research among all universities in Taiwan.
-    </li>
-    <li>
-      <b>Irving T. Ho Memorial Scholarship</b>, <i>Irving T. Ho Memorial Foundation</i>, 2011<br/>
-      Awarded annually to one EE/CSIE graduate student with exceptional research performance who has been selected by NTU as an overseas exchange student.
-    </li>
-    <li>
-      <b>Third Place</b>, <i>Google Kirkland Intern Project Showcase, Google Inc.</i>, 2011<br/>
-      Awarded to the top three intern projects among 20+ interns. 
-    </li>
-    <li>
-      <b>Google Anita Borg Memorial Scholarship</b>, <i>Google Inc.</i>, 2011<br />
-      Awarded to female students with outstanding academic performance and leadership demonstration.
-    </li>
-    <li>
-      <b>Gold Prize</b>, <i>8th YuShow Cup Creativity Award</i>, Taiwan, 2011<br />
-      Awarded for Best Application in Technology and Design among 700+ projects across all universities.<br />
-      - Project: Lohas! Flora <a href="https://youtu.be/UpCJqkVNyNU" target="_blank">[video]</a>
-    </li>
-    <li>
-      <b>First Place</b>, <i>2010 Hinet Telsoft Competition - Flora Expo Application Track</i>, Taiwan, 2010<br />
-      Awarded for Best Application of Technology in Flora Expo among 600+ teams.<br />
-      - Project: iPhone Flora <a href="https://youtu.be/ExWBXIp77QA" target="_blank">[video]</a>
-    </li>
-    <li>
-      <b>Outstanding Teaching Assistant Award</b>, <i>Department of CSIE, NTU</i>, 2010<br />
-      Awarded to CSIE Teaching Assistants with highest ratings from students.
-    </li>
-  </ul>
-</section>
+        <!-- Skills -->
+        <section class="about-section">
+          <h2>Skills & Expertise</h2>
+          <div class="about-grid">
+            <div>
+              <h3>Technical Skills</h3>
+              <div>
+                <span class="skill-badge">Excel Data Analysis</span>
+                <span class="skill-badge">R Statistical Programming</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">SPSS</span>
+                <span class="skill-badge">Statistical Analysis</span>
+                <span class="skill-badge">Financial Modeling</span>
+                <span class="skill-badge">Data Visualization</span>
+                <span class="skill-badge">Machine Learning</span>
+              </div>
+              
+              <h3>Language Skills</h3>
+              <div>
+                <span class="language-badge">Chinese (Native)</span>
+                <span class="language-badge">English (Fluent)</span>
+                <span class="language-badge">Japanese (Basic)</span>
+              </div>
+            </div>
+            <div>
+              <h3>Soft Skills</h3>
+              <div>
+                <span class="soft-badge">Team Collaboration</span>
+                <span class="soft-badge">Project Management</span>
+                <span class="soft-badge">Communication</span>
+                <span class="soft-badge">Problem Solving</span>
+                <span class="soft-badge">Critical Thinking</span>
+                <span class="soft-badge">Research Skills</span>
+                <span class="soft-badge">Time Management</span>
+                <span class="soft-badge">Leadership</span>
+                <span class="soft-badge">Presentation Skills</span>
+                <span class="soft-badge">Adaptability</span>
+              </div>
+              
+              <h3>Research Interests</h3>
+              <p>
+                - Financial Data Analysis and Modeling<br>
+                - Corporate Strategy and International Expansion<br>
+                - Risk Management and Investment Decisions<br>
+                - Corporate Governance and Compliance<br>
+                - Market Behavior and Consumer Psychology
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="back-to-top-botton">
+        <div class="back-to-top" onclick="SmoothScrollToTop()">Back to Top</div>
+      </div>
+      <div class="myfooter">
+        <div class="foot-left">
+          <a href="mailto:victoriacheng1122@gmail.com" class="ficon-button femail"> 
+            <i class="fas fa-envelope icon-email"></i><span id="foot-icon-text">Email</span>
+          </a>
 
-<section>
-  <h1>Leadership & Activities</h1>  
-  <ul>
-    <li>
-      <b>Mentor</b>, <i>MIT Summer Research Program for Brain and Cognitive Science</i>, 2018/06 – 2018/08
-    </li>
-    <li>
-      <b>Mentor</b>, <i>MIT Undergraduate Women in EECS Buddy Program</i>, 2018
-    </li>
-    <li>
-      <b>SPTV Chair</b>, <i>MIT Sidney Pacific Graduate Residence.</i>, 2017/06 – 2019/05
-      <ul>
-        <li>Developed and deployed features for Raspberry Pis across all floors in the building.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Student</b>, <i><a href="http://cbmm.mit.edu/summer-school/2016" target="_blank">Brains, Minds, and Machines Summer Course</a></i>, 2016/08/15 - 2016/09/05
-    </li>
-    <li>
-      <b>Participant & Google Interviewer</b>, <i>Grace Hopper Celebration of Women in Computing</i>, 2015
-    </li>
-    <li>
-      <b>Website Developer</b>, <i><a href="http://taiwanuxd.org">San Francisco Bay Area Taiwan UXD Gathering</a></i>, 2014/10 – 2016/08
-    </li>
-    <li>
-      <b>Tech Intern Mentor & Interviewer</b>, <i>Google Inc.</i>, 2013/01 – 2016/09
-      <ul>
-        <li>Weekly career discussion with mentees; hosted 1 PhD and 6 undergraduate interns.</li>
-        <li>Conducted 100+ technical interviews to hire qualified engineers.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Reviewer</b> of <i>ACM IUI (Intelligence User Interface) 2013</i>, <i>TAAI 2011</i>, <i>IJCAI 2019</i>
-    </li>
-    <li>
-      <b>President</b>,
-      <i><a href="http://aiesec.org/" target="_blank">
-        AIESEC (International Association of Students in Economics and Management)</a>
-        National Taiwan University Local Committee
-      </i>, 2007/07 – 2008/07
-      <ul>
-        <li>Initiated an overseas internship program based on social issues for NTU students.</li>
-        <li>Hosted a leadership development conference for 14 universities in Taiwan and Asia Pacific countries in June 2008.</li>
-        <li>Led more than 100 members to win the 2007-2008 <b>Best Local Committee Award</b>.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+          <a href="https://www.linkedin.com/in/victoria-chengyw/" class="ficon-button flinkedin"> 
+            <i class="fab fa-linkedin-in icon-linkedin"></i><span id="foot-icon-text">LinkedIn</span>
+          </a>
 
-<section>
-  <h1>Skills</h1>
-  <ul>
-    <li>Programming Languages: C/C++, Python, Java, JavaScript, PHP, C#</li>
-    <li>Tools and Libraries: NLTK, OpenCV, OpenGL, Matlab, Robot Operating System, Processing, Unreal, Unity, Max/MSP</li>
-    <li>Hardware Platforms: Kinect, Raspberry Pi, Arduino</li>
-  </ul>
-</section>
+          <a href="https://github.com/VictoriaC1122/" class="ficon-button fgithub"> 
+            <i class="fab fa-github icon-github"></i><span id="foot-icon-text">GitHub</span>
+          </a>
+        </div>
+        <div class="foot-right">
+          <p>
+            © 2023 Yung-Wen(Victoria) Cheng. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // 處理移動設備上的導航菜單
+      document.addEventListener('DOMContentLoaded', function() {
+        // 處理菜單項點擊後自動關閉菜單
+        var menuItems = document.querySelectorAll('.dropdown-content a');
+        menuItems.forEach(function(item) {
+          item.addEventListener('click', function() {
+            var dropdown = document.getElementById('myDropdown');
+            if (dropdown.classList.contains('show')) {
+              dropdown.classList.remove('show');
+            }
+          });
+        });
+        
+        // 修復移動設備上的點擊事件
+        if ('ontouchstart' in window) {
+          var iconButtons = document.querySelectorAll('.icon-button, .ficon-button');
+          iconButtons.forEach(function(btn) {
+            btn.addEventListener('touchstart', function() {
+              this.classList.add('hover-effect');
+            });
+            btn.addEventListener('touchend', function() {
+              this.classList.remove('hover-effect');
+            });
+          });
+        }
+      });
+      
+      // 導航欄下拉菜單
+      function topnavFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // 點擊菜單外關閉下拉菜單
+      window.onclick = function(e) {
+        if (!e.target.matches('.dropbtn') && !e.target.matches('.fa-bars')) {
+          var dropdown = document.getElementById("myDropdown");
+          if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+          }
+        }
+      }
+      
+      // 平滑滾動到頂部
+      function SmoothScrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  </body>
+</html>
