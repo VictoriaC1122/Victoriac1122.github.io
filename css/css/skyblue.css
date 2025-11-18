@@ -1,0 +1,259 @@
+/* --- Global --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    system-ui, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+  background: #e6f3ff; /* 淡天空藍 */
+  color: #333;
+}
+
+/* --- Page layout --- */
+.page-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+.page-card {
+  max-width: 1100px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* --- Top Tabs --- */
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 24px;
+  background: #f2f2f2;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.tab-link {
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.18s ease;
+}
+
+.tab-link:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.tab-link.active {
+  background: #ffffff;
+  color: #1f2933;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Content Sections --- */
+.tab-content {
+  display: none;
+  padding: 32px 40px 40px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+}
+
+.underline {
+  width: 90px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6fb1ff, #8ad6ff, #ffd4e3);
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+/* --- About: two-column layout --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* About text */
+.text-block {
+  font-size: 15px;
+}
+
+.text-block strong {
+  font-weight: 600;
+}
+
+/* Round photo */
+.photo-block {
+  display: flex;
+  justify-content: center;
+}
+
+.photo-circle {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #f7fafc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Social icons */
+.icon-row {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  font-size: 24px;
+}
+
+.icon-row a {
+  text-decoration: none;
+  transition: transform 0.12s ease, filter 0.12s ease;
+  filter: grayscale(15%);
+}
+
+.icon-row a:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* --- Experience blocks --- */
+.job-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.3fr);
+  gap: 28px;
+  padding: 26px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.job-block:last-of-type {
+  border-bottom: none;
+}
+
+.job-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.job-logo {
+  max-width: 200px;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.cert-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  font-size: 13px;
+  text-decoration: none;
+  color: #333;
+  background: #ffffff;
+  transition: all 0.15s ease;
+}
+
+.cert-btn:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.job-right h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.job-right h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.job-right ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+
+/* --- Publications --- */
+.pub-list {
+  margin-top: 20px;
+  padding-left: 24px;
+  line-height: 1.7;
+}
+
+.pub-list li {
+  margin-bottom: 10px;
+}
+
+/* --- Extra & CV --- */
+.simple-list {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 750px) {
+  .page-card {
+    border-radius: 0;
+  }
+
+  .tab-content {
+    padding: 24px 18px 32px;
+  }
+
+  .job-block {
+    grid-template-columns: 1fr;
+  }
+
+  .job-left {
+    align-items: flex-start;
+  }
+}
