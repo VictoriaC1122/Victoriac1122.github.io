@@ -1,1248 +1,229 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4LXQ0S6MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Victoria Cheng | Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/skyblue.css" />
+</head>
+<body>
+  <div class="page-bg">
+    <div class="page-card">
+      <!-- Tabs -->
+      <nav class="tab-bar">
+        <button class="tab-link active" data-tab="about">About Me</button>
+        <button class="tab-link" data-tab="experience">Enterprise Work Experience</button>
+        <button class="tab-link" data-tab="pubs">Publications</button>
+        <button class="tab-link" data-tab="extra">Extra Activities</button>
+        <button class="tab-link" data-tab="cv">CV</button>
+      </nav>
 
-      gtag("config", "G-N4LXQ0S6MC");
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KR7V8CX");
-    </script>
-    <!-- End Google Tag Manager -->
+      <!-- About Me -->
+      <section id="about" class="tab-content active">
+        <div class="content-grid">
+          <div class="text-block">
+            <h1>About Me</h1>
+            <div class="underline"></div>
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="google-site-verification" content="XSYHS0ThYlgD7i4OUVPhKnvXIEwoXzoscJOiaarmdCs" />
-    <title>Yung-Wen(Victoria) Cheng's Home Page</title>
-    <meta name="description" lang="en" content="This is an academic website for Yung-Wen(Victoria) Cheng to share her experiences, projects and research." />
-    <meta name="keywords" lang="en" content="Yung-Wen Cheng, Victoria Cheng, Finance, PhD Student, National Taiwan University." />
-    <meta property="og:title" content="Yung-Wen(Victoria) Cheng's Home Page" />
-    <meta property="og:type" content="Website" />
-    <meta property="og:description" content="This is an academic website for Yung-Wen(Victoria) Cheng to share her experiences, projects, and research." />
-    <meta property="og:image" content="https://victoriac1122.github.io/image/myphoto.jpg?v=20240406" />
-    <meta property="og:image:width" content="360" />
-    <meta property="og:image:height" content="240" />
-    <meta property="og:image:alt" content="Victoria Cheng" />
-    <meta property="og:url" content="https://victoriac1122.github.io/" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link href="css/fontawesome.css" rel="stylesheet" />
-    <link href="css/brands.css" rel="stylesheet" />
-    <link href="css/solid.css" rel="stylesheet" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
-
-    <link rel="canonical" href="https://victoriac1122.github.io/" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/topnav.css" />
-    <link rel="stylesheet" href="css/namecard.css" />
-    <link rel="stylesheet" href="css/timeline.css" />
-    <link rel="stylesheet" href="css/publication.css" />
-    <link rel="stylesheet" href="css/project.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
-    <script src="js/myscript.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [
-            ["$", "$"],
-            ["\\(", "\\)"],
-          ],
-        },
-      };
-    </script>
-    <style>
-      .MathJax {
-        font-size: 1em !important;
-      }
-    </style>
-    <style>
-      :root {
-        --primary-color: #1e5078;
-        --secondary-color: #e5e9ed;
-        --accent-color: #4389a8;
-        --text-color: #2b2b2b;
-        --background-color: #f7f9fb;
-      }
-      
-      body {
-        font-family: 'Roboto', sans-serif, 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', 'Noto Sans TC';
-        color: var(--text-color);
-        background-color: var(--background-color);
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-      }
-      
-      .wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 30px;
-      }
-      
-      .home-head {
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--accent-color);
-        padding-bottom: 10px;
-        margin-top: 60px;
-        margin-bottom: 30px;
-        position: relative;
-        animation: fadeInUp 1s ease;
-        font-size: 2.2em;
-        text-align: left;
-      }
-      
-      .home-head::after {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 4px;
-        background-color: var(--primary-color);
-        bottom: -3px;
-        left: 0;
-        transform: none;
-      }
-      
-      .pub, .timeline-item {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 8px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        background-color: white;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-        animation: fadeInUp 0.8s ease;
-        padding: 15px;
-      }
-      
-      .pub:hover, .timeline-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-      }
-      
-      .nboard {
-        background: linear-gradient(135deg, #1e5078, #4389a8);
-        border-radius: 12px;
-        padding: 30px;
-        margin: 80px auto 60px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        animation: fadeIn 1s ease;
-        max-width: 1000px;
-        text-align: center;
-      }
-      
-      .nrow {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-      }
-      
-      .ncol {
-        flex: 1;
-        min-width: 250px;
-      }
-      
-      .ncol1 {
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: center;
-      }
-      
-      .ncol2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-      
-      .circle-img {
-        border-radius: 50%;
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        object-position: center top;
-        border: 4px solid white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease;
-        animation: pulse 2s infinite;
-      }
-      
-      .circle-img:hover {
-        transform: scale(1.05);
-        animation: none;
-      }
-      
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        50% {
-          transform: scale(1.03);
-          box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-        }
-        100% {
-          transform: scale(1);
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-      }
-      
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .badge {
-        display: inline-block;
-        background-color: #1e5078;
-        color: white;
-        padding: 8px 15px;
-        border-radius: 4px;
-        margin: 5px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        font-size: 0.95em;
-      }
-      
-      .badge:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        cursor: default;
-      }
-      
-      .badge.language {
-        background-color: #4389a8;
-      }
-      
-      .badge.soft {
-        background-color: #2c5c7c;
-      }
-      
-      #my-name {
-        color: white;
-        font-size: 2.6em;
-        margin-bottom: 10px;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        font-weight: 600;
-      }
-      
-      #my-title {
-        color: white;
-        opacity: 1;
-        font-size: 1.5em;
-        margin-bottom: 15px;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        font-weight: 500;
-      }
-      
-      #my-email {
-        color: white;
-        opacity: 1;
-        margin-bottom: 25px;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        font-size: 1.1em;
-      }
-      
-      #my-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        margin-top: 20px;
-      }
-      
-      .icon-button {
-        background-color: white;
-        border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        position: relative;
-      }
-      
-      .icon-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-      }
-      
-      .icon-button.github:hover {
-        background-color: #24292e;
-      }
-      
-      .icon-button.linkedin:hover {
-        background-color: #0077b5;
-      }
-      
-      .icon-button.google-scholar:hover {
-        background-color: #4285f4;
-      }
-      
-      .icon-button i {
-        font-size: 1.2rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      
-      /* 特定圖標顏色 */
-      .icon-button .fa-github {
-        color: #24292e;
-      }
-      
-      .icon-button .fa-linkedin-in {
-        color: #0077b5; 
-      }
-      
-      .icon-button .fa-graduation-cap {
-        color: #4285f4;
-      }
-      
-      .icon-button.github:hover .fa-github,
-      .icon-button.linkedin:hover .fa-linkedin-in,
-      .icon-button.google-scholar:hover .fa-graduation-cap {
-        color: white;
-      }
-      
-      .topnav {
-        background-color: #1e5078;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        transition: all 0.3s ease;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60px;
-        width: 100%;
-      }
-      
-      .nav-container {
-        width: 100%;
-        max-width: 1200px;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      
-      .topnav a#firstnav {
-        font-weight: 600;
-        color: white;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        font-size: 1.2em;
-      }
-      
-      .topnav a#firstnav:hover {
-        color: #81c3d7;
-      }
-      
-      .nav-links {
-        display: flex;
-        align-items: center;
-      }
-      
-      .nav-links a {
-        color: white;
-        font-weight: 500;
-        margin: 0 10px;
-        padding: 5px 10px;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .nav-links a:hover {
-        color: #81c3d7;
-      }
-      
-      .dropdown {
-        position: relative;
-        display: none;
-      }
-      
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        right: 0;
-        background-color: #1e5078;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        border-radius: 0 0 5px 5px;
-        overflow: hidden;
-        min-width: 180px;
-        z-index: 1001;
-      }
-      
-      .dropdown-content a {
-        color: white;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        padding: 12px 15px;
-        display: block;
-        text-decoration: none;
-      }
-      
-      .dropdown-content a:hover {
-        background-color: #4389a8;
-        color: white;
-      }
-      
-      .dropdown-content.show {
-        display: block;
-      }
-      
-      .dropbtn {
-        background-color: transparent;
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 1.4em;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-      }
-      
-      .dropbtn:hover {
-        color: #81c3d7;
-      }
-      
-      /* 響應式導航欄 */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-        
-        .dropdown {
-          display: block;
-        }
-      }
-      
-      .timeline-title {
-        color: #1e5078;
-        font-weight: 600;
-      }
-      
-      .timeline-date {
-        background-color: #4389a8;
-        color: white;
-        padding: 3px 10px;
-        border-radius: 4px;
-        font-size: 0.85em;
-        display: inline-block;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      
-      .page-footer {
-        background: linear-gradient(135deg, #1e5078, #2c5c7c);
-        color: white;
-        padding: 30px 0;
-        margin-top: 50px;
-      }
-      
-      .bio-body {
-        animation: fadeIn 1.2s ease;
-      }
-      
-      .timeline-body {
-        animation: fadeIn 1.5s ease;
-      }
-      
-      .pub-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        animation: fadeIn 1.8s ease;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      
-      @media (min-width: 992px) {
-        .pub-list {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-      
-      /* 調整研究興趣區域的樣式 */
-      .pub {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        box-sizing: border-box;
-        justify-content: flex-start;
-        align-items: flex-start;
-        text-align: left;
-        height: auto;
-        min-height: 350px;
-        border: 1px solid #e5e9ed;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background-color: white;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-      }
-      
-      .pub-left {
-        margin-bottom: 20px;
-        background-color: rgba(30, 80, 120, 0.05);
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        align-self: flex-start;
-      }
-      
-      .pub:hover .pub-left {
-        background-color: rgba(30, 80, 120, 0.1);
-        transform: scale(1.05);
-      }
-      
-      .pub-left i {
-        font-size: 3.5em !important;
-        color: #1e5078;
-      }
-      
-      .pub-right {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        align-items: flex-start;
-      }
-      
-      .pub-right .title {
-        font-size: 1.3em;
-        font-weight: 600;
-        color: #1e5078;
-        margin-bottom: 15px;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        text-align: left;
-      }
-      
-      .pub-right .desc {
-        text-align: left;
-        height: 100%;
-        display: flex;
-        align-items: flex-start;
-      }
-      
-      .pub-right .desc p {
-        margin: 0;
-        line-height: 1.5;
-        font-size: 0.95em;
-        text-align: left;
-        white-space: normal;
-        word-break: normal;
-        word-wrap: break-word;
-      }
-      
-      .home-head {
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--accent-color);
-        padding-bottom: 10px;
-        margin-top: 60px;
-        margin-bottom: 30px;
-        position: relative;
-        animation: fadeInUp 1s ease;
-        font-size: 2.2em;
-        text-align: left;
-      }
-      
-      .home-head::after {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 4px;
-        background-color: var(--primary-color);
-        bottom: -3px;
-        left: 0;
-        transform: none;
-      }
-      
-      .wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 30px;
-      }
-      
-      .bio-body p {
-        font-size: 1.1em;
-        line-height: 1.8;
-        text-align: left;
-        max-width: 900px;
-        margin: 0 0 20px;
-      }
-      
-      /* 技能標籤樣式優化 */
-      .badge {
-        display: inline-block;
-        background-color: #1e5078;
-        color: white;
-        padding: 8px 15px;
-        border-radius: 4px;
-        margin: 5px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        font-size: 0.95em;
-      }
-      
-      /* 社交媒體按鈕容器 */
-      #my-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        margin-top: 20px;
-      }
-      
-      /* 響應式調整 */
-      @media (max-width: 768px) {
-        .nrow {
-          flex-direction: column;
-        }
-        
-        .ncol {
-          min-width: 100%;
-        }
-        
-        .ncol1 {
-          margin-bottom: 20px;
-        }
-        
-        #my-name {
-          font-size: 1.8em;
-        }
-        
-        .circle-img {
-          width: 150px;
-          height: 150px;
-        }
-        
-        .pub {
-          min-height: auto;
-          height: auto;
-          border: 1px solid #e5e9ed;
-          text-align: left;
-        }
-        
-        .pub-right .title {
-          height: auto;
-          margin-bottom: 10px;
-          justify-content: flex-start;
-          text-align: left;
-        }
-        
-        .pub-right .desc {
-          text-align: left;
-          align-items: flex-start;
-        }
-        
-        .pub-right .desc p {
-          text-align: left;
-        }
-        
-        .pub-right .desc p .badge {
-          margin-left: 0;
-          margin-right: 8px;
-        }
-        
-        .home-head {
-          text-align: left;
-        }
-        
-        .home-head::after {
-          left: 0;
-          transform: none;
-        }
-        
-        .bio-body p {
-          text-align: left;
-        }
-        
-        .icon-button {
-          width: 2.5rem;
-          height: 2.5rem;
-          border-radius: 50%;
-          margin: 0 8px;
-          padding: 0;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-        
-        .icon-button i {
-          margin-right: 0;
-          font-size: 1.2rem;
-        }
-        
-        .topnav {
-          padding: 0;
-          height: 50px;
-        }
-        
-        .badge {
-          margin-left: 0;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        .wrapper {
-          padding: 0 15px;
-        }
-        
-        .nboard {
-          padding: 20px 15px;
-          margin: 60px auto 40px;
-          border-radius: 10px;
-          background: linear-gradient(135deg, #1e5078, #4389a8);
-        }
-        
-        .nrow {
-          gap: 15px;
-        }
-        
-        .home-head {
-          font-size: 1.5em;
-        }
-        
-        .circle-img {
-          width: 120px;
-          height: 120px;
-          border-width: 3px;
-        }
-        
-        #my-name {
-          font-size: 1.6em;
-          margin-bottom: 8px;
-        }
-        
-        #my-title {
-          font-size: 1.2em;
-          margin-bottom: 10px;
-        }
-        
-        #my-email {
-          font-size: 0.95em;
-          margin-bottom: 15px;
-        }
-        
-        #my-info {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 25px;
-          margin: 15px 0 0;
-        }
-        
-        .icon-button {
-          width: 2.3rem;
-          height: 2.3rem;
-          border-radius: 50%;
-          margin: 0;
-          padding: 0;
-          box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-        
-        .icon-button i {
-          margin-right: 0;
-          font-size: 1.1rem;
-        }
-        
-        .icon-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        #icon-text {
-          font-size: 0.9em;
-          white-space: nowrap;
-          overflow: hidden;
-        }
-        
-        .pub-left {
-          width: 80px;
-          height: 80px;
-          margin-right: auto;
-          margin-left: 0;
-        }
-        
-        .pub-left i {
-          font-size: 2.8em !important;
-        }
-        
-        .pub-right .title {
-          font-size: 1.2em;
-          margin-bottom: 8px;
-          height: auto;
-        }
-        
-        .pub-right .desc p {
-          font-size: 0.9em;
-          line-height: 1.4;
-        }
-      }
-      
-      /* 觸摸設備的hover效果 */
-      .hover-effect {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-      }
-      
-      .icon-button.github.hover-effect {
-        background-color: #24292e !important;
-      }
-      
-      .icon-button.linkedin.hover-effect {
-        background-color: #0077b5 !important;
-      }
-      
-      .icon-button.google-scholar.hover-effect {
-        background-color: #4285f4 !important;
-      }
-      
-      .icon-button.hover-effect .fa-github,
-      .icon-button.hover-effect .fa-linkedin-in,
-      .icon-button.hover-effect .fa-graduation-cap {
-        color: white !important;
-      }
-      
-      /* 頁腳社交媒體圖標樣式 */
-      .ficon-button {
-        background-color: white;
-        border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        position: relative;
-      }
-      
-      .ficon-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-      }
-      
-      .ficon-button.femail:hover {
-        background-color: #bb001b;
-      }
-      
-      .ficon-button.flinkedin:hover {
-        background-color: #0077b5;
-      }
-      
-      .ficon-button.fgithub:hover {
-        background-color: #24292e;
-      }
-      
-      .ficon-button i {
-        font-size: 1.2rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      
-      /* 特定圖標顏色 */
-      .ficon-button .fa-github {
-        color: #24292e;
-      }
-      
-      .ficon-button .fa-linkedin-in {
-        color: #0077b5;
-      }
-      
-      .ficon-button .fa-envelope {
-        color: #bb001b;
-      }
-      
-      .ficon-button.femail:hover .fa-envelope,
-      .ficon-button.flinkedin:hover .fa-linkedin-in,
-      .ficon-button.fgithub:hover .fa-github {
-        color: white;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7V8CX" height="0" width="0" style="display: none; visibility: hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <!-- Header -->
-    <header class="topnav">
-      <div class="nav-container">
-        <a id="firstnav" href="https://github.com/VictoriaC1122/">Yung-Wen(Victoria) Cheng</a>
-        <div class="nav-links" id="navLinks">
-          <a onclick="SmoothScrollToAnchorFix('myhom')">Home</a>
-          <a onclick="SmoothScrollToAnchorFix('mybio')">Biography</a>
-          <a onclick="SmoothScrollToAnchorFix('myexp')">Experiences</a>
-          <a onclick="SmoothScrollToAnchorFix('myresearch')">Research</a>
-          <a onclick="SmoothScrollToAnchorFix('myskills')">Skills</a>
-          <a href="about.html">About Me</a>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
-          <div class="dropdown-content" id="myDropdown">
-            <a onclick="SmoothScrollToAnchorFix('myhom')">Home</a>
-            <a onclick="SmoothScrollToAnchorFix('mybio')">Biography</a>
-            <a onclick="SmoothScrollToAnchorFix('myexp')">Experiences</a>
-            <a onclick="SmoothScrollToAnchorFix('myresearch')">Research</a>
-            <a onclick="SmoothScrollToAnchorFix('myskills')">Skills</a>
-            <a href="about.html">About Me</a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- Page -->
-    <main id="myhom" class="page-content">
-      <!-- Name Card -->
-      <div class="nboard">
-        <div class="nrow">
-          <div class="ncol ncol1">
-            <img src="image/myphoto.jpg" alt="Victoria Cheng" class="circle-img" />
-          </div>
-          <div class="ncol ncol2">
-            <div id="my-name">Yung-Wen(Victoria) Cheng</div>
-            <div id="my-title">PhD Student @ NTU</div>
-            <div id="my-email">victoriacheng1122@gmail.com</div>
-            <div id="my-info">
-              <a href="https://github.com/VictoriaC1122/" class="icon-button github">
-                <i class="fab fa-github"></i>
-              </a>
-
-              <a href="https://scholar.google.com.tw/?hl=zh-TW" class="icon-button google-scholar">
-                <i class="fas fa-graduation-cap"></i>
-              </a>
-
-              <a href="https://www.linkedin.com/in/victoria-chengyw/" class="icon-button linkedin">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Page Content -->
-      <div class="wrapper">
-        <!-- Biography -->
-        <div id="bio" class="bio">
-          <h1 id="mybio" class="home-head">Biography</h1>
-          <div class="bio-body">
             <p>
-<<<<<<< HEAD
-              <strong>Yung Wen(Victoria) Cheng</strong> is a PhD student in International Business at <strong>National Taiwan University (NTU)</strong>, 
-              working with <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a>. 
-              She obtained her MBA degree in June 2022 and has rich work experience, including two full-time positions and two internships.
+              I am a second-year Ph.D. student in the Department of International Business at
+              <strong>National Taiwan University (NTU)</strong>, with a research
+              focus on <strong>technological legitimacy, technology management, and innovation and entrepreneurship</strong>.
+              I earned my M.B.A. in June 2022, specializing in finance and strategic management.
             </p>
+
             <p>
-              She has a positive and motivated personality, with strong interpersonal skills and resilience to stress. 
-              She thrives in challenging and uncertain environments, demonstrating adaptability and a thirst for knowledge acquisition.
-=======
-              <strong>Yung Wen(Victoria) Cheng</strong> is a International Business PhD student at the <strong>National Taiwan University (NTU)</strong>, working with
-              <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a>. 
-              <!--He received his Bachelor's Degree in Electronics Engineering from National Yang Ming Chiao Tung University, Hsinchu,
-              Taiwan (NYCU). He worked with <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a> and
-              <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan Chang</a> during his undergrads. He is a member of
-              <strong>IEEE-Eta Kappa Nu, Mu Sigma Chapter</strong> and a former member of <strong>IEEE Student Bench at NYCU</strong>. His research interests include
-              <strong>Machine Learning</strong> and <strong>Optimization</strong>.-->
-              She completed her MBA in June 2022, during which she gained extensive work experience through two full-time positions and two internships. Victoria has a positive and motivated personality, demonstrating strong interpersonal skills and resilience to stress. She thrives in challenging and uncertain environments, showcasing her adaptability and a strong desire for continuous learning. 
->>>>>>> c250e0e (test)
+              During my academic journey, I have accumulated substantial industry experience through
+              two full-time positions and two internships, working across diverse sectors including
+              data analytics, financial services, and regulatory compliance.
             </p>
+
+            <p>
+              In <strong>June 2024</strong>, I presented my co-authored research titled
+              <em>“Exploring Mainstream Paths to New Technology Deployment: Technological, Market, and Network Perspectives”</em>
+              at the <strong>Academy of Asian Management (AAOM)</strong> Conference held in Miri, Malaysia.
+              This experience allowed me to engage with international scholars and contribute to emerging conversations
+              in strategic technology deployment.
+            </p>
+
+            <p>
+              I am a highly motivated and resilient individual with strong interpersonal skills and the ability
+              to thrive under pressure. I excel in dynamic and uncertain environments, consistently demonstrating
+              adaptability, intellectual curiosity, and a proactive approach to learning and problem-solving.
+            </p>
+
+            <div class="icon-row">
+              <a href="mailto:victoriaxvivi1122@icloud.com" title="Email">📧</a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn">🔗</a>
+              <a href="https://scholar.google.com" target="_blank" rel="noopener" title="Google Scholar">📚</a>
+            </div>
           </div>
-        </div>
 
-        <!-- Experiences -->
-        <div id="timeline" class="timeline-brief">
-          <h1 id="myexp" class="home-head">Experiences</h1>
-
-          <div class="timeline-body">
-            <div class="timeline-item">
-              <div class="timeline-date">Sep. 2023 - Present</div>
-              <div class="timeline-title"><img class="social-icon" src="image/ntu_logo.png" />Research Assistant @ NTU</div>
-              <div class="timeline-posi">Department of International Business</div>
-              <div class="timeline-desc">College of Management</div>
-              <div class="timeline-host">Advisor: <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a> & <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/186">Prof. Ho-Min Chen</a></div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-date">Sep. 2023 - Present</div>
-              <div class="timeline-title"><img class="social-icon" src="image/ntu_logo.png" />PhD Student @ NTU</div>
-              <div class="timeline-posi">Department of International Business</div>
-              <div class="timeline-desc">College of Management</div>
-              <div class="timeline-host">Advisor: <a href="https://management.ntu.edu.tw/IB/faculty/teacher/sn/188">Prof. Hsueh-Liang Wu</a></div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-date">Aug. 2021 - Dec. 2021</div>
-              <div class="timeline-title"><img class="social-icon" src="image/uiuc_logo.png" />Exchange Student @ UIUC</div>
-              <div class="timeline-posi">Gies College of Business</div>
-              <div class="timeline-desc">University of Illinois at Urbana-Champaign</div>
-              <div class="timeline-host">Focus: International Finance and Business Strategy</div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-date">Jul. 2022 - Aug. 2023</div>
-              <div class="timeline-title"><i class="fas fa-landmark icon-company"></i> Financial Analyst</div>
-              <div class="timeline-posi">Investment Research Department</div>
-              <div class="timeline-desc">Leading Financial Institution</div>
-              <div class="timeline-host">Conducted market analysis and portfolio evaluation</div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-date">Jun. 2021 - Aug. 2021</div>
-              <div class="timeline-title"><i class="fas fa-briefcase icon-company"></i> Summer Intern</div>
-              <div class="timeline-posi">Business Strategy Team</div>
-              <div class="timeline-desc">International Consulting Firm</div>
-              <div class="timeline-host">Assisted in client projects and market research</div>
+          <div class="photo-block">
+            <div class="photo-circle">
+              <!-- 記得上傳 images/IMG_2032.jpg -->
+              <img src="images/IMG_2032.jpg" alt="Victoria Cheng" />
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Research Interests -->
-        <div class="publications">
-          <h1 id="myresearch" class="home-head">Research Interests</h1>
-          <div class="pub-list">
-            <div class="pub">
-              <div class="pub-left">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <div class="pub-right">
-                <div class="title">Financial Data Analysis</div>
-                <div class="desc">
-                  <p>Research on data patterns, trends, and anomalies in financial markets using statistical and machine learning methods to extract valuable insights.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="pub">
-              <div class="pub-left">
-                <i class="fas fa-handshake"></i>
-              </div>
-              <div class="pub-right">
-                <div class="title">International Business Strategy</div>
-                <div class="desc">
-                  <p>Study of how businesses develop strategies in global markets, focusing on cross-cultural management and market entry approaches.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="pub">
-              <div class="pub-left">
-                <i class="fas fa-university"></i>
-              </div>
-              <div class="pub-right">
-                <div class="title">Corporate Finance & Investment</div>
-                <div class="desc">
-                  <p>Analysis of corporate financial decisions including capital structure, mergers and acquisitions, and risk management strategies.</p>
-                </div>
-              </div>
-            </div>
+      <!-- Enterprise Work Experience -->
+      <section id="experience" class="tab-content">
+        <h1>Enterprise Work Experience</h1>
+        <div class="underline"></div>
+
+        <!-- NETGEAR -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/netgear_logo.png" class="job-logo" alt="NETGEAR logo" />
+            <a class="cert-btn">Certificate of Completion</a>
+          </div>
+          <div class="job-right">
+            <h2>NETGEAR (USA)</h2>
+            <h3>Regulatory Compliance Analyst (Intern)</h3>
+            <p class="meta">
+              NETGEAR | Sep 2021 – Mar 2022 | 6 M | Neihu Dist., Taipei City, Taiwan (R.O.C.) | Semester Internship Program
+            </p>
+            <ul>
+              <li>Conducted comprehensive reviews of EU product safety and environmental compliance regulations.</li>
+              <li>Developed and automated EU compliance reporting templates using Excel VBA.</li>
+              <li>Edited and produced technical laboratory videos using Final Cut Pro to enhance internal training and documentation quality.</li>
+            </ul>
           </div>
         </div>
 
-        <!-- Skills -->
-        <div class="selected-projects">
-          <h1 id="myskills" class="home-head">Skills</h1>
-          <div class="pub-list">
-            <div class="pub">
-              <div class="pub-left">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <div class="pub-right">
-                <div class="title">Technical Skills</div>
-                <div class="desc">
-                  <p>
-                    <span class="badge">Excel Data Analysis</span>
-                    <span class="badge">R Statistical Programming</span>
-                    <span class="badge">Python</span>
-                    <span class="badge">Statistical Analysis</span>
-                    <span class="badge">Financial Modeling</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="pub">
-              <div class="pub-left">
-                <i class="fas fa-comments"></i>
-              </div>
-              <div class="pub-right">
-                <div class="title">Language Skills</div>
-                <div class="desc">
-                  <p>
-                    <span class="badge language">Chinese (Native)</span>
-                    <span class="badge language">English (Fluent)</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="pub">
-              <div class="pub-left">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="pub-right">
-                <div class="title">Soft Skills</div>
-                <div class="desc">
-                  <p>
-                    <span class="badge soft">Team Collaboration</span>
-                    <span class="badge soft">Project Management</span>
-                    <span class="badge soft">Communication</span>
-                    <span class="badge soft">Problem Solving</span>
-                    <span class="badge soft">Critical Thinking</span>
-                    <span class="badge soft">Research Skills</span>
-                  </p>
-                </div>
-              </div>
-            </div>
+        <!-- Air Liquide -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/airliquide_logo.png" class="job-logo" alt="Air Liquide logo" />
+            <a class="cert-btn">Certificate of Completion</a>
+          </div>
+          <div class="job-right">
+            <h2>Air Liquide (France)</h2>
+            <h3>Business Transformation Data Analyst (Intern)</h3>
+            <p class="meta">
+              Air Liquide | Jul 2021 – Aug 2022 | 2 M | Neihu Dist., Taipei City, Taiwan (R.O.C.) |
+              Via ALFE 2021 International Summer Internship Program
+            </p>
+            <ul>
+              <li>Supported Business Transfer Department via Power BI reporting and training.</li>
+              <li>Developed customized dashboards with coding support.</li>
+              <li>Assisted in internal corporate event planning and multimedia content creation.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </main>
-    <!-- Footer -->
-    <footer class="page-footer">
-      <div class="back-to-top-botton">
-        <div class="back-to-top" onclick="SmoothScrollToTop()">Back to Top</div>
-      </div>
-      <div class="myfooter">
-        <div class="foot-left">
-          <a href="mailto:victoriacheng1122@gmail.com" class="ficon-button femail"> 
-            <i class="fas fa-envelope icon-email"></i><span id="foot-icon-text">Email</span>
+
+        <!-- SoftwareONE -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/softwareone_logo.png" class="job-logo" alt="SoftwareONE logo" />
+            <a class="cert-btn">Certificate of Completion</a>
+          </div>
+          <div class="job-right">
+            <h2>SoftwareONE (Switzerland)</h2>
+            <h3>Data Analytic Associate</h3>
+            <p class="meta">
+              SoftwareONE | Mar 2023 – May 2023 | Xinyi Dist., Taipei City, Taiwan (R.O.C.) | Full-time
+            </p>
+            <ul>
+              <li>Completed 2023 Academy Program (soft skills & consultant training).</li>
+              <li>Engaged in global team collaboration and professional presentation delivery.</li>
+              <li>Conducted SQL-based data cleaning and built Power BI reports.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Edenred -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/edenred_logo.png" class="job-logo" alt="Edenred logo" />
+            <a class="cert-btn">Certificate of Completion</a>
+          </div>
+          <div class="job-right">
+            <h2>Edenred (France)</h2>
+            <h3>Financial Billing &amp; Credit Collection</h3>
+            <p class="meta">
+              Edenred | Sep 2022 – Dec 2022 | 4 M | Xinyi Dist., Taipei City, Taiwan (R.O.C.) | Full-time
+            </p>
+            <ul>
+              <li>Managed invoicing, payment requests, and account reconciliation.</li>
+              <li>Streamlined billing processes and created SOPs and summary dashboards.</li>
+              <li>Bridged cross-departmental and client communication.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="pubs" class="tab-content">
+        <h1>Publications</h1>
+        <div class="underline"></div>
+
+        <a class="cert-btn">Letter of Acceptance</a>
+
+        <ul class="pub-list">
+          <li>
+            <strong>[1]</strong>
+            Yung-Wen Cheng &amp; Meng-Hsien Yeh (2024, June).
+            <em>Exploring Mainstream Paths to New Technology Deployment: Technological, Market, and Network Perspectives.</em>
+            Paper presented at the <strong>Academy of Asian Management (AAOM)</strong>, Miri, Malaysia.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Extra Activities -->
+      <section id="extra" class="tab-content">
+        <h1>Extra Activities</h1>
+        <div class="underline"></div>
+
+        <p>
+          Outside of research and work, I actively participate in student and professional communities,
+          including Rotary scholarship networks, technology and blockchain meetups, and creative workshops.
+          I enjoy organizing events that connect people from academia, industry, and creative fields.
+        </p>
+
+        <ul class="simple-list">
+          <li>Rotary scholarship and community service activities.</li>
+          <li>Workshops on data, technology, and entrepreneurship.</li>
+          <li>Cross-disciplinary events combining business, tech, and design.</li>
+        </ul>
+      </section>
+
+      <!-- CV -->
+      <section id="cv" class="tab-content">
+        <h1>CV</h1>
+        <div class="underline"></div>
+
+        <p>
+          A detailed version of my academic CV and professional experience is available here:
+        </p>
+        <p>
+          <!-- 如果之後有 pdf，放在 /resume 資料夾，檔名改掉即可 -->
+          <a href="resume/Victoria_Cheng_CV.pdf" target="_blank" rel="noopener" class="cert-btn">
+            Download my CV (PDF)
           </a>
+        </p>
+      </section>
+    </div>
+  </div>
 
-          <a href="https://www.linkedin.com/in/victoria-chengyw/" class="ficon-button flinkedin"> 
-            <i class="fab fa-linkedin-in icon-linkedin"></i><span id="foot-icon-text">LinkedIn</span>
-          </a>
+  <!-- Tabs JS -->
+  <script>
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-          <a href="https://github.com/VictoriaC1122/" class="ficon-button fgithub"> 
-            <i class="fab fa-github icon-github"></i><span id="foot-icon-text">GitHub</span>
-          </a>
-        </div>
-        <div class="foot-right">
-          <p>
-            © 2023 Yung-Wen(Victoria) Cheng. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-    <script>
-      // 處理移動設備上的導航菜單
-      document.addEventListener('DOMContentLoaded', function() {
-        // 處理菜單項點擊後自動關閉菜單
-        var menuItems = document.querySelectorAll('.dropdown-content a');
-        menuItems.forEach(function(item) {
-          item.addEventListener('click', function() {
-            var dropdown = document.getElementById('myDropdown');
-            if (dropdown.classList.contains('show')) {
-              dropdown.classList.remove('show');
-            }
-          });
-        });
-        
-        // 修復移動設備上的點擊事件
-        if ('ontouchstart' in window) {
-          var iconButtons = document.querySelectorAll('.icon-button, .ficon-button');
-          iconButtons.forEach(function(btn) {
-            btn.addEventListener('touchstart', function() {
-              this.classList.add('hover-effect');
-            });
-            btn.addEventListener('touchend', function() {
-              this.classList.remove('hover-effect');
-            });
-          });
-        }
+    tabLinks.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-tab");
+
+        tabLinks.forEach((b) => b.classList.remove("active"));
+        tabContents.forEach((c) => c.classList.remove("active"));
+
+        btn.classList.add("active");
+        document.getElementById(targetId).classList.add("active");
       });
-      
-      // 導航欄下拉菜單
-      function topnavFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      // 點擊菜單外關閉下拉菜單
-      window.onclick = function(e) {
-        if (!e.target.matches('.dropbtn') && !e.target.matches('.fa-bars')) {
-          var dropdown = document.getElementById("myDropdown");
-          if (dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
-          }
-        }
-      }
-      
-      // 平滑滾動到頂部
-      function SmoothScrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
