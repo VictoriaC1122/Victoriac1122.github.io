@@ -188,6 +188,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin-bottom: 32px;
 }
 
 .photo-circle {
@@ -504,14 +505,18 @@ a:hover {
     padding: 32px 20px;
   }
 
-  .content-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .photo-block {
+    width: 100%;
+    margin-bottom: 24px;
   }
 
   .photo-circle {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .text-block {
+    width: 100%;
   }
 
   h1 {
@@ -578,9 +583,8 @@ a:hover {
   }
 
   .photo-circle {
-    width: 200px;
-    height: 200px;
-    border: 8px solid #f5f3f1;
+    width: 100%;
+    max-width: 240px;
   }
 
   .simple-list li {
@@ -626,54 +630,52 @@ a:hover {
 
       <!-- ABOUT ME -->
       <section id="about" class="tab-content active">
-        <div class="content-grid">
-          <div class="text-block">
-            <h1>About Me</h1>
-            <div class="underline"></div>
+        <h1>About Me</h1>
+        <div class="underline"></div>
 
-            <p>
-              I am a <strong>third-year Ph.D. student</strong> in the Department of International Business at
-              <strong>National Taiwan University (NTU)</strong>, specializing in
-              <strong>technological legitimacy, technology management, and innovation and entrepreneurship</strong>.
-              My interdisciplinary background—spanning finance, strategy, international business, and literature—enables
-              me to analyze complex organizational and technological phenomena from both analytical and narrative perspectives.
-            </p>
-
-            <p>
-              Since 2023, I have served as a <strong>Doctoral Research Assistant</strong> at NTU, contributing to research
-              projects involving emerging technologies, firm strategy, and institutional environments. My work includes
-              qualitative coding, quantitative data analysis, case writing, and academic literature development.
-            </p>
-
-            <p>
-              I also work as a <strong>Teaching Assistant</strong> for MBA and EMBA courses such as Management and Business
-              Model of Taiwanese Enterprises, Strategic Management, and Global Brand Management. These roles strengthened my
-              communication skills, instructional capabilities, and experience working with diverse student groups.
-            </p>
-
-            <p>
-              I have received several competitive awards, including the
-              <strong>MOE Ph.D. Scholarship (2024–2025)</strong>,
-              <strong>NTU Chin Hsueh Scholarship (2023–2024)</strong>, and
-              <strong>Rotary Academic Scholarship (2023–2024)</strong>.
-            </p>
-
-            <p>
-              Overall, I position myself as a <strong>cross-disciplinary talent</strong> who bridges academic research,
-              data analytics, and AI-assisted product development, turning ideas into actionable strategies and real products.
-            </p>
-
-            <div class="icon-row">
-              <a href="mailto:victoriacheng1122@gmail.com" title="Email">📧</a>
-              <a href="https://www.linkedin.com/in/victoria-chengyw/" target="_blank" rel="noopener" title="LinkedIn Profile">💼</a>
-              <a href="https://sites.google.com/view/cheng-yung-wen-victoria/homepage?authuser=0" target="_blank" rel="noopener" title="Previous Website">🌐</a>
-            </div>
+        <div class="photo-block">
+          <div class="photo-circle">
+            <img src="images/victoria_photo.JPG" alt="Victoria Cheng" />
           </div>
+        </div>
 
-          <div class="photo-block">
-            <div class="photo-circle">
-              <img src="images/victoria_photo.JPG" alt="Victoria Cheng" />
-            </div>
+        <div class="text-block">
+          <p>
+            I am a <strong>third-year Ph.D. student</strong> in the Department of International Business at
+            <strong>National Taiwan University (NTU)</strong>, specializing in
+            <strong>technological legitimacy, technology management, and innovation and entrepreneurship</strong>.
+            My interdisciplinary background—spanning finance, strategy, international business, and literature—enables
+            me to analyze complex organizational and technological phenomena from both analytical and narrative perspectives.
+          </p>
+
+          <p>
+            Since 2023, I have served as a <strong>Doctoral Research Assistant</strong> at NTU, contributing to research
+            projects involving emerging technologies, firm strategy, and institutional environments. My work includes
+            qualitative coding, quantitative data analysis, case writing, and academic literature development.
+          </p>
+
+          <p>
+            I also work as a <strong>Teaching Assistant</strong> for MBA and EMBA courses such as Management and Business
+            Model of Taiwanese Enterprises, Strategic Management, and Global Brand Management. These roles strengthened my
+            communication skills, instructional capabilities, and experience working with diverse student groups.
+          </p>
+
+          <p>
+            I have received several competitive awards, including the
+            <strong>MOE Ph.D. Scholarship (2024–2025)</strong>,
+            <strong>NTU Chin Hsueh Scholarship (2023–2024)</strong>, and
+            <strong>Rotary Academic Scholarship (2023–2024)</strong>.
+          </p>
+
+          <p>
+            Overall, I position myself as a <strong>cross-disciplinary talent</strong> who bridges academic research,
+            data analytics, and AI-assisted product development, turning ideas into actionable strategies and real products.
+          </p>
+
+          <div class="icon-row">
+            <a href="mailto:victoriacheng1122@gmail.com" title="Email">📧</a>
+            <a href="https://www.linkedin.com/in/victoria-chengyw/" target="_blank" rel="noopener" title="LinkedIn Profile">💼</a>
+            <a href="https://sites.google.com/view/cheng-yung-wen-victoria/homepage?authuser=0" target="_blank" rel="noopener" title="Previous Website">🌐</a>
           </div>
         </div>
       </section>
@@ -928,5 +930,3 @@ a:hover {
   </script>
 </body>
 </html>
-```
-
