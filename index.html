@@ -2,696 +2,970 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Victoria Cheng | Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Victoria Cheng | Researcher in Strategy, Innovation, and Emerging Technologies</title>
-  <meta
-    name="description"
-    content="Victoria Cheng is a researcher in strategy, innovation, and emerging technologies, studying legitimacy, interpretation, and market formation under uncertainty."
-  />
   <style>
-    :root {
-      --bg: #f3f6f5;
-      --surface: #ffffff;
-      --surface-strong: #edf2f0;
-      --text: #171717;
-      --muted: #58615c;
-      --line: #d6dfda;
-      --accent: #1f5b4b;
-      --accent-soft: #ddebe5;
-      --shadow: 0 18px 42px rgba(23, 23, 23, 0.08);
-      --max-width: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.7;
-      min-width: 320px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .site-shell {
-      width: min(100%, var(--max-width));
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(243, 246, 245, 0.9);
-      border-bottom: 1px solid rgba(214, 223, 218, 0.9);
-    }
-
-    .nav-inner {
-      width: min(100%, var(--max-width));
-      margin: 0 auto;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      font-size: 0.96rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 16px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 72px 0 56px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.9fr);
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.6rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 16px;
-      max-width: 10ch;
-    }
-
-    .hero-headline {
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      line-height: 1.35;
-      color: var(--text);
-      margin-bottom: 18px;
-      max-width: 20ch;
-    }
-
-    .hero-copy,
-    .section-copy,
-    .entry-copy,
-    .contact-copy {
-      font-size: 1.02rem;
-      color: var(--muted);
-    }
-
-    .hero-copy {
-      max-width: 62ch;
-      margin-bottom: 28px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: var(--accent);
-    }
-
-    .button.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #f8f5ef;
-    }
-
-    .button.primary:hover {
-      background: #18372e;
-    }
-
-    .hero-visual {
-      justify-self: end;
-      width: min(100%, 420px);
-    }
-
-    .portrait-frame {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .portrait-frame img {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center top;
-      width: 100%;
-    }
-
-    section {
-      padding: 54px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-header {
-      display: grid;
-      grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-      gap: 28px;
-      align-items: start;
-      margin-bottom: 26px;
-    }
-
-    .section-label {
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-      max-width: 18ch;
-    }
-
-    .section-copy {
-      max-width: 68ch;
-    }
-
-    .narrative-flow {
-      width: min(100%, 760px);
-      margin-left: auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .research-grid {
-      width: min(100%, 760px);
-      margin-left: auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .research-item,
-    .extension-card,
-    .experience-item,
-    .education-item,
-    .contact-panel {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 24px;
-    }
-
-    .research-item {
-      display: grid;
-      gap: 12px;
-    }
-
-    .research-index,
-    .entry-meta,
-    .education-meta,
-    .contact-links a {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .research-title,
-    .entry-title,
-    .education-title,
-    .extension-title {
-      font-size: 1.2rem;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-    }
-
-    .research-reference {
-      font-size: 0.95rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .extension-intro {
-      width: min(100%, 760px);
-      margin-left: auto;
-      margin-bottom: 22px;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .extensions-grid {
-      width: min(100%, 760px);
-      margin-left: auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .extension-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-
-    .extension-card img {
-      width: 82px;
-      height: 82px;
-      border-radius: 8px;
-      margin-bottom: 18px;
-      border: 1px solid var(--line);
-      object-fit: cover;
-    }
-
-    .extension-title {
-      margin-bottom: 10px;
-    }
-
-    .extension-card p {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .extension-footer {
-      width: min(100%, 760px);
-      margin: 22px 0 0 auto;
-    }
-
-    .experience-list,
-    .education-list {
-      width: min(100%, 760px);
-      margin-left: auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .entry-meta,
-    .education-meta {
-      margin-bottom: 12px;
-    }
-
-    .entry-copy,
-    .education-copy {
-      color: var(--muted);
-      font-size: 0.99rem;
-      max-width: 64ch;
-    }
-
-    .contact-layout {
-      width: min(100%, 760px);
-      margin-left: auto;
-    }
-
-    .contact-panel {
-      display: grid;
-      gap: 16px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .contact-links a {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-note {
-      width: min(100%, var(--max-width));
-      margin: 0 auto;
-      padding: 0 24px 36px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero,
-      .section-header {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        gap: 32px;
-      }
-
-      .hero-visual {
-        justify-self: start;
-        width: min(100%, 360px);
-      }
-
-      .extensions-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        max-width: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-inner,
-      .site-shell {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        gap: 10px 14px;
-        justify-content: flex-start;
-      }
-
-      .hero {
-        padding-top: 48px;
-      }
-
-      section {
-        padding: 42px 0;
-      }
-
-      .research-item,
-      .extension-card,
-      .experience-item,
-      .education-item,
-      .contact-panel {
-        padding: 20px;
-      }
-    }
+/* ============================
+   Global Styles
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #e8f4ff; /* 淡天空藍底 */
+  color: #333;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================
+   Page Layout
+============================ */
+.page-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px;
+}
+
+.page-card {
+  max-width: 1200px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* ============================
+   Navigation / Tabs
+============================ */
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 28px 72px;
+  background: #faf8f7;
+  border-bottom: 1px solid #f0ebe7;
+  flex-wrap: wrap;
+}
+
+.tab-link {
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.25s ease;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: normal;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+
+.tab-link:hover {
+  color: #666;
+}
+
+.tab-link.active {
+  color: #333;
+  border-bottom: 3px solid #d4a5e0;
+}
+
+/* ============================
+   Tab Content
+============================ */
+.tab-content {
+  display: none;
+  padding: 56px 72px 60px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================
+   Headings & Typography
+============================ */
+h1 {
+  font-size: 42px;
+  font-weight: normal;
+  margin: 0 0 20px;
+  letter-spacing: -0.5px;
+  color: #222;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 8px;
+  color: #222;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 6px;
+  color: #666;
+}
+
+p {
+  margin: 0 0 18px;
+  color: #333;
+  line-height: 1.8;
+}
+
+strong {
+  font-weight: 600;
+  color: #222;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: #9b6ba8;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+.underline {
+  width: 80px;
+  height: 2px;
+  background: #d4a5e0;
+  margin-bottom: 32px;
+  border-radius: 999px;
+}
+
+/* ============================
+   Content Grid (About Me - Left Text / Right Photo)
+============================ */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.text-block {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.text-block p {
+  margin-bottom: 18px;
+}
+
+/* 圖片區塊 */
+.photo-block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.photo-circle {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ============================
+   Icon Row (Social Links)
+============================ */
+.icon-row {
+  display: flex;
+  gap: 18px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.icon-row a {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f5f3f1;
+  color: #9b6ba8;
+  text-decoration: none;
+  font-size: 22px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.icon-row a:hover {
+  background: #ebe4dd;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================
+   Lists
+============================ */
+.simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.simple-list li {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f0ebe7;
+  line-height: 1.85;
+}
+
+.simple-list li:last-child {
+  border-bottom: none;
+}
+
+.simple-list strong {
+  color: #222;
+}
+
+/* ============================
+   Job Blocks (Experience Section)
+============================ */
+.job-block {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #f0ebe7;
+}
+
+.job-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.job-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.job-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f9f7f6;
+  padding: 8px;
+  border: 1px solid #f0ebe7;
+}
+
+.job-right {
+  padding-top: 8px;
+}
+
+.job-right h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.job-right h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.meta {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.job-right ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.job-right ul li {
+  margin-bottom: 10px;
+  line-height: 1.75;
+}
+
+/* ============================
+   Publications
+============================ */
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.pub-list li {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0ebe7;
+  line-height: 1.9;
+}
+
+.pub-list li:last-child {
+  border-bottom: none;
+}
+
+.pub-list strong {
+  color: #222;
+}
+
+.pub-list em {
+  color: #555;
+}
+
+/* ============================
+   App Grid (Extra Activities)
+============================ */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.app-card {
+  background: #faf8f7;
+  border-radius: 12px;
+  padding: 32px;
+  border: 1px solid #f0ebe7;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.app-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.app-card h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.app-meta {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.app-card p {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.app-card p:last-of-type {
+  margin-bottom: 20px;
+}
+
+/* ============================
+   Buttons & Links
+============================ */
+.cert-btn {
+  display: inline-block;
+  background: #f5f3f1;
+  color: #9b6ba8;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 1px solid #e8dfd7;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin: 16px 0;
+  font-weight: 600;
+}
+
+.cert-btn:hover {
+  background: #ebe4dd;
+  color: #7a4a84;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================
+   Responsive Design
+============================ */
+@media (max-width: 1024px) {
+  .tab-bar {
+    gap: 24px;
+    padding: 24px 48px;
+  }
+
+  .tab-link {
+    font-size: 14px;
+  }
+
+  .tab-content {
+    padding: 40px 48px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .job-block {
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+  }
+
+  .job-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-bg {
+    padding: 24px 12px;
+  }
+
+  .tab-bar {
+    gap: 12px;
+    padding: 16px 20px;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .tab-link {
+    font-size: 13px;
+    padding: 6px 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tab-content {
+    padding: 32px 20px;
+  }
+
+  .photo-block {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .photo-circle {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .text-block {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .job-block {
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+  }
+
+  .job-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .icon-row {
+    gap: 12px;
+  }
+
+  .icon-row a {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-card {
+    border-radius: 0;
+  }
+
+  .tab-bar {
+    gap: 8px;
+    padding: 12px 12px;
+  }
+
+  .tab-link {
+    font-size: 12px;
+    padding: 4px 0;
+  }
+
+  .tab-content {
+    padding: 24px 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .underline {
+    width: 60px;
+    height: 2px;
+    margin-bottom: 24px;
+  }
+
+  .photo-circle {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .simple-list li {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+
+  .job-block {
+    grid-template-columns: 60px 1fr;
+    gap: 12px;
+  }
+
+  .job-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .cert-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
   </style>
 </head>
+
 <body>
-  <header class="site-nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top">Victoria Cheng</a>
-      <nav class="nav-links" aria-label="Section navigation">
-        <a href="#identity">Identity</a>
-        <a href="#overview">Research Overview</a>
-        <a href="#selected-research">Selected Research</a>
-        <a href="#extensions">Research Extensions</a>
-        <a href="#experience">Academic Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+  <div class="page-bg">
+    <div class="page-card">
+
+      <!-- Tabs -->
+      <nav class="tab-bar">
+        <button class="tab-link active" data-tab="about">About Me</button>
+        <button class="tab-link" data-tab="education">Education</button>
+        <button class="tab-link" data-tab="experience">Enterprise Work Experience</button>
+        <button class="tab-link" data-tab="pubs">Publications</button>
+        <button class="tab-link" data-tab="extra">Extra Activities</button>
+        <button class="tab-link" data-tab="cv">CV</button>
       </nav>
-    </div>
-  </header>
 
-  <main id="top" class="site-shell">
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <span class="eyebrow">Academic Research</span>
-        <h1 id="hero-title">Victoria Cheng</h1>
-        <p class="hero-headline">Researcher in Strategy, Innovation, and Emerging Technologies</p>
-        <p class="hero-copy">
-          Studying how emerging technologies become credible, interpretable, and adopted in uncertain market environments.
-        </p>
-        <p class="hero-copy">
-          My research examines how firms construct legitimacy under technological uncertainty, how innovation is interpreted by external audiences, and how emerging technologies transition into investable and scalable opportunities.
-        </p>
-        <div class="cta-row">
-          <a class="button primary" href="#selected-research">View Research</a>
-          <a class="button" href="resume/resume.pdf" target="_blank" rel="noopener">View CV</a>
-          <a class="button" href="#contact">Contact</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="portrait-frame">
-          <img src="images/victoria_photo.JPG" alt="Portrait of Victoria Cheng" />
-        </div>
-      </div>
-    </section>
+      <!-- ABOUT ME -->
+      <section id="about" class="tab-content active">
+        <h1>About Me</h1>
+        <div class="underline"></div>
 
-    <section id="identity" aria-labelledby="identity-title">
-      <div class="section-header">
-        <div class="section-label">Core Research Identity</div>
-        <div>
-          <h2 id="identity-title">Legitimacy, interpretation, and market formation in emerging technologies</h2>
-          <p class="section-copy">
-            I study how emerging technologies evolve from uncertain ideas into legitimate and actionable market constructs. My work focuses on the role of strategic communication, technological framing, and institutional context in shaping how innovation is evaluated by investors, organizations, and broader ecosystems. I am particularly interested in how firms navigate ambiguity and construct credibility in environments where performance signals are weak or unavailable.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="overview" aria-labelledby="overview-title">
-      <div class="section-header">
-        <div class="section-label">Research Overview</div>
-        <div>
-          <h2 id="overview-title">How technological meaning becomes market-relevant</h2>
-          <p class="section-copy">
-            My research explores how firms communicate and position emerging technologies under conditions of uncertainty.
-          </p>
-        </div>
-      </div>
-      <div class="narrative-flow">
-        <p class="section-copy">
-          I examine how different forms of technological articulation influence external evaluation processes, particularly in early-stage markets where traditional performance indicators are absent.
-        </p>
-        <p class="section-copy">
-          Rather than treating technological narratives as neutral information, I conceptualize them as strategic signals embedded within broader evaluative environments. My work investigates when such signals enhance interpretability and credibility, and when they instead contribute to ambiguity or noise.
-        </p>
-        <p class="section-copy">
-          Across projects, I focus on the interaction between technological maturity, institutional expectations, and audience interpretation. This perspective allows me to better understand how innovation is translated into market-relevant meaning, and how firms shape the conditions under which new technologies become accepted and adopted.
-        </p>
-      </div>
-    </section>
-
-    <section id="selected-research" aria-labelledby="selected-title">
-      <div class="section-header">
-        <div class="section-label">Selected Research</div>
-        <div>
-          <h2 id="selected-title">Research on technology disclosure, legitimacy, and adoption under uncertainty</h2>
-          <p class="section-copy">
-            Current projects examine how firms make emerging technologies interpretable to external audiences and how credibility is constructed before market consensus has fully formed.
-          </p>
-        </div>
-      </div>
-      <div class="research-grid">
-        <article class="research-item">
-          <div class="research-index">Selected Research 01</div>
-          <h3 class="research-title">Signal or Noise? Technology Disclosure and Startup Funding</h3>
-          <p class="section-copy">
-            This project examines how early-stage technology ventures communicate technological capabilities to external audiences. It focuses on how different forms of technological articulation influence whether firms are perceived as credible and investable under conditions of uncertainty.
-          </p>
-          <p class="section-copy">
-            The study highlights how the informational value of technological narratives depends on their contextual interpretation rather than their mere presence.
-          </p>
-          <div class="research-reference">Academy of International Business (AIB) 2026 — Competitive Session</div>
-        </article>
-
-        <article class="research-item">
-          <div class="research-index">Selected Research 02</div>
-          <h3 class="research-title">Legitimacy-First Innovation</h3>
-          <p class="section-copy">
-            This research investigates how firms developing emerging technologies navigate environments characterized by institutional ambiguity and regulatory uncertainty. It proposes that, in such contexts, legitimacy is not a byproduct of innovation but a prerequisite for it.
-          </p>
-          <p class="section-copy">
-            The study develops a framework for understanding how firms align with institutional expectations, build credibility across stakeholders, and shape pathways toward mainstream adoption.
-          </p>
-          <div class="research-reference">Academy of International Business (AIB) 2026 — Interactive Session</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="extensions" aria-labelledby="extensions-title">
-      <div class="section-header">
-        <div class="section-label">Research Extensions</div>
-        <div>
-          <h2 id="extensions-title">Translating theoretical ideas into practical formats</h2>
-          <p class="section-copy">
-            In addition to academic research, I explore how theoretical insights can be translated into practical tools.
-          </p>
-        </div>
-      </div>
-      <div class="extension-intro">
-        <p>
-          These projects are not purely commercial products, but experiments in applying concepts from decision-making, financial reasoning, and behavioral design to real-world contexts.
-        </p>
-      </div>
-      <div class="extensions-grid">
-        <article class="extension-card">
-          <img src="images/AITimeManagement.png" alt="AI Time Management app icon" />
-          <h3 class="extension-title">AI Time Management</h3>
-          <p>
-            A conceptual exploration of how algorithmic systems can support structured decision-making and behavioral consistency.
-          </p>
-        </article>
-
-        <article class="extension-card">
-          <img src="images/CompoundInterestCalculator.png" alt="Compound Interest Calculator app icon" />
-          <h3 class="extension-title">Compound Interest Calculator</h3>
-          <p>
-            A tool that translates abstract financial principles into intuitive decision frameworks, focusing on long-term value perception and inflation-adjusted reasoning.
-          </p>
-        </article>
-
-        <article class="extension-card">
-          <img src="images/EasyLuckyDraw.png" alt="Easy Lucky Draw app icon" />
-          <h3 class="extension-title">Easy Lucky Draw</h3>
-          <p>
-            A simple system reflecting how randomness, fairness perception, and user experience influence engagement in group decision settings.
-          </p>
-        </article>
-      </div>
-      <div class="extension-footer">
-        <a class="button" href="https://victoriac1122.github.io/apps/" target="_blank" rel="noopener">More Research Translation Projects</a>
-      </div>
-    </section>
-
-    <section id="experience" aria-labelledby="experience-title">
-      <div class="section-header">
-        <div class="section-label">Academic Experience</div>
-        <div>
-          <h2 id="experience-title">Research and teaching in strategy-oriented academic settings</h2>
-          <p class="section-copy">
-            My academic work combines research development, interpretive analysis, and classroom engagement across strategy and management contexts.
-          </p>
-        </div>
-      </div>
-      <div class="experience-list">
-        <article class="experience-item">
-          <div class="entry-meta">National Taiwan University</div>
-          <h3 class="entry-title">Doctoral Research Assistant</h3>
-          <p class="entry-copy">
-            Contributed to research on emerging technologies, legitimacy, innovation, and strategic interpretation. This work has included project development, literature synthesis, qualitative and quantitative analysis, and the articulation of research questions concerning how new technologies become credible within broader evaluative environments.
-          </p>
-        </article>
-
-        <article class="experience-item">
-          <div class="entry-meta">MBA / EMBA Programs</div>
-          <h3 class="entry-title">Teaching Assistant</h3>
-          <p class="entry-copy">
-            Supported instruction in strategic management, business models, and global strategy courses. Engaged in discussion facilitation, content explanation, and the translation of theoretical frameworks into applied managerial contexts.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="education" aria-labelledby="education-title">
-      <div class="section-header">
-        <div class="section-label">Education</div>
-        <div>
-          <h2 id="education-title">Interdisciplinary training across business, finance, and interpretation</h2>
-          <p class="section-copy">
-            My training combines analytical rigor with interdisciplinary sensitivity to language, narrative, and interpretation.
-          </p>
-        </div>
-      </div>
-      <div class="education-list">
-        <article class="education-item">
-          <div class="education-meta">National Taiwan University</div>
-          <h3 class="education-title">Ph.D. in International Business</h3>
-          <p class="education-copy">
-            Ongoing doctoral research in strategy, innovation, and emerging technologies, with particular attention to legitimacy, interpretation, and market formation under uncertainty.
-          </p>
-        </article>
-
-        <article class="education-item">
-          <div class="education-meta">Fu Jen Catholic University</div>
-          <h3 class="education-title">MBA in Financial Management</h3>
-          <p class="education-copy">
-            Graduate training in financial reasoning, evaluation, and strategic decision contexts that continue to inform my research perspective on uncertainty and external judgment.
-          </p>
-        </article>
-
-        <article class="education-item">
-          <div class="education-meta">Tamkang University</div>
-          <h3 class="education-title">Bachelor’s Degrees in International Business and Chinese Literature</h3>
-          <p class="education-copy">
-            A dual foundation in business analysis and literary interpretation that informs my interest in how language, framing, and institutional context shape the meaning of innovation.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-title">
-      <div class="section-header">
-        <div class="section-label">Contact</div>
-        <div>
-          <h2 id="contact-title">Get in touch</h2>
-          <p class="section-copy">
-            For academic correspondence, research conversations, or invitations related to strategy, innovation, and emerging technologies, please reach out directly.
-          </p>
-        </div>
-      </div>
-      <div class="contact-layout">
-        <div class="contact-panel">
-          <p class="contact-copy">
-            I welcome conversations on technological legitimacy, investor interpretation, market formation, and the strategic evaluation of emerging technologies.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:victoriacheng1122@gmail.com">victoriacheng1122@gmail.com</a>
-            <a href="https://www.linkedin.com/in/victoria-chengyw/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="resume/resume.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+        <div class="photo-block">
+          <div class="photo-circle">
+            <img src="images/victoria_photo.JPG" alt="Victoria Cheng" />
           </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer-note">
-    Victoria Cheng — Researcher in Strategy, Innovation, and Emerging Technologies
-  </footer>
+        <div class="text-block">
+          <p>
+            I am a <strong>third-year Ph.D. student</strong> in the Department of International Business at
+            <strong>National Taiwan University (NTU)</strong>. My research focuses on <strong>technological legitimacy, technology management, and innovation and entrepreneurship</strong>, examining how emerging technologies gain acceptance, credibility, and scale within institutional, market, and organizational environments.
+          </p>
+
+          <p>
+            Trained across finance, strategy, international business, and Chinese literature, I bring an <strong>interdisciplinary perspective that integrates analytical rigor with attention to narratives and meaning</strong>. This background allows me to study technological phenomena not only as strategic or economic outcomes, but also as socially embedded processes shaped by discourse, signaling, and institutional context.
+          </p>
+
+          <p>
+            Since 2023, I have served as a <strong>Doctoral Research Assistant</strong> at NTU, contributing to projects on emerging technologies, firm strategy, and nonmarket environments. My research experience includes qualitative coding, quantitative and archival data analysis, case development, and academic writing.
+          </p>
+
+          <p>
+            In parallel, I have worked as a <strong>Teaching Assistant</strong> for MBA and EMBA courses in strategic management and global brand management, strengthening my ability to communicate complex ideas and connect theory with managerial practice.
+          </p>
+
+          <p>
+            My academic training has been supported by competitive fellowships and scholarships, including the <strong>MOE Ph.D. Scholarship (2024–2025)</strong>, the <strong>NTU Chin Hsueh Scholarship</strong>, and the <strong>Rotary Academic Scholarship</strong>.
+          </p>
+
+          <p>
+            Beyond academia, I engage in <strong>iOS application design</strong>, independently developing consumer-facing applications that translate research insights into practical tools. I position myself as a researcher who bridges <strong>theory and application</strong>, moving between academic inquiry and real-world implementation.
+          </p>
+
+          <div class="icon-row">
+            <a href="mailto:victoriacheng1122@gmail.com" title="Email">📧</a>
+            <a href="https://www.linkedin.com/in/victoria-chengyw/" target="_blank" rel="noopener" title="LinkedIn Profile">💼</a>
+            <a href="https://sites.google.com/view/cheng-yung-wen-victoria/homepage?authuser=0" target="_blank" rel="noopener" title="Previous Website">🌐</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="tab-content">
+        <h1>Education</h1>
+        <div class="underline"></div>
+
+        <ul class="simple-list">
+
+          <li>
+            <strong>National Taiwan University (NTU)</strong> – Doctor of Philosophy (Ph.D.), International Business  
+            <br />Sep 2023 – Present | GPA 4.1 / 4.3  
+            <br /><em>Areas of focus:</em> Strategy Management  
+            <br /><em>Teaching Assistant:</em>  
+            <br />• MBA Management and Business Model of Taiwanese Enterprises (2023.9–2023.12)  
+            <br />• EMBA Strategic Management (2024.1–2024.6)  
+            <br />• MBA Global Brand Management (2024.2–2024.6)  
+            <br /><em>Scholarships:</em>  
+            <br />MOE Ph.D. Scholarship (2024–2025)  
+            <br />NTU Chin Hsueh Scholarship (2023–2024)  
+            <br />Rotary Academic Scholarship (2023–2024)  
+            <br /><em>Clubs:</em> NTU ibank (OIC), NTU Diving Club, NTU iOS Club
+          </li>
+
+          <li>
+            <strong>Fu Jen Catholic University</strong> – Master of Business Administration (MBA), Financial Management  
+            <br />Sep 2020 – Jun 2022 | GPA 3.98 / 4.0 (Average: 90.8 / 100)  
+            <br /><em>Areas of focus:</em> Financial Management; 65 credits across 4 semesters  
+            <br /><em>Teaching Assistant:</em>  
+            <br />• Strategic Management (2020.9–2021.1)  
+            <br />• Financial Management (2021.9–2022.6)  
+            <br />• Investment (2022.2–2022.6)  
+            <br /><em>Scholarships:</em> Presidential Award; Rotary Scholarship 2021–2022  
+            <br /><em>Club:</em> TMBA
+          </li>
+
+          <li>
+            <strong>Tamkang University</strong> – Bachelor of Business Administration (BBA), International Business  
+            <br />Sep 2017 – Jun 2019  
+            <br /><em>Minor:</em> International Business  
+            <br /><em>Credits:</em> 170 credits across 8 semesters
+          </li>
+
+          <li>
+            <strong>Tamkang University</strong> – Bachelor of Arts (BA), Chinese Literature  
+            <br />Sep 2015 – Jun 2019  
+            <br /><em>Clubs:</em> TKG Guitar Club, TKU NTP Club  
+            <br /><em>Major:</em> Chinese Literature
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="tab-content">
+        <h1>Enterprise Work Experience</h1>
+        <div class="underline"></div>
+
+        <!-- Doctoral RA (LATEST) -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/NTULOGO.png" class="job-logo" alt="NTU logo" />
+          </div>
+          <div class="job-right">
+            <h2>National Taiwan University (Taiwan)</h2>
+            <h3>Doctoral Research Assistant (Part-time)</h3>
+            <p class="meta">
+              Sep 2023 – Present | Taipei City, Taiwan (R.O.C.) | Hybrid
+            </p>
+            <ul>
+              <li>Assist research on technological legitimacy, nonmarket strategy, and innovation in emerging technologies.</li>
+              <li>Conduct qualitative coding, survey design, case research, and quantitative analysis.</li>
+              <li>Support course development for MBA and EMBA strategic management and technology-related programs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SoftwareONE -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/softwareoneLOGO.png" class="job-logo" alt="SoftwareONE logo" />
+          </div>
+          <div class="job-right">
+            <h2>SoftwareONE (Switzerland)</h2>
+            <h3>Data Analytics Associate</h3>
+            <p class="meta">Mar 2023 – May 2023 | Xinyi Dist., Taipei City, Taiwan (R.O.C.) | Full-time</p>
+            <ul>
+              <li>Analyzed large-scale business data using SQL to identify revenue patterns and operational inefficiencies.</li>
+              <li>Built Power BI dashboards to support strategic decision-making and performance monitoring across global teams.</li>
+              <li>Translated data insights into actionable business recommendations, improving reporting accuracy and operational visibility.</li>
+              <li>Collaborated with cross-functional teams to align data outputs with business and client needs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Edenred -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/EdenredLOGO.png" class="job-logo" alt="Edenred logo" />
+          </div>
+          <div class="job-right">
+            <h2>Edenred (France)</h2>
+            <h3>Financial Billing &amp; Credit Collection</h3>
+            <p class="meta">Sep 2022 – Dec 2022 | Xinyi Dist., Taipei City, Taiwan (R.O.C.) | Full-time</p>
+            <ul>
+              <li>Managed invoicing and payment processes while analyzing cash flow patterns and credit risk exposure.</li>
+              <li>Developed process improvements and reporting frameworks to enhance financial transparency and efficiency.</li>
+              <li>Created dashboards and SOPs to support financial decision-making and cross-department coordination.</li>
+              <li>Acted as a liaison between internal teams and clients to ensure accurate financial communication.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NETGEAR -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/NETGEARLOGO.png" class="job-logo" alt="NETGEAR logo" />
+          </div>
+          <div class="job-right">
+            <h2>NETGEAR (USA)</h2>
+            <h3>Regulatory Compliance Analyst (Intern)</h3>
+            <p class="meta">Sep 2021 – Mar 2022 | 6 M | Neihu Dist., Taipei City, Taiwan (R.O.C.)</p>
+            <ul>
+              <li>Conducted in-depth analysis of EU regulatory frameworks and their implications for product and business strategy.</li>
+              <li>Automated compliance reporting processes using VBA, improving efficiency and reducing manual errors.</li>
+              <li>Evaluated regulatory risks and ensured alignment with international standards.</li>
+              <li>Supported internal knowledge transfer through technical documentation and training materials.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Air Liquide -->
+        <div class="job-block">
+          <div class="job-left">
+            <img src="images/AirLiquideLOGO.png" class="job-logo" alt="Air Liquide logo" />
+          </div>
+          <div class="job-right">
+            <h2>Air Liquide (France)</h2>
+            <h3>Business Transformation Data Analyst (Intern)</h3>
+            <p class="meta">
+              Jul 2021 – Aug 2021 | Neihu Dist., Taipei City, Taiwan (R.O.C.) |
+              Via ALFE 2021 International Summer Internship Program
+            </p>
+            <ul>
+              <li>Developed data-driven dashboards to support business transformation and operational optimization.</li>
+              <li>Identified performance trends and provided insights for strategic decision-making.</li>
+              <li>Assisted in cross-functional projects integrating data analysis with business execution.</li>
+              <li>Supported internal initiatives including event coordination and content production.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="pubs" class="tab-content">
+        <h1>Publications</h1>
+        <div class="underline"></div>
+
+        <a href="https://victoriac1122.github.io/resume/aaomletterofacceptance.pdf" target="_blank" rel="noopener noreferrer" class="cert-btn">Letter of Acceptance</a>
+        <ul class="pub-list">
+          <li>
+            <strong>[1]</strong>
+            Yung-Wen Cheng &amp; Meng-Hsien Yeh (2024, June).
+            <em>Exploring Mainstream Paths to New Technology Deployment: Technological, Market, and Network Perspectives.</em>
+            Presented at the <strong>Academy of Asian Management (AAOM)</strong>, Miri, Malaysia.
+          </li>
+          <li>
+            <strong>[2]</strong>
+            Yung-Wen Cheng &amp; Chao-Ya Wan (2026).
+            <em>Signal or Noise? Maturity-Adjusted Technical Disclosure and Multi-Stage Startup Funding Decisions.</em>
+            Accepted for <strong>Competitive Presentation</strong> at the <strong>Academy of International Business (AIB) 2026 Annual Meeting</strong>, Manchester, United Kingdom.
+          </li>
+          <li>
+            <strong>[3]</strong>
+            Yung-Wen Cheng &amp; Meng-Hsien Yeh (2026).
+            <em>Legitimacy-First Innovation: How Emerging Technology Firms Construct Mainstream Pathways under Institutional Ambiguity.</em>
+            Accepted for <strong>Interactive Presentation</strong> at the <strong>Academy of International Business (AIB) 2026 Annual Meeting</strong>, Manchester, United Kingdom.
+          </li>
+        </ul>
+      </section>
+
+      <!-- EXTRA ACTIVITIES -->
+      <section id="extra" class="tab-content">
+        <h1>Extra Activities</h1>
+        <div class="underline"></div>
+
+        <p>
+          Beyond academic research and enterprise experience, I actively explore product development and app design.
+          These side projects reflect my identity as a <strong>cross-disciplinary creator</strong>, combining
+          strategic thinking, UX design, and hands-on SwiftUI implementation.
+        </p>
+
+        <p>
+          More app development projects and brief introductions are available on my dedicated app portfolio page.
+        </p>
+        <a href="https://victoriac1122.github.io/apps/" target="_blank" rel="noopener noreferrer" class="cert-btn">
+          More App Projects &amp; Introductions
+        </a>
+
+        <div class="app-grid">
+          <!-- AI Time Management -->
+          <article class="app-card">
+            <img src="images/AITimeManagement.png" alt="AI Time Management App Icon" class="app-icon" />
+            <h2>AI Time Management</h2>
+            <p class="app-meta">iOS App · 2025 · Solo-designed and developed</p>
+            <p>
+              A productivity application that integrates AI-powered task generation, smart scheduling, and
+              habit-building logic to help users organize their day more efficiently.
+              The app showcases my ability to translate behavioral insights and AI capabilities into an intuitive
+              interface that supports real-world time management.
+            </p>
+            <p>
+              It illustrates my cross-domain strengths in <strong>human–computer interaction, behavioral design,
+              and applied AI integration</strong>.
+            </p>
+            <a href="https://apps.apple.com/tw/app/ai%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/id6754973616?l=en-GB"
+               target="_blank" rel="noopener" class="cert-btn">
+              View on App Store
+            </a>
+          </article>
+
+          <!-- Easy Lucky Draw -->
+          <article class="app-card">
+            <img src="images/EasyLuckyDraw.png" alt="Easy Lucky Draw App Icon" class="app-icon" />
+            <h2>Easy Lucky Draw</h2>
+            <p class="app-meta">iOS App · 2025 · Solo-designed and developed</p>
+            <p>
+              A lightweight and intuitive random draw application designed for events, classrooms, and team activities.
+              With clean visual design and real-time animation effects, the app allows organizers to run lucky draws
+              quickly and transparently.
+            </p>
+            <p>
+              This project highlights my <strong>design thinking, SwiftUI implementation skills, and ability to ship
+              functional consumer apps independently</strong>, bridging creativity, technology, and user engagement.
+            </p>
+            <a href="https://apps.apple.com/tw/app/%E8%BC%95%E9%AC%86%E6%8A%BD%E7%8D%8E%E7%A8%8B%E5%BC%8F/id6755403297?l=en-GB"
+               target="_blank" rel="noopener" class="cert-btn">
+              View on App Store
+            </a>
+          </article>
+
+          <!-- Compound Interest Calculator -->
+          <article class="app-card">
+            <img src="images/CompoundInterestCalculator.png" alt="Compound Interest Calculator App Icon" class="app-icon" />
+            <h2>Compound Interest Calculator</h2>
+            <p class="app-meta">iOS App · 2025 · Solo-designed and developed</p>
+            <p>
+              An advanced financial utility designed to simplify compound interest calculations for investment growth tracking.
+              The app empowers users to compare "nominal returns" and "real returns," enabling evidence-based financial decision-making
+              tailored for new investors, working professionals, and personal finance planners.
+            </p>
+            <p>
+              This project demonstrates my <strong>financial domain expertise, ability to translate complex calculations into
+              intuitive interfaces, and commitment to democratizing financial literacy</strong>, making sophisticated financial
+              tools accessible within seconds.
+            </p>
+            <a href="https://apps.apple.com/tw/app/%E8%A4%87%E5%88%A9%E8%A8%88%E7%AE%97%E5%99%A8-%E8%83%BD%E8%A8%88%E7%AE%97%E9%80%9A%E8%86%A8%E7%9A%84%E9%80%B2%E9%9A%8E%E5%B7%A5%E5%85%B7/id6756014104?l=en-GB"
+               target="_blank" rel="noopener" class="cert-btn">
+              View on App Store
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- CV -->
+      <section id="cv" class="tab-content">
+        <h1>CV</h1>
+        <div class="underline"></div>
+        <p>You may download my full academic CV here:</p>
+        <p>
+          <a href="resume/resume.pdf" target="_blank" rel="noopener" class="cert-btn">
+            Download CV (PDF)
+          </a>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Tabs JS -->
+  <script>
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabLinks.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-tab");
+
+        tabLinks.forEach((b) => b.classList.remove("active"));
+        tabContents.forEach((c) => c.classList.remove("active"));
+
+        btn.classList.add("active");
+        document.getElementById(targetId).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
