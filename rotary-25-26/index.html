@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>25-26 年度展示網站｜詠文・婉華</title>
+    <title>25-26 年度展示網站｜首頁</title>
     <meta
       name="description"
-      content="依月份整理 2025.06 至 2026.05 的年度活動展示網站，優先呈現大合照、會長人物照與代表畫面。"
+      content="25-26 年度展示網站首頁，分成活動頁與會長介紹頁，整理 2025.06 至 2026.05 的年度內容。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,18 +23,18 @@
 
     <div class="page-shell">
       <header class="topbar">
-        <a class="brand" href="#top">
+        <a class="brand" href="index.html">
           <span class="brand-mark">25-26</span>
           <span class="brand-copy">
             <strong>年度展示網站</strong>
-            <span>詠文・婉華 Monthly Archive</span>
+            <span>詠文・婉華 Rotary Yearbook</span>
           </span>
         </a>
 
-        <nav class="topbar-nav" aria-label="頁面捷徑">
-          <a href="#leaders">會長介紹</a>
-          <a href="#archive">年度時間軸</a>
-          <a href="#method">選圖原則</a>
+        <nav class="topbar-nav" aria-label="頁面導覽">
+          <a href="index.html" aria-current="page">首頁</a>
+          <a href="activities.html">活動頁</a>
+          <a href="leaders.html">會長介紹</a>
         </nav>
       </header>
 
@@ -42,39 +42,45 @@
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Rotary Yearbook 2025-2026</p>
-            <h1>把一整年的活動，整理成可以慢慢翻看的月度展覽。</h1>
+            <h1>把年度內容整理成兩個清楚頁面，分開慢慢看。</h1>
             <p class="hero-text">
-              這個版本依照你提供的資料夾，從
-              <strong>2025.06 交接典禮＆九份畢旅</strong> 一路排到
-              <strong>2026.05 直播例會</strong>。每個月份都有活動，11 月因為有兩場職業例會，這一版會整合成同一個月份章節來展示。畫面優先選用大合照、兩位會長相關素材與活動代表照片；若該月目前只有文件，先以活動封面補齊展示版位。
+              這個版本把網站整理成更清楚的分頁結構。
+              <strong>活動頁</strong> 專門看 2025.06 到 2026.05 的年度時間軸與活動照片，
+              <strong>會長介紹頁</strong> 則集中整理婉華與詠文的正式資料與年度回顧，手機上也會更順。
             </p>
 
-            <div class="hero-actions" aria-label="快速查看方式">
-              <a class="hero-action hero-action-primary" href="#archive">開始翻閱年度活動</a>
-              <button
-                class="hero-action hero-action-secondary"
-                id="heroPhotoFilter"
-                type="button"
-              >
-                先看已補照片的月份
-              </button>
+            <div class="hero-actions" aria-label="快速入口">
+              <a class="hero-action hero-action-primary" href="activities.html">進入活動頁</a>
+              <a class="hero-action hero-action-secondary" href="leaders.html">查看會長介紹</a>
             </div>
 
-            <div class="hero-stats" id="heroStats" aria-label="年度摘要"></div>
+            <div class="hero-stats" aria-label="年度摘要">
+              <article class="stat-card">
+                <strong>12</strong>
+                <span>月度活動</span>
+              </article>
+              <article class="stat-card stat-card--wide">
+                <strong>2025.06 → 2026.05</strong>
+                <span>展示範圍</span>
+              </article>
+              <article class="stat-card">
+                <strong>5</strong>
+                <span>已接入實拍月份</span>
+              </article>
+            </div>
 
-            <div class="method-strip" id="method">
-              <span>選圖優先順序</span>
-              <strong>大合照</strong>
-              <strong>婉華・詠文</strong>
-              <strong>活動代表畫面</strong>
-              <strong>文件封面補位</strong>
+            <div class="method-strip">
+              <span>網站分頁</span>
+              <strong>首頁總覽</strong>
+              <strong>活動時間軸</strong>
+              <strong>會長介紹</strong>
             </div>
 
             <div class="hero-signature">
-              <span>Exhibition Cut</span>
-              <strong>12 Chapters. 1 Rotary Year.</strong>
+              <span>Annual Navigation</span>
+              <strong>One Rotary Year, Split Into Clear Chapters.</strong>
               <p>
-                用展覽式編排把一整年的活動重新梳理，讓每個月份不只是相簿，而是有節奏、有主題的年度敘事。
+                把原本長頁內容拆成不同入口後，查活動、看照片、讀會長介紹都會更直接，也比較適合分享給別人看。
               </p>
             </div>
           </div>
@@ -82,203 +88,112 @@
           <div class="hero-collage" aria-label="年度精選畫面">
             <article class="collage-card collage-card-main">
               <img
-                src="assets/photos/june-group.jpg"
+                src="assets/photos/june-handover-group-1.jpg"
                 alt="2025 年 6 月交接典禮大合照"
               />
               <div class="collage-caption">
-                <span>2025.06</span>
-                <strong>交接典禮＆九份畢旅</strong>
+                <span>Activities</span>
+                <strong>年度活動時間軸</strong>
               </div>
             </article>
 
             <article class="collage-card collage-card-side">
               <img
-                src="assets/photos/jan-awards-1.jpg"
-                alt="2026 年 1 月頒獎典禮代表畫面"
+                src="assets/photos/july-training-group-1.jpg"
+                alt="2025 年 7 月幹部訓練團體照"
               />
               <div class="collage-caption">
-                <span>2026.01</span>
-                <strong>頒獎典禮</strong>
+                <span>2025.07</span>
+                <strong>聯合幹部訓練</strong>
               </div>
             </article>
 
             <article class="collage-card collage-card-side">
               <img
-                src="assets/photos/april-beach-group-1.jpg"
-                alt="2026 年 4 月淨灘例會大合照"
+                src="assets/photos/may-live-group.jpg"
+                alt="2026 年 5 月直播講座例會大合照"
               />
               <div class="collage-caption">
-                <span>2026.04</span>
-                <strong>淨灘例會</strong>
+                <span>2026.05</span>
+                <strong>直播講座例會</strong>
               </div>
             </article>
 
             <aside class="collage-note">
-              <span>Curated Selection</span>
+              <span>Site Structure</span>
               <p>
-                目前網站優先放入大合照、會長相關畫面，以及最能代表活動氣氛的照片；每補進新資料，就會直接升級成正式展頁。
+                先從首頁選擇想看的方向，再進入活動頁或會長介紹頁，避免所有內容擠在同一個長頁裡。
               </p>
             </aside>
           </div>
         </section>
 
-        <section class="leaders-section" id="leaders">
-          <div class="leaders-copy">
-            <p class="eyebrow">Leadership Portrait</p>
-            <h2>2025-26 年度會長介紹</h2>
-            <p class="leaders-intro">
-              依交接典禮手冊整理本年度兩位會長的正式資料與年度回顧。這一年的節奏，從交接、九份、宜蘭幹訓，到一整排例會與公益活動，都是由婉華與詠文一起帶著大家往前走。
+        <section class="portal-section">
+          <div class="portal-copy">
+            <p class="eyebrow">Page Directory</p>
+            <h2>兩個主頁面，分開讀完整個年度。</h2>
+            <p class="portal-intro">
+              一頁專心看活動，一頁專心看會長，首頁則保留年度總覽與入口。
             </p>
           </div>
 
-          <div class="leaders-layout">
-            <article class="leaders-visual">
-              <img
-                src="assets/photos/june-handover-group-1.jpg"
-                alt="2025-26 年度交接典禮合照"
-              />
-              <div class="leaders-visual-copy">
-                <span>2025-26 Leadership</span>
-                <strong>詠文・婉華</strong>
-                <p>從年度交接正式啟程，也替整個 25-26 年度留下最清楚的開場畫面。</p>
+          <div class="portal-grid">
+            <a class="portal-card" href="activities.html">
+              <div class="portal-media">
+                <img
+                  src="assets/photos/april-beach-group-1.jpg"
+                  alt="活動頁預覽"
+                />
               </div>
-            </article>
-
-            <div class="leader-grid">
-              <article class="leader-card">
-                <div class="leader-head">
-                  <span class="leader-role">北區分會長</span>
-                  <h3>洪婉華 Hannah</h3>
-                </div>
-
-                <dl class="leader-meta">
-                  <div>
-                    <dt>服務單位</dt>
-                    <dd>凱基證券市府分公司 業務副理</dd>
-                  </div>
-                  <div>
-                    <dt>受獎年度</dt>
-                    <dd>21-22</dd>
-                  </div>
-                  <div>
-                    <dt>照顧社</dt>
-                    <dd>永和扶輪社</dd>
-                  </div>
-                </dl>
-
-                <blockquote class="leader-quote">
-                  允許一切的發生，遇到問題，解決問題。
-                </blockquote>
-
-                <p class="leader-summary">
-                  依手冊中的卸任感言整理，婉華把這一年視為一段從緊張籌備走向穩定承擔的成長歷程；她也特別感謝扶輪前輩、幹部與獎學生夥伴，讓聯誼會成為一個充滿溫暖與凝聚力的大家庭。
+              <div class="portal-body">
+                <span class="portal-kicker">Activities</span>
+                <h3>活動頁</h3>
+                <p>
+                  直線時間軸整理 2025.06 到 2026.05 的 12 個月份活動，可直接點開每個月份看照片、日期與附件下載。
                 </p>
-              </article>
-
-              <article class="leader-card">
-                <div class="leader-head">
-                  <span class="leader-role">新北區分會長</span>
-                  <h3>鄭詠文 Victoria</h3>
+                <div class="portal-meta">
+                  <span>年度時間軸</span>
+                  <span>照片彈窗</span>
+                  <span>手機版順讀</span>
                 </div>
+                <span class="portal-cta">進入活動頁</span>
+              </div>
+            </a>
 
-                <dl class="leader-meta">
-                  <div>
-                    <dt>服務單位</dt>
-                    <dd>國立臺灣大學</dd>
-                  </div>
-                  <div>
-                    <dt>受獎年度</dt>
-                    <dd>21-22・23-24・24-25・25-26</dd>
-                  </div>
-                  <div>
-                    <dt>推薦社</dt>
-                    <dd>台北和平社、板橋社、政愛社</dd>
-                  </div>
-                </dl>
-
-                <blockquote class="leader-quote">
-                  聯誼會不只是交流的平台，更是探索自我、實現夢想的起點。
-                </blockquote>
-
-                <p class="leader-summary">
-                  依手冊中的卸任感言整理，詠文回顧了從交接典禮、九份畢旅、宜蘭幹部訓練到多元主題例會的一整年，希望每位夥伴都能在聯誼會找到歸屬感，也透過每一場活動看見更寬廣的世界。
+            <a class="portal-card" href="leaders.html">
+              <div class="portal-media">
+                <img
+                  src="assets/photos/june-handover-group-2.jpg"
+                  alt="會長介紹頁預覽"
+                />
+              </div>
+              <div class="portal-body">
+                <span class="portal-kicker">Leadership</span>
+                <h3>會長介紹頁</h3>
+                <p>
+                  集中介紹北區分會長洪婉華與新北區分會長鄭詠文，整理手冊中的正式資料、年度回顧與角色定位。
                 </p>
-              </article>
-            </div>
+                <div class="portal-meta">
+                  <span>婉華 Hannah</span>
+                  <span>詠文 Victoria</span>
+                  <span>正式資料整理</span>
+                </div>
+                <span class="portal-cta">進入會長介紹</span>
+              </div>
+            </a>
           </div>
         </section>
-
-        <section class="archive-head" id="archive">
-          <div class="archive-copy">
-            <p class="eyebrow">Annual Timeline</p>
-            <h2>用一條直線時間軸，把 25-26 年度一路排開。</h2>
-            <p class="archive-intro">
-              從交接、論壇、迎新，到社會服務與直播主題例會，現在改成沿著同一條年度軸線往下翻，手機和桌機都能更直覺地讀完整年節奏。
-            </p>
-          </div>
-
-          <div class="archive-actions">
-            <div class="filter-chips" id="filterChips" aria-label="年份篩選"></div>
-            <p class="filter-hint">手機可左右滑動篩選</p>
-            <p class="archive-note" id="resultsNote"></p>
-          </div>
-        </section>
-
-        <section class="event-grid" id="eventGrid" aria-live="polite"></section>
 
         <section class="footnote-panel">
           <div class="footnote-title">
-            <p class="eyebrow">Data Reading Rule</p>
-            <h3>資料判讀方式</h3>
+            <p class="eyebrow">Viewing Note</p>
+            <h3>閱讀方式建議</h3>
           </div>
           <p>
-            依你的規則，<strong>沒有標年份的活動一律視為 2025 年</strong>。目前有些月份資料夾以簽到單、感謝狀或程序表為主，所以網站先放入活動封面與占位視覺；之後只要補進正式照片，我就可以直接替換成更完整的月度故事頁。
+            如果想先快速確認整年的節奏，從 <strong>活動頁</strong> 進去最直覺；如果是要對外介紹本年度主軸與會長，則可直接使用 <strong>會長介紹頁</strong> 分享。
           </p>
         </section>
       </main>
     </div>
-
-    <div class="detail-modal" id="detailModal" hidden>
-      <div class="detail-backdrop" data-close-modal="true"></div>
-
-      <section
-        class="detail-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="detailTitle"
-      >
-        <button class="detail-close" id="detailClose" aria-label="關閉詳情">
-          關閉
-        </button>
-
-        <div class="detail-scroll">
-          <div class="detail-hero" id="detailHero"></div>
-
-          <div class="detail-body">
-            <div class="detail-meta">
-              <p class="detail-kicker" id="detailKicker"></p>
-              <h2 id="detailTitle"></h2>
-              <p class="detail-summary" id="detailSummary"></p>
-            </div>
-
-            <div class="detail-info" id="detailInfo"></div>
-
-            <div class="detail-tags" id="detailTags"></div>
-
-            <div class="detail-links" id="detailLinks"></div>
-
-            <section class="detail-gallery">
-              <div class="detail-section-head">
-                <p class="eyebrow">Selected Frames</p>
-                <h3>活動畫面</h3>
-              </div>
-              <div class="gallery-grid" id="detailGallery"></div>
-            </section>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <script src="script.js"></script>
   </body>
 </html>

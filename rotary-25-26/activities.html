@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>25-26 年度展示網站｜活動頁</title>
+    <meta
+      name="description"
+      content="活動頁依月份整理 2025.06 至 2026.05 的年度活動時間軸，包含照片、日期與活動詳情。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-aura page-aura-left" aria-hidden="true"></div>
+    <div class="page-aura page-aura-right" aria-hidden="true"></div>
+    <div class="page-gridline" aria-hidden="true"></div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">25-26</span>
+          <span class="brand-copy">
+            <strong>年度展示網站</strong>
+            <span>詠文・婉華 Rotary Yearbook</span>
+          </span>
+        </a>
+
+        <nav class="topbar-nav" aria-label="頁面導覽">
+          <a href="index.html">首頁</a>
+          <a href="activities.html" aria-current="page">活動頁</a>
+          <a href="leaders.html">會長介紹</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Annual Activities</p>
+            <h1>沿著年度時間軸，把每個月份的活動一頁頁翻開。</h1>
+            <p class="hero-text">
+              這一頁專門整理 <strong>2025.06 到 2026.05</strong> 的年度活動。
+              依照交接典禮手冊修正正式名稱與日期後，現在可以直接沿著直線時間軸往下讀，也能點開每個月份看照片、附件與代表畫面。
+            </p>
+
+            <div class="hero-actions" aria-label="快速查看方式">
+              <a class="hero-action hero-action-primary" href="#archive">開始翻閱年度活動</a>
+              <button
+                class="hero-action hero-action-secondary"
+                id="heroPhotoFilter"
+                type="button"
+              >
+                先看已補照片的月份
+              </button>
+            </div>
+
+            <div class="hero-stats" id="heroStats" aria-label="年度摘要"></div>
+
+            <div class="method-strip" id="method">
+              <span>選圖優先順序</span>
+              <strong>大合照</strong>
+              <strong>婉華・詠文</strong>
+              <strong>活動代表畫面</strong>
+              <strong>文件封面補位</strong>
+            </div>
+
+            <div class="hero-signature">
+              <span>Timeline Reading</span>
+              <strong>12 Chapters. 1 Rotary Year.</strong>
+              <p>
+                從交接、幹訓、論壇、迎新，到公益與直播主題例會，全部收在同一條年度軸線上，閱讀節奏會比單純相簿更清楚。
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-collage" aria-label="年度精選畫面">
+            <article class="collage-card collage-card-main">
+              <img
+                src="assets/photos/june-handover-group-1.jpg"
+                alt="2025 年 6 月交接典禮大合照"
+              />
+              <div class="collage-caption">
+                <span>2025.06</span>
+                <strong>聯合交接典禮・九份畢旅</strong>
+              </div>
+            </article>
+
+            <article class="collage-card collage-card-side">
+              <img
+                src="assets/photos/jan-awards-group-1.jpg"
+                alt="2026 年 1 月頒獎典禮合照"
+              />
+              <div class="collage-caption">
+                <span>2026.01</span>
+                <strong>頒獎典禮</strong>
+              </div>
+            </article>
+
+            <article class="collage-card collage-card-side">
+              <img
+                src="assets/photos/may-live-group.jpg"
+                alt="2026 年 5 月直播講座例會大合照"
+              />
+              <div class="collage-caption">
+                <span>2026.05</span>
+                <strong>直播講座例會</strong>
+              </div>
+            </article>
+
+            <aside class="collage-note">
+              <span>Photo Priority</span>
+              <p>
+                目前網站會優先呈現真正的大合照，其次才是會長畫面與活動代表照；若當月尚未找到合適照片，會先用文件封面保留版位。
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="archive-head" id="archive">
+          <div class="archive-copy">
+            <p class="eyebrow">Annual Timeline</p>
+            <h2>用一條直線時間軸，把 25-26 年度一路排開。</h2>
+            <p class="archive-intro">
+              所有月份依手冊正式名稱與日期整理，11 月保留雙活動，手機和桌機都可以直接順著年度往下閱讀。
+            </p>
+          </div>
+
+          <div class="archive-actions">
+            <div class="filter-chips" id="filterChips" aria-label="年份篩選"></div>
+            <p class="filter-hint">手機可左右滑動篩選</p>
+            <p class="archive-note" id="resultsNote"></p>
+          </div>
+        </section>
+
+        <section class="event-grid" id="eventGrid" aria-live="polite"></section>
+
+        <section class="footnote-panel">
+          <div class="footnote-title">
+            <p class="eyebrow">Data Reading Rule</p>
+            <h3>資料判讀方式</h3>
+          </div>
+          <p>
+            活動日期與正式名稱已優先依交接典禮手冊修正；若手冊只抓得到月份、沒有明確日期，就先保留月份標示。之後補進正式照片後，時間軸會直接升級為更完整的年度展頁。
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <div class="detail-modal" id="detailModal" hidden>
+      <div class="detail-backdrop" data-close-modal="true"></div>
+
+      <section
+        class="detail-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detailTitle"
+      >
+        <button class="detail-close" id="detailClose" aria-label="關閉詳情">
+          關閉
+        </button>
+
+        <div class="detail-scroll">
+          <div class="detail-hero" id="detailHero"></div>
+
+          <div class="detail-body">
+            <div class="detail-meta">
+              <p class="detail-kicker" id="detailKicker"></p>
+              <h2 id="detailTitle"></h2>
+              <p class="detail-summary" id="detailSummary"></p>
+            </div>
+
+            <div class="detail-info" id="detailInfo"></div>
+
+            <div class="detail-tags" id="detailTags"></div>
+
+            <div class="detail-links" id="detailLinks"></div>
+
+            <section class="detail-gallery">
+              <div class="detail-section-head">
+                <p class="eyebrow">Selected Frames</p>
+                <h3>活動畫面</h3>
+              </div>
+              <div class="gallery-grid" id="detailGallery"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
