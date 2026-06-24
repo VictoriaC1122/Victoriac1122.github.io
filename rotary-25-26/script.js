@@ -553,10 +553,12 @@ const gridEl = document.getElementById("eventGrid");
 const filterEl = document.getElementById("filterChips");
 const resultsNoteEl = document.getElementById("resultsNote");
 const heroStatsEl = document.getElementById("heroStats");
+const heroPhotoFilterEl = document.getElementById("heroPhotoFilter");
 
 const detailModalEl = document.getElementById("detailModal");
 const detailPanelEl = document.querySelector(".detail-panel");
 const detailCloseEl = document.getElementById("detailClose");
+const detailScrollEl = document.querySelector(".detail-scroll");
 const detailHeroEl = document.getElementById("detailHero");
 const detailKickerEl = document.getElementById("detailKicker");
 const detailTitleEl = document.getElementById("detailTitle");
@@ -575,6 +577,7 @@ const filters = [
 
 let activeFilter = "all";
 let lastTrigger = null;
+const orderedEvents = [...events].sort((a, b) => a.order - b.order);
 
 function escapeHtml(value) {
   return String(value)
@@ -591,6 +594,10 @@ function sortEvents(items) {
 
 function formatChapterNumber(value) {
   return String(value).padStart(2, "0");
+}
+
+function getFilterLabel(filterId) {
+  return filters.find((filter) => filter.id === filterId)?.label || "全部活動";
 }
 
 function filterEvents(items, filterId) {
@@ -613,11 +620,25 @@ function filterEvents(items, filterId) {
   return sortEvents(items);
 }
 
+function getVisibleEvents() {
+  return filterEvents(orderedEvents, activeFilter);
+}
+
+function setActiveFilter(filterId, options = {}) {
+  activeFilter = filterId;
+  renderFilters();
+  renderCards();
+
+  if (options.scrollToArchive) {
+    document.getElementById("archive")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
 function renderHeroStats() {
-  const total = events.length;
-  const realPhotoMonths = events.filter((item) => item.visualMode === "photo").length;
-  const startLabel = sortEvents(events)[0].label;
-  const endLabel = sortEvents(events).at(-1).label;
+  const total = orderedEvents.length;
+  const realPhotoMonths = orderedEvents.filter((item) => item.visualMode === "photo").length;
+  const startLabel = orderedEvents[0].label;
+  const endLabel = orderedEvents.at(-1).label;
 
   heroStatsEl.innerHTML = [
     {
@@ -634,8 +655,8 @@ function renderHeroStats() {
     },
   ]
     .map(
-      (stat) => `
-        <article class="stat-card">
+      (stat, index) => `
+        <article class="stat-card ${index === 1 ? "stat-card--wide" : ""}">
           <strong>${escapeHtml(stat.value)}</strong>
           <span>${escapeHtml(stat.label)}</span>
         </article>
@@ -652,6 +673,7 @@ function renderFilters() {
           class="filter-chip ${filter.id === activeFilter ? "is-active" : ""}"
           type="button"
           data-filter="${escapeHtml(filter.id)}"
+          aria-pressed="${filter.id === activeFilter ? "true" : "false"}"
         >
           ${escapeHtml(filter.label)}
         </button>
@@ -669,6 +691,7 @@ function renderVisual(cover, title, lazy = true) {
         src="${escapeHtml(cover.src)}"
         alt="${escapeHtml(cover.alt || title)}"
         loading="${lazy ? "lazy" : "eager"}"
+        decoding="async"
       />
     `;
   }
@@ -683,12 +706,13 @@ function renderVisual(cover, title, lazy = true) {
 }
 
 function renderCards() {
-  const visibleEvents = filterEvents(events, activeFilter);
+  const visibleEvents = getVisibleEvents();
+  const filterLabel = getFilterLabel(activeFilter);
 
   resultsNoteEl.textContent =
     activeFilter === "photo-first"
-      ? `目前依實拍優先排序，共 ${visibleEvents.length} 個活動。`
-      : `目前顯示 ${visibleEvents.length} 個活動。`;
+      ? `目前以「${filterLabel}」排序，共 ${visibleEvents.length} 個活動。`
+      : `目前顯示「${filterLabel}」的 ${visibleEvents.length} 個活動。`;
 
   gridEl.innerHTML = visibleEvents
     .map((event) => {
@@ -800,7 +824,12 @@ function renderGalleryItem(item) {
   if (item.kind === "image") {
     return `
       <figure class="gallery-item">
-        <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" />
+        <img
+          src="${escapeHtml(item.src)}"
+          alt="${escapeHtml(item.alt)}"
+          loading="lazy"
+          decoding="async"
+        />
         <figcaption>${escapeHtml(item.caption)}</figcaption>
       </figure>
     `;
@@ -845,6 +874,10 @@ function openDetail(eventId, triggerEl) {
 
   detailGalleryEl.innerHTML = event.gallery.map(renderGalleryItem).join("");
 
+  if (detailScrollEl) {
+    detailScrollEl.scrollTop = 0;
+  }
+
   detailModalEl.hidden = false;
   document.body.classList.add("modal-open");
   detailCloseEl.focus();
@@ -866,9 +899,7 @@ function bindEvents() {
       return;
     }
 
-    activeFilter = button.dataset.filter;
-    renderFilters();
-    renderCards();
+    setActiveFilter(button.dataset.filter);
   });
 
   gridEl.addEventListener("click", (event) => {
@@ -899,6 +930,10 @@ function bindEvents() {
   });
 
   detailCloseEl.addEventListener("click", closeDetail);
+
+  heroPhotoFilterEl?.addEventListener("click", () => {
+    setActiveFilter("photo-first", { scrollToArchive: true });
+  });
 
   window.addEventListener("keydown", (event) => {
     if (!detailModalEl.hidden && event.key === "Escape") {

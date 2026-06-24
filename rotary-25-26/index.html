@@ -48,6 +48,17 @@
               <strong>2026.06 交接典禮</strong>。畫面優先選用大合照、兩位會長相關素材與活動代表照片；若該月目前只有文件，先以活動封面補齊展示版位。
             </p>
 
+            <div class="hero-actions" aria-label="快速查看方式">
+              <a class="hero-action hero-action-primary" href="#archive">開始翻閱年度活動</a>
+              <button
+                class="hero-action hero-action-secondary"
+                id="heroPhotoFilter"
+                type="button"
+              >
+                先看已補照片的月份
+              </button>
+            </div>
+
             <div class="hero-stats" id="heroStats" aria-label="年度摘要"></div>
 
             <div class="method-strip" id="method">
@@ -121,6 +132,7 @@
 
           <div class="archive-actions">
             <div class="filter-chips" id="filterChips" aria-label="年份篩選"></div>
+            <p class="filter-hint">手機可左右滑動篩選</p>
             <p class="archive-note" id="resultsNote"></p>
           </div>
         </section>
@@ -149,7 +161,7 @@
         aria-labelledby="detailTitle"
       >
         <button class="detail-close" id="detailClose" aria-label="關閉詳情">
-          Close
+          關閉
         </button>
 
         <div class="detail-scroll">
