@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="page-activities">
     <div class="page-aura page-aura-left" aria-hidden="true"></div>
     <div class="page-aura page-aura-right" aria-hidden="true"></div>
     <div class="page-gridline" aria-hidden="true"></div>
@@ -43,6 +43,20 @@
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Annual Activities</p>
+            <div class="hero-ledger" aria-label="活動頁資訊">
+              <article class="hero-ledger-item">
+                <span>Archive Type</span>
+                <strong>Timeline</strong>
+              </article>
+              <article class="hero-ledger-item">
+                <span>Chapters</span>
+                <strong>12 Months</strong>
+              </article>
+              <article class="hero-ledger-item">
+                <span>Source Rule</span>
+                <strong>Handbook Aligned</strong>
+              </article>
+            </div>
             <h1>沿著年度時間軸，把每個月份的活動一頁頁翻開。</h1>
             <p class="hero-text">
               這一頁專門整理 <strong>2025.06 到 2026.05</strong> 的年度活動。
@@ -50,7 +64,7 @@
             </p>
 
             <div class="hero-actions" aria-label="快速查看方式">
-              <a class="hero-action hero-action-primary" href="activities/#archive">開始翻閱年度活動</a>
+              <a class="hero-action hero-action-primary" href="#archive">開始翻閱年度活動</a>
               <button
                 class="hero-action hero-action-secondary"
                 id="heroPhotoFilter"
@@ -120,6 +134,26 @@
               </p>
             </aside>
           </div>
+        </section>
+
+        <section class="spotlight-band spotlight-band--compact">
+          <article class="spotlight-card">
+            <span class="spotlight-index">01</span>
+            <h3>手冊校正</h3>
+            <p>活動正式名稱與日期已優先對齊交接典禮手冊內容。</p>
+          </article>
+
+          <article class="spotlight-card">
+            <span class="spotlight-index">02</span>
+            <h3>照片優先序</h3>
+            <p>大合照優先，其次是兩位會長與最能代表活動氣氛的畫面。</p>
+          </article>
+
+          <article class="spotlight-card">
+            <span class="spotlight-index">03</span>
+            <h3>手機順讀</h3>
+            <p>沿著單一路徑往下滑就能讀完整年節奏，不需要來回跳轉。</p>
+          </article>
         </section>
 
         <section class="archive-head" id="archive">
