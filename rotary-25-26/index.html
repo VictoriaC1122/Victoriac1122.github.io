@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>25-26 年度展示網站｜詠文・婉華</title>
+    <meta
+      name="description"
+      content="依月份整理 2025.06 至 2026.06 的年度活動展示網站，優先呈現大合照、會長人物照與代表畫面。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top">
+          <span class="brand-mark">25-26</span>
+          <span class="brand-copy">
+            <strong>年度展示網站</strong>
+            <span>詠文・婉華 Monthly Archive</span>
+          </span>
+        </a>
+
+        <nav class="topbar-nav" aria-label="頁面捷徑">
+          <a href="#archive">活動總覽</a>
+          <a href="#method">選圖原則</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Rotary Yearbook 2025-2026</p>
+            <h1>把一整年的活動，整理成可以慢慢翻看的月度展覽。</h1>
+            <p class="hero-text">
+              這個版本依照你提供的資料夾，從
+              <strong>2025.06 交接典禮＆九份畢旅</strong> 一路排到
+              <strong>2026.06 交接典禮</strong>。畫面優先選用大合照、兩位會長相關素材與活動代表照片；若該月目前只有文件，先以活動封面補齊展示版位。
+            </p>
+
+            <div class="hero-stats" id="heroStats" aria-label="年度摘要"></div>
+
+            <div class="method-strip" id="method">
+              <span>選圖優先順序</span>
+              <strong>大合照</strong>
+              <strong>婉華・詠文</strong>
+              <strong>活動代表畫面</strong>
+              <strong>文件封面補位</strong>
+            </div>
+          </div>
+
+          <div class="hero-collage" aria-label="年度精選畫面">
+            <article class="collage-card collage-card-main">
+              <img
+                src="assets/photos/june-group.jpg"
+                alt="2025 年 6 月交接典禮大合照"
+              />
+              <div class="collage-caption">
+                <span>2025.06</span>
+                <strong>交接典禮＆九份畢旅</strong>
+              </div>
+            </article>
+
+            <article class="collage-card collage-card-side">
+              <img
+                src="assets/photos/jan-awards-1.jpg"
+                alt="2026 年 1 月頒獎典禮代表畫面"
+              />
+              <div class="collage-caption">
+                <span>2026.01</span>
+                <strong>頒獎典禮</strong>
+              </div>
+            </article>
+
+            <article class="collage-card collage-card-side">
+              <img
+                src="assets/photos/april-beach-4.jpg"
+                alt="2026 年 4 月淨灘例會海邊活動照"
+              />
+              <div class="collage-caption">
+                <span>2026.04</span>
+                <strong>淨灘例會</strong>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="archive-head" id="archive">
+          <div>
+            <p class="eyebrow">Monthly Archive</p>
+            <h2>一月一活動，完整展開 25-26 年度節奏。</h2>
+          </div>
+
+          <div class="archive-actions">
+            <div class="filter-chips" id="filterChips" aria-label="年份篩選"></div>
+            <p class="archive-note" id="resultsNote"></p>
+          </div>
+        </section>
+
+        <section class="event-grid" id="eventGrid" aria-live="polite"></section>
+
+        <section class="footnote-panel">
+          <div>
+            <p class="eyebrow">Data Reading Rule</p>
+            <h3>資料判讀方式</h3>
+          </div>
+          <p>
+            依你的規則，<strong>沒有標年份的活動一律視為 2025 年</strong>。目前有些月份資料夾以簽到單、感謝狀或程序表為主，所以網站先放入活動封面與占位視覺；之後只要補進正式照片，我就可以直接替換成更完整的月度故事頁。
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <div class="detail-modal" id="detailModal" hidden>
+      <div class="detail-backdrop" data-close-modal="true"></div>
+
+      <section
+        class="detail-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detailTitle"
+      >
+        <button class="detail-close" id="detailClose" aria-label="關閉詳情">
+          Close
+        </button>
+
+        <div class="detail-scroll">
+          <div class="detail-hero" id="detailHero"></div>
+
+          <div class="detail-body">
+            <div class="detail-meta">
+              <p class="detail-kicker" id="detailKicker"></p>
+              <h2 id="detailTitle"></h2>
+              <p class="detail-summary" id="detailSummary"></p>
+            </div>
+
+            <div class="detail-info" id="detailInfo"></div>
+
+            <div class="detail-tags" id="detailTags"></div>
+
+            <div class="detail-links" id="detailLinks"></div>
+
+            <section class="detail-gallery">
+              <div class="detail-section-head">
+                <p class="eyebrow">Selected Frames</p>
+                <h3>活動畫面</h3>
+              </div>
+              <div class="gallery-grid" id="detailGallery"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
