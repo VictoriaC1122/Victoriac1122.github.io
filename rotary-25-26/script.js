@@ -497,7 +497,7 @@ function escapeHtml(value) {
 }
 
 function renderList(items, renderItem) {
-  return items.map(renderItem).join("");
+  return items.map((item, index) => renderItem(item, index)).join("");
 }
 
 function getActiveFilter() {
@@ -594,7 +594,7 @@ function renderFilters() {
   refs.filter.innerHTML = renderList(filters, renderFilterButton);
 }
 
-function renderEventCard(event) {
+function renderEventCard(event, index = 0) {
   const showCoverOverlay = event.cover.kind === "image";
 
   return `
@@ -604,39 +604,49 @@ function renderEventCard(event) {
       role="button"
       aria-label="查看 ${escapeHtml(event.label)} ${escapeHtml(event.title)} 詳情"
       data-event-id="${escapeHtml(event.id)}"
-      style="--event-accent: ${escapeHtml(event.accent)}"
+      style="--event-accent: ${escapeHtml(event.accent)}; --card-delay: ${index * 70}ms"
     >
-      <div class="card-cover">
-        ${renderVisual(event.cover, event.title)}
-        <div class="card-chapter">${escapeHtml(event.chapterLabel)}</div>
-        ${
-          showCoverOverlay
-            ? `
-              <div class="card-overlay">
-                <span>${escapeHtml(event.folder)}</span>
-                <strong>${escapeHtml(event.location)}</strong>
-              </div>
-            `
-            : ""
-        }
+      <div class="timeline-rail" aria-hidden="true">
+        <span class="timeline-stamp">${escapeHtml(event.label)}</span>
+        <span class="timeline-node"></span>
       </div>
 
-      <div class="card-body">
-        <div class="card-topline">
-          <p class="card-month">${escapeHtml(event.label)}</p>
-          <span class="card-badge badge-${escapeHtml(event.visualMode)}">
-            ${escapeHtml(event.statusLabel)}
-          </span>
+      <div class="timeline-shell">
+        <div class="card-cover">
+          ${renderVisual(event.cover, event.title)}
+          ${
+            showCoverOverlay
+              ? `
+                <div class="card-overlay">
+                  <span>${escapeHtml(event.folder)}</span>
+                  <strong>${escapeHtml(event.location)}</strong>
+                </div>
+              `
+              : ""
+          }
         </div>
 
-        <h3>${escapeHtml(event.title)}</h3>
-        <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
-        <div class="tag-row">${renderList(event.highlights, renderTag)}</div>
-        <div class="card-bottom">
-          <p class="card-source">${escapeHtml(event.availability)}</p>
-          <div class="card-footline">
+        <div class="card-body">
+          <div class="card-topline">
+            <div class="card-meta-pills">
+              <span class="card-badge badge-${escapeHtml(event.visualMode)}">
+                ${escapeHtml(event.statusLabel)}
+              </span>
+              <span class="card-chapter">${escapeHtml(event.chapterLabel)}</span>
+            </div>
             <span class="card-frames">${escapeHtml(event.frameCountLabel)}</span>
-            <span class="card-cta">展開本月篇章</span>
+          </div>
+
+          <p class="card-scene">${escapeHtml(event.location)}</p>
+          <h3>${escapeHtml(event.title)}</h3>
+          <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
+          <div class="tag-row">${renderList(event.highlights, renderTag)}</div>
+          <div class="card-bottom">
+            <p class="card-source">${escapeHtml(event.availability)}</p>
+            <div class="card-footline">
+              <span class="card-folder">${escapeHtml(event.folder)}</span>
+              <span class="card-cta">展開本月篇章</span>
+            </div>
           </div>
         </div>
       </div>
