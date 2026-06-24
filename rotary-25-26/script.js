@@ -144,19 +144,19 @@ const events = [
     folder: "6月活動＿交接典禮＆九份畢旅",
     location: "交接典禮 / 九份",
     accent: "#b06f4a",
-    coverSrc: "assets/photos/june-group.jpg",
-    coverAlt: "2025年6月交接典禮大合照",
+    coverSrc: "assets/photos/june-handover-group-1.jpg",
+    coverAlt: "2025年6月交接典禮全體大合照",
     summary:
-      "2025-26 年度從交接儀式正式展開，現階段優先選用了大合照，先把整體氛圍立起來，也保留後續補進會長人物照的空間。",
+      "2025-26 年度從交接儀式正式展開，這一版已改回真正的全體合照，讓年度開場直接對上完整人數與現場儀式感。",
     highlights: ["年度交接", "九份畢旅", "大合照優先"],
     availability:
-      "目前已整理出交接典禮大合照，另有一張手冊人物素材可作為後續版位替換參考。",
+      "目前已補入兩張交接典禮全體合照，手冊 PDF 仍保留在活動頁可直接下載。",
     gallery: [
-      createImageAsset("assets/photos/june-group.jpg", "交接典禮大合照", {
-        caption: "優先選用的大合照，作為整個年度展示的開場畫面。",
+      createImageAsset("assets/photos/june-handover-group-1.jpg", "交接典禮全體大合照", {
+        caption: "以真正的全體交接合照作為年度開場，能一眼看出整場活動的完整規模。",
       }),
-      createImageAsset("assets/photos/june-president.jpg", "手冊中的人物素材", {
-        caption: "資料夾中找到的手冊人物素材，後續若確認為正式會長照可直接替換使用。",
+      createImageAsset("assets/photos/june-handover-group-2.jpg", "交接典禮第二張全體合照", {
+        caption: "第二張全體合照補足不同站位與表情，也讓 6 月頁面更像正式活動相簿。",
       }),
     ],
     links: [
@@ -165,7 +165,7 @@ const events = [
       }),
     ],
   }),
-  createPlaceholderEvent({
+  createPhotoEvent({
     id: "2025-07",
     year: 2025,
     month: 7,
@@ -175,13 +175,23 @@ const events = [
     folder: "7月活動＿幹部訓練",
     location: "宜蘭",
     accent: "#766247",
-    theme: "mountain",
+    coverSrc: "assets/photos/july-training-group-1.jpg",
+    coverAlt: "2025年7月幹部訓練團體合照",
     summary:
-      "這個月份目前資料夾以會務簡報為主，尚未找到適合直接放上網站的活動實拍，因此先保留完整月度版位，之後可直接補上團體訓練照片。",
+      "7 月已從幹部訓練簡報中整理出活動現場照，先以最完整的團體合照作為主視覺，再補上宜蘭行程中的戶外與聚會畫面。",
     highlights: ["幹部訓練", "宜蘭", "年度默契"],
-    availability: "目前先使用設計占位視覺，等待更完整的現場照片補入。",
-    galleryCaption:
-      "資料夾內目前以簡報檔為主，網站先保留月份與故事說明，待補正式活動照。",
+    availability: "目前已補入幹部訓練團體合照與宜蘭現場照片，可直接作為正式展示頁。",
+    gallery: [
+      createImageAsset("assets/photos/july-training-group-1.jpg", "幹部訓練團體合照", {
+        caption: "這張最能對上『幹部訓練』主題本身，完整收進當天參與的夥伴與會場感。",
+      }),
+      createImageAsset("assets/photos/july-training-group-2.jpg", "宜蘭行程戶外合照", {
+        caption: "戶外團體照把宜蘭行程的移動感帶進來，也補足月份不只是在室內開會。",
+      }),
+      createImageAsset("assets/photos/july-training-group-3.jpg", "宜蘭聚會合照", {
+        caption: "用更生活感的聚會畫面把幹部默契與交流氛圍補完整。",
+      }),
+    ],
   }),
   createPlaceholderEvent({
     id: "2025-08",
@@ -295,21 +305,21 @@ const events = [
     folder: "2026年1月頒獎典禮",
     location: "2026.01.17 頒獎典禮",
     accent: "#ab5f4f",
-    coverSrc: "assets/photos/jan-awards-1.jpg",
-    coverAlt: "2026年1月頒獎典禮代表畫面",
+    coverSrc: "assets/photos/jan-awards-group-1.jpg",
+    coverAlt: "2026年1月頒獎典禮頒獎合照",
     summary:
-      "這個月份已串接你提供的公開 Google Drive 相簿，先挑入三張代表畫面，後續如果想換成大合照也能直接替換。",
+      "1 月已改回真正的頒獎典禮台上合照，不再使用單人講台或觀眾席畫面，讓月份主視覺直接對到頒獎與合影本身。",
     highlights: ["公開相簿串接", "頒獎典禮", "舞台現場"],
-    availability: "目前先放入典禮台上與觀眾席畫面，待指定更理想的大合照後可再調整。",
+    availability: "目前已補入三張頒獎典禮台上合照，可直接作為正式展示版本。",
     gallery: [
-      createImageAsset("assets/photos/jan-awards-1.jpg", "頒獎典禮舞台畫面", {
-        caption: "典禮現場代表畫面，保留舞台與儀式感。",
+      createImageAsset("assets/photos/jan-awards-group-1.jpg", "頒獎典禮頒獎合照", {
+        caption: "這張合照把得獎者與典禮核心人物一起收進畫面，最適合當 1 月主圖。",
       }),
-      createImageAsset("assets/photos/jan-awards-2.jpg", "頒獎典禮觀眾席畫面", {
-        caption: "觀眾席畫面補足活動的現場密度與參與感。",
+      createImageAsset("assets/photos/jan-awards-group-2.jpg", "頒獎典禮第二張台上合照", {
+        caption: "第二張台上團體照補足不同批次的頒獎瞬間，讓畫面更貼近典禮流程。",
       }),
-      createImageAsset("assets/photos/jan-awards-3.jpg", "頒獎典禮鼓掌畫面", {
-        caption: "以鼓掌畫面延續典禮氛圍，後續可換成更完整的團體合照。",
+      createImageAsset("assets/photos/jan-awards-group-3.jpg", "頒獎典禮舞台長列合照", {
+        caption: "用更長幅的舞台合照補足 1 月頁面，保留頒獎典禮最重要的合影感。",
       }),
     ],
     links: [
