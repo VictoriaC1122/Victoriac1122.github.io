@@ -121,14 +121,16 @@ function createPlaceholderEvent({
 function normalizeEvent(event) {
   const label = formatEventLabel(event.year, event.month);
   const statusLabel = STATUS_LABELS[event.visualMode];
+  const dateLabel = event.date || label;
 
   return {
     ...event,
     label,
+    dateLabel,
     statusLabel,
     chapterLabel: `Chapter ${padNumber(event.order)}`,
     frameCountLabel: `${event.gallery.length} Frames`,
-    detailKicker: `${label}｜${statusLabel}`,
+    detailKicker: `${label}｜${dateLabel}`,
     materialStatus: `${statusLabel}｜${event.availability}`,
   };
 }
@@ -139,9 +141,10 @@ const events = [
     year: 2025,
     month: 6,
     order: 1,
-    title: "交接典禮＆九份畢旅",
+    title: "北區與新北區聯合交接典禮・九份畢旅",
     subtitle: "年度交接與旅程開場，從典禮感一路延伸到九份記憶。",
     folder: "6月活動＿交接典禮＆九份畢旅",
+    date: "2025/6/28 聯合交接典禮・2025/6/28-29 九份畢旅",
     location: "交接典禮 / 九份",
     accent: "#b06f4a",
     coverSrc: "assets/photos/june-handover-group-1.jpg",
@@ -170,9 +173,10 @@ const events = [
     year: 2025,
     month: 7,
     order: 2,
-    title: "幹部訓練（宜蘭）",
+    title: "北區新北區聯合幹部訓練",
     subtitle: "用一場幹部訓練，把新年度的分工與默契先建立起來。",
     folder: "7月活動＿幹部訓練",
+    date: "2025/7/19-20",
     location: "宜蘭",
     accent: "#766247",
     coverSrc: "assets/photos/july-training-group-1.jpg",
@@ -198,9 +202,10 @@ const events = [
     year: 2025,
     month: 8,
     order: 3,
-    title: "五區聯合交接暨菁英論壇",
+    title: "五區交接暨菁英論壇",
     subtitle: "把個別月份的節奏，拉到更大的區域交流視野。",
     folder: "8月五區聯合交接暨菁英論壇",
+    date: "2025/8",
     location: "五區聯合活動",
     accent: "#36547a",
     theme: "forum",
@@ -218,6 +223,7 @@ const events = [
     title: "扶輪聲林之王",
     subtitle: "用歌唱比賽例會把氣氛拉滿，是年度裡很有記憶點的一站。",
     folder: "9月活動__扶輪聲林之王",
+    date: "2025/9/20",
     location: "歌唱比賽例會",
     accent: "#69337a",
     coverSrc: "assets/covers/sep-cover.png",
@@ -234,9 +240,10 @@ const events = [
     year: 2025,
     month: 10,
     order: 5,
-    title: "游泳例會",
+    title: "健康衛教游泳例會",
     subtitle: "把運動主題帶進例會節奏，也讓年度活動變得更有身體感。",
     folder: "10月活動_游泳例會",
+    date: "2025/10/12",
     location: "運動健康例會",
     accent: "#336987",
     coverSrc: "assets/covers/oct-cover.png",
@@ -253,9 +260,10 @@ const events = [
     year: 2025,
     month: 11,
     order: 6,
-    title: "雙職業例會｜紡織・區塊鏈",
+    title: "紡織例會・區塊鏈例會",
     subtitle: "11 月安排了兩場職業例會，從紡織到區塊鏈，讓同一個月份有兩種產業切角。",
     folder: "11月活動_紡織例會 / 11月活動_區塊鏈職業例會",
+    date: "2025/11/8・2025/11/29",
     location: "11/08 紡織例會 ・ 11/29 區塊鏈職業例會",
     visualMode: "document",
     accent: "#7c5a68",
@@ -281,9 +289,10 @@ const events = [
     year: 2025,
     month: 12,
     order: 7,
-    title: "街友送餐",
+    title: "街友送餐公益服務",
     subtitle: "把例會延伸到城市關懷，讓歲末有一個很溫柔的收尾。",
     folder: "12月例會_街友送餐",
+    date: "2025/12/13",
     location: "街友送餐 / 社會服務",
     accent: "#93604f",
     coverSrc: "assets/covers/dec-cover.png",
@@ -303,6 +312,7 @@ const events = [
     title: "頒獎典禮",
     subtitle: "從舞台到觀眾席，讓榮耀感成為新年的第一個活動記憶。",
     folder: "2026年1月頒獎典禮",
+    date: "2026/1/17",
     location: "2026.01.17 頒獎典禮",
     accent: "#ab5f4f",
     coverSrc: "assets/photos/jan-awards-group-1.jpg",
@@ -334,9 +344,10 @@ const events = [
     year: 2026,
     month: 2,
     order: 9,
-    title: "小迎新",
+    title: "北區｜新北區聯合小迎新",
     subtitle: "用更輕鬆的節奏迎接新夥伴，讓社群關係慢慢展開。",
     folder: "2026年2月小迎新",
+    date: "2026/2/7",
     location: "迎新活動",
     accent: "#8a5b61",
     coverSrc: "assets/covers/feb-cover.png",
@@ -353,9 +364,10 @@ const events = [
     year: 2026,
     month: 3,
     order: 10,
-    title: "大迎新",
+    title: "五區聯合大迎新",
     subtitle: "把迎新的規模拉大，讓年度社群的擴張感更明顯。",
     folder: "2026年3月大迎新",
+    date: "2026/3/7-8",
     location: "迎新活動",
     accent: "#8b5d70",
     theme: "welcome",
@@ -370,9 +382,10 @@ const events = [
     year: 2026,
     month: 4,
     order: 11,
-    title: "淨灘例會",
+    title: "淨灘公益沙排例會",
     subtitle: "把行動帶向海邊，讓這個月份有非常明確的公共參與感。",
     folder: "2026年4月淨灘例會",
+    date: "2026/4/11",
     location: "海邊淨灘 / 社會服務",
     accent: "#32707d",
     coverSrc: "assets/photos/april-beach-group-1.jpg",
@@ -404,9 +417,10 @@ const events = [
     year: 2026,
     month: 5,
     order: 12,
-    title: "直播例會",
+    title: "直播講座例會",
     subtitle: "把活動從現場拉到數位介面，呈現年度中很不同的形式轉換。",
     folder: "2026年5月直播例會",
+    date: "2026/5/31",
     location: "直播形式例會",
     accent: "#256877",
     coverSrc: "assets/photos/may-live-group.jpg",
@@ -637,7 +651,7 @@ function renderEventCard(event, index = 0) {
             <span class="card-frames">${escapeHtml(event.frameCountLabel)}</span>
           </div>
 
-          <p class="card-scene">${escapeHtml(event.location)}</p>
+          <p class="card-scene">${escapeHtml(event.dateLabel)}</p>
           <h3>${escapeHtml(event.title)}</h3>
           <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
           <div class="tag-row">${renderList(event.highlights, renderTag)}</div>
@@ -676,6 +690,10 @@ function renderDetailInfo(event) {
       {
         label: "Archive Folder",
         value: event.folder,
+      },
+      {
+        label: "Activity Date",
+        value: event.dateLabel,
       },
       {
         label: "Activity Scene",

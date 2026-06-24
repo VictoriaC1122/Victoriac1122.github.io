@@ -955,6 +955,7 @@ button {
   color: var(--event-accent);
   font-size: 0.82rem;
   font-weight: 700;
+  line-height: 1.55;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
