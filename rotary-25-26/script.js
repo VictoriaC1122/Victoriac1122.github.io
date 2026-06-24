@@ -585,6 +585,8 @@ function renderFilters() {
 }
 
 function renderEventCard(event) {
+  const showCoverOverlay = event.cover.kind === "image";
+
   return `
     <article
       class="event-card"
@@ -597,10 +599,16 @@ function renderEventCard(event) {
       <div class="card-cover">
         ${renderVisual(event.cover, event.title)}
         <div class="card-chapter">${escapeHtml(event.chapterLabel)}</div>
-        <div class="card-overlay">
-          <span>${escapeHtml(event.folder)}</span>
-          <strong>${escapeHtml(event.location)}</strong>
-        </div>
+        ${
+          showCoverOverlay
+            ? `
+              <div class="card-overlay">
+                <span>${escapeHtml(event.folder)}</span>
+                <strong>${escapeHtml(event.location)}</strong>
+              </div>
+            `
+            : ""
+        }
       </div>
 
       <div class="card-body">
