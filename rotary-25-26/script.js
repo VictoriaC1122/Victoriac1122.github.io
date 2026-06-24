@@ -555,6 +555,7 @@ const resultsNoteEl = document.getElementById("resultsNote");
 const heroStatsEl = document.getElementById("heroStats");
 
 const detailModalEl = document.getElementById("detailModal");
+const detailPanelEl = document.querySelector(".detail-panel");
 const detailCloseEl = document.getElementById("detailClose");
 const detailHeroEl = document.getElementById("detailHero");
 const detailKickerEl = document.getElementById("detailKicker");
@@ -586,6 +587,10 @@ function escapeHtml(value) {
 
 function sortEvents(items) {
   return [...items].sort((a, b) => a.order - b.order);
+}
+
+function formatChapterNumber(value) {
+  return String(value).padStart(2, "0");
 }
 
 function filterEvents(items, filterId) {
@@ -690,6 +695,8 @@ function renderCards() {
       const tags = event.highlights
         .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
         .join("");
+      const chapterLabel = `Chapter ${formatChapterNumber(event.order)}`;
+      const frameCount = `${event.gallery.length} Frames`;
 
       return `
         <article
@@ -698,9 +705,11 @@ function renderCards() {
           role="button"
           aria-label="查看 ${escapeHtml(event.label)} ${escapeHtml(event.title)} 詳情"
           data-event-id="${escapeHtml(event.id)}"
+          style="--event-accent: ${escapeHtml(event.accent)}"
         >
           <div class="card-cover">
             ${renderVisual(event.cover, event.title)}
+            <div class="card-chapter">${escapeHtml(chapterLabel)}</div>
             <div class="card-overlay">
               <span>${escapeHtml(event.folder)}</span>
               <strong>${escapeHtml(event.location)}</strong>
@@ -718,8 +727,13 @@ function renderCards() {
             <h3>${escapeHtml(event.title)}</h3>
             <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
             <div class="tag-row">${tags}</div>
-            <p class="card-source">${escapeHtml(event.availability)}</p>
-            <span class="card-cta">查看月度內容</span>
+            <div class="card-bottom">
+              <p class="card-source">${escapeHtml(event.availability)}</p>
+              <div class="card-footline">
+                <span class="card-frames">${escapeHtml(frameCount)}</span>
+                <span class="card-cta">展開本月篇章</span>
+              </div>
+            </div>
           </div>
         </article>
       `;
@@ -730,15 +744,15 @@ function renderCards() {
 function renderDetailInfo(event) {
   const infoItems = [
     {
-      label: "Folder",
+      label: "Archive Folder",
       value: event.folder,
     },
     {
-      label: "Location",
+      label: "Activity Scene",
       value: event.location,
     },
     {
-      label: "Asset Status",
+      label: "Material Status",
       value: `${event.sourceType}｜${event.availability}`,
     },
   ];
@@ -771,6 +785,7 @@ function renderDetailLinks(event) {
     .map(
       (link) => `
         <a
+          class="${link.download ? "is-download" : ""}"
           href="${escapeHtml(link.url)}"
           ${link.download ? "download" : 'target="_blank" rel="noreferrer"'}
         >
@@ -812,7 +827,14 @@ function openDetail(eventId, triggerEl) {
 
   lastTrigger = triggerEl || document.activeElement;
 
-  detailHeroEl.innerHTML = renderVisual(event.cover, event.title, false);
+  detailPanelEl.style.setProperty("--detail-accent", event.accent);
+  detailHeroEl.innerHTML = `
+    ${renderVisual(event.cover, event.title, false)}
+    <div class="detail-hero-badge">
+      <span>${escapeHtml(event.label)}</span>
+      <strong>${escapeHtml(`Chapter ${formatChapterNumber(event.order)}`)}</strong>
+    </div>
+  `;
   detailKickerEl.textContent = `${event.label}｜${event.sourceType}`;
   detailTitleEl.textContent = event.title;
   detailSummaryEl.textContent = event.summary;
