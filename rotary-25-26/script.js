@@ -36,7 +36,13 @@ const events = [
         caption: "資料夾中找到的手冊人物素材，後續若確認為正式會長照可直接替換使用。",
       },
     ],
-    links: [],
+    links: [
+      {
+        label: "下載交接典禮手冊 PDF",
+        url: "assets/downloads/handover-manual-2025.pdf",
+        download: true,
+      },
+    ],
   },
   {
     id: "2025-07",
@@ -764,7 +770,10 @@ function renderDetailLinks(event) {
   detailLinksEl.innerHTML = event.links
     .map(
       (link) => `
-        <a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">
+        <a
+          href="${escapeHtml(link.url)}"
+          ${link.download ? "download" : 'target="_blank" rel="noreferrer"'}
+        >
           ${escapeHtml(link.label)}
         </a>
       `,
