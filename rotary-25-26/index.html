@@ -61,8 +61,9 @@
             <h1>把年度內容整理成兩個清楚頁面，分開慢慢看。</h1>
             <p class="hero-text">
               這個版本把網站整理成更清楚的分頁結構。
-              <strong>活動頁</strong> 專門看 2025.06 到 2026.05 的年度時間軸與活動照片，
-              <strong>會長介紹頁</strong> 則集中整理婉華與詠文的正式資料與年度回顧，手機上也會更順。
+              首頁現在也直接放入 <strong>2025.06 到 2026.05</strong> 的年度時間軸，
+              可以先在這裡快速順讀整年節奏；想更專心看活動照片或人物介紹時，再進入
+              <strong>活動頁</strong> 和 <strong>會長介紹頁</strong>。
             </p>
 
             <div class="hero-actions" aria-label="快速入口">
@@ -164,6 +165,24 @@
           </article>
         </section>
 
+        <section class="archive-head" id="archive">
+          <div class="archive-copy">
+            <p class="eyebrow">Homepage Timeline</p>
+            <h2>首頁也直接把整年時間軸排開。</h2>
+            <p class="archive-intro">
+              不用先切到活動頁，現在在首頁就能一路看完 2025.06 到 2026.05 的年度節奏；點開每個月份後，仍然會沿用同一套活動詳情與照片彈窗。
+            </p>
+          </div>
+
+          <div class="archive-actions">
+            <div class="filter-chips" id="filterChips" aria-label="年份篩選"></div>
+            <p class="filter-hint">手機可左右滑動篩選</p>
+            <p class="archive-note" id="resultsNote"></p>
+          </div>
+        </section>
+
+        <section class="event-grid" id="eventGrid" aria-live="polite"></section>
+
         <section class="portal-section">
           <div class="portal-copy">
             <p class="eyebrow">Page Directory</p>
@@ -233,5 +252,49 @@
         </section>
       </main>
     </div>
+
+    <div class="detail-modal" id="detailModal" hidden>
+      <div class="detail-backdrop" data-close-modal="true"></div>
+
+      <section
+        class="detail-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detailTitle"
+      >
+        <button class="detail-close" id="detailClose" aria-label="關閉詳情">
+          關閉
+        </button>
+
+        <div class="detail-scroll">
+          <div class="detail-hero" id="detailHero"></div>
+
+          <div class="detail-body">
+            <div class="detail-meta">
+              <p class="detail-kicker" id="detailKicker"></p>
+              <h2 id="detailTitle"></h2>
+              <p class="detail-summary" id="detailSummary"></p>
+            </div>
+
+            <div class="detail-info" id="detailInfo"></div>
+
+            <div class="detail-tags" id="detailTags"></div>
+
+            <div class="detail-links" id="detailLinks"></div>
+
+            <section class="detail-gallery">
+              <div class="detail-section-head">
+                <p class="eyebrow">Selected Frames</p>
+                <h3>活動畫面</h3>
+              </div>
+              <div class="gallery-grid" id="detailGallery"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="activity-data.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
