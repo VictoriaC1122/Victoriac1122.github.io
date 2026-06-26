@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#faf4ee" />
+    <meta name="theme-color" content="#f7f4fe" />
     <title>25-26 年度展示網站｜首頁</title>
     <meta
       name="description"
@@ -241,6 +241,60 @@
           </div>
         </section>
 
+        <section class="manual-panel" id="handbook">
+          <div class="manual-copy">
+            <p class="eyebrow">Handbook Access</p>
+            <h2>交接典禮手冊也可以直接在線上觀看或下載保存。</h2>
+            <p class="manual-intro">
+              如果要完整對照網站內容、活動名稱與手冊原始編排，可以直接開啟
+              <strong>25-26 交接典禮手冊 PDF</strong>。這裡保留了兩個最直覺的入口：
+              一個適合線上快速翻閱，一個適合下載後留存或轉傳。
+            </p>
+
+            <div class="manual-meta" aria-label="手冊功能">
+              <span>完整手冊 PDF</span>
+              <span>線上觀看</span>
+              <span>下載保存</span>
+            </div>
+
+            <div class="manual-actions" aria-label="手冊操作">
+              <a
+                class="hero-action hero-action-primary"
+                href="assets/downloads/handover-manual-2025.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                線上觀看手冊
+              </a>
+              <a
+                class="hero-action hero-action-secondary"
+                href="assets/downloads/handover-manual-2025.pdf"
+                download
+              >
+                下載手冊 PDF
+              </a>
+            </div>
+          </div>
+
+          <a
+            class="manual-preview"
+            href="assets/downloads/handover-manual-2025.pdf"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="線上開啟 25-26 交接典禮手冊 PDF"
+          >
+            <img
+              src="assets/photos/june-handover-handbook-page.jpg"
+              alt="25-26 交接典禮手冊預覽畫面"
+            />
+            <div class="manual-preview-copy">
+              <span>PDF Handbook</span>
+              <strong>25-26 交接典禮手冊</strong>
+              <p>點開即可在線上閱讀整本手冊，也可以另外下載保存。</p>
+            </div>
+          </a>
+        </section>
+
         <section class="footnote-panel">
           <div class="footnote-title">
             <p class="eyebrow">Viewing Note</p>
@@ -275,6 +329,14 @@
               <h2 id="detailTitle"></h2>
               <p class="detail-summary" id="detailSummary"></p>
             </div>
+
+            <section class="detail-activities" id="detailActivities" hidden>
+              <div class="detail-section-head">
+                <p class="eyebrow">Monthly Chapters</p>
+                <h3>本月活動區塊</h3>
+              </div>
+              <div class="activity-block-grid" id="detailActivityBlocks"></div>
+            </section>
 
             <div class="detail-info" id="detailInfo"></div>
 

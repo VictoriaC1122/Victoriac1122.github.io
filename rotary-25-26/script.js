@@ -23,6 +23,8 @@ const refs = {
   detailKicker: document.getElementById("detailKicker"),
   detailTitle: document.getElementById("detailTitle"),
   detailSummary: document.getElementById("detailSummary"),
+  detailActivities: document.getElementById("detailActivities"),
+  detailActivityBlocks: document.getElementById("detailActivityBlocks"),
   detailInfo: document.getElementById("detailInfo"),
   detailTags: document.getElementById("detailTags"),
   detailLinks: document.getElementById("detailLinks"),
@@ -33,6 +35,22 @@ const state = {
   activeFilter: "all",
   lastTrigger: null,
 };
+
+const hasArchiveView = Boolean(refs.archive && refs.grid && refs.filter && refs.resultsNote);
+const hasDetailView = Boolean(
+  refs.detailModal &&
+    refs.detailPanel &&
+    refs.detailClose &&
+    refs.detailScroll &&
+    refs.detailHero &&
+    refs.detailKicker &&
+    refs.detailTitle &&
+    refs.detailSummary &&
+    refs.detailInfo &&
+    refs.detailTags &&
+    refs.detailLinks &&
+    refs.detailGallery,
+);
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => HTML_ESCAPES[character]);
@@ -90,7 +108,7 @@ function getDetailInfoItems(event) {
       value: event.location,
     },
     {
-      label: "Material Status",
+      label: "活動簡介",
       value: event.materialStatus,
     },
   ];
@@ -151,15 +169,24 @@ function renderFilterButton(filter) {
 }
 
 function renderHeroStats() {
+  if (!refs.heroStats) {
+    return;
+  }
+
   refs.heroStats.innerHTML = renderList(getHeroStatItems(), renderStatCard);
 }
 
 function renderFilters() {
+  if (!refs.filter) {
+    return;
+  }
+
   refs.filter.innerHTML = renderList(filters, renderFilterButton);
 }
 
 function renderEventCard(event, index = 0) {
   const showCoverOverlay = event.cover.kind === "image";
+  const shouldLazyLoad = index > 1;
 
   return `
     <article
@@ -177,7 +204,7 @@ function renderEventCard(event, index = 0) {
 
       <div class="timeline-shell">
         <div class="card-cover">
-          ${renderVisual(event.cover, event.title)}
+          ${renderVisual(event.cover, event.title, { lazy: shouldLazyLoad })}
           ${
             showCoverOverlay
               ? `
@@ -219,6 +246,10 @@ function renderEventCard(event, index = 0) {
 }
 
 function renderCards() {
+  if (!hasArchiveView) {
+    return;
+  }
+
   const visibleEvents = getVisibleEvents();
 
   refs.resultsNote.textContent = getResultsMessage(visibleEvents.length);
@@ -235,7 +266,55 @@ function renderInfoCard(item) {
 }
 
 function renderDetailInfo(event) {
+  if (!refs.detailInfo) {
+    return;
+  }
+
   refs.detailInfo.innerHTML = renderList(getDetailInfoItems(event), renderInfoCard);
+}
+
+function renderActivityBlock(block) {
+  const tags = Array.isArray(block.tags) && block.tags.length ? block.tags : [];
+  const visual = block.imageSrc
+    ? `
+        <figure class="activity-block-visual">
+          <img
+            src="${escapeHtml(block.imageSrc)}"
+            alt="${escapeHtml(block.imageAlt || block.title)}"
+            loading="lazy"
+            decoding="async"
+          />
+          ${
+            block.imageCaption
+              ? `<figcaption>${escapeHtml(block.imageCaption)}</figcaption>`
+              : ""
+          }
+        </figure>
+      `
+    : "";
+
+  return `
+    <article class="activity-block">
+      ${visual}
+      <p class="activity-block-date">${escapeHtml(block.date)}</p>
+      <h3>${escapeHtml(block.title)}</h3>
+      <p>${escapeHtml(block.summary)}</p>
+      ${tags.length ? `<div class="activity-block-tags">${renderList(tags, renderTag)}</div>` : ""}
+    </article>
+  `;
+}
+
+function renderDetailActivities(event) {
+  if (!refs.detailActivities || !refs.detailActivityBlocks) {
+    return;
+  }
+
+  const activityBlocks = Array.isArray(event.activityBlocks) ? event.activityBlocks : [];
+
+  refs.detailActivities.hidden = activityBlocks.length === 0;
+  refs.detailActivityBlocks.innerHTML = activityBlocks.length
+    ? renderList(activityBlocks, renderActivityBlock)
+    : "";
 }
 
 function renderLink(link) {
@@ -286,6 +365,10 @@ function renderGalleryItem(item) {
 }
 
 function setModalOpen(isOpen) {
+  if (!hasDetailView) {
+    return;
+  }
+
   refs.detailModal.hidden = !isOpen;
   refs.detailModal.setAttribute("aria-hidden", isOpen ? "false" : "true");
   document.body.classList.toggle("modal-open", isOpen);
@@ -302,11 +385,16 @@ function renderDetailHero(event) {
 }
 
 function populateDetail(event) {
+  if (!hasDetailView) {
+    return;
+  }
+
   refs.detailPanel.style.setProperty("--detail-accent", event.accent);
   refs.detailHero.innerHTML = renderDetailHero(event);
   refs.detailKicker.textContent = event.detailKicker;
   refs.detailTitle.textContent = event.title;
   refs.detailSummary.textContent = event.summary;
+  renderDetailActivities(event);
   refs.detailTags.innerHTML = renderList(event.highlights, renderTag);
   refs.detailLinks.innerHTML = renderDetailLinks(event.links);
   refs.detailGallery.innerHTML = renderList(event.gallery, renderGalleryItem);
@@ -315,6 +403,10 @@ function populateDetail(event) {
 }
 
 function openDetail(eventId, triggerElement = document.activeElement) {
+  if (!hasDetailView) {
+    return;
+  }
+
   const event = eventById.get(eventId);
 
   if (!event) {
@@ -333,7 +425,7 @@ function openDetail(eventId, triggerElement = document.activeElement) {
 }
 
 function closeDetail() {
-  if (refs.detailModal.hidden) {
+  if (!hasDetailView || refs.detailModal.hidden) {
     return;
   }
 
@@ -342,7 +434,7 @@ function closeDetail() {
 }
 
 function setActiveFilter(filterId, options = {}) {
-  if (!filterById.has(filterId)) {
+  if (!hasArchiveView || !filterById.has(filterId)) {
     return;
   }
 
@@ -402,11 +494,17 @@ function handleWindowKeydown(event) {
 }
 
 function bindEvents() {
-  refs.filter.addEventListener("click", handleFilterClick);
-  refs.grid.addEventListener("click", handleCardClick);
-  refs.grid.addEventListener("keydown", handleCardKeydown);
-  refs.detailModal.addEventListener("click", handleModalClick);
-  refs.detailClose.addEventListener("click", closeDetail);
+  if (hasArchiveView) {
+    refs.filter.addEventListener("click", handleFilterClick);
+    refs.grid.addEventListener("click", handleCardClick);
+    refs.grid.addEventListener("keydown", handleCardKeydown);
+  }
+
+  if (hasDetailView) {
+    refs.detailModal.addEventListener("click", handleModalClick);
+    refs.detailClose.addEventListener("click", closeDetail);
+  }
+
   refs.heroPhotoFilter?.addEventListener("click", () => {
     setActiveFilter("photo-first", { scrollToArchive: true });
   });
@@ -414,10 +512,16 @@ function bindEvents() {
 }
 
 function init() {
-  setModalOpen(false);
+  if (hasDetailView) {
+    setModalOpen(false);
+  }
+
   renderHeroStats();
-  renderFilters();
-  renderCards();
+  if (hasArchiveView) {
+    renderFilters();
+    renderCards();
+  }
+
   bindEvents();
 }
 
