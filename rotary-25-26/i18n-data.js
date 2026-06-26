@@ -330,8 +330,8 @@
           },
           hannah: {
             role: "北區分會長",
-            photoAlt: "交接典禮手冊中的洪婉華與年度夥伴合照",
-            photoCaption: "交接典禮手冊人物畫面",
+            photoAlt: "洪婉華個人形象照",
+            photoCaption: "洪婉華個人形象照",
             serviceValue: "凱基證券市府分公司 業務副理",
             awardValue: "21-22",
             careClubValue: "永和扶輪社",
@@ -681,8 +681,8 @@
           },
           hannah: {
             role: "President, Taipei North",
-            photoAlt: "Hannah Hung with annual partners in the handover handbook",
-            photoCaption: "Portrait from the handover handbook",
+            photoAlt: "Portrait of Hannah Hung",
+            photoCaption: "Portrait of Hannah Hung",
             serviceValue: "KGI Securities, City Hall Branch · Associate Vice President",
             awardValue: "21-22",
             careClubValue: "Yonghe Rotary Club",
