@@ -2,20 +2,20 @@
 
 ## Structure
 
-- `index.html`: homepage entry
-- `activities.html`: canonical activities page source
-- `leaders.html`: canonical leaders page source
-- `activities/index.html`: route copy for `/activities/`
-- `leaders/index.html`: route copy for `/leaders/`
-- `activity-data.js`: activity archive data and derived filter metadata
-- `script.js`: activities page rendering and interaction controller
+- `index.html`: main homepage
+- `activities.html`: source file for the activities page
+- `leaders.html`: source file for the leaders page
+- `activities/index.html`: synced copy for `/activities/`
+- `leaders/index.html`: synced copy for `/leaders/`
+- `activity-data.js`: event content and derived archive metadata
+- `script.js`: timeline rendering and interactions
 - `styles.css`: shared site styles
 
 ## Maintenance Notes
 
-- Keep `activities.html` and `leaders.html` as the editable source pages.
-- Run `node site/tools/sync-route-pages.mjs` after editing those canonical pages to refresh the directory-based route copies.
-- `activity-data.js` contains event content only; `script.js` should stay focused on DOM rendering and interactions.
+- Edit `activities.html` and `leaders.html` first.
+- After updating those pages, run `node site/tools/sync-route-pages.mjs` to refresh the `/activities/` and `/leaders/` copies.
+- Keep event content in `activity-data.js`, and keep DOM rendering and interactions in `script.js`.
 
 ## Lightweight Checks
 

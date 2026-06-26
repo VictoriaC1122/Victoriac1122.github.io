@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f4fe" />
-    <title>25-26 年度展示網站｜會長介紹</title>
+    <title data-i18n="meta.leaders.title">25-26 年度展示網站｜會長介紹</title>
     <meta
       name="description"
-      content="介紹 2025-26 年度北區分會長洪婉華與新北區分會長鄭詠文的正式資料與年度回顧。"
+      content="收錄 2025-26 年度洪婉華與鄭詠文兩位會長的正式資料、照片和年度回顧。"
+      data-i18n-attr="content:meta.leaders.description"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-leaders">
-    <a class="skip-link" href="#top">直接前往主要內容</a>
+    <a class="skip-link" href="#top" data-i18n="common.skipLink">直接前往主要內容</a>
     <div class="page-aura page-aura-left" aria-hidden="true"></div>
     <div class="page-aura page-aura-right" aria-hidden="true"></div>
     <div class="page-gridline" aria-hidden="true"></div>
@@ -28,65 +29,73 @@
         <a class="brand" href="index.html">
           <span class="brand-mark">25-26</span>
           <span class="brand-copy">
-            <strong>年度展示網站</strong>
-            <span>詠文・婉華 Rotary Yearbook</span>
+            <strong data-i18n="common.brand.title">年度展示網站</strong>
+            <span data-i18n="common.brand.subtitle">詠文・婉華 年度紀錄</span>
           </span>
         </a>
 
-        <nav class="topbar-nav" aria-label="頁面導覽">
-          <a href="index.html">首頁</a>
-          <a href="activities/">活動頁</a>
-          <a href="leaders/" aria-current="page">會長介紹</a>
-        </nav>
+        <div class="topbar-actions">
+          <nav class="topbar-nav" aria-label="頁面導覽" data-i18n-attr="aria-label:common.nav.aria">
+            <a href="index.html" data-i18n="common.nav.home">首頁</a>
+            <a href="activities/" data-i18n="common.nav.activities">活動頁</a>
+            <a href="leaders/" aria-current="page" data-i18n="common.nav.leaders">會長介紹</a>
+          </nav>
+
+          <button class="lang-toggle" type="button" data-language-toggle>
+            <span class="lang-toggle-option" data-language-option="zh-TW" data-i18n="common.language.zhShort">
+              繁中
+            </span>
+            <span class="lang-toggle-divider" aria-hidden="true">/</span>
+            <span class="lang-toggle-option" data-language-option="en" data-i18n="common.language.enShort">
+              EN
+            </span>
+          </button>
+        </div>
       </header>
 
       <main id="top" class="page-main" tabindex="-1">
         <section class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">Leadership Portrait</p>
-            <div class="hero-ledger" aria-label="會長介紹頁資訊">
+            <p class="eyebrow" data-i18n="leaders.hero.eyebrow">會長介紹</p>
+            <div class="hero-ledger" aria-label="會長介紹頁資訊" data-i18n-attr="aria-label:leaders.hero.ledgerAria">
               <article class="hero-ledger-item">
-                <span>Profiles</span>
-                <strong>2 Presidents</strong>
+                <span data-i18n="leaders.hero.ledger.people">人數</span>
+                <strong data-i18n="leaders.hero.ledger.peopleValue">2 位會長</strong>
               </article>
               <article class="hero-ledger-item">
-                <span>Source</span>
-                <strong>Handbook-Based</strong>
+                <span data-i18n="leaders.hero.ledger.source">資料來源</span>
+                <strong data-i18n="leaders.hero.ledger.sourceValue">交接典禮手冊</strong>
               </article>
               <article class="hero-ledger-item">
-                <span>Focus</span>
-                <strong>Role & Voice</strong>
+                <span data-i18n="leaders.hero.ledger.content">內容</span>
+                <strong data-i18n="leaders.hero.ledger.contentValue">正式資料・年度回顧</strong>
               </article>
             </div>
             <h1 class="hero-title hero-title--leaders">
-              <span>把婉華與詠文</span>
-              <span>這一年的角色與軌跡</span>
-              <span>獨立成一頁來看。</span>
+              <span data-i18n="leaders.hero.title.lineOne">2025-26 年度會長介紹</span>
+              <span data-i18n="leaders.hero.title.lineTwo">婉華與詠文</span>
+              <span data-i18n="leaders.hero.title.lineThree">都在這一頁。</span>
             </h1>
-            <p class="hero-text">
-              這一頁集中整理 <strong>北區分會長洪婉華 Hannah</strong> 與
-              <strong>新北區分會長鄭詠文 Victoria</strong> 的正式資料與年度回顧。
-              內容依交接典禮手冊整理，適合直接用來對外介紹本年度會長與年度主軸。
+            <p class="hero-text" data-i18n-html="leaders.hero.textHtml">
+              這頁收錄 <strong>北區分會長洪婉華 Hannah</strong> 與 <strong>新北區分會長鄭詠文 Victoria</strong> 的正式資料與年度回顧，內容以交接典禮手冊為主。
             </p>
 
-            <div class="hero-actions" aria-label="快速入口">
-              <a class="hero-action hero-action-primary" href="activities/">查看年度活動</a>
-              <a class="hero-action hero-action-secondary" href="index.html">回首頁</a>
+            <div class="hero-actions" aria-label="快速入口" data-i18n-attr="aria-label:leaders.hero.actionsAria">
+              <a class="hero-action hero-action-primary" href="activities/" data-i18n="leaders.hero.actions.primary">看年度活動</a>
+              <a class="hero-action hero-action-secondary" href="index.html" data-i18n="leaders.hero.actions.secondary">回首頁</a>
             </div>
 
             <div class="method-strip">
-              <span>介紹重點</span>
-              <strong>正式資料</strong>
-              <strong>年度角色</strong>
-              <strong>手冊摘要</strong>
+              <span data-i18n="leaders.hero.method.label">頁面內容</span>
+              <strong data-i18n="leaders.hero.method.first">正式資料</strong>
+              <strong data-i18n="leaders.hero.method.second">年度重點</strong>
+              <strong data-i18n="leaders.hero.method.third">手冊內容</strong>
             </div>
 
             <div class="hero-signature">
-              <span>Leadership Page</span>
-              <strong>Hannah & Victoria, 2025-26.</strong>
-              <p>
-                把活動頁的時間軸與人物介紹分開之後，會長頁可以更專心地呈現這一年兩位會長的定位、背景與帶領脈絡。
-              </p>
+              <span data-i18n="leaders.hero.signature.label">人物頁</span>
+              <strong data-i18n="leaders.hero.signature.title">兩位會長都在這一頁。</strong>
+              <p data-i18n="leaders.hero.signature.text">這裡只放會長資料，月份活動請到活動頁。</p>
             </div>
           </div>
 
@@ -94,11 +103,12 @@
             <img
               src="assets/photos/leaders-hero-photo.jpg"
               alt="詠文與婉華在活動現場合力敲鐘的畫面"
+              data-i18n-attr="alt:leaders.feature.alt"
             />
             <div class="page-feature-copy">
-              <span>2025-26 Leadership</span>
-              <strong>詠文・婉華</strong>
-              <p>從兩位會長一同敲鐘的瞬間出發，也替這個年度定下清楚而溫柔的開場節奏。</p>
+              <span data-i18n="leaders.feature.label">2025-26 年度會長</span>
+              <strong data-i18n="leaders.feature.title">詠文・婉華</strong>
+              <p data-i18n="leaders.feature.text">首圖放兩位會長一起敲鐘的畫面，當作這一年的開場。</p>
             </div>
           </article>
         </section>
@@ -106,29 +116,29 @@
         <section class="spotlight-band spotlight-band--compact">
           <article class="spotlight-card">
             <span class="spotlight-index">01</span>
-            <h3>凝聚</h3>
-            <p>讓聯誼會成為一個有歸屬感、可以一起成長的年度團隊。</p>
+            <h3 data-i18n="leaders.spotlight.first.title">凝聚</h3>
+            <p data-i18n="leaders.spotlight.first.body">把聯誼會帶成一個能一起做事、彼此支持的團隊。</p>
           </article>
 
           <article class="spotlight-card">
             <span class="spotlight-index">02</span>
-            <h3>傳承</h3>
-            <p>從交接到迎新，把扶輪精神與夥伴關係一棒一棒接下去。</p>
+            <h3 data-i18n="leaders.spotlight.second.title">傳承</h3>
+            <p data-i18n="leaders.spotlight.second.body">從交接到迎新，把經驗和關係慢慢接下去。</p>
           </article>
 
           <article class="spotlight-card">
             <span class="spotlight-index">03</span>
-            <h3>視野</h3>
-            <p>透過多元主題例會與公益活動，讓聯誼會不只停留在聚會本身。</p>
+            <h3 data-i18n="leaders.spotlight.third.title">活動</h3>
+            <p data-i18n="leaders.spotlight.third.body">用不同主題例會和公益活動，讓大家更有參與感。</p>
           </article>
         </section>
 
         <section class="leaders-section" id="leaders">
           <div class="leaders-copy">
-            <p class="eyebrow">President Profiles</p>
-            <h2>2025-26 年度會長介紹</h2>
-            <p class="leaders-intro">
-              依交接典禮手冊整理本年度兩位會長的正式資料與年度回顧。這一年的節奏，從交接、九份、宜蘭幹訓，到一整排例會與公益活動，都是由婉華與詠文一起帶著大家往前走。
+            <p class="eyebrow" data-i18n="leaders.section.eyebrow">會長資料</p>
+            <h2 data-i18n="leaders.section.title">2025-26 年度會長介紹</h2>
+            <p class="leaders-intro" data-i18n="leaders.section.intro">
+              這頁依交接典禮手冊收錄兩位會長的正式資料與年度回顧，也能對照這一年的活動分工。
             </p>
           </div>
 
@@ -136,7 +146,7 @@
             <article class="leader-card">
               <div class="leader-head">
                 <span class="leader-number">01</span>
-                <span class="leader-role">北區分會長</span>
+                <span class="leader-role" data-i18n="leaders.hannah.role">北區分會長</span>
                 <h3>洪婉華 Hannah</h3>
               </div>
 
@@ -144,38 +154,39 @@
                 <img
                   src="assets/photos/june-handover-handbook-cover.jpg"
                   alt="交接典禮手冊中的洪婉華與年度夥伴合照"
+                  data-i18n-attr="alt:leaders.hannah.photoAlt"
                 />
-                <figcaption>交接典禮手冊人物畫面</figcaption>
+                <figcaption data-i18n="leaders.hannah.photoCaption">交接典禮手冊人物畫面</figcaption>
               </figure>
 
               <dl class="leader-meta">
                 <div>
-                  <dt>服務單位</dt>
-                  <dd>凱基證券市府分公司 業務副理</dd>
+                  <dt data-i18n="leaders.labels.service">服務單位</dt>
+                  <dd data-i18n="leaders.hannah.serviceValue">凱基證券市府分公司 業務副理</dd>
                 </div>
                 <div>
-                  <dt>受獎年度</dt>
-                  <dd>21-22</dd>
+                  <dt data-i18n="leaders.labels.award">受獎年度</dt>
+                  <dd data-i18n="leaders.hannah.awardValue">21-22</dd>
                 </div>
                 <div>
-                  <dt>照顧社</dt>
-                  <dd>永和扶輪社</dd>
+                  <dt data-i18n="leaders.labels.careClub">照顧社</dt>
+                  <dd data-i18n="leaders.hannah.careClubValue">永和扶輪社</dd>
                 </div>
               </dl>
 
-              <blockquote class="leader-quote">
+              <blockquote class="leader-quote" data-i18n="leaders.hannah.quote">
                 允許一切的發生，遇到問題，解決問題。
               </blockquote>
 
-              <p class="leader-summary">
-                依手冊中的卸任感言整理，婉華把這一年視為一段從緊張籌備走向穩定承擔的成長歷程；她也特別感謝扶輪前輩、幹部與獎學生夥伴，讓聯誼會成為一個充滿溫暖與凝聚力的大家庭。
+              <p class="leader-summary" data-i18n="leaders.hannah.summary">
+                手冊裡回顧了她這一年的籌備與執行，也感謝扶輪前輩、幹部和獎學生夥伴一路相挺。
               </p>
             </article>
 
             <article class="leader-card">
               <div class="leader-head">
                 <span class="leader-number">02</span>
-                <span class="leader-role">新北區分會長</span>
+                <span class="leader-role" data-i18n="leaders.victoria.role">新北區分會長</span>
                 <h3>鄭詠文 Victoria</h3>
               </div>
 
@@ -183,31 +194,32 @@
                 <img
                   src="assets/photos/leaders-victoria-portrait.jpg"
                   alt="鄭詠文個人形象照"
+                  data-i18n-attr="alt:leaders.victoria.photoAlt"
                 />
-                <figcaption>鄭詠文個人形象照</figcaption>
+                <figcaption data-i18n="leaders.victoria.photoCaption">鄭詠文個人形象照</figcaption>
               </figure>
 
               <dl class="leader-meta">
                 <div>
-                  <dt>服務單位</dt>
-                  <dd>國立臺灣大學</dd>
+                  <dt data-i18n="leaders.labels.service">服務單位</dt>
+                  <dd data-i18n="leaders.victoria.serviceValue">國立臺灣大學</dd>
                 </div>
                 <div>
-                  <dt>受獎年度</dt>
-                  <dd>21-22・23-24・24-25・25-26</dd>
+                  <dt data-i18n="leaders.labels.award">受獎年度</dt>
+                  <dd data-i18n="leaders.victoria.awardValue">21-22・23-24・24-25・25-26</dd>
                 </div>
                 <div>
-                  <dt>推薦社</dt>
-                  <dd>台北和平社、板橋社、政愛社</dd>
+                  <dt data-i18n="leaders.labels.sponsorClubs">推薦社</dt>
+                  <dd data-i18n="leaders.victoria.sponsorClubsValue">台北和平社、板橋社、政愛社</dd>
                 </div>
               </dl>
 
-              <blockquote class="leader-quote">
+              <blockquote class="leader-quote" data-i18n="leaders.victoria.quote">
                 聯誼會不只是交流的平台，更是探索自我、實現夢想的起點。
               </blockquote>
 
-              <p class="leader-summary">
-                依手冊中的卸任感言整理，詠文回顧了從交接典禮、九份畢旅、宜蘭幹部訓練到多元主題例會的一整年，希望每位夥伴都能在聯誼會找到歸屬感，也透過每一場活動看見更寬廣的世界。
+              <p class="leader-summary" data-i18n="leaders.victoria.summary">
+                手冊裡回顧了交接典禮、九份畢旅、幹部訓練到多場例會，也希望每位夥伴都能自在參與聯誼會。
               </p>
             </article>
           </div>
@@ -215,14 +227,17 @@
 
         <section class="footnote-panel">
           <div class="footnote-title">
-            <p class="eyebrow">Source Note</p>
-            <h3>資料來源說明</h3>
+            <p class="eyebrow" data-i18n="leaders.footnote.eyebrow">資料來源</p>
+            <h3 data-i18n="leaders.footnote.title">資料怎麼看</h3>
           </div>
-          <p>
-            這頁的正式名稱與背景資訊優先整理自交接典禮手冊；如果要看這一年每個月份對應的活動時間、照片與附件，直接前往 <strong>活動頁</strong> 會最完整。
+          <p data-i18n-html="leaders.footnote.bodyHtml">
+            這頁以交接典禮手冊的正式名稱和背景資料為主；如果要看每個月份的活動時間、照片和附件，請前往 <strong>活動頁</strong>。
           </p>
         </section>
       </main>
     </div>
+
+    <script src="i18n-data.js"></script>
+    <script src="i18n.js"></script>
   </body>
 </html>

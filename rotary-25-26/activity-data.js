@@ -1,8 +1,16 @@
 (() => {
+  const DEFAULT_LANGUAGE = "zh-TW";
+  const SUPPORTED_LANGUAGES = Object.freeze(["zh-TW", "en"]);
+
   const STATUS_LABELS = Object.freeze({
-    photo: "精選照片",
-    document: "文件封面",
-    placeholder: "待補照片",
+    photo: localized("精選照片", "Featured photos"),
+    document: localized("文件封面", "Document cover"),
+    placeholder: localized("待補照片", "Photo coming soon"),
+  });
+
+  const FILTER_LABELS = Object.freeze({
+    all: localized("全部活動", "All events"),
+    photoFirst: localized("精選照片優先", "Photos first"),
   });
 
   const MODE_PRIORITY = Object.freeze({
@@ -10,6 +18,13 @@
     document: 1,
     placeholder: 2,
   });
+
+  function localized(zhTw, en) {
+    return Object.freeze({
+      "zh-TW": zhTw,
+      en,
+    });
+  }
 
   function padNumber(value) {
     return String(value).padStart(2, "0");
@@ -28,23 +43,23 @@
     };
   }
 
-  function createGeneratedAsset({ theme, title, month, badge = STATUS_LABELS.placeholder, caption }) {
+  function createLocalizedLink(zhTwLabel, enLabel, url, options = {}) {
     return {
-      kind: "generated",
-      theme,
-      badge,
-      title,
-      month,
-      ...(caption ? { caption } : {}),
-    };
-  }
-
-  function createLink(label, url, options = {}) {
-    return {
-      label,
+      label: localized(zhTwLabel, enLabel),
       url,
       ...options,
     };
+  }
+
+  function localizedList(...entries) {
+    return entries.map(([zhTw, en]) => localized(zhTw, en));
+  }
+
+  function galleryImage(src, zhTwAlt, enAlt, zhTwCaption, enCaption, options = {}) {
+    return createImageAsset(src, localized(zhTwAlt, enAlt), {
+      ...(zhTwCaption || enCaption ? { caption: localized(zhTwCaption, enCaption) } : {}),
+      ...options,
+    });
   }
 
   function createEvent(config) {
@@ -65,56 +80,51 @@
     });
   }
 
-  function createDocumentEvent({
-    coverSrc,
-    coverAlt,
-    galleryAlt = coverAlt,
-    galleryCaption,
-    coverClassName = "document-cover",
-    ...event
-  }) {
-    return createEvent({
-      ...event,
-      visualMode: "document",
-      cover: createImageAsset(coverSrc, coverAlt, { className: coverClassName }),
-      gallery: [createImageAsset(coverSrc, galleryAlt, { caption: galleryCaption })],
-    });
+  function isLocalizedValue(value) {
+    if (!value || Array.isArray(value) || typeof value !== "object") {
+      return false;
+    }
+
+    const keys = Object.keys(value);
+
+    return (
+      keys.length === SUPPORTED_LANGUAGES.length &&
+      SUPPORTED_LANGUAGES.every((language) => language in value) &&
+      keys.every((key) => SUPPORTED_LANGUAGES.includes(key))
+    );
   }
 
-  function createPlaceholderEvent({
-    theme,
-    badge = STATUS_LABELS.placeholder,
-    coverTitle,
-    galleryCaption,
-    ...event
-  }) {
-    const monthLabel = formatEventLabel(event.year, event.month);
-    const title = coverTitle || event.title;
+  function resolveLocalizedValue(value, language) {
+    if (isLocalizedValue(value)) {
+      return value[language] ?? value[DEFAULT_LANGUAGE];
+    }
 
-    return createEvent({
-      ...event,
-      visualMode: "placeholder",
-      cover: createGeneratedAsset({
-        theme,
-        badge,
-        title,
-        month: monthLabel,
-      }),
-      gallery: [
-        createGeneratedAsset({
-          theme,
-          badge,
-          title,
-          month: monthLabel,
-          caption: galleryCaption,
-        }),
-      ],
-    });
+    if (Array.isArray(value)) {
+      return value.map((item) => resolveLocalizedValue(item, language));
+    }
+
+    if (value && typeof value === "object") {
+      return Object.entries(value).reduce((result, [key, entryValue]) => {
+        result[key] = resolveLocalizedValue(entryValue, language);
+        return result;
+      }, {});
+    }
+
+    return value;
   }
 
-  function normalizeEvent(event) {
+  function createChapterLabel(order, language) {
+    return language === "en" ? `Month ${padNumber(order)}` : `第 ${padNumber(order)} 月`;
+  }
+
+  function createFrameCountLabel(count, language) {
+    return language === "en" ? `${count} photos` : `${count} 張照片`;
+  }
+
+  function normalizeEvent(rawEvent, language) {
+    const event = resolveLocalizedValue(rawEvent, language);
     const label = formatEventLabel(event.year, event.month);
-    const statusLabel = STATUS_LABELS[event.visualMode];
+    const statusLabel = resolveLocalizedValue(STATUS_LABELS[event.visualMode], language);
     const dateLabel = event.date || label;
 
     return {
@@ -122,8 +132,8 @@
       label,
       dateLabel,
       statusLabel,
-      chapterLabel: `Chapter ${padNumber(event.order)}`,
-      frameCountLabel: `${event.gallery.length} Frames`,
+      chapterLabel: createChapterLabel(event.order, language),
+      frameCountLabel: createFrameCountLabel(event.gallery.length, language),
       detailKicker: `${label}｜${dateLabel}`,
       materialStatus: event.availability,
     };
@@ -135,59 +145,94 @@
       year: 2025,
       month: 6,
       order: 1,
-      title: "北區與新北區聯合交接典禮・九份畢旅",
-      subtitle: "從交接典禮到九份畢旅，替 2025-26 年度留下第一段共同回憶。",
-      folder: "6月活動＿交接典禮＆九份畢旅",
-      date: "2025/6/28 聯合交接典禮・2025/6/28-29 九份畢旅",
-      location: "交接典禮 / 九份",
+      title: localized("北區與新北區聯合交接典禮・九份畢旅", "Joint Handover Ceremony & Jiufen Trip"),
+      subtitle: localized("6 月從交接典禮和九份畢旅開始。", "June begins with the handover ceremony and the Jiufen trip."),
+      folder: localized("6月活動＿交接典禮＆九份畢旅", "June Activities — Handover Ceremony & Jiufen Trip"),
+      date: localized("2025/6/28 聯合交接典禮・2025/6/28-29 九份畢旅", "2025/6/28 Joint Handover Ceremony · 2025/6/28-29 Jiufen Trip"),
+      location: localized("交接典禮 / 九份", "Handover Ceremony / Jiufen"),
       accent: "#b06f4a",
       coverSrc: "assets/photos/june-handover-handbook-cover.jpg",
-      coverAlt: "6月交接典禮手冊人物合照",
-      summary:
-        "手冊裡把這個月份分成「交接」與「九份畢旅」兩段：一邊是正式上任、交棒與年度感謝，一邊是在典禮後相約九份漫步老街、品茶與共遊，讓新年度從儀式感與同行情誼一起展開。",
-      highlights: ["年度交接", "九份畢旅", "兩位會長", "大合照優先"],
-      availability: "透過交接典禮的正式交棒與九份畢旅的相聚同行，替 2025-26 年度揭開充滿儀式感與情誼的開場。",
+      coverAlt: localized("6月交接典禮手冊人物合照", "June handbook portrait from the handover ceremony"),
+      summary: localized(
+        "6 月有交接典禮和九份畢旅。先完成交接與上任，再一起到九份走走，替新年度揭開序幕。",
+        "June includes the handover ceremony and the Jiufen trip. The new term begins with the formal handover, then continues with a shared trip to Jiufen.",
+      ),
+      highlights: localizedList(
+        ["年度交接", "Handover"],
+        ["九份畢旅", "Jiufen trip"],
+        ["兩位會長", "Both presidents"],
+        ["大合照優先", "Group photos first"],
+      ),
+      availability: localized(
+        "交接典禮完成正式交接，九份畢旅也讓大家多了一點相處時間。",
+        "The handover ceremony marks the official transition, and the Jiufen trip gives everyone more time together at the start of the year.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/june-handover-handbook-cover.jpg", "交接典禮手冊人物合照", {
-          caption: "以手冊中的交接典禮人物合照作為 6 月主圖，保留正式上任與年度交棒的儀式感。",
-        }),
-        createImageAsset("assets/photos/june-handover-handbook-page.jpg", "交接典禮手冊月份頁", {
-          caption: "保留手冊中的 6 月主頁，讓交接典禮的正式敘事和人物照片一起被看見。",
-        }),
-        createImageAsset("assets/photos/june-jiufen-handbook-group.jpg", "九份畢旅手冊團體畫面", {
-          caption: "把手冊中的九份畢旅團體畫面留下來，延續 6 月交接後的相聚與旅行感。",
-        }),
+        galleryImage(
+          "assets/photos/june-handover-handbook-cover.jpg",
+          "交接典禮手冊人物合照",
+          "Portrait from the handover handbook",
+          "交接典禮人物合照。",
+          "Portrait from the handover ceremony handbook.",
+        ),
+        galleryImage(
+          "assets/photos/june-handover-handbook-page.jpg",
+          "交接典禮手冊月份頁",
+          "June page from the handover handbook",
+          "6 月手冊頁。",
+          "June handbook spread.",
+        ),
+        galleryImage(
+          "assets/photos/june-jiufen-handbook-group.jpg",
+          "九份畢旅手冊團體畫面",
+          "Jiufen trip group photo from the handbook",
+          "九份畢旅團體畫面。",
+          "Group photo from the Jiufen trip.",
+        ),
       ],
-      links: [
-        createLink("下載交接典禮手冊 PDF", "assets/downloads/handover-manual-2025.pdf", {
-          download: true,
-        }),
-      ],
+      links: [createLocalizedLink("下載交接典禮手冊 PDF", "Download the handover handbook PDF", "assets/downloads/handover-manual-2025.pdf", { download: true })],
     }),
     createPhotoEvent({
       id: "2025-07",
       year: 2025,
       month: 7,
       order: 2,
-      title: "北區新北區聯合幹部訓練",
-      subtitle: "在宜蘭透過遊戲、協作與水上體驗，把幹部默契和信任感先建立起來。",
-      folder: "7月活動＿幹部訓練",
+      title: localized("北區新北區聯合幹部訓練", "Joint Leadership Training"),
+      subtitle: localized("在宜蘭把新年度的默契先建立起來。", "The new team builds its rhythm together in Yilan."),
+      folder: localized("7月活動＿幹部訓練", "July Activities — Leadership Training"),
       date: "2025/7/19-20",
-      location: "宜蘭",
+      location: localized("宜蘭", "Yilan"),
       accent: "#766247",
       coverSrc: "assets/photos/july-training-handbook-cover.jpg",
-      coverAlt: "7月幹部訓練手冊人物合照",
-      summary:
-        "手冊寫到，大家一起到宜蘭包棟別墅進行幹部訓練，更深入了解扶輪，也透過遊戲、協作與交流活動增進彼此默契與感情，為新年度團隊奠定合作基礎。",
-      highlights: ["幹部訓練", "宜蘭", "年度默契"],
-      availability: "在宜蘭兩天一夜的幹部訓練中，透過遊戲、協作與交流活動，逐步建立團隊默契與彼此信任。",
+      coverAlt: localized("7月幹部訓練手冊人物合照", "July leadership training portrait from the handbook"),
+      summary: localized(
+        "大家一起到宜蘭進行幹部訓練，用遊戲、協作和交流更了解彼此，也先把新年度的合作默契拉起來。",
+        "The group heads to Yilan for leadership training, using games, teamwork, and conversation to get to know one another and build early momentum for the new year.",
+      ),
+      highlights: localizedList(
+        ["幹部訓練", "Leadership training"],
+        ["宜蘭", "Yilan"],
+        ["年度默契", "Team chemistry"],
+      ),
+      availability: localized(
+        "幹部訓練用兩天一夜的相處，把大家的默契先暖起來。",
+        "Two days together help the officers settle into a shared pace before the year fully starts.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/july-training-handbook-cover.jpg", "幹部訓練手冊人物合照", {
-          caption: "把手冊中最完整的一張幹部訓練合照放在前面，保留 7 月最重要的團隊感。",
-        }),
-        createImageAsset("assets/photos/july-training-handbook-page.jpg", "幹部訓練手冊月份頁", {
-          caption: "保留 7 月手冊頁，讓幹部訓練的活動畫面和當月敘事一起呈現。",
-        }),
+        galleryImage(
+          "assets/photos/july-training-handbook-cover.jpg",
+          "幹部訓練手冊人物合照",
+          "Leadership training portrait from the handbook",
+          "幹部訓練合照。",
+          "Leadership training group photo.",
+        ),
+        galleryImage(
+          "assets/photos/july-training-handbook-page.jpg",
+          "幹部訓練手冊月份頁",
+          "July leadership training handbook page",
+          "7 月手冊頁。",
+          "July handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -195,28 +240,49 @@
       year: 2025,
       month: 8,
       order: 3,
-      title: "五區交接暨菁英論壇",
-      subtitle: "五區會長正式上任，也把聯誼會視野拉向更大的區域交流。",
-      folder: "8月五區聯合交接暨菁英論壇",
+      title: localized("五區交接暨菁英論壇", "Five-District Handover & Leadership Forum"),
+      subtitle: localized("五區會長正式上任，也安排論壇分享。", "The five districts mark their handover and share a forum together."),
+      folder: localized("8月五區聯合交接暨菁英論壇", "August Activities — Five-District Handover & Leadership Forum"),
       date: "2025/8/16",
-      location: "五區聯合活動",
+      location: localized("五區聯合活動", "Five-district joint event"),
       accent: "#36547a",
       coverSrc: "assets/photos/aug-forum-meeting-photo.jpg",
-      coverAlt: "五區交接暨菁英論壇現場會議畫面",
-      summary:
-        "手冊將 8 月定為「五區交接暨菁英論壇」，在五區夥伴共同見證會長上任之外，也透過跨領域講者分享，讓獎學生的視野與交流層次一同被拉開。",
-      highlights: ["五區聯合", "交接", "菁英論壇"],
-      availability: "五區夥伴在交接暨菁英論壇中共同見證會長上任，也藉由跨領域交流拓展獎學生的視野與連結。",
+      coverAlt: localized("五區交接暨菁英論壇現場會議畫面", "Forum meeting scene from the five-district handover"),
+      summary: localized(
+        "8 月是五區交接暨菁英論壇。除了共同見證會長上任，也安排不同領域的講者分享，讓大家交流近況。",
+        "August centers on the five-district handover and leadership forum. Alongside the formal handover, speakers from different fields share their work and spark conversations across districts.",
+      ),
+      highlights: localizedList(
+        ["五區聯合", "Five districts"],
+        ["交接", "Handover"],
+        ["菁英論壇", "Leadership forum"],
+      ),
+      availability: localized(
+        "大家一起參加五區交接暨菁英論壇，見證會長上任，也聽講者分享。",
+        "Members join the five-district handover and forum to witness the new term and hear the invited speakers.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/aug-forum-meeting-photo.jpg", "五區交接暨菁英論壇現場會議畫面", {
-          caption: "以現場會議畫面作為主圖，保留五區交接暨菁英論壇正式進行中的氛圍與年度儀式感。",
-        }),
-        createImageAsset("assets/photos/aug-forum-group-handbook.jpg", "五區交接暨菁英論壇手冊擷取團體畫面", {
-          caption: "手冊中的團體畫面延續 8 月五區交接暨菁英論壇共同參與的集體氛圍。",
-        }),
-        createImageAsset("assets/photos/aug-forum-handbook-page.jpg", "五區交接暨菁英論壇手冊月份頁", {
-          caption: "保留手冊原始月份頁，讓網站也能呈現 8 月在手冊中的完整敘事與排版。",
-        }),
+        galleryImage(
+          "assets/photos/aug-forum-meeting-photo.jpg",
+          "五區交接暨菁英論壇現場會議畫面",
+          "Meeting scene from the five-district handover forum",
+          "論壇現場畫面。",
+          "Forum meeting scene.",
+        ),
+        galleryImage(
+          "assets/photos/aug-forum-group-handbook.jpg",
+          "五區交接暨菁英論壇手冊擷取團體畫面",
+          "Group image from the five-district handover handbook",
+          "手冊團體畫面。",
+          "Group image from the handbook.",
+        ),
+        galleryImage(
+          "assets/photos/aug-forum-handbook-page.jpg",
+          "五區交接暨菁英論壇手冊月份頁",
+          "August page from the five-district handover handbook",
+          "8 月手冊頁。",
+          "August handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -224,25 +290,43 @@
       year: 2025,
       month: 9,
       order: 4,
-      title: "扶輪聲林之王",
-      subtitle: "在浪漫屋視聽歌唱城辦一場人人有獎、重在參與的趣味唱歌競賽。",
-      folder: "9月活動__扶輪聲林之王",
+      title: localized("扶輪聲林之王", "Rotary Singing Night"),
+      subtitle: localized("在浪漫屋視聽歌唱城辦一場熱鬧的唱歌例會。", "A lively karaoke meeting at Romantic House KTV."),
+      folder: localized("9月活動__扶輪聲林之王", "September Activities — Rotary Singing Night"),
       date: "2025/9/20",
-      location: "浪漫屋視聽歌唱城",
+      location: localized("浪漫屋視聽歌唱城", "Romantic House KTV"),
       accent: "#69337a",
       coverSrc: "assets/photos/sep-singing-group-photo.jpg",
-      coverAlt: "扶輪聲林之王現場主持與評審席畫面",
-      summary:
-        "手冊寫到，為了給獎學生們一個展示自我的舞台，9 月舉辦了趣味唱歌競賽，地點選在浪漫屋視聽歌唱城，復古歌舞廳讓大家夢回 80 年代，人人有獎、重在參與。",
-      highlights: ["歌唱比賽", "舞台例會", "頒獎畫面", "現場實拍"],
-      availability: "以趣味唱歌競賽打造展示自我的舞台，在復古歌舞廳裡人人有獎、重在參與，留下熱鬧又輕鬆的共同回憶。",
+      coverAlt: localized("扶輪聲林之王現場主持與評審席畫面", "Scene from the Rotary Singing Night panel table"),
+      summary: localized(
+        "9 月在浪漫屋視聽歌唱城辦趣味唱歌競賽，大家輪流上台演唱，重點是玩得開心。",
+        "September brings a playful singing competition at Romantic House KTV. Everyone takes turns on stage, with the focus on enjoying the night together.",
+      ),
+      highlights: localizedList(
+        ["歌唱比賽", "Singing contest"],
+        ["舞台例會", "Stage meeting"],
+        ["頒獎畫面", "Award moments"],
+        ["現場實拍", "Live event photos"],
+      ),
+      availability: localized(
+        "以趣味唱歌競賽為主題，現場氣氛輕鬆又熱鬧。",
+        "This meeting is built around a playful singing competition, with a relaxed and lively atmosphere throughout the night.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/sep-singing-group-photo.jpg", "扶輪聲林之王現場主持與評審席畫面", {
-          caption: "改用現場主持與評審席畫面作為 9 月主圖，讓扶輪聲林之王回到真正的活動現場氛圍。",
-        }),
-        createImageAsset("assets/photos/sep-singing-handbook-page.jpg", "扶輪聲林之王手冊月份頁", {
-          caption: "保留手冊中的 9 月整頁，讓頒獎與演唱人物照片一起被完整呈現。",
-        }),
+        galleryImage(
+          "assets/photos/sep-singing-group-photo.jpg",
+          "扶輪聲林之王現場主持與評審席畫面",
+          "Scene from the Rotary Singing Night panel table",
+          "扶輪聲林之王現場畫面。",
+          "Rotary Singing Night scene.",
+        ),
+        galleryImage(
+          "assets/photos/sep-singing-handbook-page.jpg",
+          "扶輪聲林之王手冊月份頁",
+          "September page from the Rotary Singing Night handbook",
+          "9 月手冊頁。",
+          "September handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -250,25 +334,42 @@
       year: 2025,
       month: 10,
       order: 5,
-      title: "游泳例會",
-      subtitle: "先學健康衛教，再下水實練，讓例會真的把知識和運動連在一起。",
-      folder: "10月活動_游泳例會",
+      title: localized("游泳例會", "Swimming Meeting"),
+      subtitle: localized("先聽健康分享，再一起下水。", "A wellness talk first, then everyone gets in the water."),
+      folder: localized("10月活動_游泳例會", "October Activities — Swimming Meeting"),
       date: "2025/10/12",
-      location: "運動健康例會",
+      location: localized("運動健康例會", "Sports and wellness meeting"),
       accent: "#336987",
       coverSrc: "assets/photos/oct-swim-group-handbook.jpg",
-      coverAlt: "健康衛教游泳例會手冊擷取團體畫面",
-      summary:
-        "手冊提到，這場例會先由獎學生胡祐笙普及健康衛教知識，讓大家在運動前充分暖身、避免運動傷害，再在講座結束後一起到泳池實練、強身健體。",
-      highlights: ["運動健康", "例會", "活動文件"],
-      availability: "先由胡祐笙分享健康衛教知識，再透過游泳實練把運動安全、暖身觀念與強身健體真正連在一起。",
+      coverAlt: localized("游泳例會手冊擷取團體畫面", "Swimming meeting group photo from the handbook"),
+      summary: localized(
+        "這場例會先由獎學生胡祐笙分享健康衛教，提醒大家在運動前暖身、避免受傷，之後再一起到泳池活動。",
+        "This meeting begins with a wellness talk by scholarship student Hu You-Sheng, covering warm-ups and injury prevention before everyone moves to the pool.",
+      ),
+      highlights: localizedList(
+        ["運動健康", "Wellness"],
+        ["例會", "Monthly meeting"],
+        ["活動文件", "Handbook visuals"],
+      ),
+      availability: localized(
+        "先聽健康衛教分享，再一起下水。",
+        "The group starts with a health talk, then heads into the pool together.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/oct-swim-group-handbook.jpg", "健康衛教游泳例會手冊擷取團體畫面", {
-          caption: "從手冊裡先救出最清楚的一張團體畫面，讓 10 月月頁至少先回到有人、有活動的狀態。",
-        }),
-        createImageAsset("assets/photos/oct-swim-handbook-page.jpg", "健康衛教游泳例會手冊月份頁", {
-          caption: "完整保留 10 月手冊頁，能同時看見講座、交流與月份敘事的原始版面。",
-        }),
+        galleryImage(
+          "assets/photos/oct-swim-group-handbook.jpg",
+          "游泳例會手冊擷取團體畫面",
+          "Swimming meeting group photo from the handbook",
+          "游泳例會團體畫面。",
+          "Swimming meeting group photo.",
+        ),
+        galleryImage(
+          "assets/photos/oct-swim-handbook-page.jpg",
+          "游泳例會手冊月份頁",
+          "October page from the swimming meeting handbook",
+          "10 月手冊頁。",
+          "October handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -276,63 +377,98 @@
       year: 2025,
       month: 11,
       order: 6,
-      title: "紡織例會・捐血例會・區塊鏈例會",
-      subtitle: "同一個月份裡，手作、公益與科技三條主題線並行展開。",
-      folder: "11 月三場主題例會",
-      date: "2025/11/8・2025/11/15・2025/11/29",
-      location: "11/08 紡織例會 ・ 11/15 捐血例會 ・ 11/29 區塊鏈職業例會",
+      title: localized("紡織例會・捐血例會・區塊鏈例會", "Textile Meeting · Blood Donation Meeting · Blockchain Meeting"),
+      subtitle: localized("11 月連著辦了手作、公益和科技三場例會。", "November brings three meetings on craft, public service, and technology."),
+      folder: localized("11 月三場主題例會", "November Activities — Three Themed Meetings"),
+      date: localized("2025/11/8・2025/11/15・2025/11/29", "2025/11/8 · 2025/11/15 · 2025/11/29"),
+      location: localized(
+        "11/08 紡織例會 ・ 11/15 捐血例會 ・ 11/29 區塊鏈職業例會",
+        "11/08 Textile Meeting · 11/15 Blood Donation Meeting · 11/29 Blockchain Meeting",
+      ),
       accent: "#7c5a68",
       coverSrc: "assets/photos/nov-textile-group-photo.jpg",
-      coverAlt: "紡織例會手作品展示畫面",
-      summary:
-        "手冊中 11 月橫跨三場不同主題的例會：8 日以紡織手作打開職涯分享，15 日以捐血行動延伸公益參與，29 日再從區塊鏈講座切入新興科技視角，讓這個月份同時保有創作、服務與知識交流的層次。",
-      highlights: ["紡織", "捐血", "區塊鏈", "月內三場"],
-      availability: "11 月把紡織手作、捐血公益與區塊鏈講座排成三場獨立例會，讓手作實作、社會服務與新知交流在同一個月份並行展開。",
+      coverAlt: localized("紡織例會手作品展示畫面", "Textile meeting display photo"),
+      summary: localized(
+        "11 月有三場不同主題的例會：8 日紡織手作、15 日捐血公益、29 日區塊鏈分享，各自分開進行。",
+        "November includes three separate meetings: a textile workshop on the 8th, a blood donation service event on the 15th, and a blockchain session on the 29th.",
+      ),
+      highlights: localizedList(
+        ["紡織", "Textile"],
+        ["捐血", "Blood donation"],
+        ["區塊鏈", "Blockchain"],
+        ["月內三場", "Three events"],
+      ),
+      availability: localized(
+        "11 月接連辦了紡織、捐血和區塊鏈三場例會。",
+        "Three separate meetings are held in November, covering textile work, blood donation, and blockchain.",
+      ),
       activityBlocks: [
         {
           date: "2025/11/8",
-          title: "紡織例會",
-          summary:
-            "由瑤池藝術工作室創辦人、獎學生賴綉丹帶大家動手製作飲料提袋，從手作過程裡看見紡織設計與日常實作如何連回個人專長與職涯分享。",
+          title: localized("紡織例會", "Textile Meeting"),
+          summary: localized(
+            "由瑤池藝術工作室創辦人、獎學生賴綉丹帶大家做飲料提袋，也分享自己的紡織設計專長。",
+            "Scholarship student Lai Hsiu-Dan, founder of Yaochi Art Studio, leads a drink-bag workshop and shares her textile design work.",
+          ),
           imageSrc: "assets/photos/nov-textile-group-photo.jpg",
-          imageAlt: "紡織例會手作品展示畫面",
-          imageCaption: "紡織例會現場畫面",
-          tags: ["紡織手作", "飲料提袋"],
+          imageAlt: localized("紡織例會手作品展示畫面", "Textile meeting display photo"),
+          imageCaption: localized("紡織例會現場畫面", "Textile meeting scene"),
+          tags: localizedList(["紡織手作", "Textile workshop"], ["飲料提袋", "Drink-bag craft"]),
         },
         {
           date: "2025/11/15",
-          title: "捐血例會",
-          summary:
-            "手冊也將 11 月中的捐血例會收進年度紀錄，讓大家把例會從交流與學習延伸到更直接的公益參與，以實際行動回應社會服務的初衷。",
+          title: localized("捐血例會", "Blood Donation Meeting"),
+          summary: localized(
+            "11 月中的捐血例會，大家用實際行動參與公益。",
+            "Mid-November's blood donation meeting turns public service into a shared action on the ground.",
+          ),
           imageSrc: "assets/photos/nov-blood-donation-group-photo.jpg",
-          imageAlt: "捐血例會現場合照",
-          imageCaption: "捐血例會現場畫面",
-          tags: ["公益參與", "社會服務"],
+          imageAlt: localized("捐血例會現場合照", "Blood donation meeting group photo"),
+          imageCaption: localized("捐血例會現場畫面", "Blood donation meeting scene"),
+          tags: localizedList(["公益參與", "Public service"], ["社會服務", "Community outreach"]),
         },
         {
           date: "2025/11/29",
-          title: "區塊鏈例會",
-          summary:
-            "邀請 Paper Plane 創辦人涂立青分享區塊鏈的由來、發展與規則，帶大家從新興科技的角度理解產業脈絡、運作方式與未來想像。",
+          title: localized("區塊鏈例會", "Blockchain Meeting"),
+          summary: localized(
+            "邀請 Paper Plane 創辦人涂立青分享區塊鏈的由來、發展與基本觀念。",
+            "Paper Plane founder Tu Li-Ching is invited to introduce the background, development, and core ideas behind blockchain.",
+          ),
           imageSrc: "assets/photos/nov-blockchain-group-photo.jpg",
-          imageAlt: "區塊鏈例會現場團體畫面",
-          imageCaption: "區塊鏈例會現場畫面",
-          tags: ["區塊鏈", "新興科技"],
+          imageAlt: localized("區塊鏈例會現場團體畫面", "Blockchain meeting group photo"),
+          imageCaption: localized("區塊鏈例會現場畫面", "Blockchain meeting scene"),
+          tags: localizedList(["區塊鏈", "Blockchain"], ["新興科技", "Emerging tech"]),
         },
       ],
       gallery: [
-        createImageAsset("assets/photos/nov-textile-group-photo.jpg", "紡織例會手作品展示畫面", {
-          caption: "改用紡織例會現場手作品展示畫面，讓 11 月主視覺直接回到同場活動本身。",
-        }),
-        createImageAsset("assets/photos/nov-textile-handbook-page.jpg", "紡織例會手冊月份頁", {
-          caption: "保留手冊中的紡織例會整頁，讓 11 月上旬的活動主題與人物照片一起呈現。",
-        }),
-        createImageAsset("assets/photos/nov-blood-donation-group-photo.jpg", "捐血例會現場合照", {
-          caption: "補進捐血例會現場合照，讓 11 月中旬的公益行動也能直接回到同場活動本身。",
-        }),
-        createImageAsset("assets/photos/nov-blockchain-group-photo.jpg", "區塊鏈例會現場團體畫面", {
-          caption: "改用區塊鏈例會現場團體畫面，讓 11 月下旬的科技主題直接回到同場活動本身。",
-        }),
+        galleryImage(
+          "assets/photos/nov-textile-group-photo.jpg",
+          "紡織例會手作品展示畫面",
+          "Textile meeting display photo",
+          "紡織例會現場畫面。",
+          "Textile meeting scene.",
+        ),
+        galleryImage(
+          "assets/photos/nov-textile-handbook-page.jpg",
+          "紡織例會手冊月份頁",
+          "November textile meeting handbook page",
+          "紡織例會手冊頁。",
+          "Textile meeting handbook page.",
+        ),
+        galleryImage(
+          "assets/photos/nov-blood-donation-group-photo.jpg",
+          "捐血例會現場合照",
+          "Blood donation meeting group photo",
+          "捐血例會現場合照。",
+          "Blood donation meeting group photo.",
+        ),
+        galleryImage(
+          "assets/photos/nov-blockchain-group-photo.jpg",
+          "區塊鏈例會現場團體畫面",
+          "Blockchain meeting group photo",
+          "區塊鏈例會現場畫面。",
+          "Blockchain meeting scene.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -340,28 +476,49 @@
       year: 2025,
       month: 12,
       order: 7,
-      title: "街友送餐公益服務",
-      subtitle: "從市場採買到分組料理與北車分發，把歲末關懷真正做成行動。",
-      folder: "12月例會_街友送餐",
+      title: localized("街友送餐公益服務", "Meal Service for Unhoused People"),
+      subtitle: localized("從市場採買到分組料理與北車發送，把歲末關懷做成實際行動。", "Shopping, cooking, and meal delivery turn year-end care into action."),
+      folder: localized("12月例會_街友送餐", "December Activities — Meal Service"),
       date: "2025/12/13",
-      location: "街友送餐 / 社會服務",
+      location: localized("街友送餐 / 社會服務", "Meal service / community outreach"),
       accent: "#93604f",
       coverSrc: "assets/photos/dec-meals-handbook-cover.jpg",
-      coverAlt: "街友送餐公益服務手冊人物合照",
-      summary:
-        "手冊寫到，街友送餐是聯誼會每年必辦的例會之一，大家一早到市場採買，再分組進行廚藝競賽，做出台式便當、日式咖哩與韓式泡麵，最後一起到北車分發給街友，在寒冬中帶去溫暖。",
-      highlights: ["街友送餐", "社會服務", "歲末關懷"],
-      availability: "從市場採買、分組料理到北車發送餐點，大家把歲末關懷化為實際行動，在寒冬中送出一份溫暖。",
+      coverAlt: localized("街友送餐公益服務手冊人物合照", "Meal service portrait from the handbook"),
+      summary: localized(
+        "街友送餐是聯誼會固定會辦的例會之一。大家一早到市場採買，再分組料理，最後到北車發送給街友。",
+        "This meal service is one of the fellowship's recurring service activities. Members start at the market, cook in teams, and finish by distributing meals near Taipei Main Station.",
+      ),
+      highlights: localizedList(
+        ["街友送餐", "Meal service"],
+        ["社會服務", "Community outreach"],
+        ["歲末關懷", "Year-end care"],
+      ),
+      availability: localized(
+        "從採買、備餐到送餐，大家一起完成這場歲末關懷。",
+        "From shopping to prep to delivery, the whole event is carried out together as a year-end act of care.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/dec-meals-handbook-cover.jpg", "街友送餐公益服務手冊人物合照", {
-          caption: "把手冊中的志工合照放在最前面，保留 12 月最核心的公益服務人物畫面。",
-        }),
-        createImageAsset("assets/photos/dec-meals-handbook-group-2.jpg", "街友送餐公益服務備餐人物畫面", {
-          caption: "保留手冊中的備餐與成員合影，讓 12 月頁面維持人物主體而不放餐點特寫。",
-        }),
-        createImageAsset("assets/photos/dec-meals-handbook-service.jpg", "街友送餐公益服務發送畫面", {
-          caption: "用手冊中的送餐現場人物畫面收尾，讓 12 月回到真正的服務對象與互動本身。",
-        }),
+        galleryImage(
+          "assets/photos/dec-meals-handbook-cover.jpg",
+          "街友送餐公益服務手冊人物合照",
+          "Meal service portrait from the handbook",
+          "街友送餐志工合照。",
+          "Volunteer group photo.",
+        ),
+        galleryImage(
+          "assets/photos/dec-meals-handbook-group-2.jpg",
+          "街友送餐公益服務備餐人物畫面",
+          "Meal prep scene from the handbook",
+          "備餐過程人物畫面。",
+          "Meal prep scene.",
+        ),
+        galleryImage(
+          "assets/photos/dec-meals-handbook-service.jpg",
+          "街友送餐公益服務發送畫面",
+          "Meal distribution scene from the handbook",
+          "送餐現場畫面。",
+          "Meal distribution scene.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -369,60 +526,93 @@
       year: 2026,
       month: 1,
       order: 8,
-      title: "頒獎典禮",
-      subtitle: "學長姐把祝福和傳承一起遞出去，讓頒獎典禮成為新年的第一場相見。",
-      folder: "2026年1月頒獎典禮",
+      title: localized("頒獎典禮", "Award Ceremony"),
+      subtitle: localized("學長姐和新一屆獎學生在頒獎典禮正式見面。", "Senior members and the new scholarship recipients meet at the ceremony."),
+      folder: localized("2026年1月頒獎典禮", "January 2026 — Award Ceremony"),
       date: "2026/1/17",
-      location: "2026.01.17 頒獎典禮",
+      location: localized("2026.01.17 頒獎典禮", "2026.01.17 Award Ceremony"),
       accent: "#ab5f4f",
       coverSrc: "assets/photos/jan-awards-handbook-cover.jpg",
-      coverAlt: "頒獎典禮手冊人物合照",
-      summary:
-        "手冊提到，這場頒獎典禮是與新一屆獎學生學員的初次見面，學長姐擔任司儀與遞獎人員，遞出的不只是一張張獎狀，更是滿滿祝福與傳承。",
-      highlights: ["公開相簿串接", "頒獎典禮", "舞台現場"],
-      availability: "頒獎典禮是與新一屆獎學生的初次見面，也透過學長姐的參與與祝福，延續聯誼會的傳承精神。",
+      coverAlt: localized("頒獎典禮手冊人物合照", "Award ceremony portrait from the handbook"),
+      summary: localized(
+        "這場頒獎典禮是和新一屆獎學生第一次正式見面，學長姐也擔任司儀與遞獎人員，一起完成整場典禮。",
+        "The award ceremony is the first formal meeting with the new scholarship recipients. Senior members also help run the event as MCs and award presenters.",
+      ),
+      highlights: localizedList(
+        ["公開相簿串接", "Public album"],
+        ["頒獎典禮", "Award ceremony"],
+        ["舞台現場", "Stage moments"],
+      ),
+      availability: localized(
+        "頒獎典禮讓學長姐和新一屆獎學生正式見面，也把聯誼會的傳承接下去。",
+        "The ceremony formally brings senior members and new recipients together while carrying the fellowship into the next year.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/jan-awards-handbook-cover.jpg", "頒獎典禮手冊人物合照", {
-          caption: "把手冊中的典禮大合照放在最前面，讓 1 月先看見最完整的頒獎場面。",
-        }),
-        createImageAsset("assets/photos/jan-awards-handbook-page.jpg", "頒獎典禮手冊月份頁", {
-          caption: "保留手冊中的 1 月整頁，讓頒獎典禮的人物畫面和當月敘事一起呈現。",
-        }),
-      ],
-      links: [
-        createLink(
-          "2026.1.17 公開相簿",
-          "https://drive.google.com/drive/folders/1Kle3PPCBJu9I4H-XeVltSkrMaHs-E3gs?usp=drive_link",
+        galleryImage(
+          "assets/photos/jan-awards-handbook-cover.jpg",
+          "頒獎典禮手冊人物合照",
+          "Award ceremony portrait from the handbook",
+          "頒獎典禮合照。",
+          "Award ceremony group photo.",
+        ),
+        galleryImage(
+          "assets/photos/jan-awards-handbook-page.jpg",
+          "頒獎典禮手冊月份頁",
+          "January page from the award ceremony handbook",
+          "1 月手冊頁。",
+          "January handbook spread.",
         ),
       ],
+      links: [createLocalizedLink("2026.1.17 公開相簿", "Public album · 2026.1.17", "https://drive.google.com/drive/folders/1Kle3PPCBJu9I4H-XeVltSkrMaHs-E3gs?usp=drive_link")],
     }),
     createPhotoEvent({
       id: "2026-02",
       year: 2026,
       month: 2,
       order: 9,
-      title: "北區｜新北區聯合小迎新",
-      subtitle: "透過破冰遊戲與分組協作，讓新生更近距離認識扶輪與聯誼會。",
-      folder: "2026年2月小迎新",
+      title: localized("北區｜新北區聯合小迎新", "Joint Mini Welcome Event"),
+      subtitle: localized("用破冰遊戲和分組活動，讓新生快一點認識扶輪與聯誼會。", "Icebreakers and group activities help new members get to know Rotary faster."),
+      folder: localized("2026年2月小迎新", "February 2026 — Mini Welcome Event"),
       date: "2026/2/7",
-      location: "迎新活動",
+      location: localized("迎新活動", "Welcome event"),
       accent: "#8a5b61",
       coverSrc: "assets/photos/feb-welcome-group-photo.jpg",
-      coverAlt: "北區新北區聯合小迎新大合照",
-      summary:
-        "手冊寫到，這場小迎新透過分組協作與破冰遊戲，讓新生更了解扶輪與獎學生聯誼會，也為未來加入聯誼會奠定基礎，並透過互動交流更快融入彼此。",
-      highlights: ["小迎新", "新夥伴", "關係建立"],
-      availability: "透過分組協作與破冰遊戲，讓新生更了解扶輪與獎學生聯誼會，也為未來的參與與連結暖身。",
+      coverAlt: localized("北區新北區聯合小迎新大合照", "Group photo from the joint mini welcome event"),
+      summary: localized(
+        "這場小迎新用分組活動和破冰遊戲，讓新生更了解扶輪與獎學生聯誼會，也更快熟起來。",
+        "This mini welcome event uses icebreakers and small-group activities to help new members get familiar with Rotary and the fellowship.",
+      ),
+      highlights: localizedList(
+        ["小迎新", "Mini welcome"],
+        ["新夥伴", "New members"],
+        ["關係建立", "Connection building"],
+      ),
+      availability: localized(
+        "用分組活動和破冰遊戲，讓新生更了解扶輪與聯誼會。",
+        "Group activities and icebreakers help new members get to know Rotary and the fellowship.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/feb-welcome-group-photo.jpg", "北區新北區聯合小迎新大合照", {
-          caption: "以小迎新大合照作為主圖，完整保留新舊夥伴在同一個空間裡互相認識、一起破冰的活動氛圍。",
-        }),
-        createImageAsset("assets/photos/feb-welcome-group-handbook.jpg", "北區新北區聯合小迎新手冊團體畫面", {
-          caption: "保留手冊中的團體畫面，延續 2 月小迎新在互動與交流中的群體氛圍。",
-        }),
-        createImageAsset("assets/photos/feb-welcome-handbook-page.jpg", "北區新北區聯合小迎新手冊月份頁", {
-          caption: "完整保留 2 月手冊頁，讓網站也能呈現小迎新的互動照片與當月原始編排。",
-        }),
+        galleryImage(
+          "assets/photos/feb-welcome-group-photo.jpg",
+          "北區新北區聯合小迎新大合照",
+          "Group photo from the joint mini welcome event",
+          "小迎新大合照。",
+          "Mini welcome group photo.",
+        ),
+        galleryImage(
+          "assets/photos/feb-welcome-group-handbook.jpg",
+          "北區新北區聯合小迎新手冊團體畫面",
+          "Mini welcome group photo from the handbook",
+          "手冊團體畫面。",
+          "Group photo from the handbook.",
+        ),
+        galleryImage(
+          "assets/photos/feb-welcome-handbook-page.jpg",
+          "北區新北區聯合小迎新手冊月份頁",
+          "February page from the mini welcome handbook",
+          "2 月手冊頁。",
+          "February handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -430,28 +620,49 @@
       year: 2026,
       month: 3,
       order: 10,
-      title: "五區聯合大迎新",
-      subtitle: "兩天一夜從講座、破冰、夜市到大地遊戲，看著新生從陌生走向熟悉。",
-      folder: "2026年3月大迎新",
+      title: localized("五區聯合大迎新", "Five-District Welcome Camp"),
+      subtitle: localized("兩天一夜從講座、破冰、夜市到大地遊戲，讓新生慢慢熟起來。", "A two-day welcome camp built around talks, icebreakers, night markets, and team games."),
+      folder: localized("2026年3月大迎新", "March 2026 — Five-District Welcome Camp"),
       date: "2026/3/7-8",
-      location: "迎新活動",
+      location: localized("迎新活動", "Welcome event"),
       accent: "#8b5d70",
       coverSrc: "assets/photos/march-welcome-group-photo.jpg",
-      coverAlt: "五區聯合大迎新戶外大合照",
-      summary:
-        "手冊寫到，五個區的夥伴共同規劃這場兩天一夜的大型迎新活動，從講座、破冰遊戲、夜市活動到第二天的大地遊戲，每一個環節都仰賴大家共同協作，也看著新生在兩天內從陌生走向熟悉。",
-      highlights: ["大迎新", "新生加入", "社群擴張"],
-      availability: "五區夥伴共同規劃兩天一夜迎新，從講座、破冰、夜市到大地遊戲，陪伴新生在短時間內快速熟悉彼此。",
+      coverAlt: localized("五區聯合大迎新戶外大合照", "Outdoor group photo from the five-district welcome camp"),
+      summary: localized(
+        "五個區的夥伴一起規劃這場兩天一夜的大迎新，從講座、破冰、夜市到第二天的大地遊戲，讓新生在兩天內熟悉彼此。",
+        "Members from all five districts organize this two-day welcome camp, moving from talks and icebreakers to the night market and second-day field games so new members can get familiar quickly.",
+      ),
+      highlights: localizedList(
+        ["大迎新", "Welcome camp"],
+        ["新生加入", "New members"],
+        ["社群擴張", "Growing community"],
+      ),
+      availability: localized(
+        "五區夥伴一起規劃兩天一夜迎新，陪新生慢慢熟起來。",
+        "The five districts plan the two-day welcome camp together and spend time helping new members settle in.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/march-welcome-group-photo.jpg", "五區聯合大迎新戶外大合照", {
-          caption: "以你提供的五區聯合大迎新戶外大合照作為主圖，完整保留全體夥伴同框的年度規模感。",
-        }),
-        createImageAsset("assets/photos/march-welcome-handbook-cover.jpg", "五區聯合大迎新手冊大合照", {
-          caption: "保留手冊中的大迎新合照版面，讓網站與交接手冊之間仍有一致的視覺脈絡。",
-        }),
-        createImageAsset("assets/photos/march-welcome-handbook-page.jpg", "五區聯合大迎新手冊月份頁", {
-          caption: "保留手冊中的 3 月整頁，讓迎新合照與其他人物畫面一起被完整呈現。",
-        }),
+        galleryImage(
+          "assets/photos/march-welcome-group-photo.jpg",
+          "五區聯合大迎新戶外大合照",
+          "Outdoor group photo from the five-district welcome camp",
+          "大迎新戶外大合照。",
+          "Outdoor welcome camp group photo.",
+        ),
+        galleryImage(
+          "assets/photos/march-welcome-handbook-cover.jpg",
+          "五區聯合大迎新手冊大合照",
+          "Welcome camp group photo from the handbook",
+          "手冊中的大迎新合照。",
+          "Welcome camp group photo from the handbook.",
+        ),
+        galleryImage(
+          "assets/photos/march-welcome-handbook-page.jpg",
+          "五區聯合大迎新手冊月份頁",
+          "March page from the welcome camp handbook",
+          "3 月手冊頁。",
+          "March handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -459,25 +670,42 @@
       year: 2026,
       month: 4,
       order: 11,
-      title: "淨灘公益沙排例會",
-      subtitle: "在白宮行館淨灘、打沙排、泡溫泉，把公益與交流結合在同一天。",
-      folder: "2026年4月淨灘例會",
+      title: localized("淨灘公益沙排例會", "Beach Cleanup & Sand Volleyball Meeting"),
+      subtitle: localized("在白宮行館淨灘、打沙排、泡溫泉，把公益和交流排在同一天。", "Beach cleanup, volleyball, and hot springs all happen in one day."),
+      folder: localized("2026年4月淨灘例會", "April 2026 — Beach Cleanup Meeting"),
       date: "2026/4/11",
-      location: "白宮行館 / 海邊淨灘",
+      location: localized("白宮行館 / 海邊淨灘", "White House Resort / beach cleanup"),
       accent: "#32707d",
-      coverSrc: "assets/photos/april-beach-handbook-cover.jpg",
-      coverAlt: "淨灘公益沙排例會手冊人物合照",
-      summary:
-        "手冊寫到，新生們踴躍報名這次例會，大家驅車前往白宮行館，在海灘上撿起一片片垃圾，還給海洋一片清澈；活動結束後也打沙排、泡溫泉，成為勞逸結合的一次體驗。",
-      highlights: ["淨灘例會", "海邊行動", "大合照"],
-      availability: "大家前往白宮行館淨灘、打沙排、泡溫泉，透過公益行動與交流互動，完成一次勞逸結合的例會體驗。",
+      coverSrc: "assets/photos/april-beach-group-photo.jpg",
+      coverAlt: localized("淨灘公益沙排例會海邊大合照", "Beach group photo from the cleanup meeting"),
+      summary: localized(
+        "大家前往白宮行館淨灘，在海灘上撿拾垃圾，活動結束後再一起打沙排、泡溫泉。",
+        "Everyone heads to White House Resort for a beach cleanup, then stays for sand volleyball and hot springs after the service work is done.",
+      ),
+      highlights: localizedList(
+        ["淨灘例會", "Beach cleanup"],
+        ["海邊行動", "Seaside service"],
+        ["大合照", "Group photo"],
+      ),
+      availability: localized(
+        "大家前往白宮行館淨灘、打沙排、泡溫泉，把公益和交流排在同一天。",
+        "Beach cleanup, volleyball, and time together all take place on the same day at White House Resort.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/april-beach-handbook-cover.jpg", "淨灘例會手冊人物合照", {
-          caption: "把手冊中的淨灘團體畫面放在最前面，保留 4 月最清楚的全體參與感。",
-        }),
-        createImageAsset("assets/photos/april-beach-handbook-page.jpg", "淨灘例會手冊月份頁", {
-          caption: "保留手冊中的 4 月整頁，讓淨灘行動與人物互動照片一起呈現。",
-        }),
+        galleryImage(
+          "assets/photos/april-beach-group-photo.jpg",
+          "淨灘公益沙排例會海邊大合照",
+          "Beach group photo from the cleanup meeting",
+          "淨灘例會海邊大合照。",
+          "Beach cleanup group photo.",
+        ),
+        galleryImage(
+          "assets/photos/april-beach-handbook-page.jpg",
+          "淨灘例會手冊月份頁",
+          "April page from the beach cleanup handbook",
+          "4 月手冊頁。",
+          "April handbook spread.",
+        ),
       ],
     }),
     createPhotoEvent({
@@ -485,70 +713,109 @@
       year: 2026,
       month: 5,
       order: 12,
-      title: "直播講座例會",
-      subtitle: "從直播秘辛到自媒體判讀，讓大家更懂內容產製，也更懂辨識虛假影片。",
-      folder: "2026年5月直播例會",
+      title: localized("直播講座例會", "Livestream Talk Meeting"),
+      subtitle: localized("從直播分享談到自媒體判讀，也聊怎麼辨識資訊。", "A livestream talk about media literacy, misinformation, and online content."),
+      folder: localized("2026年5月直播例會", "May 2026 — Livestream Talk Meeting"),
       date: "2026/5/31",
-      location: "直播形式例會",
+      location: localized("直播形式例會", "Livestream meeting"),
       accent: "#256877",
       coverSrc: "assets/photos/may-live-handbook-cover.jpg",
-      coverAlt: "直播講座例會手冊人物合照",
-      summary:
-        "手冊寫到，這場直播講座邀請曾做過網路直播的主播夏晧軒分享直播秘辛，帶大家理解自媒體如何吸引目光，也提醒大家警惕詐騙、辨識斷章取義與博眼球的虛假影片。",
-      highlights: ["直播例會", "實拍活動照", "主題分享"],
-      availability: "邀請主播夏晧軒分享直播秘辛與自媒體判讀，理解如何吸引目光，也學會辨識虛假影片與詐騙內容。",
+      coverAlt: localized("直播講座例會手冊人物合照", "Livestream talk portrait from the handbook"),
+      summary: localized(
+        "這場直播講座邀請曾做過網路直播的主播夏晧軒分享經驗，也談到詐騙與虛假影片的辨識。",
+        "This livestream talk invites host Hsia Hao-Hsuan to share firsthand livestream experience, while also discussing scams, deepfakes, and how to judge online content more carefully.",
+      ),
+      highlights: localizedList(
+        ["直播例會", "Livestream meeting"],
+        ["實拍活動照", "Event photos"],
+        ["主題分享", "Themed talk"],
+      ),
+      availability: localized(
+        "邀請主播夏晧軒分享直播經驗，也談自媒體判讀和資訊辨識。",
+        "The speaker shares livestream experience while opening a discussion about media literacy and information judgment.",
+      ),
       gallery: [
-        createImageAsset("assets/photos/may-live-handbook-cover.jpg", "直播講座例會手冊人物合照", {
-          caption: "把手冊中的 5 月人物合照放在最前面，保留直播講座例會最直接的參與感。",
-        }),
-        createImageAsset("assets/photos/may-live-handbook-page.jpg", "直播講座例會手冊月份頁", {
-          caption: "保留手冊中的 5 月整頁，讓直播講座的人物畫面與當月敘事一起被呈現。",
-        }),
+        galleryImage(
+          "assets/photos/may-live-handbook-cover.jpg",
+          "直播講座例會手冊人物合照",
+          "Livestream talk portrait from the handbook",
+          "直播講座例會人物合照。",
+          "Livestream talk portrait.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-handbook-page.jpg",
+          "直播講座例會手冊月份頁",
+          "May page from the livestream talk handbook",
+          "5 月手冊頁。",
+          "May handbook spread.",
+        ),
       ],
     }),
-  ].map(normalizeEvent);
-
-  const orderedEvents = [...activityEvents].sort((leftEvent, rightEvent) => leftEvent.order - rightEvent.order);
-  const eventById = new Map(orderedEvents.map((event) => [event.id, event]));
-  const years = [...new Set(orderedEvents.map((event) => event.year))];
-
-  const filters = [
-    {
-      id: "all",
-      label: "全部活動",
-      apply: (items) => items,
-    },
-    ...years.map((year) => ({
-      id: String(year),
-      label: String(year),
-      apply: (items) => items.filter((item) => item.year === year),
-    })),
-    {
-      id: "photo-first",
-      label: "精選照片優先",
-      apply: (items) =>
-        [...items].sort(
-          (leftEvent, rightEvent) =>
-            MODE_PRIORITY[leftEvent.visualMode] - MODE_PRIORITY[rightEvent.visualMode] ||
-            leftEvent.order - rightEvent.order,
-        ),
-    },
   ];
 
-  const filterById = new Map(filters.map((filter) => [filter.id, filter]));
+  function buildArchiveData(language = DEFAULT_LANGUAGE) {
+    const safeLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : DEFAULT_LANGUAGE;
+    const orderedEvents = activityEvents
+      .map((event) => normalizeEvent(event, safeLanguage))
+      .sort((leftEvent, rightEvent) => leftEvent.order - rightEvent.order);
+    const eventById = new Map(orderedEvents.map((event) => [event.id, event]));
+    const years = [...new Set(orderedEvents.map((event) => event.year))];
 
-  const stats = {
-    total: orderedEvents.length,
-    startLabel: orderedEvents[0]?.label || "",
-    endLabel: orderedEvents[orderedEvents.length - 1]?.label || "",
-    realPhotoMonths: orderedEvents.filter((event) => event.visualMode === "photo").length,
-  };
+    const filters = [
+      {
+        id: "all",
+        label: resolveLocalizedValue(FILTER_LABELS.all, safeLanguage),
+        apply: (items) => items,
+      },
+      ...years.map((year) => ({
+        id: String(year),
+        label: String(year),
+        apply: (items) => items.filter((item) => item.year === year),
+      })),
+      {
+        id: "photo-first",
+        label: resolveLocalizedValue(FILTER_LABELS.photoFirst, safeLanguage),
+        apply: (items) =>
+          [...items].sort(
+            (leftEvent, rightEvent) =>
+              MODE_PRIORITY[leftEvent.visualMode] - MODE_PRIORITY[rightEvent.visualMode] ||
+              leftEvent.order - rightEvent.order,
+          ),
+      },
+    ];
+
+    const filterById = new Map(filters.map((filter) => [filter.id, filter]));
+    const stats = {
+      total: orderedEvents.length,
+      startLabel: orderedEvents[0]?.label || "",
+      endLabel: orderedEvents[orderedEvents.length - 1]?.label || "",
+      realPhotoMonths: orderedEvents.filter((event) => event.visualMode === "photo").length,
+    };
+
+    return {
+      orderedEvents,
+      eventById,
+      filters,
+      filterById,
+      stats,
+    };
+  }
+
+  const archiveCache = new Map();
+
+  function getArchiveData(language = DEFAULT_LANGUAGE) {
+    const safeLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : DEFAULT_LANGUAGE;
+
+    if (!archiveCache.has(safeLanguage)) {
+      archiveCache.set(safeLanguage, buildArchiveData(safeLanguage));
+    }
+
+    return archiveCache.get(safeLanguage);
+  }
 
   window.ACTIVITY_ARCHIVE_DATA = {
-    orderedEvents,
-    eventById,
-    filters,
-    filterById,
-    stats,
+    defaultLanguage: DEFAULT_LANGUAGE,
+    languages: [...SUPPORTED_LANGUAGES],
+    getArchiveData,
   };
 })();

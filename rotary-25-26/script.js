@@ -6,8 +6,6 @@ const HTML_ESCAPES = Object.freeze({
   "'": "&#39;",
 });
 
-const { orderedEvents, eventById, filters, filterById, stats } = window.ACTIVITY_ARCHIVE_DATA;
-
 const refs = {
   archive: document.getElementById("archive"),
   grid: document.getElementById("eventGrid"),
@@ -34,6 +32,8 @@ const refs = {
 const state = {
   activeFilter: "all",
   lastTrigger: null,
+  activeEventId: null,
+  cardRenderFrame: 0,
 };
 
 const hasArchiveView = Boolean(refs.archive && refs.grid && refs.filter && refs.resultsNote);
@@ -52,6 +52,20 @@ const hasDetailView = Boolean(
     refs.detailGallery,
 );
 
+function t(path, params) {
+  return window.siteI18n?.t?.(path, params) ?? path;
+}
+
+function getArchive() {
+  return window.ACTIVITY_ARCHIVE_DATA.getArchiveData(
+    window.siteI18n?.getLanguage?.() || window.ACTIVITY_ARCHIVE_DATA.defaultLanguage || "zh-TW",
+  );
+}
+
+function getEventById(eventId) {
+  return getArchive().eventById.get(eventId);
+}
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => HTML_ESCAPES[character]);
 }
@@ -61,34 +75,51 @@ function renderList(items, renderItem) {
 }
 
 function getActiveFilter() {
+  const { filterById } = getArchive();
   return filterById.get(state.activeFilter) || filterById.get("all");
 }
 
 function getVisibleEvents() {
-  return getActiveFilter().apply(orderedEvents);
+  return getActiveFilter().apply(getArchive().orderedEvents);
 }
 
 function getResultsMessage(count) {
   const filterLabel = getActiveFilter().label;
 
-  return state.activeFilter === "photo-first"
-    ? `目前以「${filterLabel}」排序，共 ${count} 個活動。`
-    : `目前顯示「${filterLabel}」的 ${count} 個活動。`;
+  if (state.activeFilter === "photo-first") {
+    return t("common.archive.results.photoFirst", {
+      count,
+      label: filterLabel,
+    });
+  }
+
+  if (state.activeFilter === "all") {
+    return t("common.archive.results.all", {
+      count,
+    });
+  }
+
+  return t("common.archive.results.filtered", {
+    count,
+    label: filterLabel,
+  });
 }
 
 function getHeroStatItems() {
+  const { stats } = getArchive();
+
   return [
     {
       value: stats.total,
-      label: "月度活動",
+      label: t("common.archive.stats.total"),
     },
     {
       value: `${stats.startLabel} → ${stats.endLabel}`,
-      label: "展示範圍",
+      label: t("common.archive.stats.range"),
     },
     {
       value: stats.realPhotoMonths,
-      label: "已接入實拍月份",
+      label: t("common.archive.stats.photoMonths"),
     },
   ];
 }
@@ -96,19 +127,19 @@ function getHeroStatItems() {
 function getDetailInfoItems(event) {
   return [
     {
-      label: "Archive Folder",
+      label: t("common.archive.info.folder"),
       value: event.folder,
     },
     {
-      label: "Activity Date",
+      label: t("common.archive.info.date"),
       value: event.dateLabel,
     },
     {
-      label: "Activity Scene",
+      label: t("common.archive.info.location"),
       value: event.location,
     },
     {
-      label: "活動簡介",
+      label: t("common.archive.info.summary"),
       value: event.materialStatus,
     },
   ];
@@ -181,6 +212,7 @@ function renderFilters() {
     return;
   }
 
+  const { filters } = getArchive();
   refs.filter.innerHTML = renderList(filters, renderFilterButton);
 }
 
@@ -193,7 +225,7 @@ function renderEventCard(event, index = 0) {
       class="event-card"
       tabindex="0"
       role="button"
-      aria-label="查看 ${escapeHtml(event.label)} ${escapeHtml(event.title)} 詳情"
+      aria-label="${escapeHtml(t("common.archive.card.openAria", { label: event.label, title: event.title }))}"
       data-event-id="${escapeHtml(event.id)}"
       style="--event-accent: ${escapeHtml(event.accent)}; --card-delay: ${index * 70}ms"
     >
@@ -232,13 +264,13 @@ function renderEventCard(event, index = 0) {
           <h3>${escapeHtml(event.title)}</h3>
           <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
           <div class="tag-row">${renderList(event.highlights, renderTag)}</div>
-          <div class="card-bottom">
-            <p class="card-source">${escapeHtml(event.availability)}</p>
-            <div class="card-footline">
-              <span class="card-folder">${escapeHtml(event.folder)}</span>
-              <span class="card-cta">展開本月篇章</span>
+            <div class="card-bottom">
+              <p class="card-source">${escapeHtml(event.availability)}</p>
+              <div class="card-footline">
+                <span class="card-folder">${escapeHtml(event.folder)}</span>
+                <span class="card-cta">${escapeHtml(t("common.archive.card.cta"))}</span>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </article>
@@ -251,9 +283,16 @@ function renderCards() {
   }
 
   const visibleEvents = getVisibleEvents();
-
   refs.resultsNote.textContent = getResultsMessage(visibleEvents.length);
-  refs.grid.innerHTML = renderList(visibleEvents, renderEventCard);
+
+  if (state.cardRenderFrame) {
+    cancelAnimationFrame(state.cardRenderFrame);
+  }
+
+  state.cardRenderFrame = window.requestAnimationFrame(() => {
+    refs.grid.innerHTML = renderList(visibleEvents, renderEventCard);
+    state.cardRenderFrame = 0;
+  });
 }
 
 function renderInfoCard(item) {
@@ -330,11 +369,7 @@ function renderLink(link) {
 }
 
 function renderDetailLinks(links) {
-  if (!links.length) {
-    return "";
-  }
-
-  return renderList(links, renderLink);
+  return links.length ? renderList(links, renderLink) : "";
 }
 
 function renderGalleryItem(item) {
@@ -398,7 +433,6 @@ function populateDetail(event) {
   refs.detailTags.innerHTML = renderList(event.highlights, renderTag);
   refs.detailLinks.innerHTML = renderDetailLinks(event.links);
   refs.detailGallery.innerHTML = renderList(event.gallery, renderGalleryItem);
-
   renderDetailInfo(event);
 }
 
@@ -407,12 +441,13 @@ function openDetail(eventId, triggerElement = document.activeElement) {
     return;
   }
 
-  const event = eventById.get(eventId);
+  const event = getEventById(eventId);
 
   if (!event) {
     return;
   }
 
+  state.activeEventId = event.id;
   state.lastTrigger = triggerElement;
   populateDetail(event);
 
@@ -424,17 +459,38 @@ function openDetail(eventId, triggerElement = document.activeElement) {
   refs.detailClose.focus();
 }
 
+function getActiveCardElement() {
+  if (!refs.grid || !state.activeEventId) {
+    return null;
+  }
+
+  return refs.grid.querySelector(`[data-event-id="${state.activeEventId}"]`);
+}
+
 function closeDetail() {
   if (!hasDetailView || refs.detailModal.hidden) {
     return;
   }
 
+  const focusTarget = state.lastTrigger?.isConnected ? state.lastTrigger : getActiveCardElement();
+
   setModalOpen(false);
-  state.lastTrigger?.focus?.();
+  state.activeEventId = null;
+  focusTarget?.focus?.();
 }
 
 function setActiveFilter(filterId, options = {}) {
-  if (!hasArchiveView || !filterById.has(filterId)) {
+  if (!hasArchiveView) {
+    return;
+  }
+
+  const filterById = getArchive().filterById;
+
+  if (!filterById.has(filterId)) {
+    return;
+  }
+
+  if (filterId === state.activeFilter && !options.scrollToArchive) {
     return;
   }
 
@@ -460,8 +516,12 @@ function handleFilterClick(event) {
   setActiveFilter(button.dataset.filter);
 }
 
+function getCardFromEvent(event) {
+  return event.target.closest("[data-event-id]");
+}
+
 function handleCardClick(event) {
-  const card = event.target.closest("[data-event-id]");
+  const card = getCardFromEvent(event);
 
   if (!card) {
     return;
@@ -471,7 +531,7 @@ function handleCardClick(event) {
 }
 
 function handleCardKeydown(event) {
-  const card = event.target.closest("[data-event-id]");
+  const card = getCardFromEvent(event);
 
   if (!card || (event.key !== "Enter" && event.key !== " ")) {
     return;
@@ -488,8 +548,25 @@ function handleModalClick(event) {
 }
 
 function handleWindowKeydown(event) {
-  if (!refs.detailModal.hidden && event.key === "Escape") {
+  if (hasDetailView && !refs.detailModal.hidden && event.key === "Escape") {
     closeDetail();
+  }
+}
+
+function rerenderLocalizedContent() {
+  renderHeroStats();
+
+  if (hasArchiveView) {
+    renderFilters();
+    renderCards();
+  }
+
+  if (hasDetailView && state.activeEventId) {
+    const event = getEventById(state.activeEventId);
+
+    if (event) {
+      populateDetail(event);
+    }
   }
 }
 
@@ -508,7 +585,9 @@ function bindEvents() {
   refs.heroPhotoFilter?.addEventListener("click", () => {
     setActiveFilter("photo-first", { scrollToArchive: true });
   });
+
   window.addEventListener("keydown", handleWindowKeydown);
+  window.siteI18n?.subscribe?.(rerenderLocalizedContent);
 }
 
 function init() {
@@ -516,12 +595,7 @@ function init() {
     setModalOpen(false);
   }
 
-  renderHeroStats();
-  if (hasArchiveView) {
-    renderFilters();
-    renderCards();
-  }
-
+  rerenderLocalizedContent();
   bindEvents();
 }
 

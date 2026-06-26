@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f4fe" />
-    <title>25-26 年度展示網站｜首頁</title>
+    <title data-i18n="meta.home.title">25-26 年度展示網站｜首頁</title>
     <meta
       name="description"
-      content="25-26 年度展示網站首頁，分成活動頁與會長介紹頁，整理 2025.06 至 2026.05 的年度內容。"
+      content="25-26 年度展示網站首頁，收錄 2025.06 到 2026.05 的活動時間軸，以及活動頁和會長介紹入口。"
+      data-i18n-attr="content:meta.home.description"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-home">
-    <a class="skip-link" href="#top">直接前往主要內容</a>
+    <a class="skip-link" href="#top" data-i18n="common.skipLink">直接前往主要內容</a>
     <div class="page-aura page-aura-left" aria-hidden="true"></div>
     <div class="page-aura page-aura-right" aria-hidden="true"></div>
     <div class="page-gridline" aria-hidden="true"></div>
@@ -28,89 +29,102 @@
         <a class="brand" href="index.html">
           <span class="brand-mark">25-26</span>
           <span class="brand-copy">
-            <strong>年度展示網站</strong>
-            <span>詠文・婉華 Rotary Yearbook</span>
+            <strong data-i18n="common.brand.title">年度展示網站</strong>
+            <span data-i18n="common.brand.subtitle">詠文・婉華 年度紀錄</span>
           </span>
         </a>
 
-        <nav class="topbar-nav" aria-label="頁面導覽">
-          <a href="index.html" aria-current="page">首頁</a>
-          <a href="activities/">活動頁</a>
-          <a href="leaders/">會長介紹</a>
-        </nav>
+        <div class="topbar-actions">
+          <nav class="topbar-nav" aria-label="頁面導覽" data-i18n-attr="aria-label:common.nav.aria">
+            <a href="index.html" aria-current="page" data-i18n="common.nav.home">首頁</a>
+            <a href="activities/" data-i18n="common.nav.activities">活動頁</a>
+            <a href="leaders/" data-i18n="common.nav.leaders">會長介紹</a>
+          </nav>
+
+          <button class="lang-toggle" type="button" data-language-toggle>
+            <span class="lang-toggle-option" data-language-option="zh-TW" data-i18n="common.language.zhShort">
+              繁中
+            </span>
+            <span class="lang-toggle-divider" aria-hidden="true">/</span>
+            <span class="lang-toggle-option" data-language-option="en" data-i18n="common.language.enShort">
+              EN
+            </span>
+          </button>
+        </div>
       </header>
 
       <main id="top" class="page-main" tabindex="-1">
         <section class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">Rotary Yearbook 2025-2026</p>
-            <div class="hero-ledger" aria-label="首頁資訊">
+            <p class="eyebrow" data-i18n="home.hero.eyebrow">25-26 年度總覽</p>
+            <div class="hero-ledger" aria-label="首頁資訊" data-i18n-attr="aria-label:home.hero.ledgerAria">
               <article class="hero-ledger-item">
-                <span>Edition</span>
+                <span data-i18n="home.hero.ledger.version">版本</span>
                 <strong>25-26</strong>
               </article>
               <article class="hero-ledger-item">
-                <span>Reading Mode</span>
-                <strong>Multi-Page</strong>
+                <span data-i18n="home.hero.ledger.pages">頁面</span>
+                <strong data-i18n="home.hero.ledger.pagesValue">首頁・活動・會長</strong>
               </article>
               <article class="hero-ledger-item">
-                <span>Archive Range</span>
+                <span data-i18n="home.hero.ledger.range">時間範圍</span>
                 <strong>2025.06 → 2026.05</strong>
               </article>
             </div>
-            <h1>把年度內容整理成兩個清楚頁面，分開慢慢看。</h1>
-            <p class="hero-text">
-              這個版本把網站整理成更清楚的分頁結構。
-              首頁現在也直接放入 <strong>2025.06 到 2026.05</strong> 的年度時間軸，
-              可以先在這裡快速順讀整年節奏；想更專心看活動照片或人物介紹時，再進入
-              <strong>活動頁</strong> 和 <strong>會長介紹頁</strong>。
+            <h1 data-i18n="home.hero.title">25-26 這一年的活動和人物資料，都放在這裡。</h1>
+            <p class="hero-text" data-i18n-html="home.hero.textHtml">
+              首頁先看 <strong>2025.06 到 2026.05</strong> 的時間軸。想看整年活動就往下滑；想看每月內容就進
+              <strong>活動頁</strong>，想看兩位會長就進 <strong>會長介紹</strong>。
             </p>
 
-            <div class="hero-actions" aria-label="快速入口">
-              <a class="hero-action hero-action-primary" href="activities/">進入活動頁</a>
-              <a class="hero-action hero-action-secondary" href="leaders/">查看會長介紹</a>
+            <div class="hero-actions" aria-label="快速入口" data-i18n-attr="aria-label:home.hero.actionsAria">
+              <a class="hero-action hero-action-primary" href="activities/" data-i18n="home.hero.actions.primary">
+                前往活動頁
+              </a>
+              <a class="hero-action hero-action-secondary" href="leaders/" data-i18n="home.hero.actions.secondary">
+                看會長介紹
+              </a>
             </div>
 
-            <div class="hero-stats" aria-label="年度摘要">
+            <div class="hero-stats" aria-label="年度摘要" data-i18n-attr="aria-label:home.hero.statsAria">
               <article class="stat-card">
                 <strong>12</strong>
-                <span>月度活動</span>
+                <span data-i18n="home.hero.stats.months">月份活動</span>
               </article>
               <article class="stat-card stat-card--wide">
                 <strong>2025.06 → 2026.05</strong>
-                <span>展示範圍</span>
+                <span data-i18n="home.hero.stats.range">時間範圍</span>
               </article>
               <article class="stat-card">
                 <strong>12</strong>
-                <span>已整理月份</span>
+                <span data-i18n="home.hero.stats.covered">收錄月份</span>
               </article>
             </div>
 
             <div class="method-strip">
-              <span>網站分頁</span>
-              <strong>首頁總覽</strong>
-              <strong>活動時間軸</strong>
-              <strong>會長介紹</strong>
+              <span data-i18n="home.hero.method.label">頁面內容</span>
+              <strong data-i18n="home.hero.method.overview">首頁總覽</strong>
+              <strong data-i18n="home.hero.method.timeline">活動時間軸</strong>
+              <strong data-i18n="home.hero.method.leaders">會長介紹</strong>
             </div>
 
             <div class="hero-signature">
-              <span>Annual Navigation</span>
-              <strong>One Rotary Year, Split Into Clear Chapters.</strong>
-              <p>
-                把原本長頁內容拆成不同入口後，查活動、看照片、讀會長介紹都會更直接，也比較適合分享給別人看。
-              </p>
+              <span data-i18n="home.hero.signature.label">快速導覽</span>
+              <strong data-i18n="home.hero.signature.title">先看整體，再進各頁。</strong>
+              <p data-i18n="home.hero.signature.text">首頁先看全貌，細節再分到活動頁和會長介紹。</p>
             </div>
           </div>
 
-          <div class="hero-collage" aria-label="年度精選畫面">
+          <div class="hero-collage" aria-label="年度精選畫面" data-i18n-attr="aria-label:home.collage.aria">
             <article class="collage-card collage-card-main">
               <img
                 src="assets/photos/june-handover-handbook-cover.jpg"
                 alt="2025 年 6 月交接典禮手冊人物合照"
+                data-i18n-attr="alt:home.collage.main.alt"
               />
               <div class="collage-caption">
-                <span>Activities</span>
-                <strong>年度活動時間軸</strong>
+                <span data-i18n="home.collage.main.kicker">活動頁</span>
+                <strong data-i18n="home.collage.main.title">年度活動時間軸</strong>
               </div>
             </article>
 
@@ -118,10 +132,11 @@
               <img
                 src="assets/photos/july-training-handbook-cover.jpg"
                 alt="2025 年 7 月幹部訓練手冊人物合照"
+                data-i18n-attr="alt:home.collage.july.alt"
               />
               <div class="collage-caption">
                 <span>2025.07</span>
-                <strong>聯合幹部訓練</strong>
+                <strong data-i18n="home.collage.july.title">聯合幹部訓練</strong>
               </div>
             </article>
 
@@ -129,18 +144,17 @@
               <img
                 src="assets/photos/may-live-handbook-cover.jpg"
                 alt="2026 年 5 月直播講座例會手冊人物合照"
+                data-i18n-attr="alt:home.collage.may.alt"
               />
               <div class="collage-caption">
                 <span>2026.05</span>
-                <strong>直播講座例會</strong>
+                <strong data-i18n="home.collage.may.title">直播講座例會</strong>
               </div>
             </article>
 
             <aside class="collage-note">
-              <span>Site Structure</span>
-              <p>
-                首頁、活動頁和會長頁現在都改成沿用手冊的色系與人物照片，整站讀起來會更像同一本年度冊的延伸版本。
-              </p>
+              <span data-i18n="home.collage.note.label">頁面風格</span>
+              <p data-i18n="home.collage.note.text">三個頁面都沿用手冊色系和人物照片，視覺比較一致。</p>
             </aside>
           </div>
         </section>
@@ -148,35 +162,35 @@
         <section class="spotlight-band">
           <article class="spotlight-card">
             <span class="spotlight-index">01</span>
-            <h3>首頁總覽</h3>
-            <p>先快速理解這個年度站的閱讀方式、頁面分工與整體氣質。</p>
+            <h3 data-i18n="home.spotlight.first.title">首頁總覽</h3>
+            <p data-i18n="home.spotlight.first.body">先看網站怎麼分，也知道每頁要看什麼。</p>
           </article>
 
           <article class="spotlight-card">
             <span class="spotlight-index">02</span>
-            <h3>活動頁</h3>
-            <p>沿著直線時間軸順讀 12 個月份活動，直接點開看每月內容。</p>
+            <h3 data-i18n="home.spotlight.second.title">活動頁</h3>
+            <p data-i18n="home.spotlight.second.body">沿著直線時間軸看 12 個月份，點開就能看每月內容。</p>
           </article>
 
           <article class="spotlight-card">
             <span class="spotlight-index">03</span>
-            <h3>會長介紹</h3>
-            <p>把婉華與詠文的正式資料、角色定位與年度摘要集中在同一頁。</p>
+            <h3 data-i18n="home.spotlight.third.title">會長介紹</h3>
+            <p data-i18n="home.spotlight.third.body">婉華與詠文的正式資料和年度重點，都集中在同一頁。</p>
           </article>
         </section>
 
         <section class="archive-head" id="archive">
           <div class="archive-copy">
-            <p class="eyebrow">Homepage Timeline</p>
-            <h2>首頁也直接把整年時間軸排開。</h2>
-            <p class="archive-intro">
-              不用先切到活動頁，現在在首頁就能一路看完 2025.06 到 2026.05 的年度節奏；點開每個月份後，仍然會沿用同一套活動詳情與照片彈窗。
+            <p class="eyebrow" data-i18n="home.archive.eyebrow">年度時間軸</p>
+            <h2 data-i18n="home.archive.title">先在首頁把整年活動看一遍。</h2>
+            <p class="archive-intro" data-i18n="home.archive.intro">
+              不用先切頁，在這裡就能一路看到 2025.06 到 2026.05；點開月份也能看活動介紹和照片。
             </p>
           </div>
 
           <div class="archive-actions">
-            <div class="filter-chips" id="filterChips" aria-label="年份篩選"></div>
-            <p class="filter-hint">手機可左右滑動篩選</p>
+            <div class="filter-chips" id="filterChips" aria-label="年份篩選" data-i18n-attr="aria-label:home.archive.filterAria"></div>
+            <p class="filter-hint" data-i18n="home.archive.filterHint">手機可左右滑動</p>
             <p class="archive-note" id="resultsNote"></p>
           </div>
         </section>
@@ -185,57 +199,47 @@
 
         <section class="portal-section">
           <div class="portal-copy">
-            <p class="eyebrow">Page Directory</p>
-            <h2>兩個主頁面，分開讀完整個年度。</h2>
-            <p class="portal-intro">
-              一頁專心看活動，一頁專心看會長，首頁則保留年度總覽與入口。
-            </p>
+            <p class="eyebrow" data-i18n="home.portal.eyebrow">頁面入口</p>
+            <h2 data-i18n="home.portal.title">活動和會長介紹分成兩個頁面。</h2>
+            <p class="portal-intro" data-i18n="home.portal.intro">首頁先看全貌，需要細節再往各頁走。</p>
           </div>
 
           <div class="portal-grid">
             <a class="portal-card" href="activities/">
               <div class="portal-media">
-                <img
-                  src="assets/photos/april-beach-handbook-cover.jpg"
-                  alt="活動頁預覽"
-                />
+                <img src="assets/photos/april-beach-handbook-cover.jpg" alt="活動頁預覽" data-i18n-attr="alt:home.portal.activities.alt" />
               </div>
               <div class="portal-body">
                 <span class="portal-index">01</span>
-                <span class="portal-kicker">Activities</span>
-                <h3>活動頁</h3>
-                <p>
-                  直線時間軸整理 2025.06 到 2026.05 的 12 個月份活動，可直接點開每個月份看照片、日期與附件下載。
+                <span class="portal-kicker" data-i18n="home.portal.activities.kicker">活動頁</span>
+                <h3 data-i18n="home.portal.activities.title">活動頁</h3>
+                <p data-i18n="home.portal.activities.body">
+                  把 2025.06 到 2026.05 的 12 個月份排成時間軸，點開就能看照片、日期和附件。
                 </p>
                 <div class="portal-meta">
-                  <span>年度時間軸</span>
-                  <span>照片彈窗</span>
-                  <span>手機版順讀</span>
+                  <span data-i18n="home.portal.activities.metaTimeline">月份時間軸</span>
+                  <span data-i18n="home.portal.activities.metaPhotos">活動照片</span>
+                  <span data-i18n="home.portal.activities.metaMobile">手機版順讀</span>
                 </div>
-                <span class="portal-cta">進入活動頁</span>
+                <span class="portal-cta" data-i18n="home.portal.activities.cta">前往活動頁</span>
               </div>
             </a>
 
             <a class="portal-card" href="leaders/">
               <div class="portal-media">
-                <img
-                  src="assets/photos/june-handover-handbook-page.jpg"
-                  alt="會長介紹頁預覽"
-                />
+                <img src="assets/photos/june-handover-handbook-page.jpg" alt="會長介紹頁預覽" data-i18n-attr="alt:home.portal.leaders.alt" />
               </div>
               <div class="portal-body">
                 <span class="portal-index">02</span>
-                <span class="portal-kicker">Leadership</span>
-                <h3>會長介紹頁</h3>
-                <p>
-                  集中介紹北區分會長洪婉華與新北區分會長鄭詠文，整理手冊中的正式資料、年度回顧與角色定位。
-                </p>
+                <span class="portal-kicker" data-i18n="home.portal.leaders.kicker">會長介紹</span>
+                <h3 data-i18n="home.portal.leaders.title">會長介紹頁</h3>
+                <p data-i18n="home.portal.leaders.body">看洪婉華與鄭詠文的正式資料、照片和年度回顧。</p>
                 <div class="portal-meta">
-                  <span>婉華 Hannah</span>
-                  <span>詠文 Victoria</span>
-                  <span>正式資料整理</span>
+                  <span data-i18n="home.portal.leaders.metaHannah">婉華 Hannah</span>
+                  <span data-i18n="home.portal.leaders.metaVictoria">詠文 Victoria</span>
+                  <span data-i18n="home.portal.leaders.metaReview">年度回顧</span>
                 </div>
-                <span class="portal-cta">進入會長介紹</span>
+                <span class="portal-cta" data-i18n="home.portal.leaders.cta">前往會長介紹</span>
               </div>
             </a>
           </div>
@@ -243,26 +247,25 @@
 
         <section class="manual-panel" id="handbook">
           <div class="manual-copy">
-            <p class="eyebrow">Handbook Access</p>
-            <h2>交接典禮手冊也可以直接在線上觀看或下載保存。</h2>
-            <p class="manual-intro">
-              如果要完整對照網站內容、活動名稱與手冊原始編排，可以直接開啟
-              <strong>25-26 交接典禮手冊 PDF</strong>。這裡保留了兩個最直覺的入口：
-              一個適合線上快速翻閱，一個適合下載後留存或轉傳。
+            <p class="eyebrow" data-i18n="home.manual.eyebrow">交接典禮手冊</p>
+            <h2 data-i18n="home.manual.title">手冊可直接線上看，也可下載。</h2>
+            <p class="manual-intro" data-i18n-html="home.manual.introHtml">
+              要對照活動名稱、日期或原始版面時，可直接開啟 <strong>25-26 交接典禮手冊 PDF</strong>。這裡提供線上閱讀和下載入口。
             </p>
 
-            <div class="manual-meta" aria-label="手冊功能">
-              <span>完整手冊 PDF</span>
-              <span>線上觀看</span>
-              <span>下載保存</span>
+            <div class="manual-meta" aria-label="手冊功能" data-i18n-attr="aria-label:home.manual.metaAria">
+              <span data-i18n="home.manual.meta.pdf">完整手冊 PDF</span>
+              <span data-i18n="home.manual.meta.view">線上觀看</span>
+              <span data-i18n="home.manual.meta.download">下載保存</span>
             </div>
 
-            <div class="manual-actions" aria-label="手冊操作">
+            <div class="manual-actions" aria-label="手冊操作" data-i18n-attr="aria-label:home.manual.actionsAria">
               <a
                 class="hero-action hero-action-primary"
                 href="assets/downloads/handover-manual-2025.pdf"
                 target="_blank"
                 rel="noreferrer"
+                data-i18n="home.manual.actions.view"
               >
                 線上觀看手冊
               </a>
@@ -270,6 +273,7 @@
                 class="hero-action hero-action-secondary"
                 href="assets/downloads/handover-manual-2025.pdf"
                 download
+                data-i18n="home.manual.actions.download"
               >
                 下載手冊 PDF
               </a>
@@ -282,26 +286,28 @@
             target="_blank"
             rel="noreferrer"
             aria-label="線上開啟 25-26 交接典禮手冊 PDF"
+            data-i18n-attr="aria-label:home.manual.preview.aria"
           >
             <img
               src="assets/photos/june-handover-handbook-page.jpg"
               alt="25-26 交接典禮手冊預覽畫面"
+              data-i18n-attr="alt:home.manual.preview.alt"
             />
             <div class="manual-preview-copy">
-              <span>PDF Handbook</span>
-              <strong>25-26 交接典禮手冊</strong>
-              <p>點開即可在線上閱讀整本手冊，也可以另外下載保存。</p>
+              <span data-i18n="home.manual.preview.label">交接典禮手冊</span>
+              <strong data-i18n="home.manual.preview.title">25-26 交接典禮手冊</strong>
+              <p data-i18n="home.manual.preview.text">點開就能直接看整本手冊，也可以另外下載。</p>
             </div>
           </a>
         </section>
 
         <section class="footnote-panel">
           <div class="footnote-title">
-            <p class="eyebrow">Viewing Note</p>
-            <h3>閱讀方式建議</h3>
+            <p class="eyebrow" data-i18n="home.footnote.eyebrow">使用方式</p>
+            <h3 data-i18n="home.footnote.title">怎麼看比較順</h3>
           </div>
-          <p>
-            如果想先快速確認整年的節奏，從 <strong>活動頁</strong> 進去最直覺；如果是要對外介紹本年度主軸與會長，則可直接使用 <strong>會長介紹頁</strong> 分享。
+          <p data-i18n-html="home.footnote.bodyHtml">
+            想先看整年活動，就從 <strong>活動頁</strong> 開始；想介紹兩位會長，就分享 <strong>會長介紹頁</strong>。
           </p>
         </section>
       </main>
@@ -310,13 +316,14 @@
     <div class="detail-modal" id="detailModal" hidden>
       <div class="detail-backdrop" data-close-modal="true"></div>
 
-      <section
-        class="detail-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="detailTitle"
-      >
-        <button class="detail-close" id="detailClose" aria-label="關閉詳情">
+      <section class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button
+          class="detail-close"
+          id="detailClose"
+          aria-label="關閉詳情"
+          data-i18n="common.detail.close"
+          data-i18n-attr="aria-label:common.detail.closeAria"
+        >
           關閉
         </button>
 
@@ -332,22 +339,20 @@
 
             <section class="detail-activities" id="detailActivities" hidden>
               <div class="detail-section-head">
-                <p class="eyebrow">Monthly Chapters</p>
-                <h3>本月活動區塊</h3>
+                <p class="eyebrow" data-i18n="common.detail.activitiesEyebrow">本月活動</p>
+                <h3 data-i18n="common.detail.activitiesTitle">本月活動</h3>
               </div>
               <div class="activity-block-grid" id="detailActivityBlocks"></div>
             </section>
 
             <div class="detail-info" id="detailInfo"></div>
-
             <div class="detail-tags" id="detailTags"></div>
-
             <div class="detail-links" id="detailLinks"></div>
 
             <section class="detail-gallery">
               <div class="detail-section-head">
-                <p class="eyebrow">Selected Frames</p>
-                <h3>活動畫面</h3>
+                <p class="eyebrow" data-i18n="common.detail.photosEyebrow">活動照片</p>
+                <h3 data-i18n="common.detail.photosTitle">照片一覽</h3>
               </div>
               <div class="gallery-grid" id="detailGallery"></div>
             </section>
@@ -356,6 +361,8 @@
       </section>
     </div>
 
+    <script src="i18n-data.js"></script>
+    <script src="i18n.js"></script>
     <script src="activity-data.js"></script>
     <script src="script.js"></script>
   </body>
