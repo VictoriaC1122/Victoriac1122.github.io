@@ -362,6 +362,17 @@ a,
   text-transform: uppercase;
 }
 
+.brand-copy--home strong {
+  font-size: 0.92rem;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.brand-copy--home span {
+  letter-spacing: 0.04em;
+}
+
 .brand-copy span {
   color: var(--ink-faint);
   font-size: 0.85rem;
@@ -2106,6 +2117,31 @@ body.page-activities .hero-signature p {
   line-height: 1.82;
 }
 
+.card-series {
+  display: grid;
+  gap: 10px;
+}
+
+.card-series-item {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid rgba(157, 147, 194, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.card-series-item span {
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.card-series-item strong {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -2795,6 +2831,11 @@ body.page-activities .hero-signature p {
     font-size: 0.94rem;
   }
 
+  .brand-copy--home strong {
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
+  }
+
   .brand-copy span {
     font-size: 0.78rem;
   }
@@ -3480,19 +3521,21 @@ body.page-activities .hero-signature p {
   }
 
   .hero h1 {
-    font-size: clamp(2.02rem, 11.6vw, 2.95rem);
-    line-height: 1.1;
+    font-size: clamp(1.52rem, 7.6vw, 1.98rem);
+    line-height: 1.22;
   }
 
   .hero-text {
     margin-top: 16px;
+    font-size: 0.92rem;
+    line-height: 1.72;
   }
 
   .portal-section h2,
   .leaders-section h2,
   .archive-head h2,
   .detail-meta h2 {
-    font-size: clamp(1.85rem, 9vw, 2.5rem);
+    font-size: clamp(1.38rem, 6.8vw, 1.78rem);
   }
 
   .portal-grid {
@@ -3563,8 +3606,8 @@ body.page-activities .hero-signature p {
   }
 
   body.page-leaders .hero-title--leaders {
-    font-size: clamp(2rem, 11vw, 2.9rem);
-    line-height: 1.14;
+    font-size: clamp(1.5rem, 7.5vw, 1.96rem);
+    line-height: 1.22;
   }
 
   body.page-leaders .page-feature-card img {
@@ -3910,7 +3953,7 @@ body.page-activities .hero-signature p {
 
   body.page-activities .hero h1 {
     max-width: none;
-    font-size: clamp(1.82rem, 10.6vw, 2.45rem);
+    font-size: clamp(1.46rem, 7.2vw, 1.86rem);
   }
 
   body.page-activities .hero-ledger,
@@ -3928,7 +3971,7 @@ body.page-activities .hero-signature p {
   }
 
   body.page-activities .hero-signature p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 }
 

@@ -10,13 +10,6 @@
 
   const FILTER_LABELS = Object.freeze({
     all: localized("全部活動", "All events"),
-    photoFirst: localized("精選照片優先", "Photos first"),
-  });
-
-  const MODE_PRIORITY = Object.freeze({
-    photo: 0,
-    document: 1,
-    placeholder: 2,
   });
 
   function localized(zhTw, en) {
@@ -377,7 +370,7 @@
       year: 2025,
       month: 11,
       order: 6,
-      title: localized("紡織例會・捐血例會・區塊鏈例會", "Textile Meeting · Blood Donation Meeting · Blockchain Meeting"),
+      title: localized("11 月三場主題例會", "Three November Meetings"),
       subtitle: localized("11 月連著辦了手作、公益和科技三場例會。", "November brings three meetings on craft, public service, and technology."),
       folder: localized("11 月三場主題例會", "November Activities — Three Themed Meetings"),
       date: localized("2025/11/8・2025/11/15・2025/11/29", "2025/11/8 · 2025/11/15 · 2025/11/29"),
@@ -719,8 +712,8 @@
       date: "2026/5/31",
       location: localized("直播形式例會", "Livestream meeting"),
       accent: "#256877",
-      coverSrc: "assets/photos/may-live-handbook-cover.jpg",
-      coverAlt: localized("直播講座例會手冊人物合照", "Livestream talk portrait from the handbook"),
+      coverSrc: "assets/photos/may-live-event-01.jpg",
+      coverAlt: localized("直播例會大合照", "Livestream meeting group photo"),
       summary: localized(
         "這場直播講座邀請曾做過網路直播的主播夏晧軒分享經驗，也談到詐騙與虛假影片的辨識。",
         "This livestream talk invites host Hsia Hao-Hsuan to share firsthand livestream experience, while also discussing scams, deepfakes, and how to judge online content more carefully.",
@@ -736,18 +729,74 @@
       ),
       gallery: [
         galleryImage(
-          "assets/photos/may-live-handbook-cover.jpg",
-          "直播講座例會手冊人物合照",
-          "Livestream talk portrait from the handbook",
-          "直播講座例會人物合照。",
-          "Livestream talk portrait.",
+          "assets/photos/may-live-event-01.jpg",
+          "直播例會大合照",
+          "Livestream meeting group photo",
+          "直播例會大合照。",
+          "Livestream meeting group photo.",
         ),
         galleryImage(
-          "assets/photos/may-live-handbook-page.jpg",
-          "直播講座例會手冊月份頁",
-          "May page from the livestream talk handbook",
-          "5 月手冊頁。",
-          "May handbook spread.",
+          "assets/photos/may-live-event-02.jpg",
+          "直播例會主持畫面",
+          "Hosts at the livestream meeting",
+          "主持畫面。",
+          "Hosts on stage.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-03.jpg",
+          "直播例會台前分享畫面",
+          "Panel sharing at the livestream meeting",
+          "台前分享畫面。",
+          "Panel sharing scene.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-04.jpg",
+          "直播例會講座全景",
+          "Wide lecture view from the livestream meeting",
+          "講座全景。",
+          "Wide view of the lecture.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-05.jpg",
+          "直播例會簡報分享畫面",
+          "Slide presentation at the livestream meeting",
+          "簡報分享畫面。",
+          "Slide presentation scene.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-06.jpg",
+          "直播例會主講畫面",
+          "Speaker close-up at the livestream meeting",
+          "主講畫面。",
+          "Speaker close-up.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-07.jpg",
+          "直播例會互動畫面",
+          "Discussion moment at the livestream meeting",
+          "現場互動畫面。",
+          "Discussion moment.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-08.jpg",
+          "直播例會合影畫面",
+          "Guest photo at the livestream meeting",
+          "會後合影畫面。",
+          "Guest photo after the talk.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-09.jpg",
+          "直播例會來賓合照",
+          "Guest photo in front of the title slide",
+          "來賓合照。",
+          "Guest photo in front of the title slide.",
+        ),
+        galleryImage(
+          "assets/photos/may-live-event-10.jpg",
+          "直播例會交流畫面",
+          "Candid conversation after the livestream meeting",
+          "活動後交流畫面。",
+          "Candid conversation after the event.",
         ),
       ],
     }),
@@ -772,16 +821,6 @@
         label: String(year),
         apply: (items) => items.filter((item) => item.year === year),
       })),
-      {
-        id: "photo-first",
-        label: resolveLocalizedValue(FILTER_LABELS.photoFirst, safeLanguage),
-        apply: (items) =>
-          [...items].sort(
-            (leftEvent, rightEvent) =>
-              MODE_PRIORITY[leftEvent.visualMode] - MODE_PRIORITY[rightEvent.visualMode] ||
-              leftEvent.order - rightEvent.order,
-          ),
-      },
     ];
 
     const filterById = new Map(filters.map((filter) => [filter.id, filter]));

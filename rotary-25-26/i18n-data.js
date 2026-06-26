@@ -8,7 +8,7 @@
         meta: {
           home: {
             title: "25-26 年度展示網站｜首頁",
-            description: "25-26 年度展示網站首頁，收錄 2025.06 到 2026.05 的活動時間軸，以及活動頁和會長介紹入口。",
+            description: "25-26 年度展示網站首頁，收錄 2025.06 到 2026.05 的活動時間軸、手冊連結與年度人物資料。",
           },
           activities: {
             title: "25-26 年度展示網站｜活動頁",
@@ -53,7 +53,6 @@
               summary: "活動簡介",
             },
             results: {
-              photoFirst: "目前共 {count} 個活動，依「{label}」排序。",
               all: "目前顯示全部 {count} 個活動。",
               filtered: "目前顯示 {count} 個「{label}」月份活動。",
             },
@@ -69,6 +68,10 @@
           },
         },
         home: {
+          brand: {
+            title: "2025-26年度中華扶輪獎學生聯誼會",
+            subtitle: "年度活動展示網站",
+          },
           hero: {
             eyebrow: "25-26 年度總覽",
             ledgerAria: "首頁資訊",
@@ -80,9 +83,9 @@
               range: "時間範圍",
               pagesValue: "首頁・活動・會長",
             },
-            title: "25-26 這一年的活動和人物資料，都放在這裡。",
+            title: "把這一年的人與事，靜靜留在這裡。",
             textHtml:
-              "首頁先看 <strong>2025.06 到 2026.05</strong> 的時間軸。想看整年活動就往下滑；想看每月內容就進 <strong>活動頁</strong>，想看兩位會長就進 <strong>會長介紹</strong>。",
+              "從 <strong>2025.06 到 2026.05</strong>，活動、人物與手冊資料，都在這裡慢慢展開。",
             actions: {
               primary: "前往活動頁",
               secondary: "看會長介紹",
@@ -99,9 +102,9 @@
               leaders: "會長介紹",
             },
             signature: {
-              label: "快速導覽",
-              title: "先看整體，再進各頁。",
-              text: "首頁先看全貌，細節再分到活動頁和會長介紹。",
+              label: "頁面摘要",
+              title: "時間軸與人物，在這裡彼此映照。",
+              text: "首頁留著整年的輪廓，活動與人物資料則各自成頁。",
             },
           },
           collage: {
@@ -127,7 +130,7 @@
           spotlight: {
             first: {
               title: "首頁總覽",
-              body: "先看網站怎麼分，也知道每頁要看什麼。",
+              body: "首頁放著整年的時間軸，也留下一個簡單的總覽。",
             },
             second: {
               title: "活動頁",
@@ -140,15 +143,15 @@
           },
           archive: {
             eyebrow: "年度時間軸",
-            title: "先在首頁把整年活動看一遍。",
-            intro: "不用先切頁，在這裡就能一路看到 2025.06 到 2026.05；點開月份也能看活動介紹和照片。",
+            title: "這一年的活動，也沿著時間慢慢展開。",
+            intro: "從 2025.06 到 2026.05，每個月份都排在同一條時間軸上；點開之後，也能看到活動介紹與照片。",
             filterAria: "年份篩選",
             filterHint: "手機可左右滑動",
           },
           portal: {
             eyebrow: "頁面入口",
-            title: "活動和會長介紹分成兩個頁面。",
-            intro: "首頁先看全貌，需要細節再往各頁走。",
+            title: "活動和會長介紹各自獨立成頁。",
+            intro: "活動內容和人物資料分開整理。",
             activities: {
               alt: "活動頁預覽",
               kicker: "活動頁",
@@ -195,9 +198,9 @@
             },
           },
           footnote: {
-            eyebrow: "使用方式",
-            title: "怎麼看比較順",
-            bodyHtml: "想先看整年活動，就從 <strong>活動頁</strong> 開始；想介紹兩位會長，就分享 <strong>會長介紹頁</strong>。",
+            eyebrow: "頁面說明",
+            title: "頁面內容",
+            bodyHtml: "<strong>活動頁</strong> 收錄每個月份的照片與資料，<strong>會長介紹頁</strong> 則整理兩位會長的正式資料與年度回顧。",
           },
         },
         activities: {
@@ -214,12 +217,11 @@
               monthsValue: "12 個月",
               sourceValue: "以手冊為主",
             },
-            title: "沿著時間軸把這一年看完。",
+            title: "沿著時間，讀這一年的篇章。",
             textHtml:
-              "這頁收錄 <strong>2025.06 到 2026.05</strong> 的年度活動。名稱和日期以交接典禮手冊為主，往下滑就能一路看完整年；點開月份也能看照片和附件。",
+              "從 <strong>2025.06 到 2026.05</strong>，這一年的活動依序排開。名稱與日期以交接典禮手冊為準，點開月份後，也能看到照片與附件。",
             actions: {
               primary: "看年度活動",
-              secondary: "先看有照片的月份",
             },
             method: {
               label: "照片順序",
@@ -229,9 +231,9 @@
               fourth: "手冊人物頁",
             },
             signature: {
-              label: "閱讀方式",
-              title: "照月份往下看就好。",
-              text: "交接、幹訓、論壇、迎新、公益和主題例會都放在同一條時間軸上，找起來比較快。",
+              label: "頁面摘要",
+              title: "每個月份，都留著自己的光。",
+              text: "交接、幹訓、論壇、迎新與公益活動，順著時間排開，也把這一年的節奏慢慢留下。",
             },
           },
           spotlight: {
@@ -277,10 +279,10 @@
             title: {
               lineOne: "2025-26 年度會長介紹",
               lineTwo: "婉華與詠文",
-              lineThree: "都在這一頁。",
+              lineThree: "在此相映。",
             },
             textHtml:
-              "這頁收錄 <strong>北區分會長洪婉華 Hannah</strong> 與 <strong>新北區分會長鄭詠文 Victoria</strong> 的正式資料與年度回顧，內容以交接典禮手冊為主。",
+              "這頁收錄 <strong>北區分會長洪婉華 Hannah</strong> 與 <strong>新北區分會長鄭詠文 Victoria</strong> 的正式資料與年度回顧，內容仍以交接典禮手冊為主。",
             actions: {
               primary: "看年度活動",
               secondary: "回首頁",
@@ -292,9 +294,9 @@
               third: "手冊內容",
             },
             signature: {
-              label: "人物頁",
-              title: "兩位會長都在這一頁。",
-              text: "這裡只放會長資料，月份活動請到活動頁。",
+              label: "頁面摘要",
+              title: "兩位會長的身影，都留在這一頁。",
+              text: "人物背景、年度回顧與照片，都在這裡慢慢展開。",
             },
           },
           feature: {
@@ -359,7 +361,7 @@
         meta: {
           home: {
             title: "25-26 Year Showcase | Home",
-            description: "Homepage for the 25-26 year showcase, with the 2025.06-2026.05 timeline plus quick links to Activities and Leaders.",
+            description: "Homepage for the 25-26 year showcase, with the 2025.06-2026.05 timeline, handbook link, and yearly profile content.",
           },
           activities: {
             title: "25-26 Year Showcase | Activities",
@@ -404,7 +406,6 @@
               summary: "Overview",
             },
             results: {
-              photoFirst: "{count} events shown, sorted by \"{label}\".",
               all: "Showing all {count} events.",
               filtered: "Showing {count} events for \"{label}\".",
             },
@@ -420,6 +421,10 @@
           },
         },
         home: {
+          brand: {
+            title: "2025-26 Chung Hwa Rotary Scholars Fellowship",
+            subtitle: "Annual Activities Showcase",
+          },
           hero: {
             eyebrow: "25-26 Overview",
             ledgerAria: "Homepage details",
@@ -431,9 +436,9 @@
               range: "Time Span",
               pagesValue: "Home · Activities · Leaders",
             },
-            title: "This year's activities and leadership highlights are all here.",
+            title: "A quiet record of the people and moments of this year lives here.",
             textHtml:
-              "Start with the <strong>2025.06 to 2026.05</strong> timeline on the homepage. Scroll for the full year, open <strong>Activities</strong> for each month, or head to <strong>Leaders</strong> for Hannah and Victoria.",
+              "From <strong>2025.06 to 2026.05</strong>, the year's events, people, and handbook materials unfold here together.",
             actions: {
               primary: "Open Activities",
               secondary: "View Leaders",
@@ -450,9 +455,9 @@
               leaders: "Leader Profiles",
             },
             signature: {
-              label: "Quick Guide",
-              title: "Start here, then open each page.",
-              text: "Use the homepage for the big picture, then move into the detailed pages.",
+              label: "Page Notes",
+              title: "The timeline and people quietly meet here.",
+              text: "The home page keeps the shape of the year, while each page holds its own part of the story.",
             },
           },
           collage: {
@@ -478,7 +483,7 @@
           spotlight: {
             first: {
               title: "Overview",
-              body: "See how the site is organized and what each page covers.",
+              body: "The home page keeps the yearly timeline and a light overview in one place.",
             },
             second: {
               title: "Activities",
@@ -491,15 +496,15 @@
           },
           archive: {
             eyebrow: "Year Timeline",
-            title: "Scan the whole year from the homepage.",
-            intro: "You do not need to jump pages first. The homepage already walks through 2025.06 to 2026.05, and each month can be opened for photos and notes.",
+            title: "The year unfolds here in time.",
+            intro: "From 2025.06 to 2026.05, each month sits on the same timeline, with event notes and photos waiting inside.",
             filterAria: "Year filters",
             filterHint: "Swipe to scroll",
           },
           portal: {
             eyebrow: "Where to Go Next",
-            title: "Activities and leaders each have their own page.",
-            intro: "Start with the overview here, then open the page you need.",
+            title: "Activities and leaders live on separate pages.",
+            intro: "Activity content and profile content are kept separate.",
             activities: {
               alt: "Preview of the activities page",
               kicker: "Activities",
@@ -546,9 +551,9 @@
             },
           },
           footnote: {
-            eyebrow: "How to Use It",
-            title: "The quickest way to browse",
-            bodyHtml: "For the full year, start with <strong>Activities</strong>. If you only need the two presidents' profiles, share the <strong>Leaders</strong> page.",
+            eyebrow: "Page Notes",
+            title: "What's on each page",
+            bodyHtml: "The <strong>Activities</strong> page holds each month's photos and materials, while the <strong>Leaders</strong> page collects the two presidents' formal profiles and year-in-review notes.",
           },
         },
         activities: {
@@ -565,12 +570,11 @@
               monthsValue: "12 months",
               sourceValue: "Handbook first",
             },
-            title: "Follow the timeline through the whole year.",
+            title: "Read the year as it opens across time.",
             textHtml:
-              "This page covers the yearly events from <strong>2025.06 to 2026.05</strong>. Names and dates follow the handover handbook, and each month opens to photos and supporting materials.",
+              "This page gathers the events from <strong>2025.06 to 2026.05</strong>. Names and dates follow the handover handbook, and each month opens to photos and supporting materials.",
             actions: {
               primary: "See the timeline",
-              secondary: "Show months with photos",
             },
             method: {
               label: "Photo order",
@@ -580,9 +584,9 @@
               fourth: "Handbook portraits",
             },
             signature: {
-              label: "How to browse",
-              title: "Just move month by month.",
-              text: "Handover, training, forums, welcome events, service projects, and themed meetings all stay on one timeline, so the whole year is easy to scan.",
+              label: "Page Notes",
+              title: "Each month keeps its own small light.",
+              text: "Handover, training, forums, welcome events, and service projects all stay on the same timeline, letting the year unfold at a gentler pace.",
             },
           },
           spotlight: {
@@ -628,10 +632,10 @@
             title: {
               lineOne: "2025-26 Leaders",
               lineTwo: "Hannah & Victoria",
-              lineThree: "on one page.",
+              lineThree: "held together here.",
             },
             textHtml:
-              "This page brings together the formal profiles and year-in-review notes for <strong>Hannah Hung</strong> and <strong>Victoria Cheng</strong>, based on the handover handbook.",
+              "This page gathers the formal profiles and year-in-review notes for <strong>Hannah Hung</strong> and <strong>Victoria Cheng</strong>, based on the handover handbook.",
             actions: {
               primary: "See activities",
               secondary: "Back home",
@@ -643,9 +647,9 @@
               third: "Handbook notes",
             },
             signature: {
-              label: "Profile page",
-              title: "Both leaders are here.",
-              text: "This page stays focused on the two leaders. Monthly events live on the Activities page.",
+              label: "Page Notes",
+              title: "Both leaders remain on this page together.",
+              text: "Profiles, reflections, and portraits stay together here, so the page can linger a little longer with them.",
             },
           },
           feature: {

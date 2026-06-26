@@ -12,7 +12,6 @@ const refs = {
   filter: document.getElementById("filterChips"),
   resultsNote: document.getElementById("resultsNote"),
   heroStats: document.getElementById("heroStats"),
-  heroPhotoFilter: document.getElementById("heroPhotoFilter"),
   detailModal: document.getElementById("detailModal"),
   detailPanel: document.querySelector(".detail-panel"),
   detailClose: document.getElementById("detailClose"),
@@ -85,13 +84,6 @@ function getVisibleEvents() {
 
 function getResultsMessage(count) {
   const filterLabel = getActiveFilter().label;
-
-  if (state.activeFilter === "photo-first") {
-    return t("common.archive.results.photoFirst", {
-      count,
-      label: filterLabel,
-    });
-  }
 
   if (state.activeFilter === "all") {
     return t("common.archive.results.all", {
@@ -219,6 +211,8 @@ function renderFilters() {
 function renderEventCard(event, index = 0) {
   const showCoverOverlay = event.cover.kind === "image";
   const shouldLazyLoad = index > 1;
+  const activityBlocks = Array.isArray(event.activityBlocks) ? event.activityBlocks : [];
+  const cardSeries = activityBlocks.length > 1 ? renderList(activityBlocks, renderCardSeriesItem) : "";
 
   return `
     <article
@@ -262,6 +256,7 @@ function renderEventCard(event, index = 0) {
 
           <p class="card-scene">${escapeHtml(event.dateLabel)}</p>
           <h3>${escapeHtml(event.title)}</h3>
+          ${cardSeries ? `<div class="card-series">${cardSeries}</div>` : ""}
           <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
           <div class="tag-row">${renderList(event.highlights, renderTag)}</div>
             <div class="card-bottom">
@@ -273,6 +268,15 @@ function renderEventCard(event, index = 0) {
             </div>
         </div>
       </div>
+    </article>
+  `;
+}
+
+function renderCardSeriesItem(block) {
+  return `
+    <article class="card-series-item">
+      <span>${escapeHtml(block.date)}</span>
+      <strong>${escapeHtml(block.title)}</strong>
     </article>
   `;
 }
@@ -581,10 +585,6 @@ function bindEvents() {
     refs.detailModal.addEventListener("click", handleModalClick);
     refs.detailClose.addEventListener("click", closeDetail);
   }
-
-  refs.heroPhotoFilter?.addEventListener("click", () => {
-    setActiveFilter("photo-first", { scrollToArchive: true });
-  });
 
   window.addEventListener("keydown", handleWindowKeydown);
   window.siteI18n?.subscribe?.(rerenderLocalizedContent);
