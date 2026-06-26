@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <base href="../" />
+    <meta name="theme-color" content="#faf4ee" />
     <title>25-26 年度展示網站｜活動頁</title>
     <meta
       name="description"
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-activities">
+    <a class="skip-link" href="#top">直接前往主要內容</a>
     <div class="page-aura page-aura-left" aria-hidden="true"></div>
     <div class="page-aura page-aura-right" aria-hidden="true"></div>
     <div class="page-gridline" aria-hidden="true"></div>
@@ -39,7 +41,7 @@
         </nav>
       </header>
 
-      <main id="top">
+      <main id="top" class="page-main" tabindex="-1">
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Annual Activities</p>
@@ -81,7 +83,7 @@
               <strong>大合照</strong>
               <strong>婉華・詠文</strong>
               <strong>活動代表畫面</strong>
-              <strong>文件封面補位</strong>
+              <strong>手冊人物頁</strong>
             </div>
 
             <div class="hero-signature">
@@ -96,8 +98,8 @@
           <div class="hero-collage" aria-label="年度精選畫面">
             <article class="collage-card collage-card-main">
               <img
-                src="assets/photos/june-handover-group-1.jpg"
-                alt="2025 年 6 月交接典禮大合照"
+                src="assets/photos/june-handover-handbook-cover.jpg"
+                alt="2025 年 6 月交接典禮手冊人物合照"
               />
               <div class="collage-caption">
                 <span>2025.06</span>
@@ -107,8 +109,8 @@
 
             <article class="collage-card collage-card-side">
               <img
-                src="assets/photos/jan-awards-group-1.jpg"
-                alt="2026 年 1 月頒獎典禮合照"
+                src="assets/photos/jan-awards-handbook-cover.jpg"
+                alt="2026 年 1 月頒獎典禮手冊人物合照"
               />
               <div class="collage-caption">
                 <span>2026.01</span>
@@ -118,8 +120,8 @@
 
             <article class="collage-card collage-card-side">
               <img
-                src="assets/photos/may-live-group.jpg"
-                alt="2026 年 5 月直播講座例會大合照"
+                src="assets/photos/may-live-handbook-cover.jpg"
+                alt="2026 年 5 月直播講座例會手冊人物合照"
               />
               <div class="collage-caption">
                 <span>2026.05</span>
@@ -130,7 +132,7 @@
             <aside class="collage-note">
               <span>Photo Priority</span>
               <p>
-                目前網站會優先呈現真正的大合照，其次才是會長畫面與活動代表照；若當月尚未找到合適照片，會先用文件封面保留版位。
+                目前首頁精選與月份畫面都優先使用手冊裡可確認的人物照片，避免混入非人物主體或手冊外的素材。
               </p>
             </aside>
           </div>
@@ -180,7 +182,7 @@
             <h3>資料判讀方式</h3>
           </div>
           <p>
-            活動日期與正式名稱已優先依交接典禮手冊修正；若手冊只抓得到月份、沒有明確日期，就先保留月份標示。之後補進正式照片後，時間軸會直接升級為更完整的年度展頁。
+            活動日期與正式名稱已優先依交接典禮手冊修正；若手冊只抓得到月份、沒有明確日期，就先保留月份標示。畫面也以手冊中可確認的人物照片為主，後續若補到同場原始相簿，再優先替換回人物主體一致的版本。
           </p>
         </section>
       </main>
@@ -227,6 +229,7 @@
       </section>
     </div>
 
+    <script src="activity-data.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
