@@ -879,6 +879,27 @@
           "Beach cleanup group photo.",
         ),
         galleryImage(
+          "assets/photos/april-beach-cleanup-photo-01.jpg",
+          "淨灘例會海邊撿拾垃圾畫面",
+          "Beach cleanup action on the shore",
+          "大家在海邊撿拾垃圾、一起完成淨灘。",
+          "Everyone picks up litter together along the beach.",
+        ),
+        galleryImage(
+          "assets/photos/april-beach-cleanup-photo-02.jpg",
+          "淨灘例會海邊合影",
+          "Beach cleanup photo by the shore",
+          "淨灘結束後，大家在海邊留下合影。",
+          "A group photo by the shore after the cleanup.",
+        ),
+        galleryImage(
+          "assets/photos/april-beach-cleanup-photo-03.jpg",
+          "淨灘例會成果合影",
+          "Beach cleanup results group photo",
+          "帶著淨灘成果一起拍下紀錄。",
+          "A record of the cleanup results at the beach.",
+        ),
+        galleryImage(
           "assets/photos/april-beach-handbook-page.jpg",
           "淨灘例會手冊月份頁",
           "April page from the beach cleanup handbook",
