@@ -723,6 +723,13 @@
           "Mini welcome group photo.",
         ),
         galleryImage(
+          "assets/photos/feb-welcome-opening-photo-01.jpg",
+          "北區新北區聯合小迎新共同主席開場畫面",
+          "Joint mini welcome opening moment with the co-chairs",
+          "共同主席宣布小迎新開始的現場畫面。",
+          "The co-chairs opening the mini welcome event.",
+        ),
+        galleryImage(
           "assets/photos/feb-welcome-group-handbook.jpg",
           "北區新北區聯合小迎新手冊團體畫面",
           "Mini welcome group photo from the handbook",
