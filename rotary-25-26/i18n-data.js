@@ -303,7 +303,6 @@
             alt: "詠文與婉華在活動現場合力敲鐘的畫面",
             label: "2025-26 年度會長",
             title: "詠文・婉華",
-            text: "首圖放兩位會長一起敲鐘的畫面，當作這一年的開場。",
           },
           spotlight: {
             first: {
@@ -656,7 +655,6 @@
             alt: "Victoria and Hannah ringing the bell together at an event",
             label: "2025-26 Leaders",
             title: "Victoria · Hannah",
-            text: "The lead image uses the moment both presidents rang the bell together to open the year.",
           },
           spotlight: {
             first: {
