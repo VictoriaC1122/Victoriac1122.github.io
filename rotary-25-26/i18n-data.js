@@ -332,8 +332,8 @@
           },
           hannah: {
             role: "北區分會長",
-            photoAlt: "洪婉華個人形象照",
-            photoCaption: "洪婉華個人形象照",
+            photoAlt: "洪婉華 Hannah",
+            photoCaption: "洪婉華 Hannah",
             serviceValue: "凱基證券市府分公司 業務副理",
             awardValue: "21-22",
             careClubValue: "永和扶輪社",
@@ -342,8 +342,8 @@
           },
           victoria: {
             role: "新北區分會長",
-            photoAlt: "鄭詠文個人形象照",
-            photoCaption: "鄭詠文個人形象照",
+            photoAlt: "鄭詠文 Victoria",
+            photoCaption: "鄭詠文 Victoria",
             serviceValue: "國立臺灣大學",
             awardValue: "21-22・23-24・24-25・25-26",
             sponsorClubsValue: "台北和平社、板橋社、政愛社",
@@ -685,8 +685,8 @@
           },
           hannah: {
             role: "President, Taipei North",
-            photoAlt: "Portrait of Hannah Hung",
-            photoCaption: "Portrait of Hannah Hung",
+            photoAlt: "Hannah Hung",
+            photoCaption: "Hannah Hung",
             serviceValue: "KGI Securities, City Hall Branch · Associate Vice President",
             awardValue: "21-22",
             careClubValue: "Yonghe Rotary Club",
@@ -695,8 +695,8 @@
           },
           victoria: {
             role: "President, New Taipei",
-            photoAlt: "Portrait of Victoria Cheng",
-            photoCaption: "Portrait of Victoria Cheng",
+            photoAlt: "Victoria Cheng",
+            photoCaption: "Victoria Cheng",
             serviceValue: "National Taiwan University",
             awardValue: "21-22 · 23-24 · 24-25 · 25-26",
             sponsorClubsValue: "Taipei Harmony, Banqiao, and Cheng-Ai Rotary Clubs",

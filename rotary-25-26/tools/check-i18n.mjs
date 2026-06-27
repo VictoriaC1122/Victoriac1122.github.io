@@ -93,8 +93,8 @@ function collectArchiveIssues(language) {
   const issues = [];
   const data = archive.getArchiveData(language);
 
-  if (data.orderedEvents.length !== 12) {
-    issues.push(`expected 12 events, got ${data.orderedEvents.length}`);
+  if (data.orderedEvents.length !== 14) {
+    issues.push(`expected 14 events, got ${data.orderedEvents.length}`);
   }
 
   for (const event of data.orderedEvents) {
@@ -106,7 +106,6 @@ function collectArchiveIssues(language) {
       "folder",
       "location",
       "statusLabel",
-      "chapterLabel",
       "frameCountLabel",
     ]) {
       if (typeof event[field] !== "string" || !event[field]) {

@@ -249,7 +249,6 @@ function renderEventCard(event, index = 0) {
               <span class="card-badge badge-${escapeHtml(event.visualMode)}">
                 ${escapeHtml(event.statusLabel)}
               </span>
-              <span class="card-chapter">${escapeHtml(event.chapterLabel)}</span>
             </div>
             <span class="card-frames">${escapeHtml(event.frameCountLabel)}</span>
           </div>
@@ -418,7 +417,6 @@ function renderDetailHero(event) {
     ${renderVisual(event.cover, event.title, { lazy: false })}
     <div class="detail-hero-badge">
       <span>${escapeHtml(event.label)}</span>
-      <strong>${escapeHtml(event.chapterLabel)}</strong>
     </div>
   `;
 }

@@ -106,10 +106,6 @@
     return value;
   }
 
-  function createChapterLabel(order, language) {
-    return language === "en" ? `Month ${padNumber(order)}` : `第 ${padNumber(order)} 月`;
-  }
-
   function createFrameCountLabel(count, language) {
     return language === "en" ? `${count} photos` : `${count} 張照片`;
   }
@@ -125,7 +121,6 @@
       label,
       dateLabel,
       statusLabel,
-      chapterLabel: createChapterLabel(event.order, language),
       frameCountLabel: createFrameCountLabel(event.gallery.length, language),
       detailKicker: `${label}｜${dateLabel}`,
       materialStatus: event.availability,
@@ -333,8 +328,8 @@
       date: "2025/10/12",
       location: localized("運動健康例會", "Sports and wellness meeting"),
       accent: "#336987",
-      coverSrc: "assets/photos/oct-swim-group-handbook.jpg",
-      coverAlt: localized("游泳例會手冊擷取團體畫面", "Swimming meeting group photo from the handbook"),
+      coverSrc: "assets/photos/oct-swim-pool-scene-01.jpg",
+      coverAlt: localized("游泳例會泳池活動畫面", "Swimming meeting pool scene"),
       summary: localized(
         "這場例會先由獎學生胡祐笙分享健康衛教，提醒大家在運動前暖身、避免受傷，之後再一起到泳池活動。",
         "This meeting begins with a wellness talk by scholarship student Hu You-Sheng, covering warm-ups and injury prevention before everyone moves to the pool.",
@@ -349,6 +344,13 @@
         "The group starts with a health talk, then heads into the pool together.",
       ),
       gallery: [
+        galleryImage(
+          "assets/photos/oct-swim-pool-scene-01.jpg",
+          "游泳例會泳池活動畫面",
+          "Swimming meeting pool scene",
+          "游泳例會泳池活動畫面。",
+          "Pool scene from the swimming meeting.",
+        ),
         galleryImage(
           "assets/photos/oct-swim-group-handbook.jpg",
           "游泳例會手冊擷取團體畫面",
@@ -366,73 +368,31 @@
       ],
     }),
     createPhotoEvent({
-      id: "2025-11",
+      id: "2025-11-textile",
       year: 2025,
       month: 11,
       order: 6,
-      title: localized("11 月三場主題例會", "Three November Meetings"),
-      subtitle: localized("11 月連著辦了手作、公益和科技三場例會。", "November brings three meetings on craft, public service, and technology."),
-      folder: localized("11 月三場主題例會", "November Activities — Three Themed Meetings"),
-      date: localized("2025/11/8・2025/11/15・2025/11/29", "2025/11/8 · 2025/11/15 · 2025/11/29"),
-      location: localized(
-        "11/08 紡織例會 ・ 11/15 捐血例會 ・ 11/29 區塊鏈職業例會",
-        "11/08 Textile Meeting · 11/15 Blood Donation Meeting · 11/29 Blockchain Meeting",
-      ),
+      title: localized("紡織例會", "Textile Meeting"),
+      subtitle: localized("手作飲料提袋，也把紡織設計的分享留在 11 月。", "A drink-bag workshop opens November with textile design and hands-on making."),
+      folder: localized("11月活動_紡織例會", "November Activities — Textile Meeting"),
+      date: "2025/11/8",
+      location: localized("紡織手作例會", "Textile workshop meeting"),
       accent: "#7c5a68",
       coverSrc: "assets/photos/nov-textile-group-photo.jpg",
       coverAlt: localized("紡織例會手作品展示畫面", "Textile meeting display photo"),
       summary: localized(
-        "11 月有三場不同主題的例會：8 日紡織手作、15 日捐血公益、29 日區塊鏈分享，各自分開進行。",
-        "November includes three separate meetings: a textile workshop on the 8th, a blood donation service event on the 15th, and a blockchain session on the 29th.",
+        "由瑤池藝術工作室創辦人、獎學生賴綉丹帶大家做飲料提袋，也分享自己的紡織設計專長。",
+        "Scholarship student Lai Hsiu-Dan, founder of Yaochi Art Studio, leads a drink-bag workshop and shares her textile design work.",
       ),
       highlights: localizedList(
-        ["紡織", "Textile"],
-        ["捐血", "Blood donation"],
-        ["區塊鏈", "Blockchain"],
-        ["月內三場", "Three events"],
+        ["紡織手作", "Textile workshop"],
+        ["飲料提袋", "Drink-bag craft"],
+        ["11 月例會", "November meeting"],
       ),
       availability: localized(
-        "11 月接連辦了紡織、捐血和區塊鏈三場例會。",
-        "Three separate meetings are held in November, covering textile work, blood donation, and blockchain.",
+        "11 月第一場例會從手作與分享開始。",
+        "November begins with a hands-on workshop and design sharing session.",
       ),
-      activityBlocks: [
-        {
-          date: "2025/11/8",
-          title: localized("紡織例會", "Textile Meeting"),
-          summary: localized(
-            "由瑤池藝術工作室創辦人、獎學生賴綉丹帶大家做飲料提袋，也分享自己的紡織設計專長。",
-            "Scholarship student Lai Hsiu-Dan, founder of Yaochi Art Studio, leads a drink-bag workshop and shares her textile design work.",
-          ),
-          imageSrc: "assets/photos/nov-textile-group-photo.jpg",
-          imageAlt: localized("紡織例會手作品展示畫面", "Textile meeting display photo"),
-          imageCaption: localized("紡織例會現場畫面", "Textile meeting scene"),
-          tags: localizedList(["紡織手作", "Textile workshop"], ["飲料提袋", "Drink-bag craft"]),
-        },
-        {
-          date: "2025/11/15",
-          title: localized("捐血例會", "Blood Donation Meeting"),
-          summary: localized(
-            "11 月中的捐血例會，大家用實際行動參與公益。",
-            "Mid-November's blood donation meeting turns public service into a shared action on the ground.",
-          ),
-          imageSrc: "assets/photos/nov-blood-donation-group-photo.jpg",
-          imageAlt: localized("捐血例會現場合照", "Blood donation meeting group photo"),
-          imageCaption: localized("捐血例會現場畫面", "Blood donation meeting scene"),
-          tags: localizedList(["公益參與", "Public service"], ["社會服務", "Community outreach"]),
-        },
-        {
-          date: "2025/11/29",
-          title: localized("區塊鏈例會", "Blockchain Meeting"),
-          summary: localized(
-            "邀請 Paper Plane 創辦人涂立青分享區塊鏈的由來、發展與基本觀念。",
-            "Paper Plane founder Tu Li-Ching is invited to introduce the background, development, and core ideas behind blockchain.",
-          ),
-          imageSrc: "assets/photos/nov-blockchain-group-photo.jpg",
-          imageAlt: localized("區塊鏈例會現場團體畫面", "Blockchain meeting group photo"),
-          imageCaption: localized("區塊鏈例會現場畫面", "Blockchain meeting scene"),
-          tags: localizedList(["區塊鏈", "Blockchain"], ["新興科技", "Emerging tech"]),
-        },
-      ],
       gallery: [
         galleryImage(
           "assets/photos/nov-textile-group-photo.jpg",
@@ -448,6 +408,35 @@
           "紡織例會手冊頁。",
           "Textile meeting handbook page.",
         ),
+      ],
+    }),
+    createPhotoEvent({
+      id: "2025-11-blood",
+      year: 2025,
+      month: 11,
+      order: 6.1,
+      title: localized("捐血例會", "Blood Donation Meeting"),
+      subtitle: localized("把公益行動放進 11 月的例會裡。", "Public service becomes part of November's meeting."),
+      folder: localized("11月活動_捐血例會", "November Activities — Blood Donation Meeting"),
+      date: "2025/11/15",
+      location: localized("捐血公益服務", "Blood donation service"),
+      accent: "#a15d70",
+      coverSrc: "assets/photos/nov-blood-donation-group-photo.jpg",
+      coverAlt: localized("捐血例會現場合照", "Blood donation meeting group photo"),
+      summary: localized(
+        "11 月中的捐血例會，大家用實際行動參與公益。",
+        "Mid-November's blood donation meeting turns public service into a shared action on the ground.",
+      ),
+      highlights: localizedList(
+        ["公益參與", "Public service"],
+        ["社會服務", "Community outreach"],
+        ["11 月例會", "November meeting"],
+      ),
+      availability: localized(
+        "11 月中以捐血行動延續例會裡的公益精神。",
+        "The mid-November meeting carries its public-service spirit through blood donation.",
+      ),
+      gallery: [
         galleryImage(
           "assets/photos/nov-blood-donation-group-photo.jpg",
           "捐血例會現場合照",
@@ -455,12 +444,62 @@
           "捐血例會現場合照。",
           "Blood donation meeting group photo.",
         ),
+      ],
+    }),
+    createPhotoEvent({
+      id: "2025-11-blockchain",
+      year: 2025,
+      month: 11,
+      order: 6.2,
+      title: localized("區塊鏈例會", "Blockchain Meeting"),
+      subtitle: localized("從區塊鏈發展談到金融與數位時代。", "A session on blockchain, finance, and the digital age."),
+      folder: localized("11月活動_區塊鏈例會", "November Activities — Blockchain Meeting"),
+      date: "2025/11/29",
+      location: localized("區塊鏈職業例會", "Blockchain professional meeting"),
+      accent: "#5a5f8e",
+      coverSrc: "assets/photos/nov-blockchain-award-photo.jpg",
+      coverAlt: localized("區塊鏈例會講師致謝畫面", "Blockchain meeting speaker appreciation photo"),
+      summary: localized(
+        "由 Paper Plane 創辦人涂立青以「從黑色經濟到重塑世界金融」為題，帶大家認識區塊鏈的發展脈絡、金融應用與數位時代的變化。",
+        "Paper Plane founder Larry Tu leads a session titled “From the Black Economy to Reshaping Global Finance,” introducing the development of blockchain, its financial applications, and the shifts shaping the digital age.",
+      ),
+      highlights: localizedList(
+        ["區塊鏈", "Blockchain"],
+        ["職業例會", "Professional meeting"],
+        ["金融科技", "Fintech"],
+      ),
+      availability: localized(
+        "11 月底用一場科技主題例會替這個月收尾。",
+        "November closes with a technology-focused meeting on blockchain and finance.",
+      ),
+      gallery: [
+        galleryImage(
+          "assets/photos/nov-blockchain-poster.jpg",
+          "區塊鏈職業例會活動海報",
+          "Blockchain meeting event poster",
+          "區塊鏈職業例會活動海報。",
+          "Poster for the blockchain meeting.",
+        ),
+        galleryImage(
+          "assets/photos/nov-blockchain-award-photo.jpg",
+          "區塊鏈例會講師致謝畫面",
+          "Blockchain meeting speaker appreciation photo",
+          "區塊鏈例會講師致謝畫面。",
+          "Speaker appreciation moment from the blockchain meeting.",
+        ),
+        galleryImage(
+          "assets/photos/nov-blockchain-speaker-portrait.jpg",
+          "區塊鏈例會合影",
+          "Blockchain meeting portrait photo",
+          "區塊鏈例會合影。",
+          "Portrait photo from the blockchain meeting.",
+        ),
         galleryImage(
           "assets/photos/nov-blockchain-group-photo.jpg",
           "區塊鏈例會現場團體畫面",
           "Blockchain meeting group photo",
-          "區塊鏈例會現場畫面。",
-          "Blockchain meeting scene.",
+          "區塊鏈例會現場團體畫面。",
+          "Group photo from the blockchain meeting.",
         ),
       ],
     }),
@@ -475,8 +514,8 @@
       date: "2025/12/13",
       location: localized("街友送餐 / 社會服務", "Meal service / community outreach"),
       accent: "#93604f",
-      coverSrc: "assets/photos/dec-meals-handbook-cover.jpg",
-      coverAlt: localized("街友送餐公益服務手冊人物合照", "Meal service portrait from the handbook"),
+      coverSrc: "assets/photos/dec-meals-dec13-group-01.jpg",
+      coverAlt: localized("12月13日公益送餐例會合影", "13 December community meal service group photo"),
       summary: localized(
         "街友送餐是聯誼會固定會辦的例會之一。大家一早到市場採買，再分組料理，最後到北車發送給街友。",
         "This meal service is one of the fellowship's recurring service activities. Members start at the market, cook in teams, and finish by distributing meals near Taipei Main Station.",
@@ -492,25 +531,60 @@
       ),
       gallery: [
         galleryImage(
+          "assets/photos/dec-meals-dec13-group-01.jpg",
+          "12月13日公益送餐例會合影",
+          "13 December community meal service group photo",
+          "12月13日公益送餐例會合影。",
+          "Group photo from the 13 December community meal service meeting.",
+        ),
+        galleryImage(
+          "assets/photos/dec-meals-dec13-hosts-01.jpg",
+          "12月13日公益送餐例會主持與分享",
+          "13 December community meal service hosts and sharing",
+          "12月13日公益送餐例會主持與分享。",
+          "Hosts and sharing during the 13 December community meal service meeting.",
+        ),
+        galleryImage(
+          "assets/photos/dec-meals-dec13-prep-group-01.jpg",
+          "12月13日公益送餐例會食材準備",
+          "13 December community meal service ingredient preparation",
+          "12月13日公益送餐例會食材準備合影。",
+          "Group photo during ingredient preparation for the 13 December community meal service meeting.",
+        ),
+        galleryImage(
+          "assets/photos/dec-meals-dec13-prep-cutting-01.jpg",
+          "12月13日公益送餐例會備餐紀錄",
+          "13 December community meal service meal prep",
+          "12月13日公益送餐例會備餐紀錄。",
+          "Meal preparation in the kitchen during the 13 December community meal service meeting.",
+        ),
+        galleryImage(
+          "assets/photos/dec-meals-dec13-hosts-02.jpg",
+          "12月13日公益送餐例會主持與說明",
+          "13 December community meal service opening remarks",
+          "12月13日公益送餐例會主持與說明。",
+          "Opening remarks during the 13 December community meal service meeting.",
+        ),
+        galleryImage(
           "assets/photos/dec-meals-handbook-cover.jpg",
           "街友送餐公益服務手冊人物合照",
           "Meal service portrait from the handbook",
-          "街友送餐志工合照。",
-          "Volunteer group photo.",
+          "手冊中的街友送餐志工合照。",
+          "Volunteer group photo from the handbook.",
         ),
         galleryImage(
           "assets/photos/dec-meals-handbook-group-2.jpg",
           "街友送餐公益服務備餐人物畫面",
           "Meal prep scene from the handbook",
-          "備餐過程人物畫面。",
-          "Meal prep scene.",
+          "手冊中的備餐過程人物畫面。",
+          "Meal prep scene from the handbook.",
         ),
         galleryImage(
           "assets/photos/dec-meals-handbook-service.jpg",
           "街友送餐公益服務發送畫面",
           "Meal distribution scene from the handbook",
-          "送餐現場畫面。",
-          "Meal distribution scene.",
+          "手冊中的送餐現場畫面。",
+          "Meal distribution scene from the handbook.",
         ),
       ],
     }),
@@ -766,7 +840,7 @@
       subtitle: localized("從直播分享談到自媒體判讀，也聊怎麼辨識資訊。", "A livestream talk about media literacy, misinformation, and online content."),
       folder: localized("2026年5月直播例會", "May 2026 — Livestream Talk Meeting"),
       date: "2026/5/31",
-      location: localized("直播形式例會", "Livestream meeting"),
+      location: localized("直播產業職業例會", "Livestream industry meeting"),
       accent: "#256877",
       coverSrc: "assets/photos/may-live-event-01.jpg",
       coverAlt: localized("直播例會大合照", "Livestream meeting group photo"),
@@ -865,6 +939,12 @@
       .sort((leftEvent, rightEvent) => leftEvent.order - rightEvent.order);
     const eventById = new Map(orderedEvents.map((event) => [event.id, event]));
     const years = [...new Set(orderedEvents.map((event) => event.year))];
+    const monthKeys = [...new Set(orderedEvents.map((event) => `${event.year}-${padNumber(event.month)}`))];
+    const photoMonthKeys = new Set(
+      orderedEvents
+        .filter((event) => event.visualMode === "photo")
+        .map((event) => `${event.year}-${padNumber(event.month)}`),
+    );
 
     const filters = [
       {
@@ -881,10 +961,10 @@
 
     const filterById = new Map(filters.map((filter) => [filter.id, filter]));
     const stats = {
-      total: orderedEvents.length,
+      total: monthKeys.length,
       startLabel: orderedEvents[0]?.label || "",
       endLabel: orderedEvents[orderedEvents.length - 1]?.label || "",
-      realPhotoMonths: orderedEvents.filter((event) => event.visualMode === "photo").length,
+      realPhotoMonths: photoMonthKeys.size,
     };
 
     return {
