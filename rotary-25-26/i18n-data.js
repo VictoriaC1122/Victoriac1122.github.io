@@ -349,11 +349,6 @@
             quote: "聯誼會不只是交流的平台，更是探索自我、實現夢想的起點。",
             summary: "手冊裡回顧了交接典禮、九份畢旅、幹部訓練到多場例會，也希望每位夥伴都能自在參與聯誼會。",
           },
-          footnote: {
-            eyebrow: "資料來源",
-            title: "資料怎麼看",
-            bodyHtml: "這頁以交接典禮手冊的正式名稱和背景資料為主；如果要看每個月份的活動時間、照片和附件，請前往 <strong>活動頁</strong>。",
-          },
         },
       },
       en: {
@@ -700,11 +695,6 @@
             sponsorClubsValue: "Taipei Harmony, Banqiao, and Cheng-Ai Rotary Clubs",
             quote: "The fellowship is more than a place to connect. It is where you explore yourself and start chasing your dreams.",
             summary: "Her handbook reflection looks back on the handover ceremony, Jiufen trip, leadership training, and many themed meetings, while hoping every member feels at ease in the fellowship.",
-          },
-          footnote: {
-            eyebrow: "Source Notes",
-            title: "How to read this page",
-            bodyHtml: "This page follows the handover handbook for official titles and background details. For monthly timelines, photos, and attachments, head to <strong>Activities</strong>.",
           },
         },
       },
