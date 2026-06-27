@@ -3986,6 +3986,12 @@ body.page-activities .hero-signature p {
   }
 }
 
+@media (min-width: 821px) {
+  body.page-home .hero {
+    display: none;
+  }
+}
+
 @media (max-width: 560px) {
   body.page-activities .hero-copy {
     padding: 20px 18px 18px;
