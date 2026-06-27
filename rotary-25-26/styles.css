@@ -1792,6 +1792,7 @@ body.page-activities .hero-signature p {
   grid-template-columns: var(--timeline-rail-width) minmax(0, 1fr);
   gap: 22px;
   align-items: start;
+  contain: layout paint style;
   cursor: pointer;
   transition:
     transform 220ms ease,
@@ -1858,6 +1859,8 @@ body.page-activities .hero-signature p {
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(290px, 0.92fr) minmax(0, 1.08fr);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 420px;
   border-radius: var(--radius-xl);
   background: var(--card-surface);
   isolation: isolate;
@@ -2275,10 +2278,12 @@ body.page-activities .hero-signature p {
 .detail-scroll {
   overflow: auto;
   max-height: inherit;
+  contain: layout paint style;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   padding-bottom: env(safe-area-inset-bottom, 0);
   scrollbar-gutter: stable both-edges;
+  scrollbar-width: thin;
 }
 
 .detail-close {
@@ -2388,6 +2393,8 @@ body.page-activities .hero-signature p {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
 }
 
 .activity-block {
@@ -2524,6 +2531,8 @@ body.page-activities .hero-signature p {
 
 .detail-gallery {
   margin-top: 34px;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 840px;
 }
 
 .detail-section-head {
@@ -2538,6 +2547,7 @@ body.page-activities .hero-signature p {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+  contain: layout paint style;
 }
 
 .gallery-grid > :first-child {
@@ -2598,13 +2608,14 @@ body.page-activities .hero-signature p {
 
 @media (pointer: coarse) {
   body::before,
+  body::after,
   .page-gridline {
     display: none;
   }
 
   .page-aura {
-    filter: blur(18px);
-    opacity: 0.28;
+    filter: blur(14px);
+    opacity: 0.18;
   }
 
   .topbar {
@@ -2620,7 +2631,7 @@ body.page-activities .hero-signature p {
   .spotlight-card,
   .footnote-panel,
   .detail-panel {
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .event-card,
@@ -3200,6 +3211,17 @@ body.page-activities .hero-signature p {
 }
 
 @media (max-width: 680px) {
+  html {
+    scroll-padding-top: 108px;
+  }
+
+  #archive,
+  #leaders,
+  #method,
+  #handbook {
+    scroll-margin-top: 108px;
+  }
+
   .hero-copy,
   .hero-collage,
   .portal-body,
@@ -3217,6 +3239,8 @@ body.page-activities .hero-signature p {
   .topbar-nav {
     width: calc(100% + 4px);
     margin-inline: -2px;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
   }
 
   .topbar-nav a {
@@ -3251,6 +3275,7 @@ body.page-activities .hero-signature p {
     white-space: nowrap;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
   }
 
@@ -3788,6 +3813,17 @@ body.page-activities .hero-signature p {
 }
 
 @media (max-width: 430px) {
+  html {
+    scroll-padding-top: 96px;
+  }
+
+  #archive,
+  #leaders,
+  #method,
+  #handbook {
+    scroll-margin-top: 96px;
+  }
+
   .topbar {
     padding: 9px;
     border-radius: 20px;
@@ -3834,6 +3870,8 @@ body.page-activities .hero-signature p {
     width: 100%;
     margin-inline: 0;
     padding: 2px;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
   }
 
   .topbar-nav a {
@@ -3868,6 +3906,7 @@ body.page-activities .hero-signature p {
   .event-grid {
     --timeline-rail-width: 48px;
     gap: 12px;
+    contain-intrinsic-size: 1px 960px;
   }
 
   .timeline-stamp {
@@ -3887,6 +3926,7 @@ body.page-activities .hero-signature p {
 
   .detail-panel {
     border-radius: 22px 22px 0 0;
+    box-shadow: 0 22px 56px rgba(96, 92, 128, 0.2);
   }
 
   .detail-panel::after {
