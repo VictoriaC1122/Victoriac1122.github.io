@@ -872,7 +872,7 @@ body.page-activities .hero-ledger-item strong {
 
 body.page-activities .hero h1 {
   max-width: 10ch;
-  font-size: clamp(2.2rem, 3.8vw, 3.9rem);
+  font-size: clamp(1.96rem, 3.2vw, 3.18rem);
 }
 
 body.page-activities .hero-text {
@@ -3969,7 +3969,7 @@ body.page-activities .hero-signature p {
   }
 
   body.page-activities .hero h1 {
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.82rem, 5.2vw, 2.56rem);
   }
 
   body.page-activities .hero-stats {
@@ -3999,7 +3999,7 @@ body.page-activities .hero-signature p {
 
   body.page-activities .hero h1 {
     max-width: none;
-    font-size: clamp(1.46rem, 7.2vw, 1.86rem);
+    font-size: clamp(1.34rem, 6.4vw, 1.72rem);
   }
 
   body.page-activities .hero-ledger,
