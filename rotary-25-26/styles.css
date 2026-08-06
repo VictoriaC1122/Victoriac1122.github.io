@@ -1384,6 +1384,53 @@ body.page-activities .hero-signature p {
   line-height: 1.88;
 }
 
+.leader-moments {
+  display: grid;
+  gap: 12px;
+}
+
+.leader-moments-label {
+  margin: 0;
+  color: #8a7fa8;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.leader-moments-intro {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.leader-moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.leader-moment {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(220, 199, 160, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.leader-moment img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.leader-moment figcaption {
+  padding: 12px 14px 14px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
 .leaders-layout {
   display: grid;
   grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
