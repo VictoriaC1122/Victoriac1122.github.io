@@ -428,6 +428,35 @@ a:hover {
   margin-bottom: 20px;
 }
 
+.volunteer-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 28px 0 12px;
+}
+
+.volunteer-photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #faf8f7;
+  border: 1px solid #f0ebe7;
+}
+
+.volunteer-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.volunteer-photo figcaption {
+  padding: 14px 16px 16px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 /* ============================
    Buttons & Links
 ============================ */
@@ -961,6 +990,20 @@ a:hover {
           coordination. More information about my 2025-2026 Rotary service activities is available on the website
           below.
         </p>
+        <div class="volunteer-photo-grid">
+          <figure class="volunteer-photo">
+            <img src="images/rotary-president-01.jpg" alt="Victoria Cheng speaking at the Rotary handover ceremony" />
+            <figcaption>Speaking at the handover ceremony.</figcaption>
+          </figure>
+          <figure class="volunteer-photo">
+            <img src="images/rotary-president-02.jpg" alt="Victoria Cheng completing the handover ceremony with another Rotary leader" />
+            <figcaption>Completing the handover ceremony.</figcaption>
+          </figure>
+          <figure class="volunteer-photo">
+            <img src="images/rotary-president-03.jpg" alt="Victoria Cheng at the Rotary handover event" />
+            <figcaption>A portrait from the ceremony.</figcaption>
+          </figure>
+        </div>
         <a href="https://victoriac1122.github.io/rotary-25-26/index.html" target="_blank" rel="noopener noreferrer" class="cert-btn">
           Volunteer Activities
         </a>
