@@ -8,11 +8,11 @@
         meta: {
           home: {
             title: "25-26 年度展示網站｜首頁",
-            description: "25-26 年度展示網站首頁，收錄 2025.06 到 2026.05 的活動時間軸、手冊連結與年度人物資料。",
+            description: "25-26 年度展示網站首頁，收錄 2025.06 到 2026.06 的活動時間軸、手冊連結與年度人物資料。",
           },
           activities: {
             title: "25-26 年度展示網站｜活動頁",
-            description: "活動頁收錄 2025.06 至 2026.05 的月份活動，包含照片、日期與活動介紹。",
+            description: "活動頁收錄 2025.06 至 2026.06 的月份活動，包含照片、日期與活動介紹。",
           },
           leaders: {
             title: "25-26 年度展示網站｜會長介紹",
@@ -85,7 +85,7 @@
             },
             title: "25-26 這一年的活動和人物資料，都在這裡。",
             textHtml:
-              "從 <strong>2025.06 到 2026.05</strong>，活動紀錄、人物資料和手冊內容都整理在這裡。",
+              "從 <strong>2025.06 到 2026.06</strong>，活動紀錄、人物資料和手冊內容都整理在這裡。",
             actions: {
               primary: "前往活動頁",
               secondary: "看會長介紹",
@@ -134,7 +134,7 @@
             },
             second: {
               title: "活動頁",
-              body: "沿著直線時間軸看 12 個月份，點開就能看每月內容。",
+              body: "沿著直線時間軸看 13 個月份，點開就能看每月內容。",
             },
             third: {
               title: "會長介紹",
@@ -144,7 +144,7 @@
           archive: {
             eyebrow: "年度時間軸",
             title: "年度活動時間軸",
-            intro: "從 2025.06 到 2026.05，每個月份都排在同一條時間軸上；點開之後，也能看到活動介紹與照片。",
+            intro: "從 2025.06 到 2026.06，每個月份都排在同一條時間軸上；點開之後，也能看到活動介紹與照片。",
             filterAria: "年份篩選",
             filterHint: "手機可左右滑動",
           },
@@ -156,7 +156,7 @@
               alt: "活動頁預覽",
               kicker: "活動頁",
               title: "活動頁",
-              body: "把 2025.06 到 2026.05 的 12 個月份排成時間軸，點開就能看照片、日期和附件。",
+              body: "把 2025.06 到 2026.06 的 13 個月份排成時間軸，點開就能看照片、日期和附件。",
               metaTimeline: "月份時間軸",
               metaPhotos: "活動照片",
               metaMobile: "手機版順讀",
@@ -214,12 +214,12 @@
               months: "月份",
               source: "內容依據",
               layoutValue: "時間軸",
-              monthsValue: "12 個月",
+              monthsValue: "13 個月",
               sourceValue: "以手冊為主",
             },
             title: "這一年的活動，都排在這條時間軸上。",
             textHtml:
-              "從 <strong>2025.06 到 2026.05</strong>，這一年的活動依時間整理。名稱和日期以交接典禮手冊為準，點開月份後可以看照片和附件。",
+              "從 <strong>2025.06 到 2026.06</strong>，這一年的活動依時間整理。名稱和日期以交接典禮手冊為準，點開月份後可以看照片和附件。",
             actions: {
               primary: "看年度活動",
             },
@@ -252,7 +252,7 @@
           },
           archive: {
             eyebrow: "年度時間軸",
-            title: "2025.06 到 2026.05 活動整理",
+            title: "2025.06 到 2026.06 活動整理",
             intro: "每個月份都照手冊放上正式名稱和日期；11 月拆成三場活動，分開看會更清楚。",
             filterAria: "年份篩選",
             filterHint: "手機可左右滑動",
@@ -355,11 +355,11 @@
         meta: {
           home: {
             title: "25-26 Year Showcase | Home",
-            description: "Homepage for the 25-26 year showcase, with the 2025.06-2026.05 timeline, handbook link, and yearly profile content.",
+            description: "Homepage for the 25-26 year showcase, with the 2025.06-2026.06 timeline, handbook link, and yearly profile content.",
           },
           activities: {
             title: "25-26 Year Showcase | Activities",
-            description: "Activities page covering the monthly events from 2025.06 to 2026.05, with photos, dates, and event notes.",
+            description: "Activities page covering the monthly events from 2025.06 to 2026.06, with photos, dates, and event notes.",
           },
           leaders: {
             title: "25-26 Year Showcase | Leaders",
@@ -432,7 +432,7 @@
             },
             title: "This site brings together the people and activities of the 25-26 year.",
             textHtml:
-              "From <strong>2025.06 to 2026.05</strong>, the event records, profiles, and handbook materials are all collected here.",
+              "From <strong>2025.06 to 2026.06</strong>, the event records, profiles, and handbook materials are all collected here.",
             actions: {
               primary: "Open Activities",
               secondary: "View Leaders",
@@ -481,7 +481,7 @@
             },
             second: {
               title: "Activities",
-              body: "Follow all 12 months on one timeline, then open each month for more.",
+              body: "Follow all 13 months on one timeline, then open each month for more.",
             },
             third: {
               title: "Leaders",
@@ -491,7 +491,7 @@
           archive: {
             eyebrow: "Year Timeline",
             title: "Yearly activity timeline",
-            intro: "From 2025.06 to 2026.05, each month sits on the same timeline, with event notes and photos waiting inside.",
+            intro: "From 2025.06 to 2026.06, each month sits on the same timeline, with event notes and photos waiting inside.",
             filterAria: "Year filters",
             filterHint: "Swipe to scroll",
           },
@@ -503,7 +503,7 @@
               alt: "Preview of the activities page",
               kicker: "Activities",
               title: "Activities Page",
-              body: "All 12 months from 2025.06 to 2026.05 sit on one timeline, with photos, dates, and attachments for each month.",
+              body: "All 13 months from 2025.06 to 2026.06 sit on one timeline, with photos, dates, and attachments for each month.",
               metaTimeline: "Monthly timeline",
               metaPhotos: "Event photos",
               metaMobile: "Mobile friendly",
@@ -561,12 +561,12 @@
               months: "Months",
               source: "Source",
               layoutValue: "Timeline",
-              monthsValue: "12 months",
+              monthsValue: "13 months",
               sourceValue: "Handbook first",
             },
             title: "All of this year's events sit on one timeline.",
             textHtml:
-              "This page gathers the events from <strong>2025.06 to 2026.05</strong>. Names and dates follow the handover handbook, and each month opens to photos and supporting materials.",
+              "This page gathers the events from <strong>2025.06 to 2026.06</strong>. Names and dates follow the handover handbook, and each month opens to photos and supporting materials.",
             actions: {
               primary: "See the timeline",
             },
@@ -599,7 +599,7 @@
           },
           archive: {
             eyebrow: "Year Timeline",
-            title: "Activities from 2025.06 to 2026.05",
+            title: "Activities from 2025.06 to 2026.06",
             intro: "Each month uses the handbook's official title and date. November is also split into three separate events so each one is easier to browse.",
             filterAria: "Year filters",
             filterHint: "Swipe to scroll",
