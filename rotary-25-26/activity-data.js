@@ -186,7 +186,7 @@
       month: 7,
       order: 2,
       title: localized("北區新北區聯合幹部訓練", "Joint Leadership Training"),
-      subtitle: localized("在宜蘭把新年度的默契先建立起來。", "The new team builds its rhythm together in Yilan."),
+      subtitle: localized("在宜蘭進行兩天一夜的聯合幹部訓練。", "A two-day joint leadership training takes place in Yilan."),
       folder: localized("7月活動＿幹部訓練", "July Activities — Leadership Training"),
       date: "2025/7/19-20",
       location: localized("宜蘭", "Yilan"),
@@ -194,8 +194,8 @@
       coverSrc: "assets/photos/july-training-handbook-cover.jpg",
       coverAlt: localized("7月幹部訓練手冊人物合照", "July leadership training portrait from the handbook"),
       summary: localized(
-        "大家一起到宜蘭進行幹部訓練，用遊戲、協作和交流更了解彼此，也先把新年度的合作默契拉起來。",
-        "The group heads to Yilan for leadership training, using games, teamwork, and conversation to get to know one another and build early momentum for the new year.",
+        "大家一起到宜蘭進行幹部訓練，透過遊戲、協作和交流彼此熟悉，也為新年度的工作先做準備。",
+        "The group heads to Yilan for leadership training, using games, teamwork, and conversation to get to know one another and prepare for the new year.",
       ),
       highlights: localizedList(
         ["幹部訓練", "Leadership training"],
@@ -203,8 +203,8 @@
         ["年度默契", "Team chemistry"],
       ),
       availability: localized(
-        "幹部訓練用兩天一夜的相處，把大家的默契先暖起來。",
-        "Two days together help the officers settle into a shared pace before the year fully starts.",
+        "用兩天一夜的幹部訓練，先把新年度的工作和分工準備好。",
+        "A two-day leadership training helps the team prepare for the new year and its responsibilities.",
       ),
       gallery: [
         galleryImage(
@@ -373,7 +373,7 @@
       month: 11,
       order: 6,
       title: localized("紡織例會", "Textile Meeting"),
-      subtitle: localized("手作飲料提袋，也把紡織設計的分享留在 11 月。", "A drink-bag workshop opens November with textile design and hands-on making."),
+      subtitle: localized("11 月先從紡織手作例會開始。", "November opens with a hands-on textile workshop."),
       folder: localized("11月活動_紡織例會", "November Activities — Textile Meeting"),
       date: "2025/11/8",
       location: localized("紡織手作例會", "Textile workshop meeting"),
@@ -800,7 +800,7 @@
       month: 3,
       order: 10,
       title: localized("五區聯合大迎新", "Five-District Welcome Camp"),
-      subtitle: localized("兩天一夜從講座、破冰、夜市到大地遊戲，讓新生慢慢熟起來。", "A two-day welcome camp built around talks, icebreakers, night markets, and team games."),
+      subtitle: localized("兩天一夜的迎新安排了講座、破冰、夜市和大地遊戲。", "The two-day welcome camp includes talks, icebreakers, a night market, and field games."),
       folder: localized("2026年3月大迎新", "March 2026 — Five-District Welcome Camp"),
       date: "2026/3/7-8",
       location: localized("迎新活動", "Welcome event"),
@@ -808,8 +808,8 @@
       coverSrc: "assets/photos/march-welcome-group-photo.jpg",
       coverAlt: localized("五區聯合大迎新戶外大合照", "Outdoor group photo from the five-district welcome camp"),
       summary: localized(
-        "五個區的夥伴一起規劃這場兩天一夜的大迎新，從講座、破冰、夜市到第二天的大地遊戲，讓新生在兩天內熟悉彼此。",
-        "Members from all five districts organize this two-day welcome camp, moving from talks and icebreakers to the night market and second-day field games so new members can get familiar quickly.",
+        "五個區的夥伴一起規劃這場兩天一夜的大迎新，安排講座、破冰、夜市和第二天的大地遊戲，讓新生更快認識彼此。",
+        "Members from all five districts organize this two-day welcome camp with talks, icebreakers, a night market, and second-day field games so new members can get familiar more quickly.",
       ),
       highlights: localizedList(
         ["大迎新", "Welcome camp"],
@@ -817,8 +817,8 @@
         ["社群擴張", "Growing community"],
       ),
       availability: localized(
-        "五區夥伴一起規劃兩天一夜迎新，陪新生慢慢熟起來。",
-        "The five districts plan the two-day welcome camp together and spend time helping new members settle in.",
+        "五區夥伴一起規劃兩天一夜迎新，陪新生認識彼此。",
+        "The five districts plan the two-day welcome camp together and help new members get to know one another.",
       ),
       gallery: [
         galleryImage(
@@ -1004,6 +1004,56 @@
           "Candid conversation after the livestream meeting",
           "活動後交流畫面。",
           "Candid conversation after the event.",
+        ),
+      ],
+    }),
+    createPhotoEvent({
+      id: "2026-06",
+      year: 2026,
+      month: 6,
+      order: 13,
+      title: localized("雙北交接典禮", "Taipei & New Taipei Handover Ceremony"),
+      subtitle: localized("詠文與婉華在 6 月底完成卸任，替 25-26 年度收尾。", "Victoria and Hannah complete their term at the end of June and bring the 25-26 year to its close."),
+      folder: localized("2026年6月雙北交接典禮", "June 2026 — Taipei & New Taipei Handover Ceremony"),
+      date: "2026/6/27",
+      location: localized("雙北交接典禮", "Taipei & New Taipei handover ceremony"),
+      accent: "#8c7d9e",
+      coverSrc: "assets/photos/june-2026-handover-bell.jpg",
+      coverAlt: localized("雙北交接典禮上詠文與婉華一同敲鐘", "Victoria and Hannah ringing the bell at the handover ceremony"),
+      summary: localized(
+        "6 月底的雙北交接典禮，記下詠文與婉華卸任的時刻，也替這一年的服務與相聚畫下句點。",
+        "The late-June handover ceremony marks Victoria and Hannah stepping down and closes the year of service and shared memories.",
+      ),
+      highlights: localizedList(
+        ["雙北交接", "Dual-district handover"],
+        ["年度卸任", "End of term"],
+        ["交棒時刻", "Passing the baton"],
+      ),
+      availability: localized(
+        "這場交接典禮把兩位會長卸任的畫面留了下來，也讓 25-26 年度在最後一場典禮中好好收尾。",
+        "The ceremony keeps a record of the presidents' farewell and gives the 25-26 year a proper final page.",
+      ),
+      gallery: [
+        galleryImage(
+          "assets/photos/june-2026-handover-bell.jpg",
+          "雙北交接典禮上詠文與婉華一同敲鐘",
+          "Victoria and Hannah ringing the bell at the handover ceremony",
+          "雙北交接典禮的交棒時刻。",
+          "The handover moment at the ceremony.",
+        ),
+        galleryImage(
+          "assets/photos/june-2026-handover-speech.jpg",
+          "雙北交接典禮上詠文致詞畫面",
+          "Victoria speaking at the handover ceremony",
+          "詠文在典禮上的致詞畫面。",
+          "Victoria speaking during the ceremony.",
+        ),
+        galleryImage(
+          "assets/photos/june-2026-handover-portrait.jpg",
+          "雙北交接典禮現場側拍",
+          "Portrait from the handover ceremony venue",
+          "雙北交接典禮現場側拍。",
+          "A portrait from the handover ceremony venue.",
         ),
       ],
     }),
