@@ -278,11 +278,11 @@
             },
             title: {
               lineOne: "2025-26 年度會長介紹",
-              lineTwo: "婉華與詠文",
-              lineThree: "都在這一頁。",
+              lineTwo: "",
+              lineThree: "",
             },
             textHtml:
-              "這頁整理 <strong>北區分會長洪婉華 Hannah</strong> 和 <strong>新北區分會長鄭詠文 Victoria</strong> 的正式資料與年度回顧，內容以交接典禮手冊為主。",
+              "<strong>北區分會長洪婉華 Hannah</strong> & <strong>新北區分會長鄭詠文 Victoria</strong> 簡介",
             actions: {
               primary: "看年度活動",
               secondary: "回首頁",
@@ -293,14 +293,9 @@
               second: "年度重點",
               third: "手冊內容",
             },
-            signature: {
-              label: "頁面摘要",
-              title: "兩位會長的資料都整理在這一頁。",
-              text: "人物背景、年度回顧和照片都集中在這裡。",
-            },
           },
           feature: {
-            alt: "詠文與婉華在活動現場合力敲鐘的畫面",
+            alt: "洪婉華與鄭詠文在交接典禮敲鐘",
             label: "2025-26 年度會長",
             title: "詠文・婉華",
           },
@@ -625,11 +620,11 @@
             },
             title: {
               lineOne: "2025-26 Leaders",
-              lineTwo: "Hannah & Victoria",
-              lineThree: "all on one page.",
+              lineTwo: "",
+              lineThree: "",
             },
             textHtml:
-              "This page gathers the formal profiles and year-in-review notes for <strong>Hannah Hung</strong> and <strong>Victoria Cheng</strong>, based on the handover handbook.",
+              "<strong>Hannah Hung, Taipei North President</strong> & <strong>Victoria Cheng, New Taipei President</strong> profiles",
             actions: {
               primary: "See activities",
               secondary: "Back home",
@@ -640,14 +635,9 @@
               second: "Year focus",
               third: "Handbook notes",
             },
-            signature: {
-              label: "Page Notes",
-              title: "Both leaders are collected on this page.",
-              text: "Profiles, year notes, and photos are all kept here.",
-            },
           },
           feature: {
-            alt: "Victoria and Hannah ringing the bell together at an event",
+            alt: "Hannah Hung and Victoria Cheng ringing the bell at the handover ceremony",
             label: "2025-26 Leaders",
             title: "Victoria · Hannah",
           },
