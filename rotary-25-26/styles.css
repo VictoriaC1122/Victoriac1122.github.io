@@ -826,6 +826,54 @@ body.page-leaders .page-feature-card img {
   object-position: 56% 20%;
 }
 
+body.page-handbook .hero {
+  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+  gap: 24px;
+}
+
+body.page-handbook .hero-copy {
+  padding: 34px 34px 32px;
+}
+
+body.page-handbook .hero-ledger {
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+body.page-handbook .hero-ledger-item {
+  min-height: 0;
+  padding: 14px 16px;
+}
+
+body.page-handbook .hero-ledger-item strong {
+  font-size: clamp(1.18rem, 1.5vw, 1.42rem);
+  line-height: 1.24;
+}
+
+body.page-handbook .hero h1 {
+  max-width: 10ch;
+  font-size: clamp(2.15rem, 3.6vw, 3.62rem);
+}
+
+body.page-handbook .hero-text {
+  max-width: 60ch;
+  margin-top: 18px;
+  line-height: 1.88;
+}
+
+body.page-handbook .hero-actions {
+  margin-top: 24px;
+}
+
+body.page-handbook .page-feature-card img {
+  min-height: 100%;
+  object-position: center top;
+}
+
+body.page-handbook .page-feature-copy p {
+  max-width: 26ch;
+}
+
 body.page-leaders .page-feature-copy {
   left: 22px;
   right: 22px;
@@ -1049,7 +1097,7 @@ body.page-activities .hero-signature p {
 
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -2738,7 +2786,10 @@ body.page-home .manual-panel {
     grid-template-columns: 1fr;
   }
 
-  .portal-grid,
+  .portal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .leader-grid--two,
   .leaders-layout,
   .manual-panel {
@@ -2782,6 +2833,10 @@ body.page-home .manual-panel {
   body.page-leaders .page-feature-card img {
     min-height: 420px;
     object-position: 50% 24%;
+  }
+
+  body.page-handbook .hero {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3497,7 +3552,7 @@ body.page-home .manual-panel {
     width: 100%;
     margin-inline: 0;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     padding: 3px;
     gap: 6px;
     overflow: visible;
@@ -3515,7 +3570,6 @@ body.page-home .manual-panel {
   }
 
   body.page-home .hero-ledger,
-  body.page-home .hero-actions,
   body.page-home .hero-stats,
   body.page-home .method-strip,
   body.page-home .hero-signature,
@@ -3529,12 +3583,13 @@ body.page-home .manual-panel {
   body.page-leaders .hero-actions,
   body.page-leaders .method-strip,
   body.page-leaders .hero-signature,
-  body.page-leaders .page-feature-card {
+  body.page-leaders .page-feature-card,
+  body.page-handbook .hero-ledger,
+  body.page-handbook .page-feature-card {
     display: none;
   }
 
   .hero-stats,
-  .hero-actions,
   .hero-collage {
     grid-template-columns: 1fr;
   }
@@ -3987,12 +4042,6 @@ body.page-home .manual-panel {
 
   body.page-activities .hero-signature p {
     font-size: 0.92rem;
-  }
-}
-
-@media (min-width: 821px) {
-  body.page-home .hero {
-    display: none;
   }
 }
 
