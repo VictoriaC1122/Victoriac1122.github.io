@@ -8,7 +8,7 @@
         meta: {
           home: {
             title: "25-26 年度展示網站｜首頁",
-            description: "25-26 年度展示網站首頁，收錄 2025.06 到 2026.06 的活動時間軸、手冊連結與年度人物資料。",
+            description: "25-26 年度展示網站首頁，整理活動頁、會長介紹與交接典禮手冊入口。",
           },
           activities: {
             title: "25-26 年度展示網站｜活動頁",
@@ -17,6 +17,10 @@
           leaders: {
             title: "25-26 年度展示網站｜會長介紹",
             description: "收錄 2025-26 年度洪婉華與鄭詠文兩位會長的正式資料、照片和年度回顧。",
+          },
+          handbook: {
+            title: "25-26 年度展示網站｜手冊",
+            description: "收錄 25-26 交接典禮手冊，可線上開啟與下載保存。",
           },
         },
         common: {
@@ -30,6 +34,7 @@
             home: "首頁",
             activities: "活動頁",
             leaders: "會長介紹",
+            handbook: "手冊",
           },
           language: {
             zhShort: "繁中",
@@ -73,27 +78,28 @@
             subtitle: "年度活動展示網站",
           },
           hero: {
-            eyebrow: "25-26 年度總覽",
+            eyebrow: "25-26 年度展示",
             ledgerAria: "首頁資訊",
             actionsAria: "快速入口",
             statsAria: "年度摘要",
             ledger: {
               version: "版本",
               pages: "頁面",
-              range: "時間範圍",
-              pagesValue: "首頁・活動・會長",
+              range: "年度範圍",
+              pagesValue: "首頁・活動・會長・手冊",
             },
-            title: "25-26 這一年的活動和人物資料，都在這裡。",
+            title: "把這一年的活動、人物與手冊，收在同一個入口。",
             textHtml:
-              "從 <strong>2025.06 到 2026.06</strong>，活動紀錄、人物資料和手冊內容都整理在這裡。",
+              "從 <strong>2025.06 到 2026.06</strong>，這裡整理了年度活動、會長資料與交接典禮手冊。",
             actions: {
-              primary: "前往活動頁",
+              primary: "看活動頁",
               secondary: "看會長介紹",
+              handbook: "看手冊",
             },
             stats: {
-              months: "月份活動",
-              range: "時間範圍",
-              covered: "收錄月份",
+              pages: "分頁入口",
+              range: "年度範圍",
+              handbook: "手冊檔案",
             },
             method: {
               label: "頁面內容",
@@ -108,23 +114,25 @@
             },
           },
           collage: {
-            aria: "年度精選畫面",
+            aria: "首頁精選畫面",
             main: {
               kicker: "活動頁",
-              title: "年度活動時間軸",
-              alt: "2025 年 6 月交接典禮手冊人物合照",
+              title: "年度活動",
+              alt: "年度活動頁代表照片",
             },
-            july: {
-              alt: "2025 年 7 月幹部訓練手冊人物合照",
-              title: "聯合幹部訓練",
+            leaders: {
+              kicker: "會長介紹",
+              alt: "會長介紹頁代表照片",
+              title: "婉華・詠文",
             },
-            may: {
-              alt: "2026 年 5 月直播講座例會手冊人物合照",
-              title: "直播講座例會",
+            handbook: {
+              kicker: "手冊頁",
+              alt: "手冊頁代表畫面",
+              title: "交接典禮手冊",
             },
             note: {
-              label: "頁面風格",
-              text: "三個頁面都沿用手冊色系和照片。",
+              label: "首頁方向",
+              text: "把活動、人物與手冊分開看，閱讀會更清楚。",
             },
           },
           spotlight: {
@@ -150,13 +158,13 @@
           },
           portal: {
             eyebrow: "頁面入口",
-            title: "活動和會長介紹各自獨立成頁。",
-            intro: "活動內容和人物資料分開整理。",
+            title: "從這裡開始看整個年度。",
+            intro: "活動、人物與手冊各自成頁，讀起來更舒服。",
             activities: {
               alt: "活動頁預覽",
               kicker: "活動頁",
               title: "活動頁",
-              body: "把 2025.06 到 2026.06 的 13 個月份排成時間軸，點開就能看照片、日期和附件。",
+              body: "時間軸整理 2025.06 到 2026.06 的每月活動，點開就能看照片與附件。",
               metaTimeline: "月份時間軸",
               metaPhotos: "活動照片",
               metaMobile: "手機版順讀",
@@ -166,11 +174,21 @@
               alt: "會長介紹頁預覽",
               kicker: "會長介紹",
               title: "會長介紹頁",
-              body: "看洪婉華與鄭詠文的正式資料、照片和年度回顧。",
+              body: "看洪婉華與鄭詠文的簡介、照片與年度回顧。",
               metaHannah: "婉華 Hannah",
               metaVictoria: "詠文 Victoria",
               metaReview: "年度回顧",
               cta: "前往會長介紹",
+            },
+            handbook: {
+              alt: "手冊頁預覽",
+              kicker: "手冊",
+              title: "手冊頁",
+              body: "交接典禮手冊可直接線上開啟，也能下載保存。",
+              metaPdf: "完整 PDF",
+              metaView: "線上觀看",
+              metaDownload: "下載保存",
+              cta: "前往手冊頁",
             },
           },
           manual: {
@@ -201,6 +219,55 @@
             eyebrow: "頁面說明",
             title: "頁面內容",
             bodyHtml: "<strong>活動頁</strong> 收錄每個月份的照片與資料，<strong>會長介紹頁</strong> 則整理兩位會長的正式資料與年度回顧。",
+          },
+        },
+        handbook: {
+          hero: {
+            eyebrow: "年度手冊",
+            ledgerAria: "手冊頁資訊",
+            actionsAria: "手冊操作",
+            ledger: {
+              version: "版本",
+              format: "格式",
+              access: "使用方式",
+            },
+            title: "25-26 交接典禮手冊",
+            textHtml:
+              "這一頁放的是 <strong>25-26 交接典禮手冊</strong>。要對照正式活動名稱、日期與原始版面，可以直接在這裡開啟或下載。",
+            actions: {
+              view: "線上觀看手冊",
+              download: "下載手冊 PDF",
+            },
+          },
+          feature: {
+            alt: "25-26 交接典禮手冊預覽畫面",
+            aria: "線上開啟 25-26 交接典禮手冊 PDF",
+            label: "手冊預覽",
+            title: "交接典禮手冊",
+            text: "可線上閱讀，也可下載保存。",
+          },
+          section: {
+            eyebrow: "下載與觀看",
+            title: "線上開啟，也可下載保存。",
+            intro: "想對照手冊裡的正式名稱、日期和原始版面，可以直接使用下面的連結。",
+            metaAria: "手冊功能",
+            actionsAria: "手冊操作",
+            meta: {
+              pdf: "完整手冊 PDF",
+              view: "線上觀看",
+              download: "下載保存",
+            },
+            actions: {
+              view: "線上觀看手冊",
+              download: "下載手冊 PDF",
+            },
+            preview: {
+              aria: "線上開啟 25-26 交接典禮手冊 PDF",
+              alt: "25-26 交接典禮手冊預覽頁",
+              label: "交接典禮手冊",
+              title: "25-26 交接典禮手冊",
+              text: "活動名稱、日期與原始版面都可在這裡對照。",
+            },
           },
         },
         activities: {
@@ -350,7 +417,7 @@
         meta: {
           home: {
             title: "25-26 Year Showcase | Home",
-            description: "Homepage for the 25-26 year showcase, with the 2025.06-2026.06 timeline, handbook link, and yearly profile content.",
+            description: "Homepage for the 25-26 year showcase, with direct access to the activities page, leaders page, and handbook.",
           },
           activities: {
             title: "25-26 Year Showcase | Activities",
@@ -359,6 +426,10 @@
           leaders: {
             title: "25-26 Year Showcase | Leaders",
             description: "Leadership page with profiles, photos, and year-in-review notes for Hannah Hung and Victoria Cheng.",
+          },
+          handbook: {
+            title: "25-26 Year Showcase | Handbook",
+            description: "Read or download the 25-26 handover handbook.",
           },
         },
         common: {
@@ -372,6 +443,7 @@
             home: "Home",
             activities: "Activities",
             leaders: "Leaders",
+            handbook: "Handbook",
           },
           language: {
             zhShort: "繁中",
@@ -422,20 +494,21 @@
             ledger: {
               version: "Edition",
               pages: "Pages",
-              range: "Time Span",
-              pagesValue: "Home · Activities · Leaders",
+              range: "Year Span",
+              pagesValue: "Home · Activities · Leaders · Handbook",
             },
-            title: "This site brings together the people and activities of the 25-26 year.",
+            title: "One place for the year's events, profiles, and handbook.",
             textHtml:
-              "From <strong>2025.06 to 2026.06</strong>, the event records, profiles, and handbook materials are all collected here.",
+              "From <strong>2025.06 to 2026.06</strong>, this site gathers the activities, leadership profiles, and the handover handbook.",
             actions: {
               primary: "Open Activities",
               secondary: "View Leaders",
+              handbook: "Open Handbook",
             },
             stats: {
-              months: "Months",
-              range: "Time Span",
-              covered: "Months Covered",
+              pages: "Page Sections",
+              range: "Year Span",
+              handbook: "Handbook File",
             },
             method: {
               label: "On this site",
@@ -450,23 +523,25 @@
             },
           },
           collage: {
-            aria: "Featured scenes from the year",
+            aria: "Featured scenes on the home page",
             main: {
               kicker: "Activities",
-              title: "Yearly Activity Timeline",
-              alt: "Group portrait from the June handover handbook",
+              title: "Annual Activities",
+              alt: "Lead image for the activities page",
             },
-            july: {
-              alt: "Group portrait from the July leadership training handbook",
-              title: "Joint Leadership Training",
+            leaders: {
+              kicker: "Leaders",
+              alt: "Lead image for the leaders page",
+              title: "Hannah · Victoria",
             },
-            may: {
-              alt: "Group portrait from the May livestream talk handbook",
-              title: "Livestream Talk Meeting",
+            handbook: {
+              kicker: "Handbook",
+              alt: "Lead image for the handbook page",
+              title: "Handover Handbook",
             },
             note: {
-              label: "Visual Style",
-              text: "All three pages use the same handbook colors and photo style.",
+              label: "Home Direction",
+              text: "Activities, profiles, and the handbook are separated so each page reads more clearly.",
             },
           },
           spotlight: {
@@ -491,14 +566,14 @@
             filterHint: "Swipe to scroll",
           },
           portal: {
-            eyebrow: "Where to Go Next",
-            title: "Activities and leaders live on separate pages.",
-            intro: "Activity content and profile content are kept separate.",
+            eyebrow: "Page Entry",
+            title: "Start here for the full year.",
+            intro: "Activities, profiles, and the handbook each have their own page.",
             activities: {
               alt: "Preview of the activities page",
               kicker: "Activities",
               title: "Activities Page",
-              body: "All 13 months from 2025.06 to 2026.06 sit on one timeline, with photos, dates, and attachments for each month.",
+              body: "A timeline of the monthly events from 2025.06 to 2026.06, with photos and attachments inside each month.",
               metaTimeline: "Monthly timeline",
               metaPhotos: "Event photos",
               metaMobile: "Mobile friendly",
@@ -508,11 +583,21 @@
               alt: "Preview of the leaders page",
               kicker: "Leaders",
               title: "Leaders Page",
-              body: "Browse formal profiles, photos, and year-in-review notes for Hannah Hung and Victoria Cheng.",
+              body: "Profiles, photos, and year-in-review notes for Hannah Hung and Victoria Cheng.",
               metaHannah: "Hannah",
               metaVictoria: "Victoria",
               metaReview: "Year in review",
               cta: "Go to Leaders",
+            },
+            handbook: {
+              alt: "Preview of the handbook page",
+              kicker: "Handbook",
+              title: "Handbook Page",
+              body: "Open the handover handbook online or download a copy to keep.",
+              metaPdf: "Full PDF",
+              metaView: "Read online",
+              metaDownload: "Download",
+              cta: "Go to Handbook",
             },
           },
           manual: {
@@ -543,6 +628,55 @@
             eyebrow: "Page Notes",
             title: "What's on each page",
             bodyHtml: "The <strong>Activities</strong> page holds each month's photos and materials, while the <strong>Leaders</strong> page collects the two presidents' formal profiles and year-in-review notes.",
+          },
+        },
+        handbook: {
+          hero: {
+            eyebrow: "Handbook",
+            ledgerAria: "Handbook page details",
+            actionsAria: "Handbook actions",
+            ledger: {
+              version: "Edition",
+              format: "Format",
+              access: "Access",
+            },
+            title: "25-26 Handover Handbook",
+            textHtml:
+              "This page holds the <strong>25-26 handover handbook</strong>. If you want the official event names, dates, or original layout, you can open or download it here.",
+            actions: {
+              view: "Read Handbook",
+              download: "Download PDF",
+            },
+          },
+          feature: {
+            alt: "Preview of the 25-26 handover handbook",
+            aria: "Open the 25-26 handover handbook PDF online",
+            label: "Handbook Preview",
+            title: "Handover Handbook",
+            text: "Read it online or download a copy.",
+          },
+          section: {
+            eyebrow: "Read or Download",
+            title: "Open it online or save a copy.",
+            intro: "Use the links below when you want to check the official names, dates, or original page layouts from the handbook.",
+            metaAria: "Handbook features",
+            actionsAria: "Handbook actions",
+            meta: {
+              pdf: "Full PDF",
+              view: "Read online",
+              download: "Download",
+            },
+            actions: {
+              view: "Read Handbook",
+              download: "Download PDF",
+            },
+            preview: {
+              aria: "Open the 25-26 handover handbook PDF online",
+              alt: "Preview page of the 25-26 handover handbook",
+              label: "Handover Handbook",
+              title: "25-26 Handover Handbook",
+              text: "A quick way to compare official event names, dates, and layouts.",
+            },
           },
         },
         activities: {
