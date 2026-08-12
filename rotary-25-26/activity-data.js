@@ -1018,8 +1018,8 @@
       date: "2026/6/27",
       location: localized("雙北交接典禮", "Taipei & New Taipei handover ceremony"),
       accent: "#8c7d9e",
-      coverSrc: "assets/photos/june-2026-handover-bell.jpg",
-      coverAlt: localized("雙北交接典禮上詠文與婉華一同敲鐘", "Victoria and Hannah ringing the bell at the handover ceremony"),
+      coverSrc: "assets/photos/june-2026-handover-group-photo.jpg",
+      coverAlt: localized("雙北交接典禮全場合照", "Full group photo from the Taipei and New Taipei handover ceremony"),
       summary: localized(
         "6 月底的雙北交接典禮，記下詠文與婉華卸任的時刻，也替這一年的服務與相聚畫下句點。",
         "The late-June handover ceremony marks Victoria and Hannah stepping down and closes the year of service and shared memories.",
@@ -1035,11 +1035,11 @@
       ),
       gallery: [
         galleryImage(
-          "assets/photos/june-2026-handover-bell.jpg",
-          "雙北交接典禮上詠文與婉華一同敲鐘",
-          "Victoria and Hannah ringing the bell at the handover ceremony",
-          "雙北交接典禮的交棒時刻。",
-          "The handover moment at the ceremony.",
+          "assets/photos/june-2026-handover-group-photo.jpg",
+          "雙北交接典禮全場合照",
+          "Full group photo from the Taipei and New Taipei handover ceremony",
+          "雙北交接典禮全場合照。",
+          "Full group photo from the handover ceremony.",
         ),
         galleryImage(
           "assets/photos/june-2026-handover-speech.jpg",
