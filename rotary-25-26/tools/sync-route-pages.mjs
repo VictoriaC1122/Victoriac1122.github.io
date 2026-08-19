@@ -14,6 +14,10 @@ const routePages = [
     source: "leaders.html",
     target: "leaders/index.html",
   },
+  {
+    source: "handbook.html",
+    target: "handbook/index.html",
+  },
 ];
 
 function injectBaseHref(markup) {

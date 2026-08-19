@@ -135,15 +135,24 @@ const firstRun = createHarness();
 
 assert(firstRun.document.documentElement.lang === "zh-Hant", "default language should be zh-Hant");
 assert(firstRun.textElement.textContent === "首頁", "default text translation should be Chinese");
-assert(firstRun.attrElement.getAttribute("content")?.includes("年度展示網站首頁"), "default meta description should be Chinese");
+assert(
+  firstRun.attrElement.getAttribute("content")?.includes("2025-26 年度中華扶輪獎學生聯誼會北區與新北區"),
+  "default meta description should be Chinese",
+);
 assert(firstRun.zhOption.classList.contains("is-current"), "zh-TW option should start active");
 
 firstRun.context.window.siteI18n.setLanguage("en");
 
 assert(firstRun.document.documentElement.lang === "en", "switching language should update document lang");
 assert(firstRun.textElement.textContent === "Home", "text translation should switch to English");
-assert(firstRun.htmlElement.innerHTML.includes("Activities"), "HTML translation should switch to English");
-assert(firstRun.attrElement.getAttribute("content")?.includes("Homepage for the 25-26 year showcase"), "meta description should switch to English");
+assert(
+  firstRun.htmlElement.innerHTML.includes("events, leadership profiles, and the handover handbook"),
+  "HTML translation should switch to English",
+);
+assert(
+  firstRun.attrElement.getAttribute("content")?.includes("leadership profiles"),
+  "meta description should switch to English",
+);
 assert(firstRun.storage.get("rotary-25-26-language") === "en", "selected language should persist to localStorage");
 assert(firstRun.enOption.classList.contains("is-current"), "English option should become active");
 assert(firstRun.toggle.getAttribute("aria-label") === "Switch to Traditional Chinese", "toggle aria label should describe the next language");

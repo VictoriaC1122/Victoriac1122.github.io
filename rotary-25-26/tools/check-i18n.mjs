@@ -36,8 +36,10 @@ const htmlFiles = [
   "site/index.html",
   "site/activities.html",
   "site/leaders.html",
+  "site/handbook.html",
   "site/activities/index.html",
   "site/leaders/index.html",
+  "site/handbook/index.html",
 ];
 
 const translationKeys = new Set();
@@ -93,8 +95,8 @@ function collectArchiveIssues(language) {
   const issues = [];
   const data = archive.getArchiveData(language);
 
-  if (data.orderedEvents.length !== 14) {
-    issues.push(`expected 14 events, got ${data.orderedEvents.length}`);
+  if (data.orderedEvents.length !== 15) {
+    issues.push(`expected 15 events, got ${data.orderedEvents.length}`);
   }
 
   for (const event of data.orderedEvents) {
