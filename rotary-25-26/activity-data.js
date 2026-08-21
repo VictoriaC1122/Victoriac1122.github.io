@@ -36,6 +36,15 @@
     };
   }
 
+  function createVideoAsset(src, alt, options = {}) {
+    return {
+      kind: "video",
+      src,
+      alt,
+      ...options,
+    };
+  }
+
   function createLocalizedLink(zhTwLabel, enLabel, url, options = {}) {
     return {
       label: localized(zhTwLabel, enLabel),
@@ -50,6 +59,14 @@
 
   function galleryImage(src, zhTwAlt, enAlt, zhTwCaption, enCaption, options = {}) {
     return createImageAsset(src, localized(zhTwAlt, enAlt), {
+      ...(zhTwCaption || enCaption ? { caption: localized(zhTwCaption, enCaption) } : {}),
+      ...options,
+    });
+  }
+
+  function galleryVideo(src, poster, zhTwAlt, enAlt, zhTwCaption, enCaption, options = {}) {
+    return createVideoAsset(src, localized(zhTwAlt, enAlt), {
+      poster,
       ...(zhTwCaption || enCaption ? { caption: localized(zhTwCaption, enCaption) } : {}),
       ...options,
     });
@@ -121,7 +138,7 @@
       label,
       dateLabel,
       statusLabel,
-      frameCountLabel: createFrameCountLabel(event.gallery.length, language),
+      frameCountLabel: event.frameCountLabel || createFrameCountLabel(event.gallery.length, language),
       detailKicker: `${label}｜${dateLabel}`,
       materialStatus: event.availability,
     };
@@ -186,40 +203,163 @@
       month: 7,
       order: 2,
       title: localized("北區新北區聯合幹部訓練", "Joint Leadership Training"),
-      subtitle: localized("在宜蘭進行兩天一夜的聯合幹部訓練。", "A two-day joint leadership training takes place in Yilan."),
+      subtitle: localized(
+        "在宜蘭進行兩天一夜的聯合幹部訓練，並安排 Day 1 與晴雨版 Day 2 行程。",
+        "A two-day joint leadership training in Yilan, with a first-day program and sunny or rainy options for day two.",
+      ),
       folder: localized("7月活動＿幹部訓練", "July Activities — Leadership Training"),
       date: "2025/7/19-20",
       location: localized("宜蘭", "Yilan"),
       accent: "#766247",
-      coverSrc: "assets/photos/july-training-handbook-cover.jpg",
-      coverAlt: localized("7月幹部訓練手冊人物合照", "July leadership training portrait from the handbook"),
+      coverSrc: "assets/photos/july-training-group-1.jpg",
+      coverAlt: localized("7月幹部訓練團體合照", "Group photo from the July leadership training"),
       summary: localized(
-        "7 月在宜蘭進行兩天一夜的幹部訓練，透過課程、協作與相處，把新年度的節奏先定下來。",
-        "July's overnight leadership training in Yilan uses workshops, teamwork, and shared time to set the tone for the new year.",
+        "7 月的宜蘭幹部訓練，把例會、分組活動、住宿交流與隔天行程都排進同一趟兩天一夜。Day 1 以例會與團隊活動為主，Day 2 則依天氣分成海線與雨備版本。",
+        "July's overnight training in Yilan folds formal sessions, team activities, time together at the inn, and the next day's outing into one trip. Day 1 centers on the meeting and group activities, while Day 2 branches into sunny and rainy versions.",
       ),
       highlights: localizedList(
         ["幹部訓練", "Leadership training"],
         ["宜蘭", "Yilan"],
+        ["兩天一夜", "Overnight"],
+        ["晴雨版本", "Sunny and rainy plans"],
         ["年度默契", "Team chemistry"],
       ),
+      frameCountLabel: localized("8 筆內容", "8 items"),
       availability: localized(
-        "兩天一夜的訓練，也讓幹部分工與合作節奏更清楚。",
-        "The two-day training also helps the team settle into clearer roles and a steadier working rhythm.",
+        "已整理 Day 1 室內版、Day 2 晴天版與雨天版行程，也補上現場照片與短片。",
+        "Day 1, Day 2 sunny, and Day 2 rainy itineraries are now organized here alongside photos and short videos from the training.",
       ),
+      activityBlocks: [
+        {
+          date: localized("Day 1｜2025/7/19", "Day 1 · 2025/7/19"),
+          title: localized("Day 1 室內版", "Day 1 · Indoor Program"),
+          summary: localized(
+            "上午各車陸續出發，中午先在羅東用餐，午後於芯園茶屋展開例會與下午茶，接著換裝進行分組戲水競賽；晚上則以唱歌、烤肉與夜間交流收尾。",
+            "Cars departed through the morning, lunch followed in Luodong, and the afternoon moved into the formal session at Xinyuan Tea House, afternoon tea, and team water games. The evening closed with singing, barbecue, and time together.",
+          ),
+          details: localizedList(
+            ["09:00–10:00｜各車出發", "09:00–10:00 · Departures by car"],
+            ["11:00–12:30｜基隆甕仔雞羅東分店午餐", "11:00–12:30 · Lunch at Keelung Wengzai Chicken, Luodong branch"],
+            ["13:00–14:00｜芯園茶屋例會", "13:00–14:00 · Formal session at Xinyuan Tea House"],
+            ["14:00–14:30｜民宿下午茶時光", "14:00–14:30 · Afternoon tea at the inn"],
+            ["14:30–17:00｜更衣、分組戲水競賽", "14:30–17:00 · Change clothes and team water games"],
+            ["17:30 起｜唱歌、烤肉、觀星與晚間交流", "From 17:30 · Singing, barbecue, stargazing, and evening bonding"],
+          ),
+          tags: localizedList(
+            ["例會", "Meeting"],
+            ["戲水競賽", "Water games"],
+            ["晚間交流", "Evening bonding"],
+          ),
+          imageSrc: "assets/photos/july-training-day1-indoor-itinerary.jpg",
+          imageAlt: localized("幹部訓練 Day 1 室內版行程整理圖", "Day 1 indoor itinerary board for the leadership training"),
+          imageCaption: localized("Day 1 室內版行程整理。", "Day 1 indoor itinerary board."),
+        },
+        {
+          date: localized("Day 2｜晴天版", "Day 2 · Sunny Version"),
+          title: localized("Day 2 晴天版", "Day 2 · Sunny Plan"),
+          summary: localized(
+            "若天氣放晴，第二天會往南方澳海線移動：早餐後前往海灘與海鮮午餐，午後在海景咖啡廳或 CASA 海洋 1 館停留，傍晚再走南方澳大橋、豆腐岬與內埤海水浴場。",
+            "If the weather clears, day two heads toward the South Bay coast: breakfast at the inn, the beach and seafood for lunch, then time at a sea-view cafe or CASA Ocean Hall 1 before an evening loop through Nanfang'ao Bridge, Tofu Cape, and Neipi Beach.",
+          ),
+          details: localizedList(
+            ["09:00–12:00｜民宿早餐", "09:00–12:00 · Breakfast at the inn"],
+            ["11:00–11:30｜出發南方澳海灘", "11:00–11:30 · Head toward Nanfang'ao Beach"],
+            ["午餐｜海珍活海鮮餐廳（太飽可略）", "Lunch · Haizhen Live Seafood Restaurant (optional if everyone is too full)"],
+            ["13:00–14:00｜喬伊吹吹風或 CASA 海洋 1 館", "13:00–14:00 · Qiaoyi Chui Chui Feng cafe or CASA Ocean Hall 1"],
+            ["傍晚｜南方澳大橋、豆腐岬一坪海岸窗口碉堡、內埤海水浴場", "Evening · Nanfang'ao Bridge, the Tofu Cape coastal bunker window, and Neipi Beach"],
+          ),
+          tags: localizedList(
+            ["晴天版", "Sunny plan"],
+            ["南方澳", "Nanfang'ao"],
+            ["海線", "Coastline"],
+          ),
+          imageSrc: "assets/photos/july-training-day2-sunny-itinerary.jpg",
+          imageAlt: localized("幹部訓練 Day 2 晴天版行程整理圖", "Day 2 sunny itinerary board for the leadership training"),
+          imageCaption: localized("Day 2 晴天版行程整理。", "Day 2 sunny itinerary board."),
+        },
+        {
+          date: localized("Day 2｜雨天版", "Day 2 · Rainy Version"),
+          title: localized("Day 2 雨天版", "Day 2 · Rainy Plan"),
+          summary: localized(
+            "若遇下雨，第二天則改走冬山河周邊：早餐後轉往火鍋店用餐，午後可在 Woosh Cafe × 半日森或宜蘭傳藝園區停留，晚上依天氣提早回臺北或續攤唱歌。",
+            "If it rains, day two shifts to the Dongshan River area: hot pot for lunch, an afternoon stop at Woosh Cafe x Halfday or the Yilan Traditional Arts Center, and then an early return to Taipei or a final karaoke stop depending on the weather.",
+          ),
+          details: localizedList(
+            ["09:00–12:00｜民宿早餐", "09:00–12:00 · Breakfast at the inn"],
+            ["11:00–11:30｜出發冬山河地區", "11:00–11:30 · Head toward the Dongshan River area"],
+            ["午餐｜宜蘭湯蒸火鍋店（太飽可略）", "Lunch · Yilan Tangzheng Hot Pot (optional if everyone is too full)"],
+            ["13:00–14:00｜Woosh Cafe × 半日森或宜蘭傳藝園區", "13:00–14:00 · Woosh Cafe x Halfday or the Yilan Traditional Arts Center"],
+            ["晚上｜提早回臺北，或回臺北 Sing go! 唱歌", "Evening · Return to Taipei early, or head to Sing Go for karaoke"],
+            ["收尾｜平安回家", "Closing note · Head home safely"],
+          ),
+          tags: localizedList(
+            ["雨天版", "Rainy plan"],
+            ["冬山河", "Dongshan River"],
+            ["雨備行程", "Rain backup"],
+          ),
+          imageSrc: "assets/photos/july-training-day2-rain-itinerary.jpg",
+          imageAlt: localized("幹部訓練 Day 2 雨天版行程整理圖", "Day 2 rainy itinerary board for the leadership training"),
+          imageCaption: localized("Day 2 雨天版行程整理。", "Day 2 rainy itinerary board."),
+        },
+      ],
       gallery: [
         galleryImage(
-          "assets/photos/july-training-handbook-cover.jpg",
-          "幹部訓練手冊人物合照",
-          "Leadership training portrait from the handbook",
-          "幹部訓練合照。",
-          "Leadership training group photo.",
+          "assets/photos/july-training-group-1.jpg",
+          "幹部訓練團體合照",
+          "Group photo from the leadership training",
+          "幹部訓練團體合照。",
+          "Group photo from the leadership training.",
         ),
         galleryImage(
-          "assets/photos/july-training-handbook-page.jpg",
-          "幹部訓練手冊月份頁",
-          "July leadership training handbook page",
-          "7 月手冊頁。",
-          "July handbook spread.",
+          "assets/photos/july-training-group-2.jpg",
+          "幹部訓練活動合照",
+          "Leadership training activity photo",
+          "幹部訓練活動合照。",
+          "Activity photo from the leadership training.",
+        ),
+        galleryImage(
+          "assets/photos/july-training-group-3.jpg",
+          "幹部訓練現場合影",
+          "Leadership training group portrait on site",
+          "幹部訓練現場合影。",
+          "On-site group portrait from the leadership training.",
+        ),
+        galleryImage(
+          "assets/photos/july-training-day1-indoor-itinerary.jpg",
+          "幹部訓練 Day 1 室內版行程圖",
+          "Day 1 indoor itinerary board",
+          "Day 1 室內版行程海報。",
+          "Day 1 indoor itinerary board.",
+        ),
+        galleryImage(
+          "assets/photos/july-training-day2-sunny-itinerary.jpg",
+          "幹部訓練 Day 2 晴天版行程圖",
+          "Day 2 sunny itinerary board",
+          "Day 2 晴天版行程海報。",
+          "Day 2 sunny itinerary board.",
+        ),
+        galleryImage(
+          "assets/photos/july-training-day2-rain-itinerary.jpg",
+          "幹部訓練 Day 2 雨天版行程圖",
+          "Day 2 rainy itinerary board",
+          "Day 2 雨天版行程海報。",
+          "Day 2 rainy itinerary board.",
+        ),
+        galleryVideo(
+          "assets/videos/july-training-reel-01.mp4",
+          "assets/photos/july-training-group-1.jpg",
+          "幹部訓練活動短片一",
+          "Leadership training reel one",
+          "幹部訓練活動短片。",
+          "A short reel from the leadership training.",
+        ),
+        galleryVideo(
+          "assets/videos/july-training-reel-02.mp4",
+          "assets/photos/july-training-group-2.jpg",
+          "幹部訓練活動短片二",
+          "Leadership training reel two",
+          "幹部訓練活動短片。",
+          "Another short reel from the leadership training.",
         ),
       ],
     }),

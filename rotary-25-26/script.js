@@ -317,6 +317,7 @@ function renderDetailInfo(event) {
 
 function renderActivityBlock(block) {
   const tags = Array.isArray(block.tags) && block.tags.length ? block.tags : [];
+  const details = Array.isArray(block.details) && block.details.length ? block.details : [];
   const visual = block.imageSrc
     ? `
         <figure class="activity-block-visual">
@@ -334,6 +335,13 @@ function renderActivityBlock(block) {
         </figure>
       `
     : "";
+  const detailList = details.length
+    ? `
+        <ul class="activity-block-list">
+          ${renderList(details, (item) => `<li>${escapeHtml(item)}</li>`)}
+        </ul>
+      `
+    : "";
 
   return `
     <article class="activity-block">
@@ -341,6 +349,7 @@ function renderActivityBlock(block) {
       <p class="activity-block-date">${escapeHtml(block.date)}</p>
       <h3>${escapeHtml(block.title)}</h3>
       <p>${escapeHtml(block.summary)}</p>
+      ${detailList}
       ${tags.length ? `<div class="activity-block-tags">${renderList(tags, renderTag)}</div>` : ""}
     </article>
   `;
@@ -386,6 +395,23 @@ function renderGalleryItem(item) {
           decoding="async"
         />
         <figcaption>${escapeHtml(item.caption)}</figcaption>
+      </figure>
+    `;
+  }
+
+  if (item.kind === "video") {
+    return `
+      <figure class="gallery-item gallery-item--video">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          ${item.poster ? `poster="${escapeHtml(item.poster)}"` : ""}
+          aria-label="${escapeHtml(item.alt || item.caption || "")}"
+        >
+          <source src="${escapeHtml(item.src)}" type="video/mp4" />
+        </video>
+        <figcaption>${escapeHtml(item.caption || "")}</figcaption>
       </figure>
     `;
   }

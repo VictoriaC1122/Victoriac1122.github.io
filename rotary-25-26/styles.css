@@ -2939,6 +2939,18 @@ body.page-home .portal-cta {
   line-height: 1.82;
 }
 
+.activity-block-list {
+  display: grid;
+  gap: 8px;
+  margin: -2px 0 0;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+}
+
+.activity-block-list li {
+  line-height: 1.72;
+}
+
 .activity-block-tags {
   display: flex;
   flex-wrap: wrap;
@@ -3053,7 +3065,18 @@ body.page-home .portal-cta {
   object-fit: cover;
 }
 
+.gallery-item video {
+  width: 100%;
+  aspect-ratio: 1.28 / 1;
+  object-fit: cover;
+  background: #0f131b;
+}
+
 .gallery-grid > :first-child img {
+  aspect-ratio: 1.9 / 1;
+}
+
+.gallery-grid > :first-child video {
   aspect-ratio: 1.9 / 1;
 }
 
