@@ -293,7 +293,8 @@ function renderDetailInfo(event) {
 function renderActivityBlock(block) {
   const tags = Array.isArray(block.tags) && block.tags.length ? block.tags : [];
   const details = Array.isArray(block.details) && block.details.length ? block.details : [];
-  const visual = block.imageSrc
+  const hasVisual = Boolean(block.imageSrc);
+  const visual = hasVisual
     ? `
         <figure class="activity-block-visual">
           <img
@@ -319,13 +320,15 @@ function renderActivityBlock(block) {
     : "";
 
   return `
-    <article class="activity-block">
+    <article class="activity-block${hasVisual ? " activity-block--with-visual" : ""}">
       ${visual}
-      <p class="activity-block-date">${escapeHtml(block.date)}</p>
-      <h3>${escapeHtml(block.title)}</h3>
-      <p>${escapeHtml(block.summary)}</p>
-      ${detailList}
-      ${tags.length ? `<div class="activity-block-tags">${renderList(tags, renderTag)}</div>` : ""}
+      <div class="activity-block-content">
+        <p class="activity-block-date">${escapeHtml(block.date)}</p>
+        <h3>${escapeHtml(block.title)}</h3>
+        <p>${escapeHtml(block.summary)}</p>
+        ${detailList}
+        ${tags.length ? `<div class="activity-block-tags">${renderList(tags, renderTag)}</div>` : ""}
+      </div>
     </article>
   `;
 }

@@ -45,6 +45,7 @@
           detail: {
             close: "關閉",
             closeAria: "關閉詳情",
+            infoAria: "活動資訊與連結",
             activitiesEyebrow: "本月活動",
             activitiesTitle: "本月活動",
             photosEyebrow: "活動照片",
@@ -409,6 +410,7 @@
           detail: {
             close: "Close",
             closeAria: "Close details",
+            infoAria: "Event information and links",
             activitiesEyebrow: "This Month",
             activitiesTitle: "Monthly Events",
             photosEyebrow: "Photos",

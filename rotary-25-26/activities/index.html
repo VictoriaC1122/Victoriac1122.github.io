@@ -79,7 +79,13 @@
     <div class="detail-modal" id="detailModal" hidden>
       <div class="detail-backdrop" data-close-modal="true"></div>
 
-      <section class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <section
+        class="detail-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detailTitle"
+        aria-describedby="detailSummary"
+      >
         <button
           class="detail-close"
           id="detailClose"
@@ -94,10 +100,22 @@
           <div class="detail-hero" id="detailHero"></div>
 
           <div class="detail-body">
-            <div class="detail-meta">
-              <p class="detail-kicker" id="detailKicker"></p>
-              <h2 id="detailTitle"></h2>
-              <p class="detail-summary" id="detailSummary"></p>
+            <div class="detail-reading-layout">
+              <div class="detail-meta">
+                <p class="detail-kicker" id="detailKicker"></p>
+                <h2 id="detailTitle"></h2>
+                <p class="detail-summary" id="detailSummary"></p>
+              </div>
+
+              <aside
+                class="detail-aside"
+                aria-label="活動資訊與連結"
+                data-i18n-attr="aria-label:common.detail.infoAria"
+              >
+                <div class="detail-info" id="detailInfo"></div>
+                <div class="detail-tags" id="detailTags"></div>
+                <div class="detail-links" id="detailLinks"></div>
+              </aside>
             </div>
 
             <section class="detail-activities" id="detailActivities" hidden>
@@ -107,10 +125,6 @@
               </div>
               <div class="activity-block-grid" id="detailActivityBlocks"></div>
             </section>
-
-            <div class="detail-info" id="detailInfo"></div>
-            <div class="detail-tags" id="detailTags"></div>
-            <div class="detail-links" id="detailLinks"></div>
 
             <section class="detail-gallery">
               <div class="detail-section-head">
