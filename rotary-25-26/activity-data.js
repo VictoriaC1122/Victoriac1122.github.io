@@ -211,8 +211,8 @@
       date: "2025/7/19-20",
       location: localized("宜蘭", "Yilan"),
       accent: "#766247",
-      coverSrc: "assets/photos/july-training-group-1.jpg",
-      coverAlt: localized("7月幹部訓練團體合照", "Group photo from the July leadership training"),
+      coverSrc: "assets/photos/july-training-handbook-cover.jpg",
+      coverAlt: localized("7月幹部訓練正式合影", "Formal group photo from the July leadership training"),
       summary: localized(
         "7 月的宜蘭幹部訓練，把例會、分組活動、住宿交流與隔天行程都排進同一趟兩天一夜。Day 1 以例會與團隊活動為主，Day 2 則依天氣分成海線與雨備版本。",
         "July's overnight training in Yilan folds formal sessions, team activities, time together at the inn, and the next day's outing into one trip. Day 1 centers on the meeting and group activities, while Day 2 branches into sunny and rainy versions.",
@@ -304,25 +304,11 @@
       ],
       gallery: [
         galleryImage(
-          "assets/photos/july-training-group-1.jpg",
-          "幹部訓練團體合照",
-          "Group photo from the leadership training",
-          "幹部訓練團體合照。",
-          "Group photo from the leadership training.",
-        ),
-        galleryImage(
-          "assets/photos/july-training-group-2.jpg",
-          "幹部訓練活動合照",
-          "Leadership training activity photo",
-          "幹部訓練活動合照。",
-          "Activity photo from the leadership training.",
-        ),
-        galleryImage(
-          "assets/photos/july-training-group-3.jpg",
-          "幹部訓練現場合影",
-          "Leadership training group portrait on site",
-          "幹部訓練現場合影。",
-          "On-site group portrait from the leadership training.",
+          "assets/photos/july-training-handbook-cover.jpg",
+          "幹部訓練正式合影",
+          "Formal group photo from the leadership training",
+          "幹部訓練正式合影。",
+          "Formal group photo from the leadership training.",
         ),
         galleryImage(
           "assets/photos/july-training-day1-indoor-itinerary.jpg",
@@ -347,7 +333,7 @@
         ),
         galleryVideo(
           "assets/videos/july-training-reel-01.mp4",
-          "assets/photos/july-training-group-1.jpg",
+          "assets/photos/july-training-handbook-cover.jpg",
           "幹部訓練活動短片一",
           "Leadership training reel one",
           "幹部訓練活動短片。",
@@ -355,7 +341,7 @@
         ),
         galleryVideo(
           "assets/videos/july-training-reel-02.mp4",
-          "assets/photos/july-training-group-2.jpg",
+          "assets/photos/july-training-handbook-cover.jpg",
           "幹部訓練活動短片二",
           "Leadership training reel two",
           "幹部訓練活動短片。",
