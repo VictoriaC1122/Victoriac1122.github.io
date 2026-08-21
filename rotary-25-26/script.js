@@ -209,10 +209,9 @@ function renderFilters() {
 }
 
 function renderEventCard(event, index = 0) {
-  const showCoverOverlay = event.cover.kind === "image";
   const shouldLazyLoad = index > 1;
-  const activityBlocks = Array.isArray(event.activityBlocks) ? event.activityBlocks : [];
-  const cardSeries = activityBlocks.length > 1 ? renderList(activityBlocks, renderCardSeriesItem) : "";
+  const excerpt = event.subtitle || event.summary || "";
+  const cardLocation = event.location || event.folder;
 
   return `
     <article
@@ -231,16 +230,6 @@ function renderEventCard(event, index = 0) {
       <div class="timeline-shell">
         <div class="card-cover">
           ${renderVisual(event.cover, event.title, { lazy: shouldLazyLoad })}
-          ${
-            showCoverOverlay
-              ? `
-                <div class="card-overlay">
-                  <span>${escapeHtml(event.folder)}</span>
-                  <strong>${escapeHtml(event.location)}</strong>
-                </div>
-              `
-              : ""
-          }
         </div>
 
         <div class="card-body">
@@ -255,27 +244,13 @@ function renderEventCard(event, index = 0) {
 
           <p class="card-scene">${escapeHtml(event.dateLabel)}</p>
           <h3>${escapeHtml(event.title)}</h3>
-          ${cardSeries ? `<div class="card-series">${cardSeries}</div>` : ""}
-          <p class="card-subtitle">${escapeHtml(event.subtitle)}</p>
-          <div class="tag-row">${renderList(event.highlights, renderTag)}</div>
-            <div class="card-bottom">
-              <p class="card-source">${escapeHtml(event.availability)}</p>
-              <div class="card-footline">
-                <span class="card-folder">${escapeHtml(event.folder)}</span>
-                <span class="card-cta">${escapeHtml(t("common.archive.card.cta"))}</span>
-              </div>
-            </div>
+          ${excerpt ? `<p class="card-excerpt">${escapeHtml(excerpt)}</p>` : ""}
+          <div class="card-bottom">
+            <span class="card-location">${escapeHtml(cardLocation)}</span>
+            <span class="card-cta">${escapeHtml(t("common.archive.card.cta"))}</span>
+          </div>
         </div>
       </div>
-    </article>
-  `;
-}
-
-function renderCardSeriesItem(block) {
-  return `
-    <article class="card-series-item">
-      <span>${escapeHtml(block.date)}</span>
-      <strong>${escapeHtml(block.title)}</strong>
     </article>
   `;
 }

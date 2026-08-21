@@ -12,7 +12,7 @@
           },
           activities: {
             title: "25-26 年度紀事｜活動",
-            description: "收錄 2025.06 至 2026.06 的年度活動，包含日期、照片與活動紀錄。",
+            description: "按月份整理 2025.06 至 2026.06 的年度活動與相簿。",
           },
           leaders: {
             title: "25-26 年度紀事｜會長",
@@ -275,9 +275,9 @@
           archive: {
             eyebrow: "年度活動",
             title: "2025.06 — 2026.06 年度活動",
-            intro: "從 2025.06 到 2026.06，活動沿著時間排開。名稱與日期以交接典禮手冊為準，11 月三場例會也各自收錄。",
+            intro: "按月份收好這一年的活動；想看完整照片、行程和補充資料，再點進去。",
             filterAria: "年份篩選",
-            filterHint: "左右滑動可切換年份",
+            filterHint: "左右滑動可切換",
           },
           footnote: {
             eyebrow: "資料來源",
@@ -376,7 +376,7 @@
           },
           activities: {
             title: "25-26 Year Archive | Activities",
-            description: "Activities from 2025.06 to 2026.06, with dates, photos, and event notes.",
+            description: "A month-by-month archive of events and galleries from 2025.06 to 2026.06.",
           },
           leaders: {
             title: "25-26 Year Archive | Leaders",
@@ -639,9 +639,9 @@
           archive: {
             eyebrow: "Year Timeline",
             title: "Annual activities, 2025.06–2026.06",
-            intro: "The year unfolds from 2025.06 to 2026.06, with official titles and dates aligned to the handbook. November's three meetings are listed separately.",
+            intro: "A month-by-month read of the year. Open any event for the full gallery, schedule, and notes.",
             filterAria: "Year filters",
-            filterHint: "Swipe to scroll",
+            filterHint: "Swipe to switch",
           },
           footnote: {
             eyebrow: "Source Notes",

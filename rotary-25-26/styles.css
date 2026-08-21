@@ -2165,36 +2165,52 @@ body.page-home .portal-cta {
 }
 
 .archive-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1.24fr) minmax(300px, 0.76fr);
+  align-items: start;
   gap: 28px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
+  padding: 30px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: calc(var(--radius-2xl) + 2px);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(245, 241, 255, 0.95) 54%, rgba(246, 249, 255, 0.93)),
+    rgba(255, 255, 255, 0.92);
+  box-shadow: 0 22px 56px rgba(91, 84, 123, 0.1);
   animation: rise-in 1.06s ease both;
 }
 
 .archive-copy {
   display: grid;
-  gap: 8px;
+  gap: 12px;
 }
 
 .archive-head h2 {
-  max-width: 12ch;
-  font-size: clamp(2rem, 3.2vw, 3rem);
+  max-width: 10ch;
+  font-size: clamp(2.2rem, 3.3vw, 3.2rem);
   text-wrap: balance;
 }
 
 .archive-intro {
-  max-width: 70ch;
+  max-width: 44ch;
   margin: 0;
   color: var(--ink-soft);
-  line-height: 1.78;
+  font-size: 0.98rem;
+  line-height: 1.84;
 }
 
 .archive-actions {
   display: grid;
-  gap: 12px;
-  justify-items: end;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  padding: 20px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(245, 241, 255, 0.74)),
+    rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
 }
 
 .filter-chips {
@@ -2238,7 +2254,8 @@ body.page-home .portal-cta {
 .archive-note {
   margin: 0;
   color: var(--ink-faint);
-  font-size: 0.93rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .filter-hint {
@@ -2249,11 +2266,11 @@ body.page-home .portal-cta {
 }
 
 .event-grid {
-  --timeline-rail-width: 116px;
+  --timeline-rail-width: 94px;
   position: relative;
   display: grid;
-  gap: 28px;
-  padding-top: 4px;
+  gap: 24px;
+  padding-top: 10px;
 }
 
 .event-grid::before {
@@ -2278,7 +2295,7 @@ body.page-home .portal-cta {
   position: relative;
   display: grid;
   grid-template-columns: var(--timeline-rail-width) minmax(0, 1fr);
-  gap: 22px;
+  gap: 18px;
   align-items: start;
   contain: layout paint style;
   cursor: pointer;
@@ -2306,8 +2323,8 @@ body.page-home .portal-cta {
   display: grid;
   justify-items: center;
   align-content: start;
-  gap: 12px;
-  padding-top: 26px;
+  gap: 10px;
+  padding-top: 24px;
 }
 
 .timeline-stamp {
@@ -2346,11 +2363,13 @@ body.page-home .portal-cta {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(290px, 0.92fr) minmax(0, 1.08fr);
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
   content-visibility: auto;
   contain-intrinsic-size: 1px 420px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
   border-radius: var(--radius-xl);
   background: var(--card-surface);
+  box-shadow: 0 22px 50px rgba(96, 92, 128, 0.08);
   isolation: isolate;
 }
 
@@ -2358,7 +2377,7 @@ body.page-home .portal-cta {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, var(--event-accent), rgba(255, 255, 255, 0));
   opacity: 0.8;
 }
@@ -2375,7 +2394,7 @@ body.page-home .portal-cta {
 .card-cover {
   position: relative;
   display: flex;
-  min-height: 320px;
+  min-height: 292px;
   background: linear-gradient(135deg, rgba(139, 147, 201, 0.96), rgba(242, 223, 255, 0.92), rgba(245, 222, 184, 0.92));
 }
 
@@ -2406,31 +2425,6 @@ body.page-home .portal-cta {
   font-size: 0.76rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.card-overlay {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 20px 20px 18px;
-  background:
-    linear-gradient(180deg, rgba(56, 49, 81, 0) 0%, rgba(56, 49, 81, 0.74) 100%);
-  color: white;
-}
-
-.card-overlay span {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  opacity: 0.68;
-  text-transform: uppercase;
-}
-
-.card-overlay strong {
-  display: block;
-  margin-top: 6px;
-  font-family: "Noto Serif TC", serif;
-  font-size: 1.08rem;
-  line-height: 1.38;
 }
 
 .generated-cover {
@@ -2534,13 +2528,13 @@ body.page-home .portal-cta {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 14px;
-  padding: 24px;
+  gap: 16px;
+  padding: 28px;
 }
 
 .card-topline {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
@@ -2576,25 +2570,23 @@ body.page-home .portal-cta {
 }
 
 .card-scene {
-  margin: -4px 0 0;
+  margin: -2px 0 0;
   color: var(--event-accent);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.55;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
 }
 
 .card-body h3 {
   margin: 0;
   font-family: "Noto Serif TC", serif;
-  font-size: 1.42rem;
-  line-height: 1.35;
+  font-size: 1.5rem;
+  line-height: 1.32;
   text-wrap: balance;
 }
 
-.card-subtitle,
-.card-source,
+.card-excerpt,
 .detail-summary,
 .detail-info p,
 .detail-links a,
@@ -2603,34 +2595,13 @@ body.page-home .portal-cta {
   color: var(--ink-soft);
 }
 
-.card-subtitle {
+.card-excerpt {
   margin: 0;
-  line-height: 1.82;
-}
-
-.card-series {
-  display: grid;
-  gap: 10px;
-}
-
-.card-series-item {
-  display: grid;
-  gap: 4px;
-  padding: 12px 14px;
-  border: 1px solid rgba(157, 147, 194, 0.08);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.card-series-item span {
-  color: var(--ink-faint);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-}
-
-.card-series-item strong {
-  font-size: 1rem;
-  line-height: 1.45;
+  line-height: 1.8;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .tag-row {
@@ -2651,23 +2622,12 @@ body.page-home .portal-cta {
 }
 
 .card-bottom {
-  display: grid;
-  gap: 14px;
-  margin-top: auto;
-}
-
-.card-source {
-  margin: 0;
-  line-height: 1.75;
-  font-size: 0.92rem;
-}
-
-.card-footline {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-top: 10px;
+  margin-top: auto;
+  padding-top: 16px;
   border-top: 1px solid rgba(157, 147, 194, 0.08);
 }
 
@@ -2678,10 +2638,10 @@ body.page-home .portal-cta {
   text-transform: uppercase;
 }
 
-.card-folder {
+.card-location {
   color: var(--ink-faint);
-  font-size: 0.82rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.68;
 }
 
 .card-cta {
@@ -2689,6 +2649,11 @@ body.page-home .portal-cta {
   align-items: center;
   flex: 0 0 auto;
   gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(157, 147, 194, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
   color: var(--ink);
   font-weight: 700;
 }
@@ -3273,13 +3238,13 @@ body.page-home .portal-cta {
   }
 
   .archive-head {
-    flex-direction: column;
-    align-items: start;
+    grid-template-columns: 1fr;
+    padding: 24px;
   }
 
   .archive-actions {
     width: 100%;
-    justify-items: start;
+    padding: 18px 18px 14px;
   }
 
   .timeline-shell {
@@ -3547,7 +3512,7 @@ body.page-home .portal-cta {
   }
 
   .card-cover {
-    min-height: 228px;
+    min-height: 236px;
   }
 
   .hero-collage {
@@ -3758,7 +3723,7 @@ body.page-home .portal-cta {
 
   .card-body {
     gap: 12px;
-    padding: 18px;
+    padding: 20px;
   }
 
   .card-topline {
@@ -3766,12 +3731,8 @@ body.page-home .portal-cta {
     row-gap: 8px;
   }
 
-  .card-footline {
-    display: grid;
-  }
-
   .card-frames {
-    width: 100%;
+    width: auto;
   }
 
   .archive-actions {
@@ -4019,13 +3980,12 @@ body.page-home .portal-cta {
     letter-spacing: 0.12em;
   }
 
-  .card-subtitle,
-  .card-source {
+  .card-excerpt {
     line-height: 1.72;
   }
 
-  .card-folder {
-    font-size: 0.8rem;
+  .card-location {
+    font-size: 0.82rem;
   }
 
   .leader-card {
@@ -4439,8 +4399,10 @@ body.page-home .portal-cta {
     line-height: 1.3;
   }
 
-  .card-footline {
-    gap: 8px;
+  .card-bottom {
+    display: grid;
+    align-items: start;
+    gap: 10px;
   }
 
   .tag {
@@ -4512,8 +4474,7 @@ body.page-home .portal-cta {
   .footnote-panel p,
   .archive-intro,
   .activity-block p,
-  .card-subtitle,
-  .card-source,
+  .card-excerpt,
   .gallery-item figcaption,
   .generated-plate .plate-caption {
     line-height: 1.7;
@@ -4720,6 +4681,206 @@ body.page-home .portal-cta {
 
   body.page-activities .hero-signature p {
     font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 820px) {
+  /* Keep the shared header compact without reducing its tap targets. */
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 10px;
+    margin-bottom: 18px;
+    padding: 8px 9px 9px;
+    backdrop-filter: none;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .topbar-actions {
+    display: contents;
+  }
+
+  .topbar-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .lang-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+    min-height: 42px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 560px) {
+
+  body.page-activities .archive-head {
+    gap: 16px;
+    margin-bottom: 18px;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  body.page-activities .archive-copy {
+    gap: 8px;
+  }
+
+  body.page-activities .archive-head h2 {
+    max-width: 14ch;
+    font-size: clamp(1.55rem, 7.2vw, 1.92rem);
+    line-height: 1.22;
+  }
+
+  body.page-activities .archive-intro {
+    max-width: 36ch;
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+
+  body.page-activities .archive-actions {
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  body.page-activities .filter-chips {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  body.page-activities .filter-chip {
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 6px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  body.page-activities .filter-hint {
+    display: none;
+  }
+
+  body.page-activities .archive-note {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* On a phone, use a full-width editorial card instead of spending space on a side rail. */
+  body.page-activities .event-grid {
+    --timeline-rail-width: 0px;
+    gap: 16px;
+    padding-top: 0;
+  }
+
+  body.page-activities .event-grid::before,
+  body.page-activities .timeline-node {
+    display: none;
+  }
+
+  body.page-activities .event-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    animation: none;
+  }
+
+  body.page-activities .event-card:focus-visible {
+    transform: none;
+  }
+
+  body.page-activities .timeline-rail {
+    position: absolute;
+    z-index: 3;
+    top: 12px;
+    left: 12px;
+    display: block;
+    padding: 0;
+  }
+
+  body.page-activities .timeline-stamp {
+    min-width: 0;
+    min-height: 28px;
+    padding: 0 10px;
+    border-color: rgba(255, 255, 255, 0.54);
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 0.82rem;
+    box-shadow: 0 6px 16px rgba(71, 68, 87, 0.1);
+  }
+
+  body.page-activities .timeline-shell {
+    content-visibility: visible;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(96, 92, 128, 0.1);
+  }
+
+  body.page-activities .card-cover {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  body.page-activities .card-cover > img,
+  body.page-activities .card-cover > .generated-cover {
+    height: 100%;
+  }
+
+  body.page-activities .card-topline {
+    display: none;
+  }
+
+  body.page-activities .card-body {
+    gap: 10px;
+    padding: 18px;
+  }
+
+  body.page-activities .card-scene {
+    margin: 0;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+  }
+
+  body.page-activities .card-body h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  body.page-activities .card-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+
+  body.page-activities .card-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 12px;
+    margin-top: 2px;
+    padding-top: 12px;
+  }
+
+  body.page-activities .card-location {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  body.page-activities .card-cta {
+    min-height: 38px;
+    padding: 0 11px;
+    font-size: 0.86rem;
+    white-space: nowrap;
   }
 }
 
