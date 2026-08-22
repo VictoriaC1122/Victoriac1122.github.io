@@ -5232,3 +5232,1050 @@ body.page-activities .generated-plate {
     gap: 12px;
   }
 }
+
+/*
+ * Mobile redesign
+ *
+ * The desktop composition intentionally has more room for imagery and long-form
+ * content. On smaller screens, this late layer turns each page into a compact
+ * editorial flow: a stable header, a short page introduction, and clear,
+ * thumb-friendly reading blocks.
+ */
+@media (max-width: 820px) {
+  :root {
+    --content-width: min(100vw - 28px, 720px);
+    --touch-target: 46px;
+  }
+
+  html {
+    scroll-padding-top: 124px;
+  }
+
+  .page-shell {
+    padding-top: max(8px, env(safe-area-inset-top, 0px));
+    padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Keep the brand and language picker visible, then let page tabs scroll naturally. */
+  .topbar {
+    top: max(8px, env(safe-area-inset-top, 0px));
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 10px;
+    margin-bottom: 20px;
+    padding: 9px;
+    border-radius: 22px;
+    box-shadow: 0 12px 28px rgba(76, 72, 98, 0.1);
+  }
+
+  .brand {
+    width: auto;
+    min-width: 0;
+    min-height: 46px;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .brand-mark {
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    font-size: 1.16rem;
+  }
+
+  .brand-copy {
+    min-width: 0;
+  }
+
+  .brand-copy strong,
+  .brand-copy--home strong {
+    overflow: hidden;
+    font-size: 0.84rem;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .brand-copy span {
+    overflow: hidden;
+    font-size: 0.72rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lang-toggle {
+    min-width: 66px;
+    min-height: 42px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+  }
+
+  .lang-toggle-option {
+    min-height: 28px;
+  }
+
+  .topbar-nav {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    gap: 4px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 4px;
+    border-radius: 16px;
+    scroll-padding-inline: 4px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .topbar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topbar-nav a {
+    flex: 0 0 auto;
+    min-width: max-content;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.82rem;
+    scroll-snap-align: start;
+  }
+
+  .topbar-nav a::after {
+    display: none;
+  }
+
+  .topbar-nav a[aria-current="page"] {
+    box-shadow: 0 4px 12px rgba(76, 72, 98, 0.08);
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  body.page-home .hero--home {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  body.page-home .home-feature {
+    min-height: 0;
+  }
+
+  .hero-copy {
+    padding: 26px 22px 22px;
+    border-radius: 24px;
+  }
+
+  .hero-copy::before {
+    inset: 12px;
+    border-radius: 17px;
+  }
+
+  .eyebrow {
+    margin-bottom: 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero h1,
+  body.page-home .hero h1 {
+    max-width: 13ch;
+    font-size: clamp(1.9rem, 6.6vw, 2.7rem);
+    line-height: 1.18;
+  }
+
+  .hero-text,
+  body.page-home .hero-text {
+    max-width: 37ch;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    line-height: 1.76;
+  }
+
+  .hero-actions,
+  body.page-home .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 22px;
+  }
+
+  .hero-action,
+  body.page-home .hero-action {
+    min-width: 0;
+    min-height: 46px;
+    padding: 0 13px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+  }
+
+  body.page-home .hero-actions .hero-action:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .home-hero-meta,
+  body.page-home .home-hero-meta {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .home-hero-meta span,
+  body.page-home .home-hero-meta span {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+
+  .home-feature-card,
+  .page-feature-card {
+    border-radius: 22px;
+  }
+
+  .home-feature-card img,
+  .page-feature-card img {
+    min-height: 270px;
+  }
+
+  .home-feature-copy,
+  .page-feature-copy {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .home-feature-copy {
+    top: auto;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .home-feature-copy strong,
+  .page-feature-copy strong {
+    font-size: 1.36rem;
+  }
+
+  .home-feature-copy p,
+  .page-feature-copy p {
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  .portal-section,
+  .leaders-section {
+    gap: 16px;
+    margin-bottom: 34px;
+  }
+
+  .portal-grid,
+  body.page-home .portal-grid,
+  .leader-grid--two {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  body.page-home .portal-card--home-minimal {
+    border-radius: 18px;
+  }
+
+  body.page-home .portal-card--home-minimal .portal-body,
+  .portal-body {
+    gap: 9px;
+    padding: 18px;
+  }
+
+  .portal-card::before,
+  body.page-home .portal-card::before {
+    inset: 11px;
+    border-radius: 12px;
+  }
+
+  .portal-index,
+  body.page-home .portal-index {
+    font-size: 1.35rem;
+  }
+
+  .portal-kicker,
+  body.page-home .portal-kicker {
+    font-size: 0.66rem;
+  }
+
+  .portal-body h3,
+  body.page-home .portal-body h3 {
+    font-size: 1.2rem;
+  }
+
+  .portal-body p,
+  body.page-home .portal-body p {
+    font-size: 0.88rem;
+    line-height: 1.68;
+  }
+
+  .portal-meta {
+    gap: 8px 11px;
+    padding-top: 10px;
+  }
+
+  .portal-cta {
+    min-height: 38px;
+    margin-top: 0;
+    font-size: 0.86rem;
+  }
+
+  /* Activities: make filters and cards scan like a mobile journal, not a shrunken timeline. */
+  body.page-activities .archive-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    margin-bottom: 18px;
+    padding: 22px 20px 18px;
+    border-radius: 24px;
+  }
+
+  body.page-activities .archive-copy {
+    gap: 8px;
+  }
+
+  body.page-activities .archive-head h2 {
+    max-width: 17ch;
+    font-size: clamp(1.55rem, 6.5vw, 2.06rem);
+    line-height: 1.25;
+  }
+
+  body.page-activities .archive-intro {
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+
+  body.page-activities .archive-actions {
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  body.page-activities .filter-chips {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    margin-inline: -4px;
+    padding: 2px 4px 6px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.page-activities .filter-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.page-activities .filter-chip {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  body.page-activities .filter-hint {
+    display: block;
+    margin: -2px 0 0;
+    font-size: 0.76rem;
+  }
+
+  body.page-activities .archive-note {
+    font-size: 0.8rem;
+    line-height: 1.58;
+  }
+
+  body.page-activities .event-grid {
+    --timeline-rail-width: 0px;
+    gap: 14px;
+    padding-top: 0;
+  }
+
+  body.page-activities .event-grid::before,
+  body.page-activities .timeline-node {
+    display: none;
+  }
+
+  body.page-activities .event-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    animation: none;
+  }
+
+  body.page-activities .timeline-rail {
+    top: 10px;
+    left: 10px;
+  }
+
+  body.page-activities .timeline-stamp {
+    min-height: 28px;
+    padding: 0 9px;
+    font-size: 0.78rem;
+  }
+
+  body.page-activities .timeline-shell {
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(96, 92, 128, 0.09);
+  }
+
+  body.page-activities .card-cover {
+    aspect-ratio: 16 / 9;
+  }
+
+  body.page-activities .card-body {
+    gap: 9px;
+    padding: 17px 18px 18px;
+  }
+
+  body.page-activities .card-scene {
+    font-size: 0.7rem;
+  }
+
+  body.page-activities .card-body h3 {
+    font-size: 1.22rem;
+    line-height: 1.32;
+  }
+
+  body.page-activities .card-excerpt {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  body.page-activities .card-bottom {
+    align-items: center;
+    gap: 10px;
+    padding-top: 12px;
+  }
+
+  body.page-activities .card-location {
+    font-size: 0.75rem;
+    line-height: 1.52;
+  }
+
+  body.page-activities .card-cta {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+
+  /* Detail sheets keep the reading order clear: identity, essentials, then content. */
+  body.page-activities .detail-panel {
+    width: 100vw;
+    max-height: min(94dvh, 940px);
+    margin: 6dvh 0 0;
+    border-radius: 26px 26px 0 0;
+  }
+
+  body.page-activities .detail-scroll {
+    scrollbar-gutter: auto;
+  }
+
+  body.page-activities .detail-hero {
+    min-height: 214px;
+    max-height: 238px;
+  }
+
+  body.page-activities .detail-hero-badge {
+    left: 18px;
+    bottom: 16px;
+  }
+
+  body.page-activities .detail-hero-badge strong {
+    font-size: 1.62rem;
+  }
+
+  body.page-activities .detail-close {
+    top: 12px;
+    right: 12px;
+    min-height: 44px;
+    padding: 0 14px;
+  }
+
+  body.page-activities .detail-body {
+    padding: 24px 20px calc(36px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.page-activities .detail-reading-layout {
+    gap: 18px;
+  }
+
+  body.page-activities .detail-meta h2 {
+    max-width: 16ch;
+    font-size: clamp(1.76rem, 7.1vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  body.page-activities .detail-summary {
+    margin-top: 12px;
+    font-size: 0.94rem;
+    line-height: 1.76;
+  }
+
+  body.page-activities .detail-aside {
+    gap: 11px;
+    padding: 13px;
+    border-radius: 18px;
+  }
+
+  body.page-activities .detail-aside .detail-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  body.page-activities .detail-aside .info-card {
+    padding: 11px;
+    border-radius: 13px;
+  }
+
+  body.page-activities .detail-aside .info-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  body.page-activities .detail-aside .info-card span {
+    font-size: 0.65rem;
+  }
+
+  body.page-activities .detail-aside .info-card p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  body.page-activities .detail-aside .detail-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.page-activities .detail-aside .detail-links a {
+    min-height: 44px;
+    padding-inline: 11px;
+    font-size: 0.8rem;
+  }
+
+  body.page-activities .detail-activities,
+  body.page-activities .detail-gallery {
+    margin-top: 30px;
+    padding-top: 24px;
+  }
+
+  body.page-activities .detail-section-head {
+    margin-bottom: 13px;
+  }
+
+  body.page-activities .detail-section-head h3 {
+    font-size: 1.28rem;
+  }
+
+  body.page-activities .activity-block-grid {
+    gap: 12px;
+  }
+
+  body.page-activities .activity-block {
+    grid-template-columns: minmax(120px, 0.42fr) minmax(0, 1fr);
+    gap: 12px;
+    padding: 13px;
+    border-radius: 18px;
+  }
+
+  body.page-activities .activity-block-visual {
+    border-radius: 13px;
+  }
+
+  body.page-activities .activity-block h3 {
+    font-size: 1.1rem;
+  }
+
+  body.page-activities .activity-block-content {
+    gap: 8px;
+  }
+
+  body.page-activities .activity-block-content > p,
+  body.page-activities .activity-block-list li {
+    font-size: 0.87rem;
+    line-height: 1.65;
+  }
+
+  body.page-activities .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  body.page-activities .gallery-grid > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  body.page-activities .gallery-item,
+  body.page-activities .generated-plate {
+    border-radius: 14px;
+  }
+
+  /* Profiles and handbook stay content-first, with compact cards and full-width actions. */
+  body.page-leaders .hero-copy,
+  body.page-handbook .hero-copy {
+    padding: 24px 20px 20px;
+  }
+
+  body.page-leaders .hero-title--leaders,
+  body.page-handbook .hero h1 {
+    max-width: 14ch;
+    font-size: clamp(1.82rem, 6.8vw, 2.42rem);
+  }
+
+  body.page-leaders .page-feature-card img,
+  body.page-handbook .page-feature-card img {
+    min-height: 258px;
+  }
+
+  .leader-card {
+    gap: 14px;
+    padding: 20px;
+    border-radius: 21px;
+  }
+
+  .leader-card::before {
+    inset: 11px;
+    border-radius: 14px;
+  }
+
+  .leader-number {
+    font-size: 1.4rem;
+  }
+
+  .leader-head h3 {
+    font-size: 1.34rem;
+  }
+
+  .leader-photo {
+    border-radius: 17px;
+  }
+
+  .leader-photo img {
+    min-height: 0;
+    aspect-ratio: 1.28 / 1;
+  }
+
+  .leader-meta {
+    gap: 9px;
+  }
+
+  .leader-meta div {
+    padding-bottom: 9px;
+  }
+
+  .leader-meta dd,
+  .leader-summary,
+  .leader-quote {
+    font-size: 0.9rem;
+    line-height: 1.66;
+  }
+
+  .manual-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 22px 20px;
+    border-radius: 22px;
+  }
+
+  .manual-panel h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .manual-intro {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .manual-meta {
+    gap: 7px;
+  }
+
+  .manual-meta span {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 0.7rem;
+  }
+
+  .manual-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .manual-actions .hero-action {
+    width: 100%;
+  }
+
+  .manual-preview {
+    border-radius: 18px;
+  }
+
+  .manual-preview img {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --content-width: calc(100vw - 24px);
+    --touch-target: 44px;
+  }
+
+  html {
+    scroll-padding-top: 116px;
+  }
+
+  .page-shell {
+    padding-bottom: calc(38px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .topbar {
+    top: max(5px, env(safe-area-inset-top, 0px));
+    gap: 7px 8px;
+    margin-bottom: 16px;
+    padding: 7px;
+    border-radius: 19px;
+  }
+
+  .brand-mark {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    font-size: 1.02rem;
+  }
+
+  .brand-copy strong,
+  .brand-copy--home strong {
+    font-size: 0.78rem;
+  }
+
+  .brand-copy span {
+    display: none;
+  }
+
+  .lang-toggle {
+    min-width: 60px;
+    min-height: 38px;
+    gap: 6px;
+    padding: 0 7px;
+    font-size: 0.72rem;
+  }
+
+  .topbar-nav {
+    display: flex;
+    gap: 3px;
+    overflow-x: auto;
+    padding: 3px;
+  }
+
+  .topbar-nav a {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.76rem;
+  }
+
+  .hero {
+    gap: 13px;
+    margin-bottom: 24px;
+  }
+
+  body.page-home .hero--home {
+    gap: 13px;
+  }
+
+  .hero-copy,
+  body.page-home .hero-copy {
+    padding: 22px 18px 18px;
+    border-radius: 21px;
+  }
+
+  .hero-copy::before,
+  body.page-home .hero-copy::before {
+    inset: 10px;
+    border-radius: 14px;
+  }
+
+  .eyebrow {
+    font-size: 0.64rem;
+  }
+
+  .hero h1,
+  body.page-home .hero h1 {
+    max-width: 13ch;
+    font-size: clamp(1.72rem, 8.5vw, 2.22rem);
+  }
+
+  .hero-text,
+  body.page-home .hero-text {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .home-hero-meta,
+  body.page-home .home-hero-meta {
+    margin-bottom: 14px;
+  }
+
+  .home-hero-meta span,
+  body.page-home .home-hero-meta span {
+    min-height: 28px;
+    padding: 0 8px;
+    font-size: 0.62rem;
+  }
+
+  .hero-actions,
+  body.page-home .hero-actions {
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .hero-action,
+  body.page-home .hero-action {
+    min-height: 44px;
+    padding: 0 10px;
+    border-radius: 13px;
+    font-size: 0.82rem;
+  }
+
+  body.page-home .home-feature-card img {
+    min-height: 214px;
+  }
+
+  .home-feature-copy {
+    top: 12px;
+    bottom: auto;
+    left: 12px;
+    right: 12px;
+    gap: 6px;
+    padding: 11px 12px;
+  }
+
+  .home-feature-copy strong {
+    font-size: 1.1rem;
+  }
+
+  .home-feature-copy p {
+    font-size: 0.76rem;
+  }
+
+  .portal-section,
+  .leaders-section {
+    margin-bottom: 26px;
+  }
+
+  body.page-home .portal-card--home-minimal .portal-body,
+  .portal-body {
+    padding: 16px;
+  }
+
+  .portal-body p,
+  body.page-home .portal-body p {
+    font-size: 0.84rem;
+  }
+
+  .portal-meta span,
+  .tag {
+    font-size: 0.68rem;
+  }
+
+  body.page-activities .archive-head {
+    padding: 20px 18px 17px;
+    border-radius: 21px;
+  }
+
+  body.page-activities .archive-head h2 {
+    font-size: clamp(1.45rem, 7.1vw, 1.85rem);
+  }
+
+  body.page-activities .archive-intro {
+    font-size: 0.86rem;
+  }
+
+  body.page-activities .filter-chip {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.76rem;
+  }
+
+  body.page-activities .timeline-shell {
+    border-radius: 18px;
+  }
+
+  body.page-activities .card-body {
+    padding: 15px 16px 16px;
+  }
+
+  body.page-activities .card-bottom {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  body.page-activities .card-location {
+    font-size: 0.72rem;
+  }
+
+  body.page-activities .card-cta {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.76rem;
+  }
+
+  body.page-activities .detail-panel {
+    max-height: 96dvh;
+    margin-top: 4dvh;
+    border-radius: 22px 22px 0 0;
+  }
+
+  body.page-activities .detail-panel::after {
+    top: 8px;
+  }
+
+  body.page-activities .detail-hero {
+    min-height: 184px;
+    max-height: 204px;
+  }
+
+  body.page-activities .detail-hero-badge {
+    left: 16px;
+    bottom: 14px;
+  }
+
+  body.page-activities .detail-hero-badge span {
+    font-size: 0.7rem;
+  }
+
+  body.page-activities .detail-hero-badge strong {
+    font-size: 1.38rem;
+  }
+
+  body.page-activities .detail-close {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.78rem;
+  }
+
+  body.page-activities .detail-body {
+    padding: 20px 14px calc(28px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.page-activities .detail-meta h2 {
+    font-size: clamp(1.58rem, 8vw, 2rem);
+  }
+
+  body.page-activities .detail-summary {
+    font-size: 0.9rem;
+  }
+
+  body.page-activities .detail-aside {
+    padding: 11px;
+    border-radius: 16px;
+  }
+
+  body.page-activities .detail-aside .detail-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.page-activities .detail-aside .detail-links a {
+    min-height: 42px;
+    font-size: 0.82rem;
+  }
+
+  body.page-activities .activity-block {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  body.page-activities .activity-block-visual img {
+    max-height: 244px;
+  }
+
+  body.page-activities .activity-block h3 {
+    font-size: 1.06rem;
+  }
+
+  body.page-activities .activity-block-content > p,
+  body.page-activities .activity-block-list li {
+    font-size: 0.84rem;
+  }
+
+  body.page-activities .gallery-grid {
+    gap: 8px;
+  }
+
+  body.page-leaders .hero-copy,
+  body.page-handbook .hero-copy,
+  .manual-panel {
+    padding: 20px 18px;
+  }
+
+  body.page-leaders .hero-title--leaders,
+  body.page-handbook .hero h1 {
+    font-size: clamp(1.62rem, 7.9vw, 2.08rem);
+  }
+
+  body.page-leaders .page-feature-card img,
+  body.page-handbook .page-feature-card img {
+    min-height: 220px;
+  }
+
+  .leader-card {
+    padding: 17px;
+  }
+
+  .leader-photo img {
+    aspect-ratio: 1.18 / 1;
+  }
+
+  .manual-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .manual-preview img {
+    min-height: 196px;
+  }
+}
+
+@media (max-width: 390px) {
+  :root {
+    --content-width: calc(100vw - 20px);
+  }
+
+  .topbar-nav a {
+    padding-inline: 10px;
+  }
+
+  .home-hero-meta,
+  body.page-home .home-hero-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-hero-meta span,
+  body.page-home .home-hero-meta span {
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .home-hero-meta span:last-child,
+  body.page-home .home-hero-meta span:last-child {
+    grid-column: 1 / -1;
+  }
+
+  body.page-activities .detail-aside .detail-info {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.page-activities .detail-aside .info-card:last-child {
+    grid-column: auto;
+  }
+}
