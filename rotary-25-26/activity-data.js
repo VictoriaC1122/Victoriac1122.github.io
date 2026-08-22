@@ -8,8 +8,31 @@
     placeholder: localized("待補照片", "Coming soon"),
   });
 
-  const FILTER_LABELS = Object.freeze({
-    all: localized("全部活動", "All events"),
+  const FILTER_DEFINITIONS = Object.freeze([
+    { id: "all", label: localized("活動類別", "Event categories") },
+    { id: "service", label: localized("公益例會", "Service") },
+    { id: "governance", label: localized("會務例會", "Club affairs") },
+    { id: "fellowship", label: localized("聯誼例會", "Fellowship") },
+    { id: "vocational", label: localized("職業例會", "Vocational") },
+    { id: "sports", label: localized("運動例會", "Sports") },
+  ]);
+
+  const EVENT_CATEGORIES = Object.freeze({
+    "2025-06": ["governance"],
+    "2025-07": ["governance", "fellowship"],
+    "2025-08": ["governance"],
+    "2025-09": ["fellowship", "vocational"],
+    "2025-10": ["sports"],
+    "2025-11-textile": ["vocational"],
+    "2025-11-blood": ["service"],
+    "2025-11-blockchain": ["vocational"],
+    "2025-12": ["service"],
+    "2026-01": ["governance"],
+    "2026-02": ["governance", "fellowship"],
+    "2026-03": ["governance", "fellowship"],
+    "2026-04": ["service", "sports"],
+    "2026-05": ["vocational"],
+    "2026-06": ["governance"],
   });
 
   function localized(zhTw, en) {
@@ -135,6 +158,7 @@
 
     return {
       ...event,
+      categories: EVENT_CATEGORIES[event.id] || [],
       label,
       dateLabel,
       statusLabel,
@@ -1764,7 +1788,6 @@
       .map((event) => normalizeEvent(event, safeLanguage))
       .sort((leftEvent, rightEvent) => leftEvent.order - rightEvent.order);
     const eventById = new Map(orderedEvents.map((event) => [event.id, event]));
-    const years = [...new Set(orderedEvents.map((event) => event.year))];
     const monthKeys = [...new Set(orderedEvents.map((event) => `${event.year}-${padNumber(event.month)}`))];
     const photoMonthKeys = new Set(
       orderedEvents
@@ -1772,18 +1795,14 @@
         .map((event) => `${event.year}-${padNumber(event.month)}`),
     );
 
-    const filters = [
-      {
-        id: "all",
-        label: resolveLocalizedValue(FILTER_LABELS.all, safeLanguage),
-        apply: (items) => items,
-      },
-      ...years.map((year) => ({
-        id: String(year),
-        label: String(year),
-        apply: (items) => items.filter((item) => item.year === year),
-      })),
-    ];
+    const filters = FILTER_DEFINITIONS.map((filter) => ({
+      id: filter.id,
+      label: resolveLocalizedValue(filter.label, safeLanguage),
+      apply:
+        filter.id === "all"
+          ? (items) => items
+          : (items) => items.filter((item) => item.categories.includes(filter.id)),
+    }));
 
     const filterById = new Map(filters.map((filter) => [filter.id, filter]));
     const stats = {
