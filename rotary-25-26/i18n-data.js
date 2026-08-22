@@ -283,7 +283,7 @@
           archive: {
             eyebrow: "年度活動",
             title: "2025.06 — 2026.06 年度活動",
-            intro: "按月份收好這一年的活動；想看完整照片、行程和補充資料，再點進去。",
+            intro: "兩位會長詠文、婉華上任這一年來透過服務、時間軸來好好傳達活動，您可以點進各別活動參觀細節",
             filterAria: "年份篩選",
             filterHint: "左右滑動可切換",
           },
@@ -655,7 +655,7 @@
           archive: {
             eyebrow: "Year Timeline",
             title: "Annual activities, 2025.06–2026.06",
-            intro: "A month-by-month read of the year. Open any event for the full gallery, schedule, and notes.",
+            intro: "Follow Victoria and Hannah's year of service along the timeline, and open any event to explore the details.",
             filterAria: "Year filters",
             filterHint: "Swipe to switch",
           },
