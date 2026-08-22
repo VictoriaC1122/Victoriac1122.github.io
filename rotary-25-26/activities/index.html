@@ -115,43 +115,49 @@
         </button>
 
         <div class="detail-scroll">
-          <div class="detail-hero" id="detailHero"></div>
-
-          <div class="detail-body">
-            <div class="detail-reading-layout">
+          <article class="detail-article">
+            <header class="detail-article-header">
               <div class="detail-meta">
                 <p class="detail-kicker" id="detailKicker"></p>
                 <h2 id="detailTitle"></h2>
                 <p class="detail-summary" id="detailSummary"></p>
               </div>
+            </header>
 
-              <aside
-                class="detail-aside"
-                aria-label="活動資訊與連結"
-                data-i18n-attr="aria-label:common.detail.infoAria"
-              >
-                <div class="detail-info" id="detailInfo"></div>
-                <div class="detail-tags" id="detailTags"></div>
-                <div class="detail-links" id="detailLinks"></div>
-              </aside>
+            <div class="detail-hero" id="detailHero"></div>
+
+            <div class="detail-body">
+              <div class="detail-reading-layout">
+                <div class="detail-main">
+                  <section class="detail-activities" id="detailActivities" hidden>
+                    <div class="detail-section-head">
+                      <p class="eyebrow" data-i18n="common.detail.activitiesEyebrow">活動紀錄</p>
+                      <h3 data-i18n="common.detail.activitiesTitle">行程與內容</h3>
+                    </div>
+                    <div class="activity-block-grid" id="detailActivityBlocks"></div>
+                  </section>
+
+                  <section class="detail-gallery">
+                    <div class="detail-section-head">
+                      <p class="eyebrow" data-i18n="common.detail.photosEyebrow">活動相簿</p>
+                      <h3 data-i18n="common.detail.photosTitle">現場照片</h3>
+                    </div>
+                    <div class="gallery-grid" id="detailGallery"></div>
+                  </section>
+                </div>
+
+                <aside
+                  class="detail-aside"
+                  aria-label="活動資訊與連結"
+                  data-i18n-attr="aria-label:common.detail.infoAria"
+                >
+                  <div class="detail-info" id="detailInfo"></div>
+                  <div class="detail-tags" id="detailTags"></div>
+                  <div class="detail-links" id="detailLinks"></div>
+                </aside>
+              </div>
             </div>
-
-            <section class="detail-activities" id="detailActivities" hidden>
-              <div class="detail-section-head">
-                <p class="eyebrow" data-i18n="common.detail.activitiesEyebrow">本月活動</p>
-                <h3 data-i18n="common.detail.activitiesTitle">本月活動</h3>
-              </div>
-              <div class="activity-block-grid" id="detailActivityBlocks"></div>
-            </section>
-
-            <section class="detail-gallery">
-              <div class="detail-section-head">
-                <p class="eyebrow" data-i18n="common.detail.photosEyebrow">活動照片</p>
-                <h3 data-i18n="common.detail.photosTitle">照片一覽</h3>
-              </div>
-              <div class="gallery-grid" id="detailGallery"></div>
-            </section>
-          </div>
+          </article>
         </div>
       </section>
     </div>

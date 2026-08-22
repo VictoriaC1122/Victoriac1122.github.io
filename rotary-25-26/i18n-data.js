@@ -46,10 +46,10 @@
             close: "關閉",
             closeAria: "關閉詳情",
             infoAria: "活動資訊與連結",
-            activitiesEyebrow: "本月活動",
-            activitiesTitle: "本月活動",
-            photosEyebrow: "活動照片",
-            photosTitle: "照片一覽",
+            activitiesEyebrow: "活動紀錄",
+            activitiesTitle: "行程與內容",
+            photosEyebrow: "活動相簿",
+            photosTitle: "現場照片",
           },
           archive: {
             info: {
@@ -418,10 +418,10 @@
             close: "Close",
             closeAria: "Close details",
             infoAria: "Event information and links",
-            activitiesEyebrow: "This Month",
-            activitiesTitle: "Monthly Events",
-            photosEyebrow: "Photos",
-            photosTitle: "Photo Gallery",
+            activitiesEyebrow: "Event Notes",
+            activitiesTitle: "Schedule & Story",
+            photosEyebrow: "Gallery",
+            photosTitle: "Event Photos",
           },
           archive: {
             info: {
