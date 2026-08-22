@@ -225,6 +225,13 @@
               text: "手冊原始版面可直接在此翻閱。",
             },
           },
+          reader: {
+            eyebrow: "完整手冊",
+            title: "全 41 頁",
+            intro: "依原始版面排列，可直接往下閱讀。",
+            pagesAria: "25-26 交接典禮手冊全文",
+            pageAlt: "25-26 交接典禮手冊第 {page} 頁",
+          },
         },
         activities: {
           hero: {
@@ -589,6 +596,13 @@
               title: "25-26 Handover Handbook",
               text: "The original layouts remain available here for reference.",
             },
+          },
+          reader: {
+            eyebrow: "Full Handbook",
+            title: "All 41 Pages",
+            intro: "Presented in the original layout for reading on this page.",
+            pagesAria: "All pages of the 25-26 Handover Handbook",
+            pageAlt: "Page {page} of the 25-26 Handover Handbook",
           },
         },
         activities: {
