@@ -2,6 +2,16 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4T1NHPQ9T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-W4T1NHPQ9T");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#11161f" />
     <title data-i18n="meta.home.title">25-26 年度紀事｜首頁</title>
@@ -10,10 +20,19 @@
       content="收錄 2025-26 年度活動、會長資料與交接典禮手冊。"
       data-i18n-attr="content:meta.home.description"
     />
+    <link rel="canonical" href="https://victoriac1122.github.io/rotary-25-26/" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../favicon/favicon64.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="2025-26 年度中華扶輪獎學生聯誼會" />
+    <meta property="og:description" content="收錄 2025-26 年度活動、會長資料與交接典禮手冊。" />
+    <meta property="og:url" content="https://victoriac1122.github.io/rotary-25-26/" />
+    <meta property="og:image" content="https://victoriac1122.github.io/rotary-25-26/assets/photos/june-2026-handover-group-photo.jpg" />
+    <meta property="og:image:alt" content="2026 年雙北交接典禮大合照" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@500;700;900&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -90,8 +109,12 @@
               </div>
               <img
                 src="assets/photos/june-2026-handover-group-photo.jpg"
+                width="1800"
+                height="1199"
                 alt="2026 年雙北交接典禮大合照"
                 data-i18n-attr="alt:home.feature.alt"
+                fetchpriority="high"
+                decoding="async"
               />
               <div class="page-feature-copy home-feature-copy">
                 <span data-i18n="home.feature.label">交接典禮</span>

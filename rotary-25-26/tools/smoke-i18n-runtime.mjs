@@ -1,11 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
-const root = process.cwd();
+const toolsDir = path.dirname(fileURLToPath(import.meta.url));
+const siteDir = path.resolve(toolsDir, "..");
 
 function read(filePath) {
-  return fs.readFileSync(path.join(root, filePath), "utf8");
+  return fs.readFileSync(path.join(siteDir, filePath), "utf8");
 }
 
 function createClassList() {
@@ -109,8 +111,8 @@ function createHarness(initialStorage = {}) {
   windowObject.window = windowObject;
   windowObject.document = document;
 
-  vm.runInNewContext(read("site/i18n-data.js"), context);
-  vm.runInNewContext(read("site/i18n.js"), context);
+  vm.runInNewContext(read("i18n-data.js"), context);
+  vm.runInNewContext(read("i18n.js"), context);
 
   return {
     context,

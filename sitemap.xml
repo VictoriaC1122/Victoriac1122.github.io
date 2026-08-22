@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://victoriac1122.github.io/</loc>
-    <lastmod>2023-04-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-23</lastmod>
   </url>
   <url>
-    <loc>https://victoriac1122.github.io/about.html</loc>
-    <lastmod>2023-04-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <loc>https://victoriac1122.github.io/apps/</loc>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://victoriac1122.github.io/rotary-25-26/</loc>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://victoriac1122.github.io/rotary-25-26/activities/</loc>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://victoriac1122.github.io/rotary-25-26/leaders/</loc>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://victoriac1122.github.io/rotary-25-26/handbook/</loc>
+    <lastmod>2026-08-23</lastmod>
   </url>
 </urlset>
