@@ -1,11 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
-const root = process.cwd();
+const toolsDir = path.dirname(fileURLToPath(import.meta.url));
+const siteDir = path.resolve(toolsDir, "..");
 
 function read(filePath) {
-  return fs.readFileSync(path.join(root, filePath), "utf8");
+  return fs.readFileSync(path.join(siteDir, filePath), "utf8");
 }
 
 function getByPath(object, key) {
@@ -29,17 +31,17 @@ const i18nContext = {
   window: {},
 };
 
-vm.runInNewContext(read("site/i18n-data.js"), i18nContext);
+vm.runInNewContext(read("i18n-data.js"), i18nContext);
 const translations = i18nContext.window.SITE_I18N_CONFIG?.translations || {};
 
 const htmlFiles = [
-  "site/index.html",
-  "site/activities.html",
-  "site/leaders.html",
-  "site/handbook.html",
-  "site/activities/index.html",
-  "site/leaders/index.html",
-  "site/handbook/index.html",
+  "index.html",
+  "activities.html",
+  "leaders.html",
+  "handbook.html",
+  "activities/index.html",
+  "leaders/index.html",
+  "handbook/index.html",
 ];
 
 const translationKeys = new Set();
@@ -67,7 +69,7 @@ for (const filePath of htmlFiles) {
   });
 }
 
-const scriptSource = read("site/script.js");
+const scriptSource = read("script.js");
 for (const match of scriptSource.matchAll(/(?:^|[^\w.])t\("([^"]+)"/g)) {
   translationKeys.add(match[1]);
 }
@@ -88,7 +90,7 @@ const dataContext = {
   window: {},
 };
 
-vm.runInNewContext(read("site/activity-data.js"), dataContext);
+vm.runInNewContext(read("activity-data.js"), dataContext);
 const archive = dataContext.window.ACTIVITY_ARCHIVE_DATA;
 
 function collectArchiveIssues(language) {

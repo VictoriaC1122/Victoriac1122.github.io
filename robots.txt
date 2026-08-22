@@ -1,5 +1,8 @@
-Sitemap: https://victoriac1122.github.io/sitemap.xml
 User-agent: *
+Disallow: /aold/
 Disallow: /doc/
+Disallow: /posts/
 Disallow: /resume/
 Disallow: /*.pdf$
+
+Sitemap: https://victoriac1122.github.io/sitemap.xml

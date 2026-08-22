@@ -181,7 +181,7 @@
           "Portrait from the handover ceremony handbook.",
         ),
         galleryImage(
-          "assets/photos/june-handover-handbook-page.jpg",
+          "assets/photos/june-handover-handbook-page-web.jpg",
           "交接典禮手冊月份頁",
           "June page from the handover handbook",
           "6 月手冊頁。",
@@ -698,7 +698,7 @@
             ["節慶小物", "Seasonal craft"],
             ["11 月例會", "November meeting"],
           ),
-          imageSrc: "assets/photos/nov-textile-poster-2025.png",
+          imageSrc: "assets/photos/nov-textile-poster-2025-web.jpg",
           imageAlt: localized("紡織手作例會宣傳圖", "Promotional poster for the textile workshop meeting"),
           imageCaption: localized("紡織手作例會宣傳圖。", "Promotional poster for the textile meeting."),
         },
@@ -720,7 +720,7 @@
             ["服裝設計", "Fashion design"],
             ["瑤池藝術工作室", "Yaochi Art Studio"],
           ),
-          imageSrc: "assets/photos/nov-textile-poster-2025.png",
+          imageSrc: "assets/photos/nov-textile-poster-2025-web.jpg",
           imageAlt: localized("紡織例會講師賴綉丹宣傳圖", "Promotional image featuring textile meeting speaker Lai Hsiu-Dan"),
           imageCaption: localized("講師與例會資訊。", "Speaker and meeting information."),
         },
@@ -750,7 +750,7 @@
       ],
       gallery: [
         galleryImage(
-          "assets/photos/nov-textile-poster-2025.png",
+          "assets/photos/nov-textile-poster-2025-web.jpg",
           "紡織手作例會宣傳圖",
           "Promotional poster for the textile workshop meeting",
           "紡織手作例會宣傳圖。",
@@ -930,7 +930,7 @@
             ["科技應用", "Technology in practice"],
             ["創業實務", "Startup practice"],
           ),
-          imageSrc: "assets/photos/nov-blockchain-poster-2025.png",
+          imageSrc: "assets/photos/nov-blockchain-poster-2025-web.jpg",
           imageAlt: localized("區塊鏈例會宣傳圖", "Promotional poster for the blockchain meeting"),
           imageCaption: localized("區塊鏈例會宣傳圖。", "Promotional poster for the blockchain meeting."),
         },
@@ -983,7 +983,7 @@
       ],
       gallery: [
         galleryImage(
-          "assets/photos/nov-blockchain-poster-2025.png",
+          "assets/photos/nov-blockchain-poster-2025-web.jpg",
           "區塊鏈例會宣傳圖",
           "Promotional poster for the blockchain meeting",
           "區塊鏈例會宣傳圖。",
@@ -1394,7 +1394,7 @@
       date: "2026/3/7-8",
       location: localized("迎新活動", "Welcome event"),
       accent: "#8b5d70",
-      coverSrc: "assets/photos/march-welcome-group-photo.jpg",
+      coverSrc: "assets/photos/march-welcome-group-photo-web.jpg",
       coverAlt: localized("五區聯合大迎新戶外大合照", "Outdoor group photo from the five-district welcome camp"),
       summary: localized(
         "五區夥伴共同籌辦兩天一夜的大迎新，講座、破冰、夜市與大地遊戲，把不同區的新生聚在一起。",
@@ -1411,7 +1411,7 @@
       ),
       gallery: [
         galleryImage(
-          "assets/photos/march-welcome-group-photo.jpg",
+          "assets/photos/march-welcome-group-photo-web.jpg",
           "五區聯合大迎新戶外大合照",
           "Outdoor group photo from the five-district welcome camp",
           "大迎新戶外大合照。",
@@ -1425,7 +1425,7 @@
           "Welcome camp group photo from the handbook.",
         ),
         galleryImage(
-          "assets/photos/march-welcome-handbook-page.jpg",
+          "assets/photos/march-welcome-handbook-page-web.jpg",
           "五區聯合大迎新手冊月份頁",
           "March page from the welcome camp handbook",
           "3 月手冊頁。",
