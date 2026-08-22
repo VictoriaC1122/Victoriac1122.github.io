@@ -7051,3 +7051,10 @@ body.page-activities .generated-plate .generated-cover {
     font-size: 0.83rem;
   }
 }
+
+body.page-activities .archive-head h2 {
+  max-width: none;
+  font-size: clamp(0.98rem, 4.6vw, 2.6rem);
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
