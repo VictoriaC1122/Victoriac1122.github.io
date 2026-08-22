@@ -28,6 +28,7 @@
     <meta property="og:description" content="收錄 2025.06 至 2026.06 的年度活動、照片與活動紀錄。" />
     <meta property="og:url" content="https://victoriac1122.github.io/rotary-25-26/activities/" />
     <meta property="og:image" content="https://victoriac1122.github.io/rotary-25-26/assets/photos/june-2026-handover-group-photo.jpg" />
+    <meta property="og:image:alt" content="2026 年雙北交接典禮大合照" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,20 +78,20 @@
         <section class="archive-head" id="archive">
           <div class="archive-copy">
             <p class="eyebrow" data-i18n="activities.archive.eyebrow">年度時間軸</p>
-            <h2 data-i18n="activities.archive.title">2025.06 — 2026.06 年度活動</h2>
+            <h1 class="archive-title" data-i18n="activities.archive.title">2025.06 — 2026.06 年度活動</h1>
             <p class="archive-intro" data-i18n="activities.archive.intro">
               從 2025.06 到 2026.06，活動沿著時間排開。名稱與日期以交接典禮手冊為準，11 月三場例會也各自收錄。
             </p>
           </div>
 
           <div class="archive-actions">
-            <div class="filter-chips" id="filterChips" aria-label="年份篩選" data-i18n-attr="aria-label:activities.archive.filterAria"></div>
-            <p class="filter-hint" data-i18n="activities.archive.filterHint">左右滑動可切換年份</p>
-            <p class="archive-note" id="resultsNote"></p>
+            <div class="filter-chips" id="filterChips" aria-label="活動類別篩選" data-i18n-attr="aria-label:activities.archive.filterAria"></div>
+            <p class="filter-hint" data-i18n="activities.archive.filterHint">左右滑動可切換活動類別</p>
+            <p class="archive-note" id="resultsNote" role="status" aria-live="polite" aria-atomic="true"></p>
           </div>
         </section>
 
-        <section class="event-grid" id="eventGrid" aria-live="polite"></section>
+        <section class="event-grid" id="eventGrid"></section>
       </main>
     </div>
 
@@ -103,10 +104,12 @@
         aria-modal="true"
         aria-labelledby="detailTitle"
         aria-describedby="detailSummary"
+        tabindex="-1"
       >
         <button
           class="detail-close"
           id="detailClose"
+          type="button"
           aria-label="關閉詳情"
           data-i18n="common.detail.close"
           data-i18n-attr="aria-label:common.detail.closeAria"

@@ -11,7 +11,8 @@ const refs = {
   grid: document.getElementById("eventGrid"),
   filter: document.getElementById("filterChips"),
   resultsNote: document.getElementById("resultsNote"),
-  heroStats: document.getElementById("heroStats"),
+  pageShell: document.querySelector(".page-shell"),
+  skipLink: document.querySelector(".skip-link"),
   detailModal: document.getElementById("detailModal"),
   detailPanel: document.querySelector(".detail-panel"),
   detailClose: document.getElementById("detailClose"),
@@ -97,25 +98,6 @@ function getResultsMessage(count) {
   });
 }
 
-function getHeroStatItems() {
-  const { stats } = getArchive();
-
-  return [
-    {
-      value: stats.total,
-      label: t("common.archive.stats.total"),
-    },
-    {
-      value: `${stats.startLabel} → ${stats.endLabel}`,
-      label: t("common.archive.stats.range"),
-    },
-    {
-      value: stats.realPhotoMonths,
-      label: t("common.archive.stats.photoMonths"),
-    },
-  ];
-}
-
 function getDetailInfoItems(event) {
   return [
     {
@@ -167,15 +149,6 @@ function renderTag(tag) {
   return `<span class="tag">${escapeHtml(tag)}</span>`;
 }
 
-function renderStatCard(stat, index) {
-  return `
-    <article class="stat-card ${index === 1 ? "stat-card--wide" : ""}">
-      <strong>${escapeHtml(stat.value)}</strong>
-      <span>${escapeHtml(stat.label)}</span>
-    </article>
-  `;
-}
-
 function renderFilterButton(filter) {
   const isActive = filter.id === state.activeFilter;
 
@@ -185,18 +158,11 @@ function renderFilterButton(filter) {
       type="button"
       data-filter="${escapeHtml(filter.id)}"
       aria-pressed="${isActive ? "true" : "false"}"
+      aria-controls="eventGrid"
     >
       ${escapeHtml(filter.label)}
     </button>
   `;
-}
-
-function renderHeroStats() {
-  if (!refs.heroStats) {
-    return;
-  }
-
-  refs.heroStats.innerHTML = renderList(getHeroStatItems(), renderStatCard);
 }
 
 function renderFilters() {
@@ -208,8 +174,16 @@ function renderFilters() {
   refs.filter.innerHTML = renderList(filters, renderFilterButton);
 }
 
+function syncFilterState() {
+  refs.filter?.querySelectorAll("[data-filter]").forEach((button) => {
+    const isActive = button.dataset.filter === state.activeFilter;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
 function renderEventCard(event, index = 0) {
-  const shouldLazyLoad = index > 1;
+  const shouldLazyLoad = index > 0;
   const excerpt = event.subtitle || event.summary || "";
   const cardLocation = event.location || event.folder;
 
@@ -243,7 +217,7 @@ function renderEventCard(event, index = 0) {
           </div>
 
           <p class="card-scene">${escapeHtml(event.dateLabel)}</p>
-          <h3>${escapeHtml(event.title)}</h3>
+          <h2 class="card-title">${escapeHtml(event.title)}</h2>
           ${excerpt ? `<p class="card-excerpt">${escapeHtml(excerpt)}</p>` : ""}
           <div class="card-bottom">
             <span class="card-location">${escapeHtml(cardLocation)}</span>
@@ -262,6 +236,7 @@ function renderCards() {
 
   const visibleEvents = getVisibleEvents();
   refs.resultsNote.textContent = getResultsMessage(visibleEvents.length);
+  refs.grid.setAttribute("aria-busy", "true");
 
   if (state.cardRenderFrame) {
     cancelAnimationFrame(state.cardRenderFrame);
@@ -269,6 +244,7 @@ function renderCards() {
 
   state.cardRenderFrame = window.requestAnimationFrame(() => {
     refs.grid.innerHTML = renderList(visibleEvents, renderEventCard);
+    refs.grid.setAttribute("aria-busy", "false");
     state.cardRenderFrame = 0;
   });
 }
@@ -414,6 +390,20 @@ function setModalOpen(isOpen) {
   refs.detailModal.hidden = !isOpen;
   refs.detailModal.setAttribute("aria-hidden", isOpen ? "false" : "true");
   document.body.classList.toggle("modal-open", isOpen);
+
+  [refs.pageShell, refs.skipLink].forEach((element) => {
+    if (!element) {
+      return;
+    }
+
+    element.inert = isOpen;
+
+    if (isOpen) {
+      element.setAttribute("aria-hidden", "true");
+    } else {
+      element.removeAttribute("aria-hidden");
+    }
+  });
 }
 
 function renderDetailHero(event) {
@@ -482,6 +472,7 @@ function closeDetail() {
 
   setModalOpen(false);
   state.activeEventId = null;
+  state.lastTrigger = null;
   focusTarget?.focus?.();
 }
 
@@ -501,7 +492,7 @@ function setActiveFilter(filterId, options = {}) {
   }
 
   state.activeFilter = filterId;
-  renderFilters();
+  syncFilterState();
   renderCards();
 
   if (options.scrollToArchive) {
@@ -553,15 +544,54 @@ function handleModalClick(event) {
   }
 }
 
-function handleWindowKeydown(event) {
-  if (hasDetailView && !refs.detailModal.hidden && event.key === "Escape") {
-    closeDetail();
+function getModalFocusableElements() {
+  return Array.from(
+    refs.detailPanel.querySelectorAll(
+      'a[href], button:not([disabled]), video[controls], [tabindex]:not([tabindex="-1"])',
+    ),
+  ).filter((element) => !element.hidden && element.getAttribute("aria-hidden") !== "true");
+}
+
+function trapModalFocus(event) {
+  if (event.key !== "Tab") {
+    return;
+  }
+
+  const focusableElements = getModalFocusableElements();
+
+  if (!focusableElements.length) {
+    event.preventDefault();
+    refs.detailPanel.focus();
+    return;
+  }
+
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements.at(-1);
+  const activeElement = document.activeElement;
+
+  if (event.shiftKey && (activeElement === firstElement || !refs.detailPanel.contains(activeElement))) {
+    event.preventDefault();
+    lastElement.focus();
+  } else if (!event.shiftKey && activeElement === lastElement) {
+    event.preventDefault();
+    firstElement.focus();
   }
 }
 
-function rerenderLocalizedContent() {
-  renderHeroStats();
+function handleWindowKeydown(event) {
+  if (!hasDetailView || refs.detailModal.hidden) {
+    return;
+  }
 
+  if (event.key === "Escape") {
+    closeDetail();
+    return;
+  }
+
+  trapModalFocus(event);
+}
+
+function rerenderLocalizedContent() {
   if (hasArchiveView) {
     renderFilters();
     renderCards();

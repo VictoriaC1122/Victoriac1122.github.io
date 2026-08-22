@@ -12,9 +12,9 @@
     const fileNumber = String(page).padStart(2, "0");
 
     figure.className = "manual-reader-page";
-    image.loading = page <= 2 ? "eager" : "lazy";
+    image.loading = "lazy";
     image.decoding = "async";
-    image.fetchPriority = page <= 2 ? "high" : "low";
+    image.fetchPriority = "low";
     image.width = 993;
     image.height = 1404;
     image.src = `assets/handbook-pages/handover-manual-${fileNumber}.jpg`;

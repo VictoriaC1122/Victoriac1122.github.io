@@ -5,10 +5,11 @@
   --paper-strong: #ffffff;
   --ink: #474457;
   --ink-soft: #67647a;
-  --ink-faint: #9691a8;
+  --ink-faint: #777285;
   --line: rgba(83, 79, 109, 0.08);
   --line-strong: rgba(83, 79, 109, 0.14);
   --gold: #cfbb97;
+  --gold-ink: #826f50;
   --gold-soft: rgba(207, 187, 151, 0.12);
   --navy: #8089b6;
   --pine: #c6cdea;
@@ -290,6 +291,19 @@ a,
 .activity-block,
 .info-card {
   content-visibility: auto;
+}
+
+.gallery-item,
+.generated-plate {
+  contain-intrinsic-size: 1px 420px;
+}
+
+.activity-block {
+  contain-intrinsic-size: 1px 320px;
+}
+
+.info-card {
+  contain-intrinsic-size: 1px 84px;
 }
 
 .page-main:focus {
@@ -647,7 +661,7 @@ body.page-home .hero--home {
 
 .eyebrow {
   margin: 0 0 10px;
-  color: var(--gold);
+  color: var(--gold-ink);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -655,7 +669,7 @@ body.page-home .hero--home {
 }
 
 .hero h1,
-.archive-head h2,
+.archive-head .archive-title,
 .footnote-panel h3,
 .detail-section-head h3,
 .detail-meta h2 {
@@ -747,7 +761,7 @@ body.page-home .hero-actions {
 }
 
 body.page-home .eyebrow {
-  color: var(--gold);
+  color: var(--gold-ink);
   font-size: 0.78rem;
   letter-spacing: 0.18em;
 }
@@ -1753,14 +1767,14 @@ body.page-home .manual-panel {
 }
 
 .portal-kicker {
-  color: var(--gold);
+  color: var(--gold-ink);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.portal-body h3 {
+.portal-body .portal-title {
   margin: 0;
   font-family: "Noto Serif TC", serif;
   font-size: 1.52rem;
@@ -1768,7 +1782,7 @@ body.page-home .manual-panel {
   text-wrap: balance;
 }
 
-body.page-home .portal-body h3 {
+body.page-home .portal-body .portal-title {
   color: #252935;
   font-size: 1.36rem;
   line-height: 1.26;
@@ -2291,7 +2305,7 @@ body.page-home .portal-cta {
   gap: 12px;
 }
 
-.archive-head h2 {
+.archive-head .archive-title {
   max-width: 10ch;
   font-size: clamp(2.2rem, 3.3vw, 3.2rem);
   text-wrap: balance;
@@ -2684,7 +2698,7 @@ body.page-home .portal-cta {
   letter-spacing: 0.12em;
 }
 
-.card-body h3 {
+.card-body .card-title {
   margin: 0;
   font-family: "Noto Serif TC", serif;
   font-size: 1.5rem;
@@ -3525,7 +3539,7 @@ body.page-home .portal-cta {
   .hero h1,
   .portal-section h2,
   .leaders-section h2,
-  .archive-head h2 {
+  .archive-head .archive-title {
     max-width: none;
   }
 
@@ -3997,7 +4011,7 @@ body.page-home .portal-cta {
     gap: 11px;
   }
 
-  .portal-body h3 {
+  .portal-body .portal-title {
     font-size: 1.4rem;
   }
 
@@ -4303,7 +4317,7 @@ body.page-home .portal-cta {
 
   .portal-section h2,
   .leaders-section h2,
-  .archive-head h2,
+  .archive-head .archive-title,
   .detail-meta h2 {
     font-size: clamp(1.38rem, 6.8vw, 1.78rem);
   }
@@ -4500,7 +4514,7 @@ body.page-home .portal-cta {
     padding: 15px;
   }
 
-  .card-body h3 {
+  .card-body .card-title {
     font-size: 1.18rem;
     line-height: 1.3;
   }
@@ -4842,7 +4856,7 @@ body.page-home .portal-cta {
     gap: 8px;
   }
 
-  body.page-activities .archive-head h2 {
+  body.page-activities .archive-head .archive-title {
     max-width: 14ch;
     font-size: clamp(1.55rem, 7.2vw, 1.92rem);
     line-height: 1.22;
@@ -4958,7 +4972,7 @@ body.page-home .portal-cta {
     letter-spacing: 0.08em;
   }
 
-  body.page-activities .card-body h3 {
+  body.page-activities .card-body .card-title {
     font-size: 1.25rem;
     line-height: 1.3;
   }
@@ -5411,7 +5425,7 @@ body.page-activities .generated-plate {
 
   .lang-toggle {
     min-width: 66px;
-    min-height: 42px;
+    min-height: 44px;
     padding: 0 10px;
     font-size: 0.78rem;
   }
@@ -5444,7 +5458,7 @@ body.page-activities .generated-plate {
   .topbar-nav a {
     flex: 0 0 auto;
     min-width: max-content;
-    min-height: 42px;
+    min-height: 44px;
     padding: 0 14px;
     font-size: 0.82rem;
     scroll-snap-align: start;
@@ -5612,8 +5626,8 @@ body.page-activities .generated-plate {
     font-size: 0.66rem;
   }
 
-  .portal-body h3,
-  body.page-home .portal-body h3 {
+  .portal-body .portal-title,
+  body.page-home .portal-body .portal-title {
     font-size: 1.2rem;
   }
 
@@ -5647,7 +5661,7 @@ body.page-activities .generated-plate {
     gap: 8px;
   }
 
-  body.page-activities .archive-head h2 {
+  body.page-activities .archive-head .archive-title {
     max-width: 17ch;
     font-size: clamp(1.55rem, 6.5vw, 2.06rem);
     line-height: 1.25;
@@ -5686,7 +5700,7 @@ body.page-activities .generated-plate {
 
   body.page-activities .filter-chip {
     flex: 0 0 auto;
-    min-height: 42px;
+    min-height: 44px;
     padding: 0 14px;
     font-size: 0.8rem;
     white-space: nowrap;
@@ -5749,13 +5763,13 @@ body.page-activities .generated-plate {
     font-size: 0.7rem;
   }
 
-  body.page-activities .card-body h3 {
+  body.page-activities .card-body .card-title {
     font-size: 1.22rem;
     line-height: 1.32;
   }
 
   body.page-activities .card-excerpt {
-    font-size: 0.88rem;
+    font-size: 1rem;
     line-height: 1.65;
   }
 
@@ -5771,7 +5785,7 @@ body.page-activities .generated-plate {
   }
 
   body.page-activities .card-cta {
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 12px;
     font-size: 0.82rem;
   }
@@ -5981,7 +5995,7 @@ body.page-activities .generated-plate {
   .leader-meta dd,
   .leader-summary,
   .leader-quote {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.66;
   }
 
@@ -5998,7 +6012,7 @@ body.page-activities .generated-plate {
   }
 
   .manual-intro {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.7;
   }
 
@@ -6072,7 +6086,7 @@ body.page-activities .generated-plate {
 
   .lang-toggle {
     min-width: 60px;
-    min-height: 38px;
+    min-height: 44px;
     gap: 6px;
     padding: 0 7px;
     font-size: 0.72rem;
@@ -6086,7 +6100,7 @@ body.page-activities .generated-plate {
   }
 
   .topbar-nav a {
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 12px;
     font-size: 0.76rem;
   }
@@ -6124,7 +6138,7 @@ body.page-activities .generated-plate {
 
   .hero-text,
   body.page-home .hero-text {
-    font-size: 0.88rem;
+    font-size: 1rem;
     line-height: 1.7;
   }
 
@@ -6187,7 +6201,7 @@ body.page-activities .generated-plate {
 
   .portal-body p,
   body.page-home .portal-body p {
-    font-size: 0.84rem;
+    font-size: 1rem;
   }
 
   .portal-meta span,
@@ -6200,16 +6214,16 @@ body.page-activities .generated-plate {
     border-radius: 21px;
   }
 
-  body.page-activities .archive-head h2 {
+  body.page-activities .archive-head .archive-title {
     font-size: clamp(1.45rem, 7.1vw, 1.85rem);
   }
 
   body.page-activities .archive-intro {
-    font-size: 0.86rem;
+    font-size: 1rem;
   }
 
   body.page-activities .filter-chip {
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 12px;
     font-size: 0.76rem;
   }
@@ -6231,7 +6245,7 @@ body.page-activities .generated-plate {
   }
 
   body.page-activities .card-cta {
-    min-height: 38px;
+    min-height: 44px;
     padding: 0 10px;
     font-size: 0.76rem;
   }
@@ -6562,7 +6576,7 @@ body.page-activities .detail-aside .info-card:first-child {
 
 body.page-activities .detail-aside .info-card span {
   margin-bottom: 5px;
-  color: #9993a3;
+  color: var(--ink-faint);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -6900,7 +6914,7 @@ body.page-activities .generated-plate .generated-cover {
 
   body.page-activities .detail-summary {
     margin-top: 17px;
-    font-size: 0.98rem;
+    font-size: 1rem;
     line-height: 1.78;
   }
 
@@ -6986,13 +7000,13 @@ body.page-activities .generated-plate .generated-cover {
   }
 
   body.page-activities .activity-block-content > p:not(.activity-block-date) {
-    font-size: 0.96rem;
+    font-size: 1rem;
     line-height: 1.8;
   }
 
   body.page-activities .activity-block-list li {
     padding-block: 12px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.66;
   }
 
@@ -7052,7 +7066,7 @@ body.page-activities .generated-plate .generated-cover {
   }
 }
 
-body.page-activities .archive-head h2 {
+body.page-activities .archive-head .archive-title {
   max-width: none;
   font-size: clamp(0.98rem, 4.6vw, 2.6rem);
   letter-spacing: -0.035em;
