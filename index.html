@@ -13,11 +13,11 @@
 
     gtag("config", "G-W4T1NHPQ9T");
   </script>
-  <title>Victoria Cheng | Personal Website</title>
+  <title>Victoria Cheng | Strategy, Innovation &amp; Emerging Technologies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="description" content="Victoria Cheng is a Ph.D. researcher at National Taiwan University studying technological legitimacy, innovation, and emerging technologies." />
-  <link rel="canonical" href="https://victoriac1122.github.io/" />
+  <link rel="canonical" href="https://victoriachengyw.com/" />
   <link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon64.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon152.png" />
   <link rel="preload" as="image" href="images/victoria-profile-1200.jpg" fetchpriority="high" />
@@ -25,23 +25,23 @@
   <meta property="og:site_name" content="Victoria Cheng" />
   <meta property="og:title" content="Victoria Cheng | Research and Academic Profile" />
   <meta property="og:description" content="Research in technological legitimacy, innovation, and emerging technologies." />
-  <meta property="og:url" content="https://victoriac1122.github.io/" />
-  <meta property="og:image" content="https://victoriac1122.github.io/images/victoria-profile-1200.jpg" />
+  <meta property="og:url" content="https://victoriachengyw.com/" />
+  <meta property="og:image" content="https://victoriachengyw.com/images/victoria-profile-1200.jpg" />
   <meta property="og:image:width" content="800" />
   <meta property="og:image:height" content="1200" />
   <meta property="og:image:alt" content="Portrait of Victoria Cheng" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Victoria Cheng | Research and Academic Profile" />
   <meta name="twitter:description" content="Research in technological legitimacy, innovation, and emerging technologies." />
-  <meta name="twitter:image" content="https://victoriac1122.github.io/images/victoria-profile-1200.jpg" />
+  <meta name="twitter:image" content="https://victoriachengyw.com/images/victoria-profile-1200.jpg" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Victoria Cheng",
       "alternateName": "Yung-Wen Cheng",
-      "url": "https://victoriac1122.github.io/",
-      "image": "https://victoriac1122.github.io/images/victoria-profile-1200.jpg",
+      "url": "https://victoriachengyw.com/",
+      "image": "https://victoriachengyw.com/images/victoria-profile-1200.jpg",
       "jobTitle": "Doctoral Research Assistant",
       "affiliation": {
         "@type": "CollegeOrUniversity",
@@ -151,11 +151,52 @@ a {
 /* ============================
    Navigation / Tabs
 ============================ */
+.site-identity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 20px 72px 18px;
+  background: var(--color-surface);
+}
+
+.identity-primary {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 18px;
+}
+
+.identity-name {
+  margin: 0;
+  color: #222;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.identity-role {
+  margin: 0;
+  color: #5f5b59;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.identity-affiliation {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
 .tab-bar {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding: 28px 72px;
+  gap: 30px;
+  padding: 14px 72px;
   background: var(--color-surface-muted);
   border-bottom: 1px solid var(--color-border);
   flex-wrap: wrap;
@@ -348,6 +389,66 @@ a:hover {
 }
 
 /* ============================
+   Recent Updates
+============================ */
+.recent-updates {
+  margin-top: 48px;
+  padding-top: 30px;
+  border-top: 1px solid var(--color-border);
+}
+
+.section-kicker {
+  margin: 0 0 4px;
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.recent-updates h2 {
+  margin-bottom: 18px;
+  font-size: 26px;
+}
+
+.update-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.update-item {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 22px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0ebe7;
+}
+
+.update-item:last-child {
+  border-bottom: 0;
+}
+
+.update-year {
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.update-item p {
+  margin: 0;
+  color: #4f4b49;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.update-item a {
+  color: #65456e;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #cfbdd4;
+  text-underline-offset: 3px;
+}
+
+/* ============================
    Lists
 ============================ */
 .simple-list {
@@ -442,29 +543,261 @@ a:hover {
 /* ============================
    Publications
 ============================ */
-.pub-list {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0;
+.publications-intro {
+  max-width: 780px;
+  margin-bottom: 34px;
+  color: #5f5b59;
 }
 
-.pub-list li {
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f0ebe7;
-  line-height: 1.9;
+.publication-list {
+  margin-top: 0;
 }
 
-.pub-list li:last-child {
-  border-bottom: none;
+.publication-item {
+  margin-bottom: 34px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.pub-list strong {
+.publication-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.publication-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.publication-index,
+.publication-year {
+  color: #77716e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.publication-index {
+  margin-right: 2px;
+}
+
+.publication-badge {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid #dbe3ea;
+  border-radius: 6px;
+  background: #f2f5f8;
+  color: #455d70;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.publication-badge--interactive {
+  border-color: #eadbe0;
+  background: #fbf4f6;
+  color: #784b58;
+}
+
+.publication-badge--conference {
+  border-color: #d5e4dd;
+  background: #f1f7f4;
+  color: #365e54;
+}
+
+.publication-item h2 {
+  max-width: 900px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 1.45;
+}
+
+.publication-citation,
+.publication-venue {
+  margin-bottom: 6px;
+  color: #4f4b49;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.publication-venue {
+  margin-bottom: 16px;
+  color: #6a6562;
+}
+
+.author-self {
   color: #222;
+  font-weight: 700;
 }
 
-.pub-list em {
-  color: #555;
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.publication-link,
+.publication-abstract summary {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+  border: 1px solid #e3dce5;
+  border-radius: 6px;
+  background: #f8f5f8;
+  color: #674d6e;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.publication-link:hover,
+.publication-abstract summary:hover {
+  border-color: #d6c8da;
+  background: #f1ebf2;
+  color: #5c4264;
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(86, 61, 92, 0.08);
+}
+
+.publication-abstract {
+  min-width: 0;
+}
+
+.publication-abstract summary {
+  list-style: none;
+}
+
+.publication-abstract summary::-webkit-details-marker {
+  display: none;
+}
+
+.publication-abstract summary:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.publication-toggle-icon {
+  width: 7px;
+  height: 7px;
+  margin: -3px 1px 0 10px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.publication-abstract[open] {
+  flex: 1 0 100%;
+}
+
+.publication-abstract[open] .publication-toggle-icon {
+  margin-top: 3px;
+  transform: rotate(225deg);
+}
+
+.publication-abstract-copy {
+  max-width: 820px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid #cfbdd4;
+  background: #faf8fa;
+}
+
+.publication-abstract-copy p {
+  margin: 0;
+  color: #514c50;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* ============================
+   Honors, Teaching & Service
+============================ */
+.academic-service-intro {
+  max-width: 760px;
+  color: #5f5b59;
+}
+
+.honors-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.honors-group {
+  padding-top: 18px;
+  border-top: 2px solid #c9b4cf;
+}
+
+.honors-group--service {
+  border-top-color: #b9d0c5;
+}
+
+.honors-group h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.honors-list,
+.teaching-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.honor-item {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f0ebe7;
+}
+
+.honor-item:last-child,
+.teaching-item:last-child {
+  border-bottom: 0;
+}
+
+.honor-year {
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.honor-title,
+.teaching-title {
+  display: block;
+  margin-bottom: 3px;
+  color: #2d2d2d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.honor-detail,
+.teaching-detail {
+  display: block;
+  color: #6a6562;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.teaching-item {
+  padding: 13px 0;
+  border-bottom: 1px solid #f0ebe7;
 }
 
 /* ============================
@@ -1032,13 +1365,17 @@ a:hover {
    Responsive Design
 ============================ */
 @media (max-width: 1024px) {
+  .site-identity {
+    padding: 18px 48px 16px;
+  }
+
   .tab-bar {
-    gap: 24px;
-    padding: 24px 48px;
+    gap: 20px;
+    padding: 12px 48px;
   }
 
   .tab-link {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .tab-content {
@@ -1081,6 +1418,28 @@ a:hover {
     padding: 24px 12px;
   }
 
+  .site-identity {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 18px 20px 14px;
+  }
+
+  .identity-primary {
+    display: block;
+  }
+
+  .identity-name {
+    font-size: 23px;
+  }
+
+  .identity-role {
+    margin-top: 3px;
+  }
+
+  .identity-affiliation {
+    white-space: normal;
+  }
+
   .tab-bar {
     gap: 12px;
     padding: 16px 20px;
@@ -1108,6 +1467,15 @@ a:hover {
   .content-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .honors-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .publication-item h2 {
+    font-size: 21px;
   }
 
   .photo-block {
@@ -1252,6 +1620,30 @@ a:hover {
 
   .tab-content {
     padding: 28px 22px 36px;
+  }
+
+  .site-identity {
+    padding: 16px 22px 13px;
+  }
+
+  .identity-name {
+    font-size: 22px;
+  }
+
+  .identity-role,
+  .identity-affiliation {
+    font-size: 13px;
+  }
+
+  .recent-updates {
+    margin-top: 38px;
+    padding-top: 24px;
+  }
+
+  .update-item,
+  .honor-item {
+    grid-template-columns: 1fr;
+    gap: 3px;
   }
 
   h1 {
@@ -1400,12 +1792,21 @@ a:hover {
   <div class="page-bg">
     <main id="main-content" class="page-card">
 
+      <header class="site-identity" aria-label="Academic profile">
+        <div class="identity-primary">
+          <p class="identity-name">Victoria Cheng</p>
+          <p class="identity-role">Ph.D. Researcher in Strategy, Innovation, and Emerging Technologies</p>
+        </div>
+        <p class="identity-affiliation">National Taiwan University</p>
+      </header>
+
       <!-- Tabs -->
       <nav class="tab-bar" role="tablist" aria-label="Profile sections">
         <button id="tab-about" class="tab-link active" type="button" role="tab" aria-selected="true" aria-controls="about" tabindex="0" data-tab="about">About Me</button>
         <button id="tab-education" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="education" tabindex="-1" data-tab="education">Education</button>
-        <button id="tab-experience" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="experience" tabindex="-1" data-tab="experience">Enterprise Work Experience</button>
+        <button id="tab-experience" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="experience" tabindex="-1" data-tab="experience">Research, Teaching &amp; Professional Experience</button>
         <button id="tab-pubs" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="pubs" tabindex="-1" data-tab="pubs">Publications</button>
+        <button id="tab-honors" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="honors" tabindex="-1" data-tab="honors">Honors &amp; Service</button>
         <button id="tab-extra" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="extra" tabindex="-1" data-tab="extra">Extra Activities</button>
         <button id="tab-cv" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="cv" tabindex="-1" data-tab="cv">CV</button>
       </nav>
@@ -1462,6 +1863,35 @@ a:hover {
             </div>
           </div>
         </div>
+
+        <section class="recent-updates" aria-labelledby="recent-updates-title">
+          <p class="section-kicker">Academic Milestones</p>
+          <h2 id="recent-updates-title">Recent Updates</h2>
+          <ol class="update-list">
+            <li class="update-item">
+              <span class="update-year">2026</span>
+              <p>
+                Incoming Visiting Scholar at
+                <a href="https://www.lebow.drexel.edu/" target="_blank" rel="noopener noreferrer">Drexel University's LeBow College of Business</a>.
+              </p>
+            </li>
+            <li class="update-item">
+              <span class="update-year">2026</span>
+              <p>
+                Two papers accepted for presentation at the
+                <a href="https://www.aib.world/events/2026-annual-meeting/" target="_blank" rel="noopener noreferrer">AIB 2026 Annual Meeting</a>
+                in Manchester.
+              </p>
+            </li>
+            <li class="update-item">
+              <span class="update-year">2026</span>
+              <p>
+                <em>Signal or Noise? Maturity-Adjusted Technical Disclosure and Multi-Stage Startup Funding Decisions</em>
+                selected for a Competitive Paper session at AIB 2026.
+              </p>
+            </li>
+          </ol>
+        </section>
       </section>
 
       <!-- EDUCATION -->
@@ -1517,7 +1947,7 @@ a:hover {
 
       <!-- EXPERIENCE -->
       <section id="experience" class="tab-content" role="tabpanel" aria-labelledby="tab-experience" tabindex="0" hidden>
-        <h1>Enterprise Work Experience</h1>
+        <h1>Research, Teaching &amp; Professional Experience</h1>
         <div class="underline"></div>
 
         <!-- Doctoral RA (LATEST) -->
@@ -1619,26 +2049,141 @@ a:hover {
       <section id="pubs" class="tab-content" role="tabpanel" aria-labelledby="tab-pubs" tabindex="0" hidden>
         <h1>Publications</h1>
         <div class="underline"></div>
-        <ul class="pub-list">
-          <li>
-            <strong>[1]</strong>
-            Cheng, Y.-W., &amp; Wan, C.-Y. (2026).
-            <em>Signal or Noise? Maturity-Adjusted Technical Disclosure and Multi-Stage Startup Funding Decisions.</em>
-            Competitive Paper, <strong>AIB 2026 Annual Meeting</strong>, Manchester.
-          </li>
-          <li>
-            <strong>[2]</strong>
-            Cheng, Y.-W., &amp; Yeh, M.-H. (2026).
-            <em>Legitimacy-First Innovation: How Emerging Technology Firms Construct Mainstream Pathways Under Institutional Ambiguity.</em>
-            Interactive Paper, <strong>AIB 2026 Annual Meeting</strong>, Manchester.
-          </li>
-          <li>
-            <strong>[3]</strong>
-            Cheng, Y.-W., &amp; Yeh, M.-H. (2024, June).
-            <em>Exploring Mainstream Paths to New Technology Deployment: Technological, Market, and Network Perspectives.</em>
-            Presented at the <strong>Academy of Asian Management (AAOM)</strong>, Miri, Malaysia.
-          </li>
-        </ul>
+        <p class="publications-intro">
+          Selected research on how emerging technologies gain credibility, legitimacy, and pathways toward market adoption.
+        </p>
+
+        <div class="publication-list">
+          <article class="publication-item" aria-labelledby="publication-signal-title">
+            <div class="publication-topline">
+              <span class="publication-index">01</span>
+              <span class="publication-badge">Competitive Paper</span>
+              <span class="publication-year">2026</span>
+            </div>
+            <h2 id="publication-signal-title">Signal or Noise? Maturity-Adjusted Technical Disclosure and Multi-Stage Startup Funding Decisions</h2>
+            <p class="publication-citation"><strong class="author-self">Cheng, Y.-W.</strong>, &amp; Wan, C.-Y. (2026).</p>
+            <p class="publication-venue">Academy of International Business (AIB) 2026 Annual Meeting, Manchester.</p>
+            <div class="publication-links">
+              <details class="publication-abstract">
+                <summary>Abstract<span class="publication-toggle-icon" aria-hidden="true"></span></summary>
+                <div class="publication-abstract-copy">
+                  <p>
+                    This study examines how early-stage technology ventures communicate technological capabilities to external audiences. It considers when technological narratives are interpreted as credible investment signals and when they instead introduce ambiguity into evaluation.
+                  </p>
+                </div>
+              </details>
+              <a class="publication-link" href="https://www.aib.world/events/2026-annual-meeting/" target="_blank" rel="noopener noreferrer">Conference</a>
+            </div>
+          </article>
+
+          <article class="publication-item" aria-labelledby="publication-legitimacy-title">
+            <div class="publication-topline">
+              <span class="publication-index">02</span>
+              <span class="publication-badge publication-badge--interactive">Interactive Paper</span>
+              <span class="publication-year">2026</span>
+            </div>
+            <h2 id="publication-legitimacy-title">Legitimacy-First Innovation: How Emerging Technology Firms Construct Mainstream Pathways Under Institutional Ambiguity</h2>
+            <p class="publication-citation"><strong class="author-self">Cheng, Y.-W.</strong>, &amp; Yeh, M.-H. (2026).</p>
+            <p class="publication-venue">Academy of International Business (AIB) 2026 Annual Meeting, Manchester.</p>
+            <div class="publication-links">
+              <details class="publication-abstract">
+                <summary>Abstract<span class="publication-toggle-icon" aria-hidden="true"></span></summary>
+                <div class="publication-abstract-copy">
+                  <p>
+                    This research investigates how emerging technology firms build credibility under institutional and regulatory ambiguity. It treats legitimacy not as a byproduct of innovation, but as a condition that helps firms establish pathways toward mainstream adoption.
+                  </p>
+                </div>
+              </details>
+              <a class="publication-link" href="https://www.aib.world/events/2026-annual-meeting/" target="_blank" rel="noopener noreferrer">Conference</a>
+            </div>
+          </article>
+
+          <article class="publication-item" aria-labelledby="publication-mainstream-title">
+            <div class="publication-topline">
+              <span class="publication-index">03</span>
+              <span class="publication-badge publication-badge--conference">Conference Paper</span>
+              <span class="publication-year">2024</span>
+            </div>
+            <h2 id="publication-mainstream-title">Exploring Mainstream Paths to New Technology Deployment: Technological, Market, and Network Perspectives</h2>
+            <p class="publication-citation"><strong class="author-self">Cheng, Y.-W.</strong>, &amp; Yeh, M.-H. (2024, June).</p>
+            <p class="publication-venue">Academy of Asian Management (AAOM), Miri, Malaysia.</p>
+            <div class="publication-links">
+              <details class="publication-abstract">
+                <summary>Abstract<span class="publication-toggle-icon" aria-hidden="true"></span></summary>
+                <div class="publication-abstract-copy">
+                  <p>
+                    This project explores how technological, market, and network conditions shape the pathways through which new technologies move toward mainstream deployment.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- HONORS, TEACHING & ACADEMIC SERVICE -->
+      <section id="honors" class="tab-content" role="tabpanel" aria-labelledby="tab-honors" tabindex="0" hidden>
+        <h1>Honors, Teaching &amp; Academic Service</h1>
+        <div class="underline"></div>
+        <p class="academic-service-intro">
+          Academic recognition spanning competitive scholarships, research distinctions, teaching appointments, and sustained community leadership.
+        </p>
+
+        <div class="honors-layout">
+          <section class="honors-group" aria-labelledby="selected-honors-title">
+            <p class="section-kicker">Recognition</p>
+            <h2 id="selected-honors-title">Selected Honors</h2>
+            <ol class="honors-list">
+              <li class="honor-item">
+                <span class="honor-year">2024</span>
+                <span><strong class="honor-title">Ministry of Education Ph.D. Scholarship</strong><span class="honor-detail">Ministry of Education, Taiwan</span></span>
+              </li>
+              <li class="honor-item">
+                <span class="honor-year">2023</span>
+                <span><strong class="honor-title">NTU Chin Hsueh Scholarship</strong><span class="honor-detail">National Taiwan University</span></span>
+              </li>
+              <li class="honor-item">
+                <span class="honor-year">2023-2024<br />2021-2022</span>
+                <span><strong class="honor-title">Taiwan Rotary Academic Scholarship</strong><span class="honor-detail">Two-time scholarship recipient</span></span>
+              </li>
+              <li class="honor-item">
+                <span class="honor-year">2022</span>
+                <span><strong class="honor-title">Fiftieth TSC Thesis Award - Excellent Work</strong><span class="honor-detail">Strategic Management Division</span></span>
+              </li>
+              <li class="honor-item">
+                <span class="honor-year">2022</span>
+                <span><strong class="honor-title">Certificate of Academic Excellence</strong><span class="honor-detail">College of Management, Fu Jen Catholic University</span></span>
+              </li>
+              <li class="honor-item">
+                <span class="honor-year">2022</span>
+                <span><strong class="honor-title">Beta Gamma Sigma</strong><span class="honor-detail">Lifetime Member</span></span>
+              </li>
+            </ol>
+          </section>
+
+          <section class="honors-group honors-group--service" aria-labelledby="teaching-service-title">
+            <p class="section-kicker">Contribution</p>
+            <h2 id="teaching-service-title">Teaching &amp; Service</h2>
+            <ul class="teaching-list">
+              <li class="teaching-item">
+                <strong class="teaching-title">NTU EMBA Teaching Assistant</strong>
+                <span class="teaching-detail">Strategic Management; Global Business Management</span>
+              </li>
+              <li class="teaching-item">
+                <strong class="teaching-title">NTU MBA Teaching Assistant</strong>
+                <span class="teaching-detail">Management and Business Models of Taiwanese Enterprises; Global Brand Management</span>
+              </li>
+              <li class="teaching-item">
+                <strong class="teaching-title">FJCU Teaching Assistant</strong>
+                <span class="teaching-detail">Strategic Management; Financial Management; Investment</span>
+              </li>
+              <li class="teaching-item">
+                <strong class="teaching-title">President, Rotary Scholarship Group</strong>
+                <span class="teaching-detail">2025-2026; coordinated service activities, member participation, and community continuity</span>
+              </li>
+            </ul>
+          </section>
+        </div>
       </section>
 
       <!-- EXTRA ACTIVITIES -->
