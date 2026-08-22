@@ -521,6 +521,10 @@ a:hover {
 
 .activity-section {
   --activity-color: var(--color-accent);
+  --activity-button-bg: #f2f5f8;
+  --activity-button-border: #dbe3ea;
+  --activity-button-text: #455d70;
+  --activity-button-hover: #e8eef3;
   padding: 64px 0;
   border-bottom: 1px solid var(--color-border);
 }
@@ -532,6 +536,10 @@ a:hover {
 
 .activity-section--volunteer {
   --activity-color: #8a5262;
+  --activity-button-bg: #fbf4f6;
+  --activity-button-border: #eadbe0;
+  --activity-button-text: #784b58;
+  --activity-button-hover: #f4e8ec;
 }
 
 .activity-section--diving {
@@ -544,6 +552,10 @@ a:hover {
 
 .activity-section--finance {
   --activity-color: #3f6d61;
+  --activity-button-bg: #f1f7f4;
+  --activity-button-border: #d5e4dd;
+  --activity-button-text: #365e54;
+  --activity-button-hover: #e7f1ec;
 }
 
 .activity-heading {
@@ -595,18 +607,6 @@ a:hover {
 
 .activity-actions .cert-btn {
   margin: 0;
-}
-
-.cert-btn.activity-cta {
-  background: #2d2d2d;
-  border-color: #2d2d2d;
-  color: #fff;
-}
-
-.cert-btn.activity-cta:hover {
-  background: #4b4b4b;
-  border-color: #4b4b4b;
-  color: #fff;
 }
 
 .app-grid {
@@ -781,15 +781,22 @@ a:hover {
   min-height: 44px;
   align-items: center;
   margin-top: 10px;
-  color: var(--activity-color);
+  padding: 9px 16px;
+  border: 1px solid var(--activity-button-border);
+  border-radius: 6px;
+  background: var(--activity-button-bg);
+  color: var(--activity-button-text);
   font-size: 14px;
   font-weight: 700;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .affiliation-link:hover {
-  color: #294c43;
+  border-color: #c4d8ce;
+  background: var(--activity-button-hover);
+  color: var(--activity-button-text);
+  box-shadow: 0 4px 12px rgba(45, 77, 68, 0.08);
 }
 
 .oic-report {
@@ -905,10 +912,10 @@ a:hover {
   min-width: 96px;
   min-height: 44px;
   padding: 8px 14px;
-  border: 1px solid #d8dde1;
+  border: 1px solid var(--activity-button-border);
   border-radius: 6px;
-  background: #fff;
-  color: #2d2d2d;
+  background: var(--activity-button-bg);
+  color: var(--activity-button-text);
   font: inherit;
   font-size: 14px;
   font-weight: 700;
@@ -925,13 +932,21 @@ a:hover {
 }
 
 .document-control:hover:not(:disabled) {
-  border-color: var(--activity-color);
-  background: #f4f8f6;
+  border-color: #c4d8ce;
+  background: var(--activity-button-hover);
+  box-shadow: 0 4px 12px rgba(45, 77, 68, 0.08);
 }
 
 .document-control:disabled {
-  color: #a2a2a2;
+  border-color: #e4e9e6;
+  background: #fafcfb;
+  color: #a0aaa6;
   cursor: not-allowed;
+}
+
+.document-control:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(63, 109, 97, 0.24);
 }
 
 .document-counter {
@@ -997,6 +1012,20 @@ a:hover {
   color: #7a4a84;
   opacity: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#extra .activity-section .cert-btn {
+  border-color: var(--activity-button-border);
+  background: var(--activity-button-bg);
+  color: var(--activity-button-text);
+  box-shadow: 0 3px 10px rgba(45, 58, 68, 0.05);
+}
+
+#extra .activity-section .cert-btn:hover {
+  border-color: var(--activity-button-border);
+  background: var(--activity-button-hover);
+  color: var(--activity-button-text);
+  box-shadow: 0 5px 14px rgba(45, 58, 68, 0.09);
 }
 
 /* ============================
