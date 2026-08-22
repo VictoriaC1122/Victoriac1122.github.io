@@ -233,6 +233,35 @@ a:focus-visible {
   box-shadow: var(--focus-ring);
 }
 
+.mobile-tab-nav {
+  display: none;
+}
+
+.mobile-tab-label {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.mobile-tab-select {
+  width: 100%;
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid #ded4e1;
+  border-radius: 6px;
+  background: #fff;
+  color: #302d30;
+  font: 15px/1.4 "Georgia", "Times New Roman", serif;
+  letter-spacing: 0;
+}
+
+.mobile-tab-select:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 /* ============================
    Tab Content
 ============================ */
@@ -1441,32 +1470,32 @@ a:hover {
   }
 
   .tab-bar {
-    gap: 12px;
-    padding: 16px 20px;
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scroll-snap-type: x proximity;
-    scrollbar-width: thin;
-    overscroll-behavior-x: contain;
+    display: none;
   }
 
-  .tab-link {
-    min-height: 44px;
-    font-size: 14px;
-    padding: 9px 0 7px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    scroll-snap-align: start;
+  .mobile-tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(250, 249, 248, 0.98);
+    box-shadow: 0 5px 18px rgba(59, 49, 54, 0.06);
   }
 
   .tab-content {
     padding: 32px 20px;
+    scroll-margin-top: 72px;
   }
 
   .content-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 34px;
   }
 
   .honors-layout {
@@ -1478,9 +1507,14 @@ a:hover {
     font-size: 21px;
   }
 
+  .publication-link,
+  .publication-abstract summary {
+    min-height: 44px;
+  }
+
   .photo-block {
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .photo-circle {
@@ -1603,27 +1637,25 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+  .page-bg {
+    padding: 0;
+  }
+
   .page-card {
     border-radius: 0;
+    box-shadow: none;
   }
 
-  .tab-bar {
-    gap: 16px;
-    padding: 10px 16px;
-  }
-
-  .tab-link {
-    min-height: 44px;
-    font-size: 13px;
-    padding: 9px 0 7px;
+  .mobile-tab-nav {
+    padding: 10px 20px;
   }
 
   .tab-content {
-    padding: 28px 22px 36px;
+    padding: 30px 20px 42px;
   }
 
   .site-identity {
-    padding: 16px 22px 13px;
+    padding: 20px 20px 16px;
   }
 
   .identity-name {
@@ -1658,7 +1690,7 @@ a:hover {
 
   .photo-circle {
     width: 100%;
-    max-width: 240px;
+    max-width: 280px;
   }
 
   .simple-list li {
@@ -1669,6 +1701,8 @@ a:hover {
   .job-block {
     grid-template-columns: 1fr;
     gap: 16px;
+    margin-bottom: 34px;
+    padding-bottom: 30px;
   }
 
   .job-left {
@@ -1680,6 +1714,10 @@ a:hover {
     height: 72px;
   }
 
+  .job-right {
+    padding-top: 0;
+  }
+
   p {
     font-size: 15px;
   }
@@ -1687,6 +1725,18 @@ a:hover {
   .cert-btn {
     font-size: 14px;
     padding: 10px 16px;
+  }
+
+  #extra .activity-actions .cert-btn,
+  #extra .app-card .cert-btn,
+  #extra .affiliation-link,
+  #extra .document-header .cert-btn,
+  #cv .cert-btn {
+    width: 100%;
+  }
+
+  #extra .app-card .cert-btn {
+    align-self: stretch;
   }
 
   .app-card {
@@ -1747,7 +1797,7 @@ a:hover {
   }
 
   .document-header .cert-btn {
-    justify-self: start;
+    justify-self: stretch;
   }
 
   .document-controls {
@@ -1759,6 +1809,32 @@ a:hover {
     min-width: 44px;
     padding: 8px 10px;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-identity,
+  .mobile-tab-nav {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .tab-content {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  h1 {
+    font-size: 26px;
+    line-height: 1.22;
+  }
+
+  .mobile-tab-nav {
+    gap: 9px;
+  }
+
+  .mobile-tab-select {
+    font-size: 14px;
   }
 }
 
@@ -1809,6 +1885,19 @@ a:hover {
         <button id="tab-honors" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="honors" tabindex="-1" data-tab="honors">Honors &amp; Service</button>
         <button id="tab-extra" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="extra" tabindex="-1" data-tab="extra">Extra Activities</button>
         <button id="tab-cv" class="tab-link" type="button" role="tab" aria-selected="false" aria-controls="cv" tabindex="-1" data-tab="cv">CV</button>
+      </nav>
+
+      <nav class="mobile-tab-nav" aria-label="Mobile profile navigation">
+        <label class="mobile-tab-label" for="mobile-tab-select">Section</label>
+        <select id="mobile-tab-select" class="mobile-tab-select">
+          <option value="about">About Me</option>
+          <option value="education">Education</option>
+          <option value="experience">Research, Teaching &amp; Professional Experience</option>
+          <option value="pubs">Publications</option>
+          <option value="honors">Honors &amp; Service</option>
+          <option value="extra">Extra Activities</option>
+          <option value="cv">CV</option>
+        </select>
       </nav>
 
       <!-- ABOUT ME -->
@@ -2454,6 +2543,7 @@ a:hover {
   <script>
     const tabLinks = Array.from(document.querySelectorAll(".tab-link"));
     const tabContents = Array.from(document.querySelectorAll(".tab-content"));
+    const mobileTabSelect = document.querySelector("#mobile-tab-select");
     const validTabIds = new Set(tabLinks.map((button) => button.dataset.tab));
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -2463,10 +2553,11 @@ a:hover {
     }
 
     function activateTab(targetId, options = {}) {
-      const { updateUrl = false, moveFocus = false } = options;
+      const { updateUrl = false, moveFocus = false, scrollToPanel = false } = options;
       const activeButton = tabLinks.find((button) => button.dataset.tab === targetId);
+      const activePanel = tabContents.find((panel) => panel.id === targetId);
 
-      if (!activeButton) {
+      if (!activeButton || !activePanel) {
         return;
       }
 
@@ -2478,20 +2569,33 @@ a:hover {
       });
 
       tabContents.forEach((panel) => {
-        const isActive = panel.id === targetId;
+        const isActive = panel === activePanel;
         panel.classList.toggle("active", isActive);
         panel.hidden = !isActive;
       });
+
+      mobileTabSelect.value = targetId;
 
       if (updateUrl && window.location.hash !== `#${targetId}`) {
         window.history.pushState({ tab: targetId }, "", `#${targetId}`);
       }
 
-      activeButton.scrollIntoView({
-        behavior: prefersReducedMotion.matches ? "auto" : "smooth",
-        block: "nearest",
-        inline: "nearest",
-      });
+      if (activeButton.getClientRects().length > 0) {
+        activeButton.scrollIntoView({
+          behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+
+      if (scrollToPanel) {
+        window.requestAnimationFrame(() => {
+          activePanel.scrollIntoView({
+            behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+            block: "start",
+          });
+        });
+      }
 
       if (moveFocus) {
         activeButton.focus();
@@ -2519,6 +2623,10 @@ a:hover {
         const nextButton = tabLinks[keyTargets[event.key]];
         activateTab(nextButton.dataset.tab, { updateUrl: true, moveFocus: true });
       });
+    });
+
+    mobileTabSelect.addEventListener("change", () => {
+      activateTab(mobileTabSelect.value, { updateUrl: true, scrollToPanel: true });
     });
 
     document.querySelectorAll("[data-document-carousel]").forEach((carousel) => {
