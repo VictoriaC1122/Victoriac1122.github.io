@@ -149,23 +149,18 @@ a {
 }
 
 /* ============================
-   Navigation / Tabs
+   Profile Identity & Navigation
 ============================ */
 .site-identity {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 28px;
-  align-items: center;
-  padding: 20px 72px 18px;
-  background: var(--color-surface);
+  width: 100%;
+  max-width: 320px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
 }
 
 .identity-primary {
-  display: flex;
-  min-width: 0;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 5px 18px;
+  display: block;
 }
 
 .identity-name {
@@ -177,19 +172,18 @@ a {
 }
 
 .identity-role {
-  margin: 0;
+  margin: 5px 0 0;
   color: #5f5b59;
   font-size: 14px;
   line-height: 1.55;
 }
 
 .identity-affiliation {
-  margin: 0;
+  margin: 8px 0 0;
   color: var(--color-accent);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
-  white-space: nowrap;
 }
 
 .tab-bar {
@@ -362,8 +356,9 @@ a:hover {
 /* 圖片區塊 */
 .photo-block {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 0;
 }
 
@@ -1395,7 +1390,7 @@ a:hover {
 ============================ */
 @media (max-width: 1024px) {
   .site-identity {
-    padding: 18px 48px 16px;
+    padding-top: 16px;
   }
 
   .tab-bar {
@@ -1448,13 +1443,8 @@ a:hover {
   }
 
   .site-identity {
-    grid-template-columns: 1fr;
-    gap: 4px;
-    padding: 18px 20px 14px;
-  }
-
-  .identity-primary {
-    display: block;
+    max-width: 280px;
+    padding-top: 15px;
   }
 
   .identity-name {
@@ -1655,7 +1645,7 @@ a:hover {
   }
 
   .site-identity {
-    padding: 20px 20px 16px;
+    padding-top: 15px;
   }
 
   .identity-name {
@@ -1813,7 +1803,6 @@ a:hover {
 }
 
 @media (max-width: 360px) {
-  .site-identity,
   .mobile-tab-nav {
     padding-right: 18px;
     padding-left: 18px;
@@ -1868,14 +1857,6 @@ a:hover {
   <div class="page-bg">
     <main id="main-content" class="page-card">
 
-      <header class="site-identity" aria-label="Academic profile">
-        <div class="identity-primary">
-          <p class="identity-name">Victoria Cheng</p>
-          <p class="identity-role">Ph.D. Researcher in Strategy, Innovation, and Emerging Technologies</p>
-        </div>
-        <p class="identity-affiliation">National Taiwan University</p>
-      </header>
-
       <!-- Tabs -->
       <nav class="tab-bar" role="tablist" aria-label="Profile sections">
         <button id="tab-about" class="tab-link active" type="button" role="tab" aria-selected="true" aria-controls="about" tabindex="0" data-tab="about">About Me</button>
@@ -1917,6 +1898,13 @@ a:hover {
                 decoding="async"
               />
             </div>
+            <header class="site-identity" aria-label="Academic profile">
+              <div class="identity-primary">
+                <p class="identity-name">Victoria Cheng</p>
+                <p class="identity-role">Ph.D. Researcher in Strategy, Innovation, and Emerging Technologies</p>
+              </div>
+              <p class="identity-affiliation">National Taiwan University</p>
+            </header>
           </div>
 
           <div class="text-block">
