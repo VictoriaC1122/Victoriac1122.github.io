@@ -699,9 +699,11 @@ a:hover {
 
 .diving-gallery {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.9fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin: 34px 0 0;
+  aspect-ratio: 16 / 9;
 }
 
 .diving-photo {
@@ -711,11 +713,14 @@ a:hover {
   background: #d9e8ef;
 }
 
+.diving-photo:first-child {
+  grid-row: 1 / span 2;
+}
+
 .diving-photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -1152,6 +1157,26 @@ a:hover {
     justify-self: center;
   }
 
+  .diving-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    aspect-ratio: auto;
+  }
+
+  .diving-photo:first-child {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+
+  .diving-photo img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .diving-photo:first-child img {
+    aspect-ratio: 16 / 9;
+  }
+
   .music-layout {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -1280,6 +1305,14 @@ a:hover {
   .diving-gallery,
   .finance-affiliations {
     grid-template-columns: 1fr;
+  }
+
+  .diving-photo:first-child {
+    grid-column: auto;
+  }
+
+  .diving-photo:first-child img {
+    aspect-ratio: 4 / 3;
   }
 
   .finance-credential {
@@ -1720,16 +1753,13 @@ a:hover {
           </div>
           <div class="diving-gallery" aria-label="Diving photographs">
             <figure class="diving-photo">
-              <img src="images/diving-descent.jpg" width="1206" height="1060" sizes="(max-width: 480px) 100vw, 50vw" alt="Victoria Cheng descending during an open-water diving session" loading="lazy" decoding="async" />
+              <img src="images/diving-descent.jpg" width="1206" height="1060" sizes="(max-width: 768px) 100vw, 60vw" alt="Victoria Cheng descending during an open-water diving session" loading="lazy" decoding="async" />
             </figure>
             <figure class="diving-photo">
-              <img src="images/diving-silhouette.jpg" width="1206" height="1046" sizes="(max-width: 480px) 100vw, 50vw" alt="A diver swimming beneath the water surface" loading="lazy" decoding="async" />
+              <img src="images/diving-silhouette.jpg" width="1206" height="1046" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 36vw" alt="A diver swimming beneath the water surface" loading="lazy" decoding="async" />
             </figure>
             <figure class="diving-photo">
-              <img src="images/diving-sunlight.jpg" width="1206" height="1043" sizes="(max-width: 480px) 100vw, 50vw" alt="Victoria Cheng diving near the surface in sunlight" loading="lazy" decoding="async" />
-            </figure>
-            <figure class="diving-photo">
-              <img src="images/diving-surface.jpg" width="1206" height="1052" sizes="(max-width: 480px) 100vw, 50vw" alt="A diver silhouetted beneath the illuminated water surface" loading="lazy" decoding="async" />
+              <img src="images/diving-surface.jpg" width="1206" height="1052" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 36vw" alt="A diver silhouetted beneath the illuminated water surface" loading="lazy" decoding="async" />
             </figure>
           </div>
         </section>
